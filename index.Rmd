@@ -14,7 +14,7 @@ description: This is a minimal example of using the bookdown package to write a 
   The output format for this example is bookdown::gitbook.
 ---
 
-Prerequisites
+ Prerequisites
 
 
 Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
@@ -27,3 +27,5 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+It looks like if you don't add the `#` symbol, then this text is not included as a chapter? That's convenient!
