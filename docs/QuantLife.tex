@@ -115,7 +115,7 @@
 
 \title{Quantifying Life}
 \author{Dmitry Kondrashov}
-\date{2020-08-23}
+\date{2020-08-24}
 
 \begin{document}
 \maketitle
@@ -124,8 +124,31 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{what-is-mathematical-modeling}{%
-\chapter{What is mathematical modeling?}\label{what-is-mathematical-modeling}}
+\hypertarget{purpose-and-purview}{%
+\chapter{Purpose and purview}\label{purpose-and-purview}}
+
+\begin{quote}
+What is a man, said Athos, who has no landscape? Nothing but mirrors and tides.\\
+-- Anne Michaels, \textbf{Fugitive Pieces}
+\end{quote}
+
+This is an online book to help biologists and biology-adjacent folks learn quantitative skills through the practice of programming in R. These skills can be roughly sorted into four types:
+
+\begin{itemize}
+\item
+  Building models and understanding assumptions
+\item
+  Writing code to perform computational tasks
+\item
+  Performing mathematical analysis of models
+\item
+  Working with data and using statistical tools
+\end{itemize}
+
+These skills interface, intertwine, and reinforce each other in the practice of biological research and are thus presented concurrently in this book, instead of being corralled into separate courses taught by different departments, like mathematics, statistics, and computer science. Here I combine ideas and skills from all of these disciplines into an educational narrative organized by increasing exposure to programming concepts.
+
+\hypertarget{a-brief-motivation-of-mathematical-modeling}{%
+\section{A brief motivation of mathematical modeling}\label{a-brief-motivation-of-mathematical-modeling}}
 
 A mathematical model \index{model!mathematical} is a representation of some real object or phenomenon in terms of quantities (numbers). The goal of modeling is to create a description of the object in question that may be used to pose and answer questions about it, without doing hard experimental work. A good analogy for a mathematical model is a map of a geographic area: a map cannot record all of the complexity of the actual piece of land, because then the map would need to be size of the piece of land, and then it wouldn't be very useful! Maps, and mathematical models, need to sacrifice the details and provide a birds-eye view of reality in order to guide the traveler or the scientist. The representation of reality in the model must be simple enough to be useful, yet complex enough to capture the essential features of what it is trying to represent.
 
@@ -151,19 +174,143 @@ I take an even more selective approach to the biological topics that I present i
 \hypertarget{organization-of-the-book}{%
 \section{Organization of the book}\label{organization-of-the-book}}
 
-Each chapter in the textbook is centered around a mathematical concept, along with models, biological applications, and programming. This multi-pronged attack provides a diverse set of teaching tools: motivational questions from biology can be formalized using mathematical terms, solved for simple cases on the board, and then demonstrated in more complex manifestations using R. Each chapter contains enough material for a week of learning and includes various assignments. The mathematics sections contain simple practice problems for the corresponding mathematical skills, the programming sections contain either debugging exercises or simple programming assignments, the biological modeling sections contain discussion questions intended to stimulate students to think about assumptions and limitations of the models, and they frequently require students to read and digest a research paper. Each chapter ends with multi-question computational projects that walk students through implementing and investing a computational model for a biological question.
-
-Part 1 of the textbook (chapters 1-5) starts with very elementary mathematical ideas: variables and \index{parameter}parameters, basic \index{function!mathematical}functions and graphs, and \index{statistics!descriptive}descriptive statistics. These simple concepts pair well with rudimentary programming steps that are introduced concurrently. Despite the conceptual simplicity, the first attempts at writing and executing code are invariably difficult for students, so I find this combination pedagogically sound. More advanced students can treat the first few chapters as review, but those who have never written code before are advised to focus on the programming exercises. The next two chapters are less elementary, and students may encounter something new in the realms of probability distributions and estimation through sampling.
-
-Part 2 of the book (chapters 6-9) concerns relationships between two variables, both categorical and numerical. This is a largely data-driven part of the course, but it also introduces crucial theoretical concepts that are used later, particularly conditional probability and independence. I present the standard chi-squared test for independence, and then warn students about misuse of p-values in the chapter on Bayesian thinking. The ideas of linear regression are familiar to most students at this level, but few are acquainted with correlation in a more than perfunctory level. The last chapter delves into nonlinear fitting using logarithmic transformations and its applications.
-
-Part 3 of the book (chapters 10-13) is an introduction to Markov models, divided into four chapters. The story progresses from describing models with transition matrices and flow diagrams to recursive calculation of probability distribution vectors, then to stationary distributions and finally to describing dynamics using eigenvalues and eigenvectors. The level of mathematical sophistication jumps considerably, and so do the computational expectations. Students learn to generate simulated strings of Markov states, and then to repeat the simulations to generate entire data sets evolving over time.
-
-Part 4 of the book (chapters 14-17) addresses one-variable dynamical systems. The first chapter analyzes linear discrete-time equations and their solutions, the next one moves to linear differential equations and their solutions, which build on the discrete-time ideas. We then move to graphical analysis of nonlinear ODEs, and finish with a look at the crazy behavior and chaos in nonlinear discrete-time models.
-
-A one-semester (or one-quarter) course based on this book can be designed in several ways. The first two parts of the book provide the necessary foundation for the next two, both mathematically and in programming skills, but parts 3 and 4 are essentially independent. One could teach a reasonable course based on either parts 1, 2, and 3, or parts 1, 2, and 4. Another option is to omit the last chapter of each part (chapters 5, 9, 13, and 17), because they contain more advanced topics than the rest and are designed to be skipped without any detriment to the flow of ideas. I should note that with the exception of part 4 (actually only the last three chapters), none of the rest use any concepts from calculus, so one could design a course for students with shaky or non-existent calculus knowledge. For an audience with greater mathematical maturity, one could power through part 1 in 2-3 weeks and be able to go through most of the textbook in a semester.
-
 A course based on this textbook can be tailored to fit the quantitative needs of a biological sciences curriculum. At the University of Chicago the course I teach has replaced the last quarter of calculus as a first-year requirement for biology majors. This material could be used for a course without a calculus pre-requisite that a student takes before more rigorous statistics, mathematics, or computer science courses. It may also be taught as an upper-level elective course for students with greater maturity who may be ready to tackle the eigenvalues and differential equations chapters. My hope is that it may also prove useful for graduate students or established scientists who need an elementary but comprehensive introduction to the concepts they encounter in the literature or that they can use in their own research. Whatever path you traveled to get here, I wish you a fruitful journey through biomathematics and computation!
+
+\hypertarget{arithmetic-and-variables-the-lifeblood-of-modeling}{%
+\chapter{Arithmetic and variables: the lifeblood of modeling}\label{arithmetic-and-variables-the-lifeblood-of-modeling}}
+
+\begin{quote}
+You can add up the parts, but you won't have the sum;\\
+You can strike up the march, there is no drum.\\
+Every heart, every heart to love will come\\
+But like a refugee.\\
+-- Leonard Cohen, \emph{Anthem}
+\end{quote}
+
+Mathematical modeling begins with a set of \index{model!assumptions} \emph{assumptions}. In fact, one may say that a mathematical model is a bunch of assumptions translated into mathematics. These assumptions may be more or less reasonable, and they may come from different sources. For instance, many physical models are so well-established that we refer to them as laws; we are pretty sure they apply to molecules, cells, and organisms as well as to inanimate objects. Thus we may use physical laws as the foundation on which to build models of biological entities; these are often known as \index{model!first-principles} \emph{first-principles} (theory-based) models. Other times we have experimental evidence which suggests a certain kind of relationship between quantities, perhaps we find that the amount of administered drug and the time until the drug is completely removed from the bloodstream are proportional to each other. This observation can be turned into an \index{model!empirical} \emph{empirical} (experiment-based) model. Yet another type of model assumption is not based on either theory or experiment, but simply on convenience: e.g.~let us assume that the mutation rates in two different loci are independent, and see what the implications are. These are sometimes called \emph{toy} or \index{model!cartoon} \emph{cartoon} models. \citep{jungck_mathematical_2010}
+
+This leads to the question: how do you decide whether a model is good? It is surprisingly difficult to give a straightforward answer to this question. Of course, one major goal of a model is to capture some essential features of reality, so in most biological modeling studies you will see a comparison between experimental results and predictions of the model. But it is not enough for a model to be faithful to experimental data! Think of a simple example: suppose your experiment produced 5 data points as a function of time; it is possible to find a polynomial (of fourth degree) that passes exactly through all 5 points, by specifying the coefficients of its 5 terms. This is called \index{fitting} \emph{data fitting} and it has a large role to play in mathematical modeling of biology. However, I think you will agree that in this case we have learned very little: we just substituted 5 values in the data set with 5 values of the coefficients of the mathematical model. To heighten the absurdity, imagine a data set of 1001 points that you have modeled using a 1000-degree polynomial. This is an example of overfitting, or making the model agree with the data by making it overly complex.
+
+Substituting a complicated model for a complicated real situation does not help understand it. One necessary ingredient of a useful model is \emph{simplicity of assumptions}. Simplicity in modeling has at least two virtues: simple models can be grasped by our limited minds, and simple assumptions can be tested against evidence. A simple model that fails to reproduce experimental data can be more informative than a complex model that fits the data perfectly. If a simple model fails, you have learned that you are missing something in your assumptions; but a complex model can be right for the wrong reasons, like erroneous assumptions canceling each other, or it may contain needless assumptions. This is why good modeling is a difficult skill that balances simplicity of assumptions against fidelity to empirical data \citep{cohen_mathematics_2004}. In this chapter you will learn how to do the following:
+
+\begin{itemize}
+\item
+  distinguish variables and parameters in models
+\item
+  describe the state space of a model
+\item
+  perform arithmetic operations in R
+\item
+  assign variables in R
+\end{itemize}
+
+\hypertarget{sec:bio1}{%
+\section{Blood circulation and mathematical modeling}\label{sec:bio1}}
+
+Galen \index{Galen} was one of the great physicians of antiquity. He studied how the body works by performing experiments on humans and animals. Among other things, he was famous for a careful study of the heart and how blood traveled through the body. Galen observed that there were different types of blood: arterial blood that flowed out of the heart, which was bright red, and venous blood that flowed in the opposite direction, which was a darker color. This naturally led to questions: what is the difference between venous and arterial blood? where does each one come from and where does it go?
+
+You, a reader of the 21st century, likely already know the answer: blood \index{blood circulation}\emph{circulates} through the body, bringing oxygen and nutrients to the tissues through the arteries, and returns back through the veins carrying carbon dioxide and waste products, as shown in figure \ref{fig:circulation}. Arterial blood contains a lot of oxygen while venous blood carries more carbon dioxide, but otherwise they are the same fluid. The heart does the physical work of pushing arterial blood out of the heart, to the tissues and organs, as well as pushing venous blood through the second circulatory loop that goes through the lungs, where it picks up oxygen and releases carbon dioxide, becoming arterial blood again. This may seem like a very natural picture to you, but it is far from easy to deduce by simple observation.
+
+\begin{figure}
+\centering
+\includegraphics{ch1/Circulatory_System_no_tags_cropped.png}
+\caption{Human blood circulates throughout the body and returns to the heart, veins shown in blue and arteries in red. \emph{Circulatory System en} by LadyofHats in public domain via Wikimedia Commons.}
+\end{figure}
+
+\hypertarget{galens-theory-of-blood}{%
+\subsection{Galen's theory of blood}\label{galens-theory-of-blood}}
+
+Galen came up with a different explanation based on the notion of \emph{humors}, or fluids, that was fundamental to the Greek conception of the body. He proposed that the venous and arterial blood were different humors: venous blood, or \emph{natural spirits}, was produced by the liver, while arterial blood, or \emph{vital spirits}, was produced by the heart and carried by the arteries, as shown in figure \ref{fig:galen_blood}. The heart consisted of two halves, and it warmed the blood and pushed both the natural and vital spirits out to the organs; the two spirits could mix through pores in the septum separating its right and left halves. The vital and natural spirits were both consumed by the organs, and regenerated by the liver and the heart. The purpose of the lungs was to serve as bellows, cooling the blood after it was heated by the heart.
+
+\begin{figure}
+\centering
+\includegraphics{ch1/galenheartc.png}
+\caption{Illustration of Galen's conception of the blood system, showing different spirits traveling in one direction, but not circulating. Reproduced by permission courtesy of Dr.~Barbara Becker.}
+\end{figure}
+
+Is this a good theory of how the heart, lungs, and blood work? Doctors in Europe thought so for over one thousand years! Galen's textbook on physiology was the standard for medical students through the 17th century. The theory seemed to make sense, and explain what was observable. Many great scientists and physicians, including Leonardo DaVinci and Avicenna, did not challenge the inaccuracies such as the porous septum in the heart, even though they could not see the pores themselves. It took both better observations and a quantitative testing of the hypothesis to challenge the orthodoxy.
+
+\hypertarget{mathematical-testing-of-the-theory}{%
+\subsection{Mathematical testing of the theory}\label{mathematical-testing-of-the-theory}}
+
+William Harvey \index{Harvey, William} was born in England and studied medicine in Padua under the great physician Hieronymus Fabricius. He became famous, and would perform public demonstrations of physiology, using live animals for experiments that would not be approved today. He also studied the heart and the blood vessels, and measured the volume of the blood that can be contained in the human heart. He was quite accurate in estimating the correct volume, which we now know to be about 70 ml (1.5 oz). What is even more impressive is that he used this quantitative information to test Galen's theory.
+
+Let us assume that all of the blood that is pumped out by the heart is consumed by the tissues, as Galen proposed; let us further assume that the heart beats at constant rate of 60 beats per minute, with a constant ejection volume of 70 ml. Then over the course of a day, the human body would consume about
+\[\mathrm{Volume} = 70 \ \mathrm {mL} \times 60 \ \mathrm {(beats \ per \ minute)} \times 60 \ \mathrm {(minutes \ per \ hour)}  \times 24 \ \mathrm {(hours \ per \ day)}\]
+or over 6,000 liters of blood! You may quibble over the exact numbers (some hearts beat faster or slower, some hearts may be larger or smaller) but the impact of the calculation remains the same: it is an absurd conclusion. Galen's theory would require the human being to consume and produce a quantity of fluid many times the volume of the human body (about 100 liters) in a day! This is a physical impossibility, so the only possible conclusion in that Galen's model is wrong.
+
+This led Harvey to propose the \index{model!blood circulation}model that we know today: that blood is not consumed by the tissues, but instead returns to the heart and is re-used again \citep{schultz_william_2002}. This is why we call the heart and blood vessels part of the circulatory system of the body. This model was controversial at the time - some people proclaimed they would ``rather be wrong with Galen, than right with Harvey'\,' - but eventually became accepted as the standard model. What is remarkable is that Harvey's argument, despite being grounded in empirical data, was strictly mathematical. He adopted the assumptions of Galen, made the calculations, and got a result which was inconsistent with reality. This is an excellent example of how mathematical modeling can be useful, because it can provide clear evidence against a wrong hypothesis.
+
+\hypertarget{sec:math1}{%
+\section{Parameters and variables in models}\label{sec:math1}}
+
+Many biologists remain skeptical of mathematical modeling. The criticism can be summarized like this: a theoretical model either agrees with experiment, or it does not. In the former case, it is useless, because the data are already known; in the latter case, it is wrong! As I indicated above, the goal of mathematical modeling is not to reproduce experimental data; otherwise, indeed, it would only be of interest to theoreticians. The correct question to ask is, does a theoretical model help us understand the real thing? There are at least three ways in which a model can be useful:
+
+\begin{itemize}
+\item
+  A model can help a scientist make sense of complex data, by testing whether a particular mechanism explains the observations. Thus, a model can help clarify our understanding by throwing away the non-essential features and focusing on the most important ones.
+\item
+  A mathematical model makes predictions for situations that have not been observed. It is easy to change parameters in a mathematical model and calculate the effects. This can lead to new hypotheses that can be tested by experiments.
+\item
+  Model predictions can lead to better experimental design. Instead of trying a whole bunch of conditions, the theoretical model can suggest which ones will produce big effects, and thus can save a lot of work for the lab scientist.
+\end{itemize}
+
+In order to make a useful model of a complex living system, you have to simplify it. Even if you are only interested in a part of it, for instance a cell or a single molecule, you have to make simplifying choices. A small protein has thousands of atoms, a cell consists of millions of molecules, which all interact with each other; keeping track mathematically of every single component is daunting if not impossible. To build a useful mathematical model one must choose a few quantities which describe the system sufficiently to answer the questions of interest. For instance, if the positions of a couple of atoms in the protein you are studying determine its activity, those positions would make natural quantities to include in your model. You will find more specific examples of models later in this chapter.
+
+Once you have decided on the essential quantities to be included in the model, these are divided into \index{variable!definition} \emph{variables} and \index{parameter} \emph{parameters}. As suggested by the name, a variable typically varies over time and the model tracks the changes in its value, while parameters usually stay constant, or change more slowly. However, that is not always the case. The most important difference is that variables describe quantities \textbf{within the system} being modeled, while parameters usually refer to quantities which are controlled by something \textbf{outside the system}.
+
+As you can see from this definition, the same quantity can be a variable or a parameter depending on the scope of the model. Let's go back to our example of modeling a protein: usually the activity (and the structure) of a protein is influenced by external conditions such as pH and temperature; these would be natural parameters for a model of the molecule. However, if we model an entire organism, the pH (e.g.~of the blood plasma) and temperature are controlled by physiological processes within the organism, and thus these quantities will now be considered variables.
+
+Perhaps the clearest way to differentiate between variables and parameters is to think about how you would present a data set visually. We will discuss plotting graphs of functions in chapter 2, and plotting data sets in chapter 3, but the reader has likely seen many such plots before. Consider which of the quantities you would to plot to describe the system you are modeling. If the quantity belongs on either axis, it is a variable, since it is important to describe how it changes. The rest of the quantities can be called parameters. Of course, depending on the question you ask, the same quantity may be plotted on an axis or not, which is why this classification is not absolute.
+
+After we have specified the essential variables for your model, we can describe a complex and evolving biological system in terms of its \emph{state}. This is a very general term, but it usually means the values of all the variables that you have chosen for the model, which are often called \index{state!variable} \emph{state variables}. For instance, an ion channel can be described with the state variable of conformation, which may be in a open state or in a closed state. The range, or collection of all different states of the system is called the \index{state!space} \emph{state space} of the model. Below you will find examples of models of biological systems with diverse state spaces.
+
+\hypertarget{discrete-state-variables-genetics}{%
+\subsection{discrete state variables: genetics}\label{discrete-state-variables-genetics}}
+
+There are genes which are present in a population as two different versions, called \index{allele}*alleles\} - let us use letters \(A\) and \(B\) to label them. One may describe the genetic state of an individual based on which allele it carries. If this individual is haploid, e.g.~a bacterium, then it only carries a single copy of the genome, and its state can be described by a single variable with the state space of \(A\) or \(B\).
+
+A diploid organism, like a human, possesses two copies of each gene (unless it is on one of the sex chromosomes, X or Y); each copy may be in either state \(A\) or \(B\). This may seem to suggest that there are four different values in the genetic state space, but if the order of the copies does not matter (which is usually the case), then \(AB\) and \(BA\) are effectively the same, so the state space consists of three values: \(AA\), \(BB\), and \(AB\).
+
+\hypertarget{discrete-state-variables-population}{%
+\subsection{discrete state variables: population}\label{discrete-state-variables-population}}
+
+Consider the model of a population of individuals, with the variable of number of individuals (populations size) and parameters being the birth and death rates. The state space of this model is \textbf{all integers between 0 and infinity.}
+
+Consider the model of a population of individuals who may get infected. Assume that the total number of individuals does not change (that is, there are no births and deaths) and that these individuals can be in one of two states: healthy or sick (in epidemiology these are called \emph{susceptible} or \emph{infectious}). There are typically two parameters in such models: the probability of infection and the probability of recovery. Since the total population is fixed at some number \(N\), the space space of the model is all pairs of integers between 0 and \(N\) that add up to \(N\).
+
+\hypertarget{continuous-state-variables-concentration}{%
+\subsection{continuous state variables: concentration}\label{continuous-state-variables-concentration}}
+
+Suppose that a biological molecule is produced with a certain rate and degraded with a different rate, and we would like to describe the quantity of the molecule, usually expressed as concentration. The relevant variables here are concentration and time, and you will see those variables on the axes of many plots in biochemistry. Concentration is a ratio of the number of molecules and the volume, so the state space can be any positive real number (although practically there is a limit as to how many molecules can fit inside a given volume, but for simplicity we can ignore this).
+
+Going even further, let us consider an entire cell, which contains a large number of different molecules. We can describe the state of a cell as the collection of all the molecular concentrations, with the parameters being the rates of all the reactions going on between those molecules. The state space for this model with \(N\) different molecules is \(N\) positive real numbers.
+
+\hypertarget{literature}{%
+\chapter{Literature}\label{literature}}
+
+Here is a review of existing methods.
+
+\hypertarget{methods}{%
+\chapter{Methods}\label{methods}}
+
+We describe our methods in this chapter.
+
+\hypertarget{applications}{%
+\chapter{Applications}\label{applications}}
+
+Some \emph{significant} applications are demonstrated in this chapter.
+
+\hypertarget{example-one}{%
+\section{Example one}\label{example-one}}
+
+\hypertarget{example-two}{%
+\section{Example two}\label{example-two}}
+
+\hypertarget{final-words}{%
+\chapter{Final Words}\label{final-words}}
+
+We have finished a nice book.
 
 \hypertarget{intro}{%
 \chapter{Introduction}\label{intro}}
@@ -235,32 +382,6 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{table}
 
 You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
-
-\hypertarget{literature}{%
-\chapter{Literature}\label{literature}}
-
-Here is a review of existing methods.
-
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
-
-We describe our methods in this chapter.
-
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
-
-Some \emph{significant} applications are demonstrated in this chapter.
-
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
-
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
-
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
-
-We have finished a nice book.
 
   \bibliography{book.bib,packages.bib}
 

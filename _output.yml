@@ -1,3 +1,7 @@
+html_document:
+  fig_width: 3
+  fig_height: 2
+  fig_caption: true
 bookdown::gitbook:
   css: style.css
   config:
@@ -14,3 +18,4 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+

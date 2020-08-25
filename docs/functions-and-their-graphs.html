@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Functions and their graphs | Quantifying Life</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Functions and their graphs | Quantifying Life" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Functions and their graphs | Quantifying Life" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dmitry Kondrashov" />
+
+
+<meta name="date" content="2020-08-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="arithmetic-and-variables-the-lifeblood-of-modeling.html"/>
+<link rel="next" href="methods.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Quantifying Life (Web version) </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Purpose and purview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>1.1</b> A brief motivation of mathematical modeling</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>1.2</b> Purpose of this book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>1.3</b> Organization of the book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html"><i class="fa fa-check"></i><b>2</b> Arithmetic and variables: the lifeblood of modeling</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#sec:bio1"><i class="fa fa-check"></i><b>2.1</b> Blood circulation and mathematical modeling</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>2.1.1</b> Galen’s theory of blood</a></li>
+<li class="chapter" data-level="2.1.2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>2.1.2</b> Mathematical testing of the theory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#sec:math1"><i class="fa fa-check"></i><b>2.2</b> Parameters and variables in models</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>2.2.1</b> discrete state variables: genetics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>2.2.2</b> discrete state variables: population</a></li>
+<li class="chapter" data-level="2.2.3" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>2.2.3</b> continuous state variables: concentration</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>3</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>3.1</b> Dimensions of quantities</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises"><i class="fa fa-check"></i><b>3.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>3.2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>3.2.1</b> linear and exponential functions</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>3.2.3</b> rational and logistic functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>7</b> Introduction</a></li>
+<li class="divider"></li>
+<li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantifying Life</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions-and-their-graphs" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Functions and their graphs</h1>
+<blockquote>
+<p>Some fathers, if you ask them for the time of day, spit silver dollars.<br />
+Donald Barthelme, <em>The Dead Father</em></p>
+</blockquote>
+<p>Mathematical models describe how various quantities affect each other. In the last chapter we learned that these descriptions can be written down, often in the form of an equation. For instance, we can describe the total volume of blood pumped over a period of time as the product of stroke volume, the heart rate and the number of minutes, which can be written as an equation. The different quantities have their own meaning and roles, depending on what they stand for. To better describe how these quantities are related we use the deep idea of mathematical functions. In this chapter you will learn to do the following:</p>
+<ul>
+<li>use dimensional analysis to deduce the meaning of quantities in a model</li>
+<li>understand the concept of function, dependent and independent variables</li>
+<li>recognize basic functional forms and the shape of their graphs</li>
+<li>use R to plot functions</li>
+<li>understand basic models of reaction rates</li>
+</ul>
+<div id="sec:model2" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Dimensions of quantities</h2>
+<p>What distinguishes a mathematical model from a mathematical equation is that the quantities involved have a real-world meaning. Each quantity represents a measurement, and associated with each one are the  <em>units</em> of measurement. The number 173 is not enough to describe the height of a person - you are left to wonder 173 what? meters, centimeters, nanometers, light-years? Obviously, only centimeters make sense as a unit of measurement for human height; but if we were measuring the distance between two animals in a habitat, meters would be a reasonable unit, and it were the distance between molecules in a cell, we would use nanometers. Thus, any quantity in a mathematical model must have associated units, and any graphs of these quantities must be labeled accordingly.</p>
+<p>In addition to units, each variable and parameter has a meaning, which is called the  <em>dimension</em> of the quantity. For example, any measurement of length or distance has the same dimension, although the units may vary. The value of a quantity depends on the units of measurement, but its essential dimensionality does not. One can convert a measurement in meters to that in light-years or cubits, but one cannot convert a measurement in number of sheep to seconds - that conversion has no meaning.</p>
+<p>Thus leads us to the fundamental rule of mathematical modeling: <strong>terms that are added or subtracted must have the same dimension</strong>. This gives mathematical modelers a useful tool called  <em>dimensional analysis</em>, which involves replacing the quantities in an equation with their dimensions. This serves as a check that all dimensions match, as well as allowing to deduce the dimensions of any parameters for which the dimension was not specified. </p>
+<p><strong>Example.</strong> As we saw in chapter 1, the relationship between the amount blood pumped by a heart in a certain amount of time is expressed in the following equation, where <span class="math inline">\(V_{tot}\)</span> and <span class="math inline">\(V_s\)</span> are the total volume and stroke volume, respectively, <span class="math inline">\(R\)</span> is the heart rate, and <span class="math inline">\(t\)</span> is the time:
+<span class="math display">\[
+V_{tot} = V_sRt
+\]</span>
+The dimension of a quantity <span class="math inline">\(X\)</span> is denoted by <span class="math inline">\([X]\)</span>; for example, if <span class="math inline">\(t\)</span> has the dimension of time, we write <span class="math inline">\([t] = time\)</span>. The dimension of volume is <span class="math inline">\([V_{tot}] = length^3\)</span>, the dimension of stroke volume is <span class="math inline">\([V_s] = volume/beat\)</span> and the dimension of time <span class="math inline">\(t\)</span> is time, so we can re-write the equation above in dimensional form:</p>
+<p><span class="math display">\[length^3 = length^3/ beat \times R \times time\]</span></p>
+<p>Solving this equation for R, we find that it must have the dimensions of <span class="math inline">\([R] = beats/time\)</span>. It can be measured in beats per minute (typical for heart rate), or beats per second, beats per hour, etc. but the
+<em>dimensionality</em> of the quantity cannot be changed without making the model meaningless.</p>
+<p>There are also  <em>dimensionless</em> quantities, or pure numbers, which are not tied to a physical meaning at all. Fundamental mathematical constants, like <span class="math inline">\(\pi\)</span> or <span class="math inline">\(e\)</span>, are classic examples, as are some important quantities in physics, like the Reynolds number in fluid mechanics.  Quantities with a dimension can be made dimensionless by dividing them by another quantity with the same dimension and “canceling” the dimensions. For instance, we can express the height of a person as a fraction of the mean height of the population; then the height of a tall person will become a number greater than 1, and the height of a short one will become less than 1. This new dimensionless height does not have units of length - they have been divided out by the mean height. This is known as  <em>rescaling</em> the quantity, by dividing it by a preferred scale. There is a fundamental difference between rescaling and changing the units of a quantity: when changing the units, e.g. from inches to centimeters, the dimension remains the same, but if one divides the quantity by a scale, it loses its dimension.</p>
+<p><strong>Example.</strong> The model for a population of bacteria that doubles every hour is described by the equation, where <span class="math inline">\(P_0\)</span> is initial number of bacteria and <span class="math inline">\(P\)</span> is the population after <span class="math inline">\(t\)</span> hours:
+<span class="math display">\[ P = P_0 2^t \]</span>
+Let us define the quantity <span class="math inline">\(R=P/P_0\)</span>, so we can say that population increased by a factor of <span class="math inline">\(R\)</span> after <span class="math inline">\(t\)</span> hours. This ratio is a dimensionless quantity because <span class="math inline">\(P\)</span> and <span class="math inline">\(P_0\)</span> have the same dimension of bacterial population, which cancel out. The equation for <span class="math inline">\(R\)</span> can be written as follows:
+<span class="math display">\[ R= 2^t \]</span>
+According to dimensional analysis, both sides of the equation have to be dimensionless, so <span class="math inline">\(t\)</span> must also be a dimensionless variable. This is surprising, because <span class="math inline">\(t\)</span> indicates the number of hours the bacterial colony has been growing. This reveals the subtle fact that <span class="math inline">\(t\)</span> is a rescaled variable obtained by dividing the elapsed time by the length of the reproductive cycle. Because of the assumption that the bacteria divide exactly once an hour, <span class="math inline">\(t\)</span> counts the number of hours, but if they divided once a day, <span class="math inline">\(t\)</span> would denote the number of days. So <span class="math inline">\(t\)</span> doesn’t have units or dimensions, but instead denotes the dimensionless number of cell divisions.</p>
+<div id="exercises" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Exercises</h3>
+<p>For each biological model below determine the dimensions of the parameters, based on the given dimensions of the variables.</p>
+<ol style="list-style-type: decimal">
+<li><p>Model of number of mutations <span class="math inline">\(M\)</span> as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ M(t) = M_0 + \mu t\]</span></p></li>
+<li><p>Model of molecular concentration <span class="math inline">\(C\)</span> as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ C(t) = C_0 e^{-kt} \]</span></p></li>
+<li><p>Model of tree height <span class="math inline">\(H\)</span> (length) as a function of age <span class="math inline">\(a\)</span> (time):
+<span class="math display">\[ H(a) = \frac{b a}{c + a}\]</span></p></li>
+<li><p>Model of cooperative binding of ligands, with fraction of bound receptors <span class="math inline">\(\theta\)</span> as a function of ligand concentration <span class="math inline">\(L\)</span>:
+<span class="math display">\[ \theta (L) = \frac{L^n}{L^n + K_d}\]</span></p></li>
+<li><p>Model of concentration of a gene product <span class="math inline">\(G\)</span> (concentration) as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ G(t) = G_m (1 - e^{-\alpha t})\]</span></p></li>
+<li><p>Michaelis-Menten model of enzyme kinetics, <span class="math inline">\(v\)</span> is reaction rate (1/time) and <span class="math inline">\(S\)</span> is substrate concentration:
+<span class="math display">\[ v(S) = \frac{v_{max} S}{K_m + S}\]</span></p></li>
+<li><p>Logistic model of population growth, <span class="math inline">\(P\)</span> is population size and time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ P(t) = \frac{A e^{kt}}{1 + B(e^{kt} -1)} \]</span></p></li>
+</ol>
+</div>
+</div>
+<div id="sec:math2" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Functions and their graphs</h2>
+<p>A relationship between two variables addresses the basic question: when one variable changes, how does this affect the other? An equation, like the examples in the last section, allows one to calculate the value of one variable based on the other variable and parameter values. In this section we seek to describe more broadly how two variables are related by using the mathematical concept of functions.</p>
+<p><strong>Definition:</strong> A  function is a mathematical rule which has an input and an output. A function returns a well-defined output for every input, that is, for a given input value the function returns a unique output value.</p>
+<p>In this abstract definition of a function it doesn’t have to be written as an algebraic equation, it only has to return a unique output for any given input value. In mathematics we usually write them down in terms of algebraic expressions. As in mathematical models, you will see two different kinds of quantities in equations that define functions: variables and parameters. The input and the output of a function are usually variables, with the input called the  <em>independent variable</em> and the output called the  <em>dependent variable</em>.</p>
+<p>The relationship between the input and the output can be graphically illustrated in a  graph, which is a collection of paired values of the independent and dependent variable drawn as a curve in the plane. Although it shows how the two variables change relative to each other, parameters may change too, which results in a different graph of the function. While graphing calculators and computers can draw graphs for you, it is very helpful to have an intuitive understanding about how a function behaves, and how the behavior depends on the parameters. Here are the three questions to help picture the relationship (assume <span class="math inline">\(x\)</span> is the independent variable and it is a nonnegative real number):</p>
+<ol style="list-style-type: decimal">
+<li>what is the value of the function at <span class="math inline">\(x=0\)</span>?</li>
+<li>what does the function do when <span class="math inline">\(x\)</span> becomes large (<span class="math inline">\(x \to \infty\)</span>)?</li>
+<li>what does the function do between the two extremes?</li>
+</ol>
+<p>Below you will find examples of fundamental functions used in biological models with descriptions of how their parameters influence their graphs.</p>
+<div id="linear-and-exponential-functions" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> linear and exponential functions</h3>
+<p>The reader is probably familiar with linear and exponential functions from algebra courses. However, they are so commonly used that it is worth going over them to refresh your memory and perhaps to see them from another perspective.</p>
+<p>
+<strong>Definition</strong> A  linear function <span class="math inline">\(f(x)\)</span> is one for which the difference in two function values is the same for a specific difference in the independent variable.</p>
+<p>In mathematical terms, this can be written an equation for any two values of the independent variable <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and a difference <span class="math inline">\(\Delta x\)</span>:</p>
+<p><span class="math display">\[ f(x_1 + \Delta x) - f(x_1) = f(x_2 + \Delta x) - f(x_2) \]</span>
+The general form of the linear function is written as follows:
+<span class="math display">\[\begin{equation}
+f(x) = ax + b
+\label{eq:linear_funk}
+\end{equation}\]</span></p>
+<p>The function contains two parameters: the  slope <span class="math inline">\(a\)</span> and the  y-intercept <span class="math inline">\(b\)</span>. The graph of the linear function is a line (hence the name) and the slope <span class="math inline">\(a\)</span> determines its steepness. A positive slope corresponds to the graph that increases as <span class="math inline">\(x\)</span> increases, and a negative slope corresponds to a declining function. At <span class="math inline">\(x=0\)</span>, the function equals <span class="math inline">\(b\)</span>, and as <span class="math inline">\(x \to \infty\)</span>, the function approaches positive infinity if <span class="math inline">\(a&gt;0\)</span>, and approaches negative infinity if <span class="math inline">\(a&lt;0\)</span>.</p>
+<p>
+<strong>Definition</strong> An exponential function <span class="math inline">\(f(x)\)</span> is one for which the ratio of two function values is the same for a specific difference in the independent variable.</p>
+<p>Mathematically speaking, this can be written as follows for any two values of the independent variable <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and a difference <span class="math inline">\(\Delta x\)</span>:
+<span class="math display">\[ \frac{f(x_1 + \Delta x)}{f(x_1)} = \frac{f(x_2 + \Delta x)}{f(x_2)}\]</span></p>
+<p>Exponential functions can be written using different symbolic forms, but they all have a constant base with the variable <span class="math inline">\(x\)</span> in the exponent. I prefer to use the constant <span class="math inline">\(e\)</span> (base of the natural logarithm) as the base of all the exponential functions, for reasons that will become apparent in chapter 15. This does not restrict the range of possible functions, because any exponential function can be expressed using base <span class="math inline">\(e\)</span>, using a transformation: <span class="math inline">\(a^x = e^{x \ln(a)}\)</span>. So let us agree to write exponential functions in the following form:
+<span class="math display">\[\begin{equation}
+ f(x) = a e^{rx}
+\label{eq:exp_funk}
+\end{equation}\]</span></p>
+<p>The function contains two parameters: the  <span class="math inline">\(r\)</span> and the multiplicative constant <span class="math inline">\(a\)</span>. The graph of the exponential function is a curve which crosses the y-axis at <span class="math inline">\(y=a\)</span> (plug in <span class="math inline">\(x=0\)</span> to see that this is the case). As <span class="math inline">\(x\)</span> increases, the behavior of the graph depends on the sign of the rate constant <span class="math inline">\(r\)</span>. If <span class="math inline">\(r&gt;0\)</span>, the function approaches infinity (positive if <span class="math inline">\(a&gt;0\)</span>, negative if <span class="math inline">\(a&lt;0\)</span>) as <span class="math inline">\(x \to \infty\)</span>. If <span class="math inline">\(r&lt;0\)</span>, the function decays at an ever-decreasing pace and asymptotically approaches zero as <span class="math inline">\(x \to \infty\)</span>. Thus the graph of <span class="math inline">\(f(x)\)</span> is a curve either going to infinity or a curve asymptotically approaching 0, and the steepness of the growth or decay is determined by <span class="math inline">\(r\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch2-funk1"></span>
+<img src="QuantLife_files/figure-html/ch2-funk1-1.png" alt="Plots of two linear functions (left) and two exponential functions (right). Can you identify which linear function has the positive slope and which one negative? Which exponential function has a positive rate constant and which one negative?" width="50%" /><img src="QuantLife_files/figure-html/ch2-funk1-2.png" alt="Plots of two linear functions (left) and two exponential functions (right). Can you identify which linear function has the positive slope and which one negative? Which exponential function has a positive rate constant and which one negative?" width="50%" />
+<p class="caption">
+Figure 3.1: Plots of two linear functions (left) and two exponential functions (right). Can you identify which linear function has the positive slope and which one negative? Which exponential function has a positive rate constant and which one negative?
+</p>
+</div>
+</div>
+<div id="exercises-1" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Exercises</h3>
+<p>Answer the questions below, some of which refer to the function graphs in figure <a href="#ch2-funk1"><strong>??</strong></a>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Which of the linear graphs in the first figure corresponds to <span class="math inline">\(f(x) = 5x\)</span> and which corresponds to <span class="math inline">\(f(x) = 10-x\)</span>? State which parameter allows you to connect the function with its graph and explain why.</p></li>
+<li><p>Which of the exponential graphs in the second figure corresponds to <span class="math inline">\(f(x) = 0.1e^{0.5x}\)</span> and which corresponds to <span class="math inline">\(f(x) = 12e^{-0.2x}\)</span>? State which parameter allows you to connect the function with its graph and explain why.</p></li>
+<li><p>Demonstrate algebraically that a linear function of the form given in equation  satisfies the property of linear functions from definition .</p></li>
+<li><p>Demonstrate algebraically that an exponential function of the form given in equation  satisfies the property of exponential functions from definition .</p></li>
+<li><p>Modify the exponential function by adding a constant term to it <span class="math inline">\(f(x) = a e^{rx} + b\)</span>. What is is the value of this function at <span class="math inline">\(x=0\)</span>?</p></li>
+<li><p>How does the function defined in the previous exercise, <span class="math inline">\(f(x) = a e^{rx} + b\)</span>, how does it behave as <span class="math inline">\(x \to \infty\)</span> if <span class="math inline">\(r&gt;0\)</span>?</p></li>
+<li><p>How does the function <span class="math inline">\(f(x) = a e^{rx} + b\)</span> behave as <span class="math inline">\(x \to \infty\)</span> if <span class="math inline">\(r&lt;0\)</span>?</p></li>
+</ol>
+</div>
+<div id="rational-and-logistic-functions" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> rational and logistic functions</h3>
+<p>Let us now turn to more complex functions, made up of simpler components that we understand. Consider a ratio of two polynomials, called a . The general form of such functions can be written down as follows, where ellipsis stands for terms with powers lower than <span class="math inline">\(n\)</span> or <span class="math inline">\(m\)</span>:
+<span class="math display">\[\begin{equation}
+ f(x) = \frac{a_0 + ... + a_n x^n}{b_0 + ... + b_m x^m}
+\label{eq:rational_funk}
+\end{equation}\]</span>
+The two polynomials may have different degrees (highest power of the terms, <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span>), but they are usually the same in most biological examples. The reason is that if the numerator and the denominator are ``unbalanced’’, one will inevitably overpower the other for large values of <span class="math inline">\(x\)</span>, which would lead to the function either increasing without bound to infinity (if <span class="math inline">\(n&gt;m\)</span>) or decaying to zero (if <span class="math inline">\(m&gt;n\)</span>). There’s nothing wrong with that, mathematically, but rational functions are most frequently used to model quantities that approach a nonzero asymptote for large values of the independent variable.</p>
+<p>For this reason, let us assume <span class="math inline">\(m=n\)</span> and consider what happens as <span class="math inline">\(x \to \infty\)</span>. All terms other than the highest-order terms become very small in comparison to <span class="math inline">\(x^n\)</span> (this is something you can demonstrate to yourself using R), and thus both the numerator and the denominator approach the terms with power <span class="math inline">\(n\)</span>. This can be written using the mathematical limit notation <span class="math inline">\(\lim_{x \to \infty}\)</span> which describes the value that a function approaches when the independent variable increases without bound:
+<span class="math display">\[  \lim_{x \to \infty} \frac{a_0 + ... + a_n x^n}{b_0 + ... + b_n x^n} = \frac{ a_n x^n}{ b_n x^n}  =  \frac{ a_n}{ b_n}  \]</span>
+Therefore, the function approaches the value of <span class="math inline">\(a_n /b_n\)</span> as <span class="math inline">\(x\)</span> grows.</p>
+<p>Similarly, let us consider what happens when <span class="math inline">\(x=0\)</span>. Plugging this into the function results in all of the terms vanishing except for the constant terms, so
+<span class="math display">\[ f(0) =  \frac{ a_0}{ b_0} \]</span>
+Between 0 and infinity, the function either increases or decreases monotonically, depending on which value (<span class="math inline">\(a_n /b_n\)</span> or <span class="math inline">\(a_0/b_0\)</span>) is greater. Two examples of plots of rational functions are shown in figure , which shows graphs increasing from 0 to 1. Depending on the degree of the polynomials in a rational function, it may increase more gradually (solid line) or more step-like (dashed line).</p>
+<p> The following model, called the , describes the fraction of receptor molecules which are bound to a ligand, which is a chemical term for a free molecule that binds to another, typically larger, receptor molecule. <span class="math inline">\(\theta\)</span> is the fraction of receptors bound to a ligand, <span class="math inline">\(L\)</span> denotes the ligand concentration, <span class="math inline">\(K_d\)</span> is the dissociation constant, and <span class="math inline">\(n\)</span> called the  or Hill coefficient:
+<span class="math display">\[ \theta = \frac{L^n}{ L^n +K_d}\]</span>
+The Hill equation is a rational function, and Figure  shows plots of the graphs of two such function in the right panel. This model is further explored in exercise 2.2.10.</p>
+<p> A common model of population over time is the . There are variations on how it is written down, but here is one general form:
+<span class="math display">\[\begin{equation}
+ f(x) = \frac{a e^{rx} }{b+e^{rx}}
+\label{eq:logistic_funk} 
+\end{equation}\]</span></p>
+<p>The numerator and denominator both contain exponential functions with the same power. If <span class="math inline">\(r&gt;0\)</span> when <span class="math inline">\(x \to \infty\)</span>, the denominator approaches <span class="math inline">\(e^{rx}\)</span>, since it becomes much greater than <span class="math inline">\(b\)</span>, and we can calculate:
+<span class="math display">\[  \lim_{x \to \infty}  =  \frac{a e^{rx} }{e^{rx}} = a; \; \mathrm{if} \; r&gt;0 \]</span>
+On the other hand, if <span class="math inline">\(r&lt;0\)</span>, then the numerator approaches zero as <span class="math inline">\(x \to \infty\)</span>, and so does the function
+<span class="math display">\[  \lim_{x \to \infty}  =  \frac{0}{b} = 0; \; \mathrm{if} \; r&lt;0 \]</span></p>
+<p>Notice that switching the sign of <span class="math inline">\(r\)</span> has the same effect as switching the sign of <span class="math inline">\(x\)</span>, since they are multiplied. Which means that for positive <span class="math inline">\(r\)</span>, if <span class="math inline">\(x\)</span> is extended to negative infinity, the function approaches 0. This is illustrated in the second plot in Figure , which shows two logistic functions increasing from 0 to a positive level, one with <span class="math inline">\(a=20\)</span> (solid line) and the second with <span class="math inline">\(a=10\)</span> (dashed line). The graph of logistic functions has a characteristic ``sigmoidal’’ (S-shaped) shape, and its steepness is determined by the rate <span class="math inline">\(r\)</span>: if <span class="math inline">\(r\)</span> is small, the curve is soft, if <span class="math inline">\(r\)</span> is large, the graph resembles a step function.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="arithmetic-and-variables-the-lifeblood-of-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["QuantLife.pdf", "QuantLife.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
