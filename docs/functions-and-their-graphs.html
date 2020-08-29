@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -151,6 +151,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>2.2.1</b> discrete state variables: genetics</a></li>
 <li class="chapter" data-level="2.2.2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>2.2.2</b> discrete state variables: population</a></li>
 <li class="chapter" data-level="2.2.3" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>2.2.3</b> continuous state variables: concentration</a></li>
+<li class="chapter" data-level="2.2.4" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>2.2.4</b> multiple variables in medicine</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#discussion-questions"><i class="fa fa-check"></i><b>2.3</b> Discussion questions</a></li>
+<li class="chapter" data-level="2.4" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#first-steps-in-r"><i class="fa fa-check"></i><b>2.4</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>2.4.1</b> numbers and arithmetic operations</a></li>
+<li class="chapter" data-level="2.4.2" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#r-coding-exercises"><i class="fa fa-check"></i><b>2.4.2</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="2.4.3" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#variable-assignment"><i class="fa fa-check"></i><b>2.4.3</b> variable assignment</a></li>
+<li class="chapter" data-level="2.4.4" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>2.4.4</b> R Coding Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>3</b> Functions and their graphs</a>
@@ -164,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>3.2.1</b> linear and exponential functions</a></li>
 <li class="chapter" data-level="3.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
 <li class="chapter" data-level="3.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>3.2.3</b> rational and logistic functions</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
@@ -306,7 +316,7 @@ Figure 3.1: Plots of two linear functions (left) and two exponential functions (
 </div>
 <div id="rational-and-logistic-functions" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> rational and logistic functions</h3>
-<p>Let us now turn to more complex functions, made up of simpler components that we understand. Consider a ratio of two polynomials, called a . The general form of such functions can be written down as follows, where ellipsis stands for terms with powers lower than <span class="math inline">\(n\)</span> or <span class="math inline">\(m\)</span>:
+<p>Let us now turn to more complex functions, made up of simpler components that we understand. Consider a ratio of two polynomials, called a  rational function. The general form of such functions can be written down as follows, where ellipsis stands for terms with powers lower than <span class="math inline">\(n\)</span> or <span class="math inline">\(m\)</span>:
 <span class="math display">\[\begin{equation}
  f(x) = \frac{a_0 + ... + a_n x^n}{b_0 + ... + b_m x^m}
 \label{eq:rational_funk}
@@ -318,19 +328,47 @@ Therefore, the function approaches the value of <span class="math inline">\(a_n 
 <p>Similarly, let us consider what happens when <span class="math inline">\(x=0\)</span>. Plugging this into the function results in all of the terms vanishing except for the constant terms, so
 <span class="math display">\[ f(0) =  \frac{ a_0}{ b_0} \]</span>
 Between 0 and infinity, the function either increases or decreases monotonically, depending on which value (<span class="math inline">\(a_n /b_n\)</span> or <span class="math inline">\(a_0/b_0\)</span>) is greater. Two examples of plots of rational functions are shown in figure , which shows graphs increasing from 0 to 1. Depending on the degree of the polynomials in a rational function, it may increase more gradually (solid line) or more step-like (dashed line).</p>
-<p> The following model, called the , describes the fraction of receptor molecules which are bound to a ligand, which is a chemical term for a free molecule that binds to another, typically larger, receptor molecule. <span class="math inline">\(\theta\)</span> is the fraction of receptors bound to a ligand, <span class="math inline">\(L\)</span> denotes the ligand concentration, <span class="math inline">\(K_d\)</span> is the dissociation constant, and <span class="math inline">\(n\)</span> called the  or Hill coefficient:
-<span class="math display">\[ \theta = \frac{L^n}{ L^n +K_d}\]</span>
-The Hill equation is a rational function, and Figure  shows plots of the graphs of two such function in the right panel. This model is further explored in exercise 2.2.10.</p>
-<p> A common model of population over time is the . There are variations on how it is written down, but here is one general form:
+<p> The following model, called the Hill equation , describes the fraction of receptor molecules which are bound to a ligand, which is a chemical term for a free molecule that binds to another, typically larger, receptor molecule. <span class="math inline">\(\theta\)</span> is the fraction of receptors bound to a ligand, <span class="math inline">\(L\)</span> denotes the ligand concentration, <span class="math inline">\(K_d\)</span> is the dissociation constant, and <span class="math inline">\(n\)</span> called the binding cooperativity  or Hill coefficient:
+<span class="math display">\[ \theta = \frac{L^n}{ L^n +K_d}\]</span></p>
+<p>The Hill equation is a rational function, and Figure  shows plots of the graphs of two such function in the right panel. This model is further explored in exercise 2.2.10.</p>
+<p><strong>Example.</strong> A common model of population over time is the  logistic function. There are variations on how it is written down, but here is one general form:
 <span class="math display">\[\begin{equation}
  f(x) = \frac{a e^{rx} }{b+e^{rx}}
 \label{eq:logistic_funk} 
 \end{equation}\]</span></p>
 <p>The numerator and denominator both contain exponential functions with the same power. If <span class="math inline">\(r&gt;0\)</span> when <span class="math inline">\(x \to \infty\)</span>, the denominator approaches <span class="math inline">\(e^{rx}\)</span>, since it becomes much greater than <span class="math inline">\(b\)</span>, and we can calculate:
-<span class="math display">\[  \lim_{x \to \infty}  =  \frac{a e^{rx} }{e^{rx}} = a; \; \mathrm{if} \; r&gt;0 \]</span>
-On the other hand, if <span class="math inline">\(r&lt;0\)</span>, then the numerator approaches zero as <span class="math inline">\(x \to \infty\)</span>, and so does the function
+<span class="math display">\[  \lim_{x \to \infty}  =  \frac{a e^{rx} }{e^{rx}} = a; \; \mathrm{if} \; r&gt;0 \]</span></p>
+<p>On the other hand, if <span class="math inline">\(r&lt;0\)</span>, then the numerator approaches zero as <span class="math inline">\(x \to \infty\)</span>, and so does the function
 <span class="math display">\[  \lim_{x \to \infty}  =  \frac{0}{b} = 0; \; \mathrm{if} \; r&lt;0 \]</span></p>
-<p>Notice that switching the sign of <span class="math inline">\(r\)</span> has the same effect as switching the sign of <span class="math inline">\(x\)</span>, since they are multiplied. Which means that for positive <span class="math inline">\(r\)</span>, if <span class="math inline">\(x\)</span> is extended to negative infinity, the function approaches 0. This is illustrated in the second plot in Figure , which shows two logistic functions increasing from 0 to a positive level, one with <span class="math inline">\(a=20\)</span> (solid line) and the second with <span class="math inline">\(a=10\)</span> (dashed line). The graph of logistic functions has a characteristic ``sigmoidal’’ (S-shaped) shape, and its steepness is determined by the rate <span class="math inline">\(r\)</span>: if <span class="math inline">\(r\)</span> is small, the curve is soft, if <span class="math inline">\(r\)</span> is large, the graph resembles a step function.</p>
+<p>Notice that switching the sign of <span class="math inline">\(r\)</span> has the same effect as switching the sign of <span class="math inline">\(x\)</span>, since they are multiplied. Which means that for positive <span class="math inline">\(r\)</span>, if <span class="math inline">\(x\)</span> is extended to negative infinity, the function approaches 0. This is illustrated in the second plot in Figure , which shows two logistic functions increasing from 0 to a positive level, one with <span class="math inline">\(a=20\)</span> (solid line) and the second with <span class="math inline">\(a=10\)</span> (dashed line). The graph of logistic functions has a characteristic <em>sigmoidal</em> (S-shaped) shape, and its steepness is determined by the rate <span class="math inline">\(r\)</span>: if <span class="math inline">\(r\)</span> is small, the curve is soft, if <span class="math inline">\(r\)</span> is large, the graph resembles a step function.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch2-funk2"></span>
+<img src="QuantLife_files/figure-html/ch2-funk2-1.png" alt="Examples of two graphs of logistic functions (left) and two Hill functions (right)." width="50%" /><img src="QuantLife_files/figure-html/ch2-funk2-2.png" alt="Examples of two graphs of logistic functions (left) and two Hill functions (right)." width="50%" />
+<p class="caption">
+Figure 3.2: Examples of two graphs of logistic functions (left) and two Hill functions (right).
+</p>
+</div>
+</div>
+<div id="exercises-2" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Exercises:</h3>
+<p>For each biological model below answer the following questions in terms of the parameters in the models, assuming all are nonnegative real numbers. 1) what is the value of the function when the independent variable is 0? 2) what value does the function approach when the independent variable goes to infinity? 3) verbally describe the behavior of the functions between 0 and infinity (e.g., function increases, decreases).</p>
+<ol style="list-style-type: decimal">
+<li><p>Model of number of mutations <span class="math inline">\(M\)</span> as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ M(t) = M_0 + \mu t\]</span></p></li>
+<li><p>Model of molecular concentration <span class="math inline">\(C\)</span> as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ C(t) = C_0 e^{-kt} \]</span></p></li>
+<li><p>Model of cooperative binding of ligands, with fraction of bound receptors <span class="math inline">\(\theta\)</span> as a function of ligand concentration <span class="math inline">\(L\)</span>:
+<span class="math display">\[ \theta = \frac{L^n}{L^n + K_d}\]</span></p></li>
+<li><p>Model of tree height <span class="math inline">\(H\)</span> (length) as a function of age <span class="math inline">\(a\)</span> (time):
+<span class="math display">\[ H(a) = \frac{b a }{c + a}\]</span></p></li>
+<li><p>Model of concentration of a gene product <span class="math inline">\(G\)</span> (concentration) as a function of time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ G(t) = G_m (1 - e^{-\alpha t})\]</span></p></li>
+<li><p>The simplified Goldman-Hodgkin-Katz model of ionic current <span class="math inline">\(I\)</span> (current) as a function of membrane potential <span class="math inline">\(V\)</span> (voltage):
+<span class="math display">\[ I(V) = - b V \frac{1- c e^{-\alpha V}} {1-  e^{-\alpha V}} \]</span></p></li>
+<li><p>Michaelis-Menten model  of enzyme kinetics, <span class="math inline">\(v\)</span> is reaction rate (1/time) and <span class="math inline">\(S\)</span> is substrate concentration:
+<span class="math display">\[ v(S) = \frac{v_{max} S}{K_m + S}\]</span></p></li>
+<li><p>Logistic model of population growth, <span class="math inline">\(P\)</span> is population size and time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ P(t) = \frac{A e^{kt}}{1 + B(e^{kt} -1)} \]</span></p></li>
+</ol>
 
 </div>
 </div>
