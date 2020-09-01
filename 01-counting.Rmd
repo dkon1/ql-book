@@ -93,7 +93,7 @@ Going even further, let us consider an entire cell, which contains a large numbe
 Doctors take medical history from patients and measure vital signs to get a picture of a patient's health. These can be all be thought of as variables in a model of a person that physicians construct. Some of these variables are discrete, for instance whether there is family history of hypertension, which has only two values: yes or no. Other variables are numbers with a range, such as weight and blood pressure. The state space of this model is a combination of *categorical* values (such as yes/no) and *numerical* values (within a reasonable range).
 
 
-## Discussion questions
+### Discussion questions
 
 Several biological models are indicated below. Based on what you know, divide the quantities into variables and parameters and describe the state space of the model. Note that there may be more than one correct interpretation
 
@@ -118,19 +118,28 @@ There is a vast number of computer languages with distinct functionalities and p
 
 In this course, our goal is to compute mathematical models and to analyze data, so we choose a language that is designed specially for these tasks, which is called R. To proceed, you'll need to download and install R, which is freely available [here](cran.r-project.org/). In addition to downloading the language (which includes the interpreter that allows you to run R code on your computer) you will need to download a graphic interface for writing, editing, and running R code, called R Studio (coders call this an IDE, or an Integrated Developer Environment), which is also free and available [here](www.rstudio.com/products/rstudio/download/).
 
-### numbers and arithmetic operations
-When you get down to the brass tacks, all computation rests on performing \index{R programming!arithmetic} *arithmetic operations*: addition, subtraction, multiplication, division, exponentiation, etc. The first thing you will do is to learn how to perform arithmetic operations in R. Open R Studio and you will see a window divided into four frames. The bottom left frame contains what is called the *prompt*, where you can type a command, hit return, and it will be executed by the R interpreter.  For example, type in `5-3` on the R prompt and hit return, and this is what you will see: 
+### R Markdown and R Studio
+
+In this course you will use R using R Studio and R Markdown documents, which are text files with the extension `.Rmd`.  Markdown is a simple formatting syntax for creating reports in HTML, PDF, or Word format by incorporating text with code and its output. More details on using R Markdown are [here](rmarkdown.rstudio.com). In fact, this whole book is written in R Markdown files and then compiled to produce the beautiful (I hope you agree) web book that you are reading.
+
+If you open an Rmd file in R Studio, you will see a **Knit** button on top of the Editor window. Clicking it initiates the processing of the file into an output document (in HTML, PDF, or Word format) that includes the text as well as the output of any embedded R code chunks within the document. You can embed an R *code chunk* like this:
+
 ```{r}
-5-3
+print("Hello there!") 
 ```
 
+To run the code inside a single R code chunk, click the green arrow in the top right of the chunk. This will produce an output, in this case the text "Hello there!". Inside the generated output file, for example the web book you may be reading, the output of code chunks is shown below the box with the R code and indicated by two hashtags. 
 
-You see that R returns the result by printing it out on the screen. The number in square brackets [1] is not important for now; it is useful when the answer contains many numbers and has to be printed out on many rows. The second number is the result of the calculation.
+You can make text **bold** or *italic* like so. You can also use mathematical notation called LaTeX, which you'll see used below to generate nice-looking equations. LaTeX commands are surrounded by dollar signs, for example \$e^x\$ generates $e^x$. Mathematical types love LaTeX, but you can use R Markdown without it.
 
-The symbols used for arithmetic operations are what you'd expect: `+`,  `-`, `*`, `/` are the four standard operations, and `^` is the symbol for exponentiation. For example, type `2^3` in any R code chunk and execute it:
+### numbers and arithmetic operations
+When you get down to the brass tacks, all computation rests on performing \index{R programming!arithmetic} *arithmetic operations*: addition, subtraction, multiplication, division, exponentiation, etc. The symbols used for arithmetic operations are what you'd expect: `+`,  `-`, `*`, `/` are the four standard operations, and `^` is the symbol for exponentiation. For example, type `2^3` in any R code chunk and execute it:
+
 ```{r}
 2^3
 ```
+
+You see that R returns the result by printing it out on the screen. The number in square brackets [1] is not important for now; it is useful when the answer contains many numbers and has to be printed out on many rows. The second number is the result of the calculation.
 
 
 For numbers that are either very large or very small, it's too cumbersome to write out all the digits, so R, like most computational platforms, uses the \index{R programming!scientific notation}*scientific notation*. For instance, if you want to represent 1.4 billion, you type in the following command; note that 10 to the ninth power is represented as `e+09` and the prefix 1.4 is written without any multiplication sign:
@@ -151,7 +160,7 @@ The expression `exp()` is an example of a function, which we will discuss in sec
 
 Computers are very good at computation, as their name suggests, but they have limitations. In order to manipulate numbers, they must be stored in computer memory, but computer memory is finite. There is a limit to the length of the number that is feasible to store on a computer. This has implications for both very large numbers and to very small numbers, which are close to zero, because both require many digits for storage.
 
-All programming languages have an upper limit on the biggest number it will store and work with. If an arithmetic operation results in a number larger than that limit, the computer will call it an *overflow* error. Depending on the language, this may stop the execution of the program, or else produce a non-numerical value, such as 'NaN' (not a number) or 'Inf' (infinite). Do exercise \ref{ex:overflow} to investigate the limitations of R for large numbers.
+All programming languages have an upper limit on the biggest number it will store and work with. If an arithmetic operation results in a number larger than that limit, the computer will call it an *overflow* error. Depending on the language, this may stop the execution of the program, or else produce a non-numerical value, such as `NaN` (not a number) or `Inf` (infinite). Do exercise \ref{ex:overflow} to investigate the limitations of R for large numbers.
 
 On the other hand, very small numbers present their own challenges. As with very large numbers, a computer cannot store an arbitrary number of digits after the decimal (or binary) point. Therefore, there is also the smallest number that a programming language will accept and use, and storing a smaller number produces an *underflow* error. This will either cause the program execution to stop, or to return the value 0 instead of the correct answer. Do exercise \ref{ex:underflow} to investigate the limitations of R for small numbers.
 
@@ -216,27 +225,70 @@ The left-hand side of an assignment command should contain only the variable to 
 ### R Coding Exercises
 The following commands or scripts do not work as intended. Find the errors and correct them, then run them to make sure they do what they are intended to do:
 
+### Exercises:
+The following R commands or short scripts contain errors; your job is to fix them so they  runs as described. (Remove the # at the start of each line to "uncomment" the code first.)
 
-1. Add 5 and 3 and save it into variable my.number
+
+1. Assign the value -10 to a variable
+
+```{r, eval=FALSE}
+neg -> -10
+```
+
+
+2. Assign a variable the value 5 and then increase its value by 3:
+
+```{r, eval=FALSE}
+2pac <- 5
+2pac <- 2pac + 3
+```
+
+
+3. Assign the values 4 and 7 to two variables, then add them together and assign the sum to a new variable:
+
+```{r, eval=FALSE}
+total <- part1 + part2
+part1 <- 4
+part2 <- 7
+```
+
+
+
+4. Add 5 and 3 and save it into variable my.number
 ```{r, eval=FALSE}
 5 + 3 <- my.number
 ```
 
 
-2. Print the value of my.number on the screen:
+5. Print the value of my.number on the screen:
 ```{r, eval=FALSE}
 print[my.number]
 ```
 
-3. Replace the value of my.number with 5 times its current value
+6. Replace the value of my.number with 5 times its current value
 ```{r, eval=FALSE}
 my.number <- 5my.number 
 ```
 
-4. Assign the values of 7 and 8 to variables a and b, respectively, multiply them and save the results in variable x
+7. Assign the values of 7 and 8 to variables a and b, respectively, multiply them and save the results in variable x
 ```{r, eval=FALSE}
 a<-7
 b<-8
 x<-ab
 print(x)
+```
+
+9. Assign the value 42 to a variable, then increase it by 1
+
+```{r, eval=FALSE}
+age <- 42
+age + 1 <- age
+```
+
+
+9. Assign the value 10 to variable radius, then calculate the area of the circle with that radius using the formula $A = \pi r^2$:
+
+```{r, eval=FALSE}
+r <- 10
+area <- pir^2 
 ```

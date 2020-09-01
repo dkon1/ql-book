@@ -223,3 +223,378 @@ $$ v(S) = \frac{v_{max} S}{K_m + S}$$
 $$ P(t) = \frac{A e^{kt}}{1 + B(e^{kt} -1)} $$
 
 
+## Vectors and plotting in R
+\label{sec:comp2}
+
+### writing scripts and calling functions
+
+Programming means arranging a number of commands in a particular order to perform a task. Typing them one at a time into the command line is inefficient and error-prone. Instead, the commands are written into a file called a program or script (the name depends on the type of language; since R is a scripting language you will be writing scripts), which can be edited, saved, copied, etc. To open a new script file, in R Studio, go to File menu, and choose New R Script. This will open an editor window where you can type your commands. To save the script file (do this often!!), click the Save button (with the little floppy disk icon) or select Save from the File menu. You will also see small buttons at the top of the window that say `Run`, `Re-run`, and `Source`. The first two will run either the current line or a selected region of the script, while the `Source` button will run the entire file. Now that you know how to create a script, **you should never type your R code into the command line**, unless you're testing a single command to see what it does, or looking up help.
+
+R comes equipped with many \index{function!in R} \index{R programming!function} functions that correspond to standard mathematical functions. As we saw in section \ref{sec:comp1}, `exp()` is the exponential function that returns $e$ raised  to the power of the input value. Other common ones are: `sqrt()` returns the square root of the input value; `sin()` and `cos()` return the sine and the cosine of the input value, respectively. Note that all of these function names are followed by parentheses, which is a hallmark of a function (in R as well as in mathematics). This indicates that the input value has to go there, for example `exp(5)`. To compute the value of $e^5$, save it into a variable called `var1` and then print out the value on the screen, you can create the following script:
+
+```{r}
+var1 <- exp(5)
+print(var1)
+```
+
+
+If you run the above code chunk in R Studio you will see two things happen: a variable named var1 appears in the Environment window (top right) with the value 148.41... and the same value is printed out in the command line window (bottom left).
+
+The most important principle of the procedural brand of programming (which includes R) is this: the computer (that is, the compiler or interpreter) evaluates the commands from top to bottom, one at a time.  The variables are used with the values that they are currently assigned. If one variable (`var1`) was assigned in terms of another (`var2`), and then `var2` is changed later, this does not change the value of `var2`. Here is an illustration of  how this works:
+
+```{r}
+var2 <- 20
+var1 <- var2/20
+print(var2)
+var2 <- 10
+print(var1)
+```
+
+
+Notice that `var1` doesn't change, because the R interpreter reads the commands one by one, and does not go back to re-evaluate the assignment for var1 after `var2` is changed. Learning to think in this methodical, literal manner is crucial for developing programming skills.
+
+### vector variables
+Variables may contain more than a single number, they can also store a bunch of numbers, which is then called an array. When numbers in an array are organized as a single ordered list, this is called a \index{R programming!vector variable}\index{vector!in R} *vector*. There are several ways of producing a vector of numbers in R. 
+
+
+#### c() function 
+The most direct method of making a vector is to put together several values by listing them inside the function `c()` and assigning the output to a variable, e.g. `my.vec`:
+
+```{r}
+my.vec<-c(pi,45,912.8, 0)
+print(my.vec)
+```
+
+
+This variable `my.vec` is now a vector variable that contains four different numbers. Each of those numbers can be accessed individually by referencing its position in the vector, called the \index{R programming!index of vector} *index*. In the R language the the index for the first number in a vector is 1, the index for the second number is 2, etc. The index is placed in square brackets after the vector name, as follows:
+
+```{r}
+print(my.vec[1])
+print(my.vec[2])
+print(my.vec[3])
+print(my.vec[4])
+```
+
+
+#### the colon operator
+
+Another way to generate a sequence of numbers in a particular order is to use the colon operator, which produces a vector of integers from the first number to the last, inclusive. Here are two examples:
+```{r}
+my.vec1<-1:20
+print(my.vec1)
+my.vec2<-0:-20
+print(my.vec2)
+```
+
+You can also access some but not all of the values stored in a vector simultaneously. To do this, enter a vector of positive integers inside the square brackets, either using the colon operator or using the `c()` function. Here are two examples, the first prints out the 4th through the 10th element of the vector `my.vec1`, while the second prints out the 1st, 5th, and 11th elements of the vector `my.vec2`:
+
+```{r}
+print(my.vec1[4:10])
+print(my.vec2[c(1,5,11)])
+```
+
+#### seq() function
+If you want to generate a sequence of numbers with a constant difference other than 1, you're in luck: R provides a function called `seq()`. It takes three inputs: the starting value, the ending value, and the step (difference between successive elements). For example, to generate a list of numbers starting at 20 up to 50, with a step size of 3, type the first command; to obtain the same sequence in reverse, use the second command:
+
+```{r}
+my.vec1<-seq(20,50,3)
+print(my.vec1)
+my.vec2<-seq(50,20,-3)
+print(my.vec2)
+```
+
+#### rep() function
+
+Sometimes you want to create a vector of repeated values. For example, you can create a variable with 20 zeros, you can use rep() like this:
+
+```{r}
+zeros <- rep(0,20)
+print(zeros)
+```
+You can repeat any value, say create a vector by repeating the number pi:
+
+```{r}
+pies <- rep(pi,7)
+print(pies)
+```
+You can even repeat another vector, like the vector my.vec that was assigned above:
+
+```{r}
+my.vecs <- rep(my.vec, 5)
+print(my.vecs)
+```
+
+
+
+### calculations with vector variables
+
+```{r}
+NewVec <- 2*my.vec
+print(NewVec)
+```
+
+You can also perform calculations with multiple vector variables, but this requires extra care. R can perform any arithmetic operation with two vector variables, for instance adding two vectors results in a vector containing the sum of corresponding elements of the two vectors:
+```{r}
+my.vec1<-1:5
+my.vec2<-0:4
+print(my.vec1)
+print(my.vec2)
+sum.vec<-my.vec1+my.vec2
+print(sum.vec)
+```
+
+
+One needs to take care that the two vectors have the same number of elements (length). If you try to operate on (e.g. add) two vectors of different lengths, R will return a warning and the result will not be what you expect:
+```{r}
+my.vec1<-1:2
+my.vec2<-0:4
+print(my.vec1)
+print(my.vec2)
+sum.vec<-my.vec1+my.vec2
+print(sum.vec)
+```
+
+
+### Exercises
+
+The following R commands or short scripts contain errors; your job is to fix them so they  runs as described.
+
+1. Assign a vector of three numbers to a variable:
+
+```{r, eval=FALSE}
+date_num <- (3,8,16)
+```
+
+
+2. Assign a range of values to a vector variable and print out the third one:
+
+```{r, eval=FALSE}
+the.vals <- 0:10
+print[the.vals(3)]
+```
+
+
+3. Assign a range of values to a vector variable and print out the fourtieth and sixty-first values:
+
+```{r, eval=FALSE}
+all.the.vals <- 0:100
+print(all.the.vals[40,61])
+```
+
+
+4. Take the two vectors assigned above and assign their product to another vector:
+
+```{r, eval=FALSE}
+product <- the.vals*all.the.vals
+```
+
+
+5. Create a vector vec1 of ten integers and print the second and the eighth elements:
+
+
+```{r, eval=FALSE}
+vec1 <- 11:20 
+print(vec1[2:8])
+```
+
+
+
+6. Create a vector `vec1` and then multiply all of its elements by 20 and assign it to another vector:
+
+
+```{r, eval=FALSE}
+vec1<-seq(-3,2,0.1)
+vec2 <- 20vec1
+```
+
+
+7. Create a vector `vec1`, a vector `vec2` and print out all the elements of the first divided by the second:
+
+```{r, eval=FALSE}
+vec1 <- 0:5
+vec2 <- 3:8
+print[vec1/vec2]
+```
+
+
+
+### Plotting with vectors
+
+
+```{r ch2-plot1, echo=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Two examples of plots using curve: quadratic ($y=x^2$) and exponential ($y=20*e^{-0.5x}$)'}
+curve(x^2,0,10,lwd=3,xlab='x', ylab='quadratic',cex.axis=1.5,cex.lab=1.5)
+curve(20*exp(-0.5*x),0,5,lwd=3,xlab='x', ylab='exponential',cex.axis=1.5,cex.lab=1.5)
+```
+
+
+There are several ways of \index{plot!in R}  \index{R programming!plotting} creating plots of mathematical functions or data R. If you want to plot a mathematical function, the simplest function is `curve()`. You can tell that this is a function, because it uses parentheses; the first input is an expression for the function, and the next two define the range of the independent variable over which to plot the graph. Two examples of plotting a quadratic function over the range from 0 and 5, and an exponential variation over the range of 0 to 10 are shown in figure \ref{fig:ch2-plot1}.
+
+One can change the default look of the plot produced by curve by setting different options, which are optional inputs into the curve function, One is the line width `lwd` which can be increased from the default value of 1 to produce thicker curves, as demonstrated in the example above. One can add labels on the x and y axes with `xlab` and `ylab` options, respectively; note that these are strings of characters, and thus must be put in quotes to differentiate them from a variable name. There is one very important option not shown above: that of overlaying a curve on top of an existing plot, which is done by typing `add=TRUE`. This option takes logical (Boolean) values `TRUE` and `FALSE`, which must be typed in all caps and without quotes.
+
+#### plot() function
+
+In addition to curve, one can use the function `plot()` in R to create two dimensional graphs from two vector-valued variables of the same length, e.g. `plot(x,y)`. The first input variable corresponds to the \index{variable!independent} *independent variable* (e.g. `x`), which is plotted on the x-axis, and the second variable corresponds to the \index{variable!dependent} *dependent variable* (e.g. `y`) which is plotted on the y-axis. In figure \ref{fig:ch2-plot2} you see graphs of exponential and logistic function plotted using `plot()`. 
+
+
+The following chunk creates a vector variable time, then calculates a new variable quad using time in a single operation:
+```{r}
+time <- 0:10
+quad <- (time - 5)^2
+print(time)
+print(quad)
+```
+
+
+This chunk plots the two vector variables quad as a function of time, and adds a title to the plot
+```{r}
+plot(time,quad, main = 'Quadratic function of time')
+```
+
+The default plot style in R uses circles to indicate each plotted point. To change it, you need to set the option `t` (type), for example, setting `t='l'` (the lowercase letter L) produces a continuous line connecting the individual data points.
+
+```{r}
+plot(time,quad, main = 'Quadratic function of time', type = 'l', xlab='time', ylab = 'y = f(t)' )
+```
+
+ `plot()` is a versatile function that has many options function has many options which can be changed to determine the color, the style, and other attributes of the plot. For a full list type `help(plot)` in the console or type plot in the search bar of the Help pane in the bottom right window.
+
+
+#### using lines() or points()
+
+You may also want to plot multiple graphs on the same figure. The `plot()` function creates a new plot window, so if you want to add another plot on top of the first one, you have to use another function. There are two ones available: `lines()` which produces continuous curves connecting the points, and `points()` which plots individual symbols at every point.
+
+Let us illustrate this by plotting two different exponential functions on one plot, and two different logistic functions on the second one, which were discussed in section \ref{sec:math2}. When you've got multiple plots on the same figure, they need to be distinct and labeled. To distinguish them, below I use the option `col` to specify the color of the plot, and I add a legend describing the parameters of each plot to the figure \ref{fig:ch2-plot2}. The function has a lot of options, so if you want to understand the details, type `help(legend)` in the prompt or go to Help tab in the lower right frame of R Studio and type legend.
+
+```{r ch2-plot2, echo=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Overlaying multiple plots in R: two exponential functions of the form $y=b+ae^{rx}$ on the left, two logistic functions of the form $y= ae^{rx}/(b+e^{rx})$ on the right.'}
+x<-seq(0,10,0.5)
+y<-10+20*exp(-0.5*x)
+plot(x,y, xlab='x', ylab='exponential',col=1,lwd=3)
+y<-10+20*exp(-2*x)
+lines(x,y,col=2,lwd=3)
+leg.txt=c("b=10,a=20,r=-0.5", "b=10,a=20,r=-2")
+legend("topright", leg.txt, col=1:2, pch=c(1,NA), lty=c(0,1), lwd=3)
+x<-seq(-10,10,1)
+y<-20*exp(0.5*x)/(1+exp(0.5*x))
+plot(x,y,xlab='x',ylab='logistic',col=4,lwd=3)
+y<-20*exp(1.5*x)/(1+exp(1.5*x))
+lines(x,y,col=2,lwd=3)
+leg.txt=c("a=20,b=1,r=0.5", "a=20,b=1,r=1.5")
+legend("topleft", leg.txt, col=c(4,2), pch=c(1,NA), lty=c(0,1), lwd=3)
+```
+
+
+### Exercises
+
+The following R commands or short scripts contain errors; your job is to fix them so they  runs as described.
+
+1.  Multiply a vector by a constant and add another constant and assign the result to a vector:
+
+```{r, eval=FALSE}
+new.vals <- 5 + 8the.vals
+```
+
+
+2. Assign range to be a sequence of values from 0 to 100 with step of 0.1, and calculate the vector variable result as the square of the vector variable range:
+
+```{r, eval=FALSE}
+range <- seq(0,0.1,100)
+result <- square(range)
+```
+
+
+3. Plot result as a function of range:
+```{r, eval=FALSE}
+plot(result, range)
+```
+
+
+4. Plot the graph of the function $f(x) = (45-x)/(4x+3)$ over the range of 0 to 100:
+
+```{r, eval=FALSE}
+curve((45-x)/(4x+3), 0, 100)
+```
+
+
+
+5. Plot a quadratic function with specified coefficients $a$, $b$, $c$ over a given range of independent variable $x$:
+
+```{r, eval=FALSE}
+a<-10
+b<- -15
+c<- 5
+y<-a*x^2+b*x+c
+x<-seq(-0.5,2,0.01) 
+plot(x,y,type='l')
+```
+
+
+
+6. Overlay two different plots of the logistic function with different values of the parameter $r$:
+
+```{r, eval=FALSE}
+time<-0:100
+a<-1000
+b<-50 
+r<-0.1
+Population<-a*exp(r*time)/(b+exp(r*time)) 
+plot(time,Population,type='l') 
+r<-10 
+lines(time,Population,col=2)
+```
+
+
+
+## Rates of biochemical reactions
+\label{sec:bio2}
+
+
+Living things are dynamic, they change with time, and much of mathematical modeling in biology is interested in describing these changes. Some quantities change fast and others slowly, and every dynamic quantity has a rate of change, or *rate* for short. Usually, the quantity that we want to track over time is the variable, and in order to describe how it changes we introduce a rate parameter. If we are describing changes over time, all rate parameters have dimensions with time in the denominator. As a simple example, the velocity of a physical object describes the change in distance over time, so its dimension is $[v] = length/time$. 
+
+On the most fundamental level, the work of life is performed by molecules. The protein hemoglobin transports oxygen in the red blood cells, while neurotransmitter molecules like serotonin carry signals between neurons. Enzymes catalyze reactions, like those involved in oxidizing sugar and making ATP, the energy currency of life. Various molecules bind to DNA to turn genes on and off, while myosin proteins walk along actin fibers to create muscle contractions.
+
+In order to describe the activity of biological molecules, we must measure and quantify them. However, they are so small and so numerous that it is not usually practical to count individual molecules (although with modern experimental techniques it is sometimes possible). Instead, biologists describe their numbers using concentrations. Concentration has dimensions of number of molecules per volume, and the units are typically molarity, or moles ($\approx 6.022*10^{23}$ molecules) per liter. Using concentrations to describe molecule rests on the assumption that there are many molecules and they are well-mixed, or homogeneously distributed throughout the volume of interest.
+
+Molecular reactions are essential for biology, whether they happen inside a bacterial cell or in the bloodstream of a human. *Reaction kinetics* \index{kinetics!reaction} refers to the description of the rates, or the speed, of chemical reactions. Different reactions occur with different rates, which may be dependent on the concentration of the reactant molecule. Consider a simple reaction of molecule $A$ (called the substrate) turning into molecule $B$ (called the product), which is usually written by chemists with an arrow:
+$$
+  A \xrightarrow{k} B
+$$
+But how fast does the reaction take place? To write down a mathematical model, we need to define the quantities involved. First, we have the concentration of the molecule $A$, with dimensions of concentration. Second, we have the rate of reaction, let us call it $v$, which has dimension of concentration per time (just like velocity is length per time). How are the two quantities related?
+
+### Constant (zeroth-order) kinetics
+\index{kinetics!zeroth-order} In some circumstances, the reaction rate $v$ does not depend on the concentration of the reactant molecule $A$. In that case, the relationship between the \index{kinetics!rate constant} *rate constant* $k$ and the actual rate $v$ is:
+\begin{equation}
+v = k
+\label{eq:kinetics_0th_order}
+\end{equation}
+
+Dimensional analysis insists that the dimension of $k$ must be the dimension of $v$, or concentration/time. This is known as constant, or zero-order kinetics, and it is observed at concentrations of $A$ when the reaction is at its maximum velocity: for example, ethanol  metabolism by ethanol dehydrogenase in human liver cannot proceed any faster than about 1 drink per hour. 
+
+### First-order kinetics
+\index{kinetics!first-order}. In other conditions, it is easy to imagine that increasing the concentration of the reactant $A$ will speed up the rate of the reaction. A simple relationship of this type is linear:
+\begin{equation}
+v = kA
+\label{eq:kinetics_1st_order}
+\end{equation}
+
+In this case, the dimension of the rate constant $k$ is 1/time. This is called first-order kinetics, and it usually describes reactions when the concentration of $A$ is small, and there are plenty of free enzymes to catalyze more reactions.
+
+### Michaelis-Menten model of enzyme kinetics \index{kinetics!Michaelis-Menten} 
+However, if the concentration of the substrate molecule $A$ is neither small nor large, we need to consider a more sophisticated model. An enzyme is a protein which catalyzes a biochemical reaction, and it works in two steps: first it binds the substrate, at which point it can still dissociate and float away, and then it actually catalyzes the reaction, which is usually practically irreversible (at least by this enzyme) and releases the product. The enzyme itself is not affected or spent, so it is free to catalyze more reactions. Let denote the substrate (reactant) molecule by $A$, the product molecule by $B$, the enzyme by $E$, and the complex of substrate and enzyme $AE$. The classic chemical scheme that describes these reactions is this:
+$$
+A + E \underset{k_{-1}}{\overset{k_1}{\rightleftharpoons}} AE  \xrightarrow{k_2} E + B
+$$
+
+You could write three different kinetic equations for the three different arrows in that scheme. Michaelis and Menten used the simplifying assumptions that the binding and dissociation happens much faster than the catalytic reaction, and based on this they were able to write down an approximate, but extremely useful Michaelis-Menten model of an enzymatic reaction:
+\begin{equation}
+v = \frac{v_{max} A}{K_M+A}
+\label{eq:kinetics_MM_kinetics}
+\end{equation}
+Here $v$ refers to the rate of the entire catalytic process, that is, the rate of production of $B$, rather than any intermediate step. Here the reaction rate depends both on the concentration of the substrate $A$ and on the two constants $v_{max}$, called the maximum reaction rate, and the constant $K_M$, called the Michaelis constant. They both depend on the rate constants of the reaction, and $v_{max}$ also depends on the concentration of the enzyme. The details of the derivation are beyond us for now, but you will see in the following exercises how this model behaves for different values of $A$.
+
+
+
+
+
+%Make a box?
+%Chemical kinetics models are important in a variety of biological fields. The concentration of a drug in the bloodstream is described by an equation that involves the rate of application of the drug and the rate of its removal, known as drug metabolism. The concentration of a sugar, such as fructose, in a cell an be modeled as a system of differential equations that describe all the reactions in the process of glycolysis. Many important molecules exist primarily to regulate each other, for instance, the product of a gene (the protein which is produced when the gene is expressed) can be used to turn on another gene, whose product may turn off the first gene. Such networks of interactions can also be described by a bunch of kinetics equations; the growing field of systems biology studies their complex behaviors.
+

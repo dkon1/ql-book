@@ -12,6 +12,7 @@ bookdown::gitbook:
         <li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
+  extra_dependencies: ["chemarr"]
   includes:
     in_header: preamble.tex
   latex_engine: xelatex

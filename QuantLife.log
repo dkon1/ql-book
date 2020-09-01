@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  24 AUG 2020 22:18
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  30 AUG 2020 21:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -672,6 +672,8 @@ Package graphics Info: Driver file: xetex.def on input line 99.
 )
 \Gin@req@height=\dimen171
 \Gin@req@width=\dimen172
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/chemarr.sty
+Package: chemarr 2016/05/16 v1.3 Arrows for chemical reactions (HO)
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
@@ -685,43 +687,47 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count299
-) (./QuantLife.aux)
+) (./QuantLife.aux
+
+LaTeX Warning: Label `exercises' multiply defined.
+
+)
 \openout1 = `QuantLife.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 120.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 120.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 120.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 120.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 120.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 120.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 120.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 121.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -750,7 +756,7 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 120.
+(Font)              scaled to size 10.0pt on input line 121.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -788,18 +794,18 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 120.
+(Font)              scaled to size 10.0pt on input line 121.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 120.
+(Font)              `operators' in the math version `normal' on input line 121.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 120.
+ line 121.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 120.
+(Font)              `operators' in the math version `bold' on input line 121.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/bx/n on inp
-ut line 120.
+ut line 121.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -886,15 +892,15 @@ uage=DFLT;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 120.
+(Font)              `symbols' in the math version `normal' on input line 121.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 120.
+t line 121.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 120.
+(Font)              `symbols' in the math version `bold' on input line 121.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/bx/n on inp
-ut line 120.
+ut line 121.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -964,17 +970,17 @@ uage=DFLT;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-20.
+21.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 120.
+t line 121.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 120
+(Font)              `largesymbols' in the math version `bold' on input line 121
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/bx/n on inp
-ut line 120.
-LaTeX Info: Redefining \microtypecontext on input line 120.
+ut line 121.
+LaTeX Info: Redefining \microtypecontext on input line 121.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -986,7 +992,7 @@ File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 \AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring OFF on input line 120.
+Package hyperref Info: Link coloring OFF on input line 121.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -994,39 +1000,39 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 120.
-LaTeX Info: Redefining \pageref on input line 120.
-LaTeX Info: Redefining \nameref on input line 120.
+LaTeX Info: Redefining \ref on input line 121.
+LaTeX Info: Redefining \pageref on input line 121.
+LaTeX Info: Redefining \nameref on input line 121.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 122.
+(Font)              scaled to size 12.0pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 122.
+(Font)              scaled to size 8.0pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 122.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 122.
+(Font)              scaled to size 6.0pt on input line 123.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 123.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 122.
+(Font)              scaled to size 12.00128pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 122.
+(Font)              scaled to size 8.00085pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 122.
+(Font)              scaled to size 6.00064pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 122.
+(Font)              scaled to size 11.99872pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 122.
+(Font)              scaled to size 7.99915pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 122.
-LaTeX Font Info:    Try loading font information for U+msa on input line 122.
+(Font)              scaled to size 5.99936pt on input line 123.
+LaTeX Font Info:    Try loading font information for U+msa on input line 123.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 122.
+LaTeX Font Info:    Try loading font information for U+msb on input line 123.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1065,18 +1071,18 @@ Chapter 1.
 Chapter 2.
 
 Package natbib Warning: Citation `jungck_mathematical_2010' on page 9 undefined
- on input line 190.
+ on input line 191.
 
 [9
 
 ]
 
 Package natbib Warning: Citation `cohen_mathematics_2004' on page 10 undefined 
-on input line 194.
+on input line 195.
 
 
 LaTeX Warning: Reference `fig:circulation' on page 10 undefined on input line 2
-12.
+13.
 
 
 Overfull \hbox (47.90451pt too wide) has occurred while \output is active
@@ -1089,7 +1095,7 @@ File: ch1/Circulatory_System_no_tags_cropped.png Graphic file (type bmp)
 <ch1/Circulatory_System_no_tags_cropped.png>
 
 LaTeX Warning: Reference `fig:galen_blood' on page 11 undefined on input line 2
-23.
+24.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1098,13 +1104,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: ch1/galenheartc.png Graphic file (type bmp)
 <ch1/galenheartc.png>
 
-Overfull \hbox (21.70602pt too wide) detected at line 239
+Overfull \hbox (21.70602pt too wide) detected at line 240
 [] [] [][] [] [] [][] [] [] [][] [] [] [][] []
  []
 
 
 Package natbib Warning: Citation `schultz_william_2002' on page 12 undefined on
- input line 242.
+ input line 243.
 
 
 Overfull \hbox (47.90451pt too wide) has occurred while \output is active
@@ -1124,53 +1130,198 @@ Overfull \hbox (47.90451pt too wide) has occurred while \output is active
 EBLOOD OF MODELING
  []
 
-[16]
-Chapter 3.
-[17
+[16] [17]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 335.
 
-] [18
+Overfull \hbox (47.90451pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 18 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
+EBLOOD OF MODELING
+ []
+
+[18]
+
+LaTeX Warning: Reference `ex:overflow' on page 19 undefined on input line 402.
+
+[19]
+
+LaTeX Warning: Reference `ex:underflow' on page 20 undefined on input line 404.
+
+
+
+LaTeX Warning: Reference `ex:mach_prec' on page 20 undefined on input line 406.
+
+
+
+Overfull \hbox (47.90451pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 20 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
+EBLOOD OF MODELING
+ []
+
+[20] [21]
+Overfull \hbox (47.90451pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 22 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
+EBLOOD OF MODELING
+ []
+
+[22] [23]
+Overfull \hbox (47.90451pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 24 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
+EBLOOD OF MODELING
+ []
+
+[24
 
 ]
+Chapter 3.
+[25]
+
+Package natbib Warning: Citation `smith_mathematical_1968' on page 26 undefined
+ on input line 687.
+
+
+Package natbib Warning: Citation `strogatz_nonlinear_2001' on page 26 undefined
+ on input line 700.
+
+[26] [27] [28] [29]
+File: QuantLife_files/figure-latex/ch2-funk1-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-funk1-1.pdf>
+File: QuantLife_files/figure-latex/ch2-funk1-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-funk1-2.pdf>
+
+LaTeX Warning: Reference `ch2-funk1' on page 30 undefined on input line 807.
+
+[30]
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 31 undefined on inpu
+t line 843.
+
+[31]
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 32 undefined on inpu
+t line 848.
+
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 32 undefined on inpu
+t line 862.
+
+File: QuantLife_files/figure-latex/ch2-funk2-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-funk2-1.pdf>
+File: QuantLife_files/figure-latex/ch2-funk2-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-funk2-2.pdf>
+[32] [33] [34] [35]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1035--1035
+[]\TU/lmtt/m/n/10 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18
+ 19 20[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1047--1047
+[]\TU/lmtt/m/n/10 ##  [1]   0  -1  -2  -3  -4  -5  -6  -7  -8  -9 -10 -11 -12 -
+13 -14 -15 -16 -17 -18[] 
+ []
+
+[36]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1125--1125
+[]\TU/lmtt/m/n/10 ## [1] 3.141593 3.141593 3.141593 3.141593 3.141593 3.141593 
+3.141593[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+[]\TU/lmtt/m/n/10 ##  [1]   3.141593  45.000000 912.800000   0.000000   3.14159
+3  45.000000[] 
+ []
+
+[37]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+[]\TU/lmtt/m/n/10 ##  [7] 912.800000   0.000000   3.141593  45.000000 912.80000
+0   0.000000[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+[]\TU/lmtt/m/n/10 ## [13]   3.141593  45.000000 912.800000   0.000000   3.14159
+3  45.000000[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1225--1225
+[]\TU/lmtt/m/n/10 ## Warning in my.vec1 + my.vec2: longer object length is not 
+a multiple of shorter[] 
+ []
+
+[38]
+Underfull \vbox (badness 1728) has occurred while \output is active []
+
+[39]
+File: QuantLife_files/figure-latex/ch2-plot1-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-plot1-1.pdf>
+File: QuantLife_files/figure-latex/ch2-plot1-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-plot1-2.pdf>
+[40]
+File: QuantLife_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-41-1.pdf>
+[41]
+File: QuantLife_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-42-1.pdf>
+[42]
+File: QuantLife_files/figure-latex/ch2-plot2-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-plot2-1.pdf>
+File: QuantLife_files/figure-latex/ch2-plot2-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch2-plot2-2.pdf>
+
+Underfull \vbox (badness 2027) has occurred while \output is active []
+
+[43] [44] [45] [46]
+Underfull \vbox (badness 3701) has occurred while \output is active []
+
+[47] [48]
 Chapter 4.
-[19] [20
+[49
+
+] [50
 
 ]
 Chapter 5.
-[21] [22
+[51] [52
 
 ]
 Chapter 6.
-[23] [24
+[53] [54
 
 ]
 Chapter 7.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 324.
 File: QuantLife_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/nice-fig-1.pdf>
-[25] (./QuantLife.bbl [26])
+[55] (./QuantLife.bbl [56])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 388.
-[27
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1735.
+[57
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 388.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1735.
 (./QuantLife.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 388.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 388.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1735.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1735.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 28344 strings out of 492909
- 517842 string characters out of 6132923
- 740232 words of memory out of 5000000
- 32120 multiletter control sequences out of 15000+600000
+ 28455 strings out of 492909
+ 521065 string characters out of 6132923
+ 745192 words of memory out of 5000000
+ 32218 multiletter control sequences out of 15000+600000
  538756 words of font info for 80 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,8n,115p,1428b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,16n,115p,1428b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on QuantLife.pdf (27 pages).
+Output written on QuantLife.pdf (57 pages).
