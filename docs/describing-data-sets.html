@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2020-09-01" />
+<meta name="date" content="2020-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="functions-and-their-graphs.html"/>
-<link rel="next" href="intro.html"/>
+<link rel="next" href="linear-regression.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,7 +213,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>4</b> Introduction</a></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables}</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
+<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
+<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
+<li class="chapter" data-level="4.2.5" data-path="arithmetic-and-variables-the-lifeblood-of-modeling.html"><a href="arithmetic-and-variables-the-lifeblood-of-modeling.html#exercises"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a></li>
+<li class="chapter" data-level="4.5" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-parameters-plots-and-residuals"><i class="fa fa-check"></i><b>4.5</b> Linear regression: parameters, plots, and residuals</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercises:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>5</b> Introduction</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
@@ -413,7 +431,7 @@ Figure 3.3: Histograms of paternal ages and the number of new mutations from 73 
 </div>
 <div id="exercises-3" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Exercises:</h3>
-<p>The following scripts contain errors. Find and fix them so they work as intended.</p>
+<p>The following code chunks contain errors. Find and fix them so they work as intended.</p>
 <ol style="list-style-type: decimal">
 <li>Calculate the mean and standard deviation of the heart rates of the first 30 individuals in the data frame vitals:</li>
 </ol>
@@ -444,7 +462,7 @@ Figure 3.3: Histograms of paternal ages and the number of new mutations from 73 
 </ol>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="describing-data-sets.html#cb131-1" aria-hidden="true"></a><span class="kw">hist</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span>
 <span id="cb131-2"><a href="describing-data-sets.html#cb131-2" aria-hidden="true"></a><span class="kw">mean</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span>
-<span id="cb131-3"><a href="describing-data-sets.html#cb131-3" aria-hidden="true"></a><span class="co">#sd(Galton$parent/child)</span></span></code></pre></div>
+<span id="cb131-3"><a href="describing-data-sets.html#cb131-3" aria-hidden="true"></a><span class="kw">sd</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span></code></pre></div>
 
 </div>
 </div>
@@ -455,7 +473,7 @@ Figure 3.3: Histograms of paternal ages and the number of new mutations from 73 
         </div>
       </div>
 <a href="functions-and-their-graphs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

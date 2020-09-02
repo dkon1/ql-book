@@ -1,6 +1,6 @@
 # (PART) Part I: The Basics {-} 
 
-# Arithmetic and variables: the lifeblood of modeling
+# Arithmetic and variables
 
 > You can add up the parts, but you won't have the sum;  
 > You can strike up the march, there is no drum.  
