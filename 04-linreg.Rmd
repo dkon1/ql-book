@@ -169,7 +169,7 @@ There is another important measure of the quality of linear regression: the \ind
 
 ### Exercises
 
-Figure \ref{fig:ch8_penguins} shows scatterplots of the rate of oxygen consumption (VO)  and heart rate (HR) measured in two macaroni penguins running on a treadmill (really). The authors performed linear regression on the data and found the following parameters: $VO =0.23HR - 11.62$ (penguin A) and $VO =0.25HR - 20.93$ (penguin B). The datasets have the standard deviations: $\sigma_{VO} = 6.77$ and $\sigma_{HR} = 28.8 $ (penguin A) and $\sigma_{VO} = 8.49$ and $\sigma_{HR} = 30.6$ (penguin B).
+Figure \ref{fig:ch8_penguins} shows scatterplots of the rate of oxygen consumption (VO)  and heart rate (HR) measured in two macaroni penguins running on a treadmill (really). The authors performed linear regression on the data and found the following parameters: $VO =0.23HR - 11.62$ (penguin A) and $VO =0.25HR - 20.93$ (penguin B). The datasets have the standard deviations: $\sigma_{VO} = 6.77$ and $\sigma_{HR} = 28.8$ (penguin A) and $\sigma_{VO} = 8.49$ and $\sigma_{HR} = 30.6$ (penguin B).
 
 ![Mass-specific rate of oxygen consumption (VO) as a function of heart rate (HR) in two macaroni penguins, (A) a breeding female of mass 3.14 kg  and a moulting female of mass 3.99 kg; figure from \citep{green_heart_2001} under CC-BY.](ch8/penguin_HR.png)
 \label{fig:ch8_penguins}
