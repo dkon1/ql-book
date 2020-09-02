@@ -24,7 +24,7 @@ knitr::write_bib(c(
 
 
 
-# Purpose and purview
+# Purpose and purview {-}
 
 > What is a man, said Athos, who has no landscape? Nothing but mirrors and tides.  
 > -- Anne Michaels, **Fugitive Pieces**

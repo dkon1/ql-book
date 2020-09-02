@@ -421,7 +421,7 @@ print[vec1/vec2]
 ### Plotting with vectors
 
 
-```{r ch2-plot1, echo=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Two examples of plots using curve: quadratic ($y=x^2$) and exponential ($y=20*e^{-0.5x}$)'}
+```{r ch2-plot1, echo=TRUE, tidy=TRUE, tidy.opts=list(width.cutoff=50), fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Two examples of plots using curve: quadratic ($y=x^2$) and exponential ($y=20*e^{-0.5x}$)'}
 curve(x^2,0,10,lwd=3,xlab='x', ylab='quadratic',cex.axis=1.5,cex.lab=1.5)
 curve(20*exp(-0.5*x),0,5,lwd=3,xlab='x', ylab='exponential',cex.axis=1.5,cex.lab=1.5)
 ```
@@ -446,13 +446,13 @@ print(quad)
 
 
 This chunk plots the two vector variables quad as a function of time, and adds a title to the plot
-```{r}
+```{r, tidy=TRUE}
 plot(time,quad, main = 'Quadratic function of time')
 ```
 
 The default plot style in R uses circles to indicate each plotted point. To change it, you need to set the option `t` (type), for example, setting `t='l'` (the lowercase letter L) produces a continuous line connecting the individual data points.
 
-```{r}
+```{r, tidy=TRUE}
 plot(time,quad, main = 'Quadratic function of time', type = 'l', xlab='time', ylab = 'y = f(t)' )
 ```
 
@@ -465,7 +465,7 @@ You may also want to plot multiple graphs on the same figure. The `plot()` funct
 
 Let us illustrate this by plotting two different exponential functions on one plot, and two different logistic functions on the second one, which were discussed in section \ref{sec:math2}. When you've got multiple plots on the same figure, they need to be distinct and labeled. To distinguish them, below I use the option `col` to specify the color of the plot, and I add a legend describing the parameters of each plot to the figure \ref{fig:ch2-plot2}. The function has a lot of options, so if you want to understand the details, type `help(legend)` in the prompt or go to Help tab in the lower right frame of R Studio and type legend.
 
-```{r ch2-plot2, echo=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Overlaying multiple plots in R: two exponential functions of the form $y=b+ae^{rx}$ on the left, two logistic functions of the form $y= ae^{rx}/(b+e^{rx})$ on the right.'}
+```{r ch2-plot2, echo=TRUE, tidy=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Overlaying multiple plots in R: two exponential functions of the form $y=b+ae^{rx}$ on the left, two logistic functions of the form $y= ae^{rx}/(b+e^{rx})$ on the right.'}
 x<-seq(0,10,0.5)
 y<-10+20*exp(-0.5*x)
 plot(x,y, xlab='x', ylab='exponential',col=1,lwd=3)

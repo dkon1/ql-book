@@ -1,3 +1,5 @@
+# (PART) Part I: The Basics {-} 
+
 # Arithmetic and variables: the lifeblood of modeling
 
 > You can add up the parts, but you won't have the sum;  
