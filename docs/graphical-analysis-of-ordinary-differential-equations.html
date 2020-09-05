@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Quantifying Life</title>
+  <title>7 Graphical analysis of ordinary differential equations | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Quantifying Life" />
+  <meta property="og:title" content="7 Graphical analysis of ordinary differential equations | Quantifying Life" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Quantifying Life" />
+  <meta name="twitter:title" content="7 Graphical analysis of ordinary differential equations | Quantifying Life" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="arithmetic-and-variables.html"/>
+<link rel="prev" href="linear-ordinary-differential-equations.html"/>
+<link rel="next" href="another-initial-value.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -334,57 +334,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Quantifying Life</h1>
-<p class="author"><em>Dmitry Kondrashov</em></p>
-<p class="date"><em>2020-09-04</em></p>
-</div>
-<div id="purpose-and-purview" class="section level1 unnumbered">
-<h1>Purpose and purview</h1>
+<div id="graphical-analysis-of-ordinary-differential-equations" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Graphical analysis of ordinary differential equations</h1>
 <blockquote>
-<p>What is a man, said Athos, who has no landscape? Nothing but mirrors and tides.<br />
-– Anne Michaels, <strong>Fugitive Pieces</strong></p>
+<p>I find the great thing in this world is not so much where we stand, as in what direction we are moving.<br />
+– Oliver Wendell Holmes, Sr., <em>The Autocrat of the Breakfast Table</em></p>
 </blockquote>
-<p>This is an online book to help biologists and biology-adjacent folks learn quantitative skills through the practice of programming in R. These skills can be roughly sorted into four types:</p>
+<p>We now proceed from linear ODEs to more complicated nonlinear equations. In contrast to linear differential equations, which can be solved in general, nonlinear differential equations may not be solvable even theoretically. Even though the solutions cannot be written down, they exist and can exhibit much more interesting behaviors than the exponential solutions we have seen. When solutions cannot be found on paper, we have two options: 1) use qualitative or graphical tools, such as finding equilibrium points and their stability, to predict the long-term dynamics of the solution; 2) construct numerical solutions that approximate the true solution. In this chapter we concentrate on the qualitative approach to analyzing ODEs, which allows one to predict the behavior of solutions of any autonomous ODE based on the graph of the defining function of the equation. After working through this chapter you will learn to do the following:</p>
 <ul>
-<li><p>Building models and understanding assumptions</p></li>
-<li><p>Writing code to perform computational tasks</p></li>
-<li><p>Performing mathematical analysis of models</p></li>
-<li><p>Working with data and using statistical tools</p></li>
+<li><p>find equilibrium values of an ODE</p></li>
+<li><p>analyze the stability of equilibria based on the graph of the defining function</p></li>
+<li><p>write down stability conditions analytically</p></li>
+<li><p>use graphical techniques to predict the behavior of the solution of a difference equation without solving it</p></li>
+<li><p>understand basic compartment epidemiology models</p></li>
 </ul>
-<p>These skills interface, intertwine, and reinforce each other in the practice of biological research and are thus presented concurrently in this book, instead of being corralled into separate courses taught by different departments, like mathematics, statistics, and computer science. Here I combine ideas and skills from all of these disciplines into an educational narrative organized by increasing exposure to programming concepts.</p>
-<div id="a-brief-motivation-of-mathematical-modeling" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> A brief motivation of mathematical modeling</h2>
-<p>A mathematical model  is a representation of some real object or phenomenon in terms of quantities (numbers). The goal of modeling is to create a description of the object in question that may be used to pose and answer questions about it, without doing hard experimental work. A good analogy for a mathematical model is a map of a geographic area: a map cannot record all of the complexity of the actual piece of land, because then the map would need to be size of the piece of land, and then it wouldn’t be very useful! Maps, and mathematical models, need to sacrifice the details and provide a birds-eye view of reality in order to guide the traveler or the scientist. The representation of reality in the model must be simple enough to be useful, yet complex enough to capture the essential features of what it is trying to represent.</p>
-<p>Mathematical modeling has long been essential in physics: for instance, it is well known that distance traveled by an object traveling at constant speed <span class="math inline">\(v\)</span> is proportional to the time traveled (called <span class="math inline">\(t\)</span>). This mathematical model can be expressed as an equation:
-%<span class="math display">\[d = vt\]</span>
-Since the time of Newton, physicists have been very successful at using mathematics to describe the behavior of matter of all sizes, ranging from subatomic particles to galaxies. However, mathematical modeling is a new arrow in a biologist’s quiver. Many biologists would argue that living systems are much more complex than either atoms or galaxies, since even a single cell is made up of a mind-boggling number of highly dynamic, interacting entities. That is true, but new advances in experimental biology are producing data that make quantitative methods indispensable for biology.</p>
-<p>The advent of  genetic sequencing in the 1970s and 80s has allowed us to determine the genomes of different species, and in the last few years  next-generation sequencing has reduced sequencing costs for an individual human genome to a few thousand dollars. The resulting deluge of quantitative data has answered many outstanding questions, and also led to entirely new ones. We now understand that knowledge of genomic sequences is not enough for understanding how living things work, so the burgeoning field of  systems biology investigates the interactions between genes, proteins, or other entities. The central question is to understand how a network of interactions between individual molecules can lead to large-scale results, such as the development of a fertilized egg into a complex organism. The human mind is not suited for making correct intuitive judgements about networks comprised of thousands of actors. Addressing questions of this complexity requires quantitative modeling.</p>
+<div id="building-nonlinear-odes" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Building nonlinear ODEs</h2>
+<p></p>
+<p>The simple, linear population growth models we have seen in the last two chapters assume that the per capita birth and death rates are constant, that is, they stay the same regardless of population size. The solutions for these models either grow or decay exponentially, but in reality, populations do not grow without bounds. It is generally true that the larger a population grows, the more scarce the resources, and survival becomes more difficult. For larger populations, this could lead to higher death rates, or lower birth rates, or both.</p>
+<p>How can we incorporate this effect into a quantitative model? We will assume there are separate birth and death rates, and that the birth rate declines as the population grows, while the death rate increases. Suppose there are inherent birth rates <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span>, and the overall birth and death rates <span class="math inline">\(B\)</span> and <span class="math inline">\(D\)</span> depend linearly on population size <span class="math inline">\(P\)</span>: <span class="math inline">\(B = b - aP\)</span> and <span class="math inline">\(D = d + cP\)</span>.</p>
+<p>To model the rate of change of the population, we need to multiply the rates <span class="math inline">\(B\)</span> and <span class="math inline">\(D\)</span> by the population size <span class="math inline">\(P\)</span>, since each individual can reproduce or die. Also, since the death rate <span class="math inline">\(D\)</span> decreases the population, we need to put a negative sign on it. The resulting model is:
+<span class="math display">\[ \dot P = BP - DP = [(b-d)-(a+c)P]P \]</span></p>
+<p>The parameters of the model, the constants <span class="math inline">\(a,b,c,d\)</span>, have different meanings. Performing  dimensional analysis, we find that <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span> have the dimensions of <span class="math inline">\(1/[t]\)</span>, the same as the rate <span class="math inline">\(r\)</span> in the exponential growth model. However, the dimensions of <span class="math inline">\(a\)</span> (and <span class="math inline">\(c\)</span>) must obey the relation: <span class="math inline">\([P]/[t] = [a][P]^2\)</span>, and thus,</p>
+<p><span class="math display">\[[a]=[c] = \frac{1}{[t][P]}\]</span></p>
+<p>This shows that the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> have to be treated differently than <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span>. Let us define the inherent growth rate of the population, to be <span class="math inline">\(r_0=b-d\)</span> (if the death rate is greater than the birth rate, the population will inherently decline). Then let us introduce another constant <span class="math inline">\(K\)</span>, such that <span class="math inline">\((a+c)=r_0/K\)</span>. It should be clear from the dimensional analysis that <span class="math inline">\(K\)</span> has units of <span class="math inline">\(P\)</span>, population size. Now we can write down the logistic equation in the canonical form:
+<span class="math display">\[\begin{equation}
+\dot P = r\left(1-\frac{P}{K}\right)P
+\label{eq:log_cont_model}
+\end{equation}\]</span>
+This model can be re-written as <span class="math inline">\(\dot P = aP -bP^2\)</span>, so it is clear that there is a <em>linear term</em> (<span class="math inline">\(aP\)</span>) and a <em>nonlinear term</em> (<span class="math inline">\(-bP^2\)</span>). When <span class="math inline">\(P\)</span> is sufficiently small (and positive) the linear term is greater, and the population grows. When <span class="math inline">\(P\)</span> is large enough, the nonlinear term wins and the population declines. </p>
+<p>It should be apparent that there are two fixed points, at <span class="math inline">\(P=0\)</span> and at <span class="math inline">\(P=K\)</span>. The first one corresponds to a population with no individuals. On the other hand, <span class="math inline">\(K\)</span> signifies the population at which the negative effect of population size balances out the inherent population growth rate, and is called the  <em>carrying capacity</em> of a population in its environment . We will analyze the qualitative behavior of the solution, without writing it down, in the next section of this chapter.</p>
 </div>
-<div id="purpose-of-this-book" class="section level2" number="0.2">
-<h2><span class="header-section-number">0.2</span> Purpose of this book</h2>
-<p>This textbook is intended for a college-level course for biology and pre-medicine majors, or more established scientists interested in learning the applications of mathematical methods to biology. The book brings together concepts found in mathematics, computer science, and statistics courses to provide the student a collection of skills that are commonly used in biological research. The book has two overarching goals: one is to explain the quantitative language that often is a formidable barrier to understanding and critically evaluating research results in biological and medical sciences. The second is to teach students computational skills that they can use in their future research endeavors. The main premise of this approach is that computation is critical for understanding abstract mathematical ideas.</p>
-<p>These goals are distinct from those of traditional mathematics courses that emphasize rigor and abstraction. I strongly believe that understanding of mathematical concepts is not contingent on being able to prove all of the underlying theorems. Instead, premature focus on abstraction obscures the ideas for most students; it is putting the theoretical cart before the experiential horse. I find that students can grasp deep concepts when they are allowed to experience them tangibly as numbers or pictures, and those with an abstract mindset can generalize and add rigor later. As I demonstrate in part 3 of the book, Markov chains can be explained without relying on the machinery of measure theory and stochastic processes, which require graduate level mathematical skills. The idea of a system randomly hopping between a few discrete states is far more accessible than sigma algebras and martingales. Of course, some abstraction is necessary when presenting mathematical ideas, and I provide correct definitions of terms and supply derivations when I find them to be illuminating. But I avoid rigorous proofs, and always favor understanding over mathematical precision.</p>
-<p>The book is structured to facilitate learning computational skills. Over the course of the text students accumulate programming experience, progressing from assigning values to variables in the first chapter to solving nonlinear ODEs numerically by the end of the book. Learning to program for the first time is a challenging task, and I facilitate it by providing sample scripts for students to copy and modify to perform the requisite calculations. Programming requires careful, methodical thinking, which facilitates deeper understanding of the models being simulated. In my experience of teaching this course, students consistently report that learning basic scientific programming is a rewarding experience, which opens doors for them in future research and learning.</p>
-<p>It is of course impossible to span the breadth of mathematics and computation used for modeling biological scenarios. This did not stop me from trying. The book is broad but selective, sticking to a few key concepts and examples which should provide enough of a basis for a student to go and explore a topic in more depth. For instance, I do not go through the usual menagerie of probability distributions in chapter 4, but only analyze the uniform and the binomial distributions. If one understands the concepts of distributions and their means and variances, it is not difficult to read up on the geometric or gamma distribution if one encounters it. Still, I omitted numerous topics and entire fields, some because they require greater mathematical sophistication, and others because they are too difficult for beginning programmers, e.g. sequence alignment and optimization algorithms. I hope that you do not end your quantitative journey with this book!</p>
-<p>I take an even more selective approach to the biological topics that I present in every chapter. The book is not intended to teach biology, but I do introduce biological questions I find interesting, refer the reader to current research papers, and provide discussion questions for you to wrestle with. This requires a basic explanation of terms and ideas, so most chapters contain a broad brushstrokes summary of a biological field, e.g. measuring mutation rates, epidemiology modeling, hidden Markov models for gene structure, and limitations of medical testing. I hope the experts in these fields forgive my omitting the interesting details that they spend their lives investigating, and trust that I managed to get the basic ideas across without gross distortion.</p>
+<div id="qualitative-analysis-of-odes" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Qualitative analysis of ODEs</h2>
+<p></p>
+<p>In this section we will analyze the behavior of solutions of an autonomous ODE without solving it on paper. Generally, ODE models for realistic biological systems are nonlinear, and most nonlinear differential equations cannot be solved analytically. We can make predictions about the behavior, or <em>dynamics</em> of solutions by considering the properties of the  <em>defining function</em>, which is the function on the right-hand-side of a general autonomous ODE:
+<span class="math display">\[ \frac{dx}{dt} = f(x)\]</span></p>
+<div id="graphical-analysis-of-the-defining-function" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> graphical analysis of the defining function</h3>
+<p>The defining function relates the value of the solution variable <span class="math inline">\(x\)</span> to its rate of change <span class="math inline">\(dx/dt\)</span>. For different values of <span class="math inline">\(x\)</span>, the rate of change of <span class="math inline">\(x(t)\)</span> is different, and it is defined by the function <span class="math inline">\(f(x)\)</span>. There are only three options:</p>
+<ul>
+<li><p>if <span class="math inline">\(f(x) &gt; 0\)</span>, <span class="math inline">\(x(t)\)</span> is increasing at that value of <span class="math inline">\(x\)</span></p></li>
+<li><p>if <span class="math inline">\(f(x) &lt; 0\)</span>, <span class="math inline">\(x(t)\)</span> is decreasing at that value of <span class="math inline">\(x\)</span></p></li>
+<li><p>if <span class="math inline">\(f(x) = 0\)</span>, <span class="math inline">\(x(t)\)</span> is not changing that value of <span class="math inline">\(x\)</span></p></li>
+</ul>
+<p>To determine for which values of <span class="math inline">\(x\)</span> the solution <span class="math inline">\(x(t)\)</span> increases and decreases, it enough to look at the plot of <span class="math inline">\(f(x)\)</span>. On the intervals where the graph of <span class="math inline">\(f(x)\)</span> is above the <span class="math inline">\(x\)</span>-axis <span class="math inline">\(x(t)\)</span> increases, on the intervals where the graph of <span class="math inline">\(f(x)\)</span> is below the <span class="math inline">\(x\)</span>-axis, <span class="math inline">\(x(t)\)</span> decreases. The roots (zeros) of <span class="math inline">\(f(x)\)</span> are special cases, they separate the range of <span class="math inline">\(x\)</span> into the intervals where the solution grows and and where it decreases. This seems exceedingly simple, and it is, but it provides specific information about <span class="math inline">\(x(t)\)</span>, without knowing how to write down its formula.</p>
+<p>For an autonomous ODE with one dependent variable, the direction of the rate of change prescribed by the differential equation can be graphically represented by sketching the  <em>flow on the line</em> of the dependent variable. The flow stands for the direction of change at every point, specifically increasing, decreasing, or not changing. The flow is plotted on the horizontal x-axis, so if <span class="math inline">\(x\)</span> is increasing, the flow will be indicated by a rightward arrow, and if it is decreasing, the flow will point to the left. The fixed points separate the regions of increasing (rightward) flow and decreasing (leftward) flow.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch7-flow1"></span>
+<img src="QuantLife_files/figure-html/ch7-flow1-1.png" alt="a) plot of the defining function of the ODE dx/dt = 4x-100 with direction of flow x(t) indicated with arrows on the x-axis; b) plot of solutions x(t) of the ODE staring with four initial values." width="50%" /><img src="QuantLife_files/figure-html/ch7-flow1-2.png" alt="a) plot of the defining function of the ODE dx/dt = 4x-100 with direction of flow x(t) indicated with arrows on the x-axis; b) plot of solutions x(t) of the ODE staring with four initial values." width="50%" />
+<p class="caption">
+Figure 7.1: a) plot of the defining function of the ODE dx/dt = 4x-100 with direction of flow x(t) indicated with arrows on the x-axis; b) plot of solutions x(t) of the ODE staring with four initial values.
+</p>
 </div>
-<div id="organization-of-the-book" class="section level2" number="0.3">
-<h2><span class="header-section-number">0.3</span> Organization of the book</h2>
-<p>A course based on this textbook can be tailored to fit the quantitative needs of a biological sciences curriculum. At the University of Chicago the course I teach has replaced the last quarter of calculus as a first-year requirement for biology majors. This material could be used for a course without a calculus pre-requisite that a student takes before more rigorous statistics, mathematics, or computer science courses. It may also be taught as an upper-level elective course for students with greater maturity who may be ready to tackle the eigenvalues and differential equations chapters. My hope is that it may also prove useful for graduate students or established scientists who need an elementary but comprehensive introduction to the concepts they encounter in the literature or that they can use in their own research. Whatever path you traveled to get here, I wish you a fruitful journey through biomathematics and computation!</p>
-
+<p><strong>Example.</strong> Consider a linear ODE the likes of which we have solved in section :
+<span class="math display">\[\frac{dx}{dt} = 4x -100\]</span>
+The defining function is a straight line vs. <span class="math inline">\(x\)</span>, its graph is shown in figure a. Based on this graph, we conclude that the solution decreases when <span class="math inline">\(x&lt;25\)</span> and increases when <span class="math inline">\(x&gt;25\)</span>. Thus we can sketch the solution <span class="math inline">\(x(t)\)</span> over time, without knowing its functional form. The dynamics depends on the initial value: if <span class="math inline">\(x(0)&lt;25\)</span>, the solution will keep decreasing without bound, and go off to negative infinity; if <span class="math inline">\(x(0)&gt;25\)</span>, the solution will keep decreasing without bound, and go off to positive infinity. This is shown by plotting numerical solutions of this ODE for several initial values in figure b. The dotted line shows the location of the special value of 25 which separates the interval of growth from the interval of decline.</p>
+<p><strong>Example.</strong> Now let us analyze a nonlinear ODE, specifically the logistic model with the following parameters:
+<span class="math display">\[\frac{dP}{dt} =0.3P\left(1-\frac{P}{40}\right)\]</span></p>
+<p>The defining function is a downward-facing parabola with two roots at <span class="math inline">\(P=0\)</span> and <span class="math inline">\(P=40\)</span>, as shown in figure a. Between the two roots, the defining function is positive, which means the derivative <span class="math inline">\(dP/dt\)</span> is positive too, so the solution grows on that interval. For <span class="math inline">\(P&lt;0\)</span> and <span class="math inline">\(P&gt;40\)</span>, the solution decreases. Therefore, we can sketch the graphs of the solution <span class="math inline">\(P(t)\)</span> starting with different initial conditions, as show in figure b.</p>
+<p>To summarize, the defining function of the ODE determines the rate of change of the solution <span class="math inline">\(x(t)\)</span> depending on the value of <span class="math inline">\(x\)</span>. The graphical approach to finding areas of right and left flow is based on graphing the function <span class="math inline">\(f(x)\)</span>, and dividing the x-axis based on the sign of <span class="math inline">\(f(x)\)</span>. In the areas where <span class="math inline">\(f(x) &gt; 0\)</span>, its graph is above the x-axis, and the flow is to the right; conversely, when <span class="math inline">\(f(x) &lt; 0\)</span>, its graph is below the x-axis, and the flow is to the left. The next subsection puts this approach in a more analytic framework.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch7-flow2"></span>
+<img src="QuantLife_files/figure-html/ch7-flow2-1.png" alt="a) plot of the defining function of the ODE dP/dt = 0.3P(1-P/40) with direction of flow of P(t) indicated with arrows on the P-axis; b) plot of solutions P(t) of the ODE staring with three initial values." width="50%" /><img src="QuantLife_files/figure-html/ch7-flow2-2.png" alt="a) plot of the defining function of the ODE dP/dt = 0.3P(1-P/40) with direction of flow of P(t) indicated with arrows on the P-axis; b) plot of solutions P(t) of the ODE staring with three initial values." width="50%" />
+<p class="caption">
+Figure 7.2: a) plot of the defining function of the ODE dP/dt = 0.3P(1-P/40) with direction of flow of P(t) indicated with arrows on the P-axis; b) plot of solutions P(t) of the ODE staring with three initial values.
+</p>
 </div>
 </div>
+<div id="fixed-points-and-stability" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> fixed points and stability</h3>
+We have seen that the dynamics of solutions of differential equations depend on the initial value of the dependent variable: for some values the solution increases, for others it decreases, and for intermediate values it remains the same. Those special values separating intervals of increase and decrease are called fixed points (or equilibria), and the first step to understanding the dynamics of an ODE is finding its fixed points. A fixed point is a value of the solution at which the dynamical system stays constant, thus, the derivative of the solution must be zero. Here is the formal definition:
+<p>For instance, the linear equation <span class="math inline">\(\dot x = rx\)</span> has a single fixed point at <span class="math inline">\(x^* = 0\)</span>. For a more interesting example, consider a logistic equation: $x = x - x^2 $. Its fixed points are the solutions of <span class="math inline">\(x - x^2 = 0\)</span>, therefore there two fixed points: <span class="math inline">\(x^* = 0, 1\)</span>. We know that if the solution has either of the fixed points as the initial condition, it will remain at that value for all time.</p>
+Locating the fixed points is not sufficient to predict the global behavior of the dynamical system, however. What happens to the solution of a dynamical system if the initial condition is very close to an equilibrium, but not precisely at it? Put another way, what happens if the equilibrium is ? The solution may be attracted to the equilibrium value, that is, it approaches it ever-closer, or else it is not. In the first case, this is called a stable equilibrium, because a small perturbation does not dramatically change the long-term behavior of the solution. In the latter case, the equilibrium is called unstable, and the solution perturbed from the equilibrium never returns. These concepts are formalized in the following definition :
+To determine whether a fixed point is stable analytically we use the approach called , which involves replacing the function <span class="math inline">\(f(x)\)</span> with a linear approximation. Let us define <span class="math inline">\(\epsilon(t)\)</span> to be the deviation of the solution <span class="math inline">\(x(t)\)</span> from the fixed point <span class="math inline">\(x^*\)</span>, so we can write <span class="math inline">\(x(t) = x^* + \epsilon(t)\)</span>. Assuming that <span class="math inline">\(\epsilon(t)\)</span> is small, we can write the function <span class="math inline">\(f(x)\)</span> using Taylor’s formula:
+<span class="math display">\[ f(x^*+\epsilon(t))= f(x^*)+f&#39;(x^*) \epsilon(t) + ... = f&#39;(x^*) \epsilon(t) + ... \]</span>
+The term <span class="math inline">\(f(x^*)\)</span> vanished because it is zero by definition  of a fixed point. The ellipsis indicates all the terms of order <span class="math inline">\(\epsilon(t)^2\)</span> and higher, which are very small if <span class="math inline">\(\epsilon(t)\)</span> is small, and thus can be neglected. Thus, we can write the following approximation to the ODE <span class="math inline">\(\dot x = f(x)\)</span> near a fixed point:
+<span class="math display">\[ \dot x =  \frac{d(x^* + \epsilon(t))}{dt} = \dot \epsilon(t) =  f&#39;(x^*) \epsilon(t)\]</span>
+Thus we replaced the complicated nonlinear ODE near a fixed point with a linear equation, which approximates the dynamics of the deviation <span class="math inline">\(\epsilon(t)\)</span> near the fixed point <span class="math inline">\(x^*\)</span>; note that the derivative <span class="math inline">\(f&#39;(x^*)\)</span> is a constant for any given fixed point. In section  we classified the behavior of solutions for the general linear ODE <span class="math inline">\(\dot x = rx\)</span>, and now we apply this classification to the behavior of the deviation <span class="math inline">\(\epsilon(t)\)</span>. If the multiple <span class="math inline">\(f&#39;(x^*)\)</span> is positive, the deviation <span class="math inline">\(\epsilon(t)\)</span> is growing, the solution is diverging away from the fixed point, and thus the fixed point is unstable. If the multiple <span class="math inline">\(f&#39;(x^*)\)</span> is negative, the deviation <span class="math inline">\(\epsilon(t)\)</span> is decaying, the solution is converging to the fixed point, and thus the fixed point is stable. Finally, there is the borderline case of <span class="math inline">\(f&#39;(x^*) = 0\)</span> which is inconclusive, and the fixed point may be either stable or unstable. The  derivative stability analysis is summarized in the following:
+<p>Therefore, knowing the derivative or the slope of the defining function at the fixed point is enough to know its stability. If the derivative has the discourtesy of being zero, the situation is tricky, because then higher order terms that we neglected make the difference. We will mostly avoid such borderline cases, but they are important in some applications .</p>
+<p>One word of caution:  This is a common mistake, because the function <span class="math inline">\(f(x)\)</span> is equal to the time derivative of <span class="math inline">\(x(t)\)</span>. However, the derivative <span class="math inline">\(f&#39;(x)\)</span> is not with respect to time, it is with respect to x, the dependent variable. In other words, it reflects the slope of the graph of the defining function <span class="math inline">\(f(x)\)</span>, not the curvature of the graph of the solution <span class="math inline">\(x(t)\)</span>.</p>
+<p>To summarize, here is an outline of the steps for analyzing the behavior of solutions of an autonomous one-variable ODE. These tasks can be accomplished either by plotting the defining function <span class="math inline">\(f(x)\)</span> and finding the fixed points and their stability based on the plot, or by solving for the fixed points on paper, then finding the derivative <span class="math inline">\(f&#39;(x)\)</span> and plugging in the values of the fixed points to determine their stability. Either approach is valid, but the analytical methods are necessary when dealing with models that have unknown parameter values, which makes it impossible to represent the defining function in a plot. \</p>
 
-
-
+ Consider the linear ODE that we analyzed above <span class="math inline">\(dx/dt = 4x -100\)</span>. Let us go through the steps of qualitative analysis:
+ Consider the logistic model from the previous subsection, <span class="math inline">\(dP/dt =0.3P(1-P/40)\)</span>. We have analyzed the stability of the two fixed points using the plot in figure , and saw that the flow takes the solution away from <span class="math inline">\(P=0\)</span>, and toward <span class="math inline">\(P=K\)</span>, thus the first fixed point is unstable, while the second is stable. Let us repeat the analysis using analytical tools:
+<p>% This can be done more generally by our derivative test: taking the derivative of the function on the right-hand-side (with respect to <span class="math inline">\(P\)</span>), we get <span class="math inline">\(f&#39;(P) = r(1-2\frac{P}{K})\)</span>. Assuming <span class="math inline">\(r&gt;0\)</span> (the population is viable), <span class="math inline">\(f&#39;(0)= r\)</span> is positive, and the fixed point is therefore unstable. This makes biological sense, since we assumed positive inherent population growth, so given a few individuals, it will increase in size. On the other hand, <span class="math inline">\(P&#39;(K) = r(1-2) = -r\)</span>, so this fixed point is stable. Thus, according to the logistic model, a population with a positive inherent growth rate will not grow unchecked, like in the exponential model, but will increase until it reaches its carrying capacity, at which it will stay (if all parameters remain constant).</p>
+ Consider the ODE $dx/dt = -x^3 + x^2 $, whose defining function is plotted in figure a, showing two fixed points at <span class="math inline">\(x = 0, 1\)</span>.
+<p>This example shows how graphical analysis can help when derivative analysis is undetermined. The red arrows on the x-axis of figure  show the direction of the flow in the three different regions separated by the fixed points. Flow is to the right for <span class="math inline">\(x&lt;1\)</span>, to the left for for <span class="math inline">\(x&gt;1\)</span>; it is clear that the arrows approach the fixed point from both sides, and thus the fixed point is stable, as the negative slope of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=1\)</span> indicates. One the other hand, the fixed point at <span class="math inline">\(x=0\)</span> presents a more complicated situation: the slope of <span class="math inline">\(f(x)\)</span> is zero, and the flow is rightward on both sides of the fixed point. This type of fixed point is sometimes called , because it is stable when approached from one side, and unstable when approached from the other.</p>
+<p>\begin{figure}[htbp] % figure placement: here, top, bottom, or page
+&lt;&lt;ch16-math3, echo=FALSE, fig.width=4.5, fig.height=4.5, out.width=‘0.49\linewidth’,fig.show=‘hold’&gt;&gt;=
+# defining function for the ODE dx/dt = x<sup>2-x</sup>3
+semi_funk &lt;- function (x,r,K){
+return(x<sup>2-x</sup>3)
+}
+x&lt;-seq(-1,1.5,0.02) # define the array of values of x
+y&lt;-semi_funk(x,r,K)
+plot(x,y,t=“l”,xlab=“x”, ylab=“dx/dt”,lwd=3, cex=1.5, cex.axis=1.5,cex.lab=1.5)
+abline(0,0,lwd=2)
+arrows(0.2,0,0.9,0,length=0.3,angle=30,lwd=6,col=‘red’)
+arrows(-1,0,-0.2,0,length=0.3,angle=30,lwd=6,col=‘red’)
+arrows(1.5,0,1.1,0,length=0.3,angle=30,lwd=6,col=‘red’)
+dt &lt;- 0.01 # set time step
+Tmax &lt;- 15 # set length of time
+Nstep &lt;- Tmax/dt # calculate number of time steps
+init_value &lt;- -0.7 # set initial value
+y &lt;- matrix(init_value,nrow=1, ncol=Nstep+1) # initialize the solution vectors with init_value
+t &lt;- dt<em>(0:Nstep)
+for (i in 1:Nstep){
+y[i+1] &lt;- y[i]+dt</em>semi_funk(y[i])
+}
+# plot the solution vs time
+# plot the numeric solution vs time
+plot(t,y,t=‘l’,xlab=‘time’,ylab=‘x(t)’,ylim=c(-1,1.7),lwd=3, cex=1.5, cex.axis=1.5,cex.lab=1.5)</p>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="arithmetic-and-variables.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-ordinary-differential-equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="another-initial-value.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

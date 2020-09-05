@@ -17,10 +17,12 @@ Science begins with experimental measurements, which are then verified by reprod
 * use R to plot and analyze data sets
 
 
+<iframe src="https://uchicago.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c33322b7-6299-4c63-93f1-ab41002ec626&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Mutations and their rates
 \label{sec:bio3}
 
-All Earth-based lifeforms receive an inheritance from their parent(s): a string of deoxyribonucleic acids (\index{DNA} *DNA*) called the genetic sequence, or \index{genome} *genome* of an individual. The information to produce all the necessary components to build and run the organism is encoded in the sequence of the four different \index{nucleotides} *nucleotides*: adenine, thymine, guanine, and cytosine (abbreviated as A, T, G, C). Different parts of the genome play different roles; some discrete chunks called *genes* contain the instructions to build \index{proteins} *proteins*, the workhorses of biology. To make a protein from a gene, the information is transcribed from DNA into messenger ribonucleic acid (\index{mRNA} *mRNA*), which is then translated into a string of  \index{amino acids} *amino acids* which constitute the protein. The genetic code determines the translation, using three nucleic acids in DNA and RNA to represent a single amino acid in a protein. Thus, a sequence of DNA always results in a specific sequence of amino acids, which determine the structure and function of the protein.
+All Earth-based lifeforms receive an inheritance from their parent(s): a string of deoxyribonucleic acids (\index{DNA} *DNA*) called the genetic sequence, or \index{genome} *genome* of an individual. The information to produce all the necessary components to build and run the organism is encoded in the sequence of the four different \index{nucleotides} *nucleotides*: adenine, thymine, guanine, and cytosine (abbreviated as A, T, G, C). Different parts of the genome play different roles; some discrete chunks called *genes* contain the instructions to build \index{proteins} *proteins*, the workhorses of biology. To make a protein from a gene, the information is transcribed from DNA into messenger ribonucleic acid (\index{mRNA} *mRNA*), which is then translated into a string of  \index{amino acids} *amino acids* which constitute the protein. The genetic code determines the translation, using three nucleic acids in DNA and RNA to represent a single amino acid in a protein. Thus, a sequence of DNA results in a specific sequence of amino acids, which determine the structure and function of the protein.
 
 ![Different types of substitution \index{mutation!substitution} point mutations are distinguished by their effects on the gene products; image by Jonsta247 in public domain via Wikimedia Commons.](ch3/Point_mutations-en.png)
 
@@ -29,7 +31,6 @@ The above processes involve copying and transferring information. As we know fro
 Mutations can have different effects on the mutant organism, although acquisition of super-powers has not been observed. Usually, point mutations have either little observable effect or a negative effect on the health of the mutant. A classic example is \index{sickle-cell disease} *sickle-cell disease*, in which the molecules of the protein hemoglobin, responsible for carrying oxygen in the blood from the lungs to the tissues, tends to stick together and clump, resulting in sickle-shaped red blood cells. The disease is caused by a single substitution mutation in the gene that codes for one of the two components of hemoglobin, called $\beta$-globin. The substitution of a single nucleotide in the DNA sequence changes one amino acid in the protein from glutamate to valine, which causes the proteins to aggregate. This  \index{mutation!missense} *missense*}* mutation (see figure \ref{fig:ch3_mutation}) is carried by a fraction of the human population, and those who inherit the allele *allele* from both parents develop the painful and sometimes deadly disease. Such mutations that are present in some but not all of a population are called \index{mutation!polymorphism} *polymorphisms*, to distinguish them from mutations that occurred in evolutionary lineages and differentiate species from each other.
 
 One of the central questions of evolutionary biology is how frequently do mutations occur? Since mutations are generally undesirable, most living things have developed ways to minimize the frequency of errors in copying DNA, and to repair DNA damage. But although mutations are rare, they occur spontaneously in all organisms because molecular processes such as copying a DNA molecule are subject to random noise arising from thermal motion. So mutations are fundamentally a random process and we need to use \index{statistics!descriptive} *descriptive statistics* to analyze data with inherent randomness.
-
 
 
 ## Describing data sets
@@ -261,5 +262,77 @@ hist(Galton$parent/child)
 mean(Galton$parent/child)
 sd(Galton$parent/child)
 ```
+
+## R Assignment: Reading in data and fitting functions by eye
+
+In this section you will read in three different data files and assign each data frame a descriptive name, e.g. Alcohol, and then plot and fit relationship between the variables within each data frame. Your task will be to choose the parameters slope and intercept that produce a plot that does a decent job of resembling the data, meaning that the line should pass through the scatterplot and capture its trend (rising or falling) fairly well.
+
+
+1. Read in the mutations data set found in the file `kong_mutation_data.txt`, using the option `header=TRUE`. It contains three variables: `PatAge` (paternal age in years), `MatAge` (maternal age in years), and `Mutations` (number of de novo mutations). 
+
+a) Print the mean and standard deviation of each variable, and generate histograms of all three variables.
+
+```{r}
+
+```
+
+
+b) Plot `Mutations` as a function `PatAge` using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for `Mutation`, and use `lines()` to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the `sum()` function) of squared differences between the vector `Mutation` and the vector of predicted values and print it out.
+  
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+c) Make a plot of `Mutations` vs `MatAge` using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for `Mutation`, and use `lines()` to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the `sum()` function) of squared differences between the vector `Mutation` and the vector of predicted values and print it out.
+  
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+2. Read in the data set of heart rates before and after exercis found in the file `HR_class.txt` with the option `header=TRUE`. It contains variables `Rest1` (heart rate at rest in bpm), `Rest2` (heart rate at rest in bpm), `Ex1` (heart rate after exercise in bpm), `Ex2` (heart rate after exercise in bpm).
+
+a) Print the mean and standard deviation of each variable, and generate histograms of all four variables.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+b) Plot `Ex1` as a function of `Rest1` using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for `Ex1`, and use `lines()` to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the `sum()` function) of squared differences between the vector `Ex1` and the vector of predicted values and print it out.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+c) Plot `Rest2` as a function of `Rest1` using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for `Rest2`, and use `lines()` to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the `sum()` function) of squared differences between the vector `Rest2` and the vector of predicted values and print it out.
+
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+3. Read in the data for the concentration of alcohol in blood plasma after administration of alcohol in the file `Alcohol_data.txt` with the option `header=TRUE`. It contains variables `Conc` (blood alcohol concentration in micrograms/mL) and the variable `Time` (in hours after consumption).
+
+
+a)  Plot `Conc` as a function of `Time` using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for `Conc`, and use `lines()` to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the `sum()` function) of squared differences between the vector `Conc` and the vector of predicted values and print it out.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+
+b) The variable `Conc` rises and falls, so it would be better to fit it using two separate linear functions. Assign two different variables for slopes and two different for intercepts of two linear functions, and calculate two vectors of predicted values, by splitting up the vector `Time` into the rising and falling subsets. Reminder: use a range of indices (e.g. 1:5) to create a subset of consecutive elements of a vector. Overlay a plot of two linear functions over the data plot, one to match the rise and the second the decay (they should intercept roughly at the peak of the concentration.) Calculate the sums of squared differences between the two subsets of vector `Conc` and the two vectors of predicted values and print the sum of the two sums.
+ 
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+YOUR ANSWERS GO HERE
+
+
 
 

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 simple linear models | Quantifying Life</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 simple linear models | Quantifying Life" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 simple linear models | Quantifying Life" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dmitry Kondrashov" />
+
+
+<meta name="date" content="2020-09-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-difference-equations.html"/>
+<link rel="next" href="intro.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Quantifying Life (Web version) </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+</ul></li>
+<li class="part"><span><b>I Part I: The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
+<li class="chapter" data-level="3.2.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
+<li class="chapter" data-level="3.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
+<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
+<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
+<li class="chapter" data-level="4.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Part II: Things that change over time</b></span></li>
+<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models}</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
+<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
+<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
+<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
+<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="simple-linear-models.html"><a href="simple-linear-models.html"><i class="fa fa-check"></i><b>6</b> simple linear models</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="simple-linear-models.html"><a href="simple-linear-models.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>6.0.1</b> models with a constant term</a></li>
+<li class="chapter" data-level="6.0.2" data-path="simple-linear-models.html"><a href="simple-linear-models.html#population-growth-and-decline"><i class="fa fa-check"></i><b>6.0.2</b> population growth and decline</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>7</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantifying Life</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simple-linear-models" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> simple linear models</h1>
+<p>Having set up the difference equation models, we would naturally like to solve them to find out how the dependent variable, such as population size, varies over time. A solution may be  <em>analytic</em>, meaning that it can be written as a formula, or  <em>numerical</em>, in which case it is generated by a computer in the form of a sequence of values of the dependent variable over a period of time. In this section, we will find some simple analytic solutions and learn to analyze the behavior of difference equations which we cannot solve exactly.</p>
+
+<div class="definition">
+<span id="def:diff_eqn" class="definition"><strong>(#def:diff_eqn) </strong></span>A function <span class="math inline">\(N(t)\)</span> is a  (over some time period <span class="math inline">\(a &lt; t &lt; b\)</span>) of a difference equation <span class="math inline">\(N(t+1) = f(N(t))\)</span> if it satisfies that equation (over some time period <span class="math inline">\(a &lt; t &lt; b\)</span>).
+</div>
+<p></p>
+<p>For instance, let us take our first model of the static population, <span class="math inline">\(N(t+1) = N(t)\)</span>. Any constant function is a solution, for example, <span class="math inline">\(N(t) = 0\)</span>, or <span class="math inline">\(N(t) = 10\)</span>. There are actually as many solutions as there are numbers, that is, infinitely many! In order to specify exactly what happens in the model, we need to specify the size of the population at some point, usually, at the “beginning of time”, <span class="math inline">\(t = 0\)</span>. This is called the  <em>initial condition</em> for the model, and for a well-behaved difference equation it is enough to determine a unique solution. For the static model, specifying the initial condition is the same as specifying the population size for all time.</p>
+<p>Now let us look at the general model of population growth with constant birth and death rates. We saw in equation  above that these can be written in the form <span class="math inline">\(N(t+1) = (1 + b - d) N(t)\)</span>. To simplify, let us combine the numbers into one growth parameter <span class="math inline">\(r = 1 + b - d\)</span>, and write down the general equation for population growth with constant growth rate:
+<span class="math display">\[N(t+1) =  rN(t)\]</span></p>
+<p>To find the solution, consider a specific example, where we start with the initial population size <span class="math inline">\(N_0 = 1\)</span>, and the growth rate <span class="math inline">\(r=2\)</span>. The sequence of population sizes is: 1, 2, 4, 8, 16, etc. This is described by the formula <span class="math inline">\(N(t) = 2^t\)</span>.</p>
+<p>In the general case, each time step the solution is multiplied by <span class="math inline">\(r\)</span>, so the solution has the same exponential form. The initial condition <span class="math inline">\(N_0\)</span> is a multiplicative constant in the solution, and one can verify that when <span class="math inline">\(t=0\)</span>, the solution matches the initial value:
+<span class="math display">\[\begin{equation}
+N(t)  = r^t N_0
+\label{eq:lin_discrete_sol}
+\end{equation}\]</span></p>
+<p>I would like the reader to pause and consider this remarkable formula. No matter what the birth and death parameters are selected, this solution predicts the population size at any point in time <span class="math inline">\(t\)</span>.</p>
+<p>In order to verify that the formula for <span class="math inline">\(N(t)\)</span> is actually a solution in the meaning of definition , we need to check that it actually satisfies the difference equation for all <span class="math inline">\(t\)</span>, not just a few time steps. This can be done algebraically by plugging in <span class="math inline">\(N(t+1)\)</span> into the left side of the dynamic model and <span class="math inline">\(N(t)\)</span> into the right side and checking whether they match. For <span class="math inline">\(N(t)\)</span> given by equation , <span class="math inline">\(N(t+1) = r^{t+1} N_0\)</span>, and thus the dynamic model becomes:
+<span class="math display">\[r^{t+1} N_0 = r \times r^t N_0\]</span>
+Since the two sides match, this means the solution is correct.</p>
+<div id="models-with-a-constant-term" class="section level3" number="6.0.1">
+<h3><span class="header-section-number">6.0.1</span> models with a constant term</h3>
+<p>Now let us consider a dynamic model that combines two different rates: a proportional rate (<span class="math inline">\(rN\)</span>) and a constant rate which does not depend on the value of the variable <span class="math inline">\(N\)</span>. We can write such a generic model as follows:
+<span class="math display">\[ N(t+1) =  rN(t) + a \]</span>
+The right-hand-side of this equation is a linear function of <span class="math inline">\(N\)</span>, so this is a linear difference equation with a constant term. What function <span class="math inline">\(N(t)\)</span> satisfies it? One can quickly check that that the same solution <span class="math inline">\(N(t) = r^t N_0\)</span> does not work because of the pesky constant term <span class="math inline">\(a\)</span>:
+<span class="math display">\[ r^{t+1} N_0 \neq r \times r^t N_0 + a\]</span></p>
+<p>To solve it, we need to try a different form: specifically, an exponential with an added constant. The exponential can be reasonably surmised to have base <span class="math inline">\(r\)</span> as before, and then leave the two constants as unknown: <span class="math inline">\(N(t) = c_1 r^t + c_2\)</span>. To figure out whether this is a solution, plug it into the linear difference equation above and check whether a choice of constants can make the two sides agree:
+<span class="math display">\[  N(t+1) =  c_1 r^{t +1} + c_2 = rN(t) + a  = rc_1 r^t + rc_2+ a\]</span>
+This equation has the same term <span class="math inline">\(c_1 r^{t +1}\)</span> on both sides, so they can be subtracted out. The remaining equation involves only <span class="math inline">\(c_2\)</span>, and its solution is <span class="math inline">\(c_2 = a/(1-r)\)</span>. Therefore, the general solution of this linear difference equation is the following expression, which is determined from the initial value by plugging <span class="math inline">\(t=0\)</span> and solving for <span class="math inline">\(c\)</span>.
+<span class="math display">\[\begin{equation}
+ N(t) = c r^t  + \frac{a}{1-r}
+\label{eq:ch14_sol_wconst}
+\end{equation}\]</span></p>
+<p><strong>Example.</strong> Take the difference equation <span class="math inline">\(N(t+1) = 0.5 N(t) + 40\)</span> with initial value <span class="math inline">\(N(0)= 100\)</span>. The solution, according to our formula is <span class="math inline">\(N(t) = c 0.5^t + 80\)</span>. At <span class="math inline">\(N(0) = 100 = c+80\)</span>, so <span class="math inline">\(c=20\)</span>. Then the compete solution is <span class="math inline">\(N(t) = 20 \times 0.5^t + 80\)</span>. To check that this actually works, plug this solution back into the difference equation:
+<span class="math display">\[ N(t+1) = 20 \times 0.5^{t+1} + 80 = 0.5 \times (20 \times 0.5^t + 80) + 40 =  20 \times 0.5^{t+1} + 80\]</span>
+The equation is satisfied and therefore the solution is correct.</p>
+</div>
+<div id="population-growth-and-decline" class="section level3" number="6.0.2">
+<h3><span class="header-section-number">6.0.2</span> population growth and decline</h3>
+<p></p>
+<p>The parameter <span class="math inline">\(r\)</span> can assume different values, depending on the birth and death rates. If the birth rate is greater than the death rate, <span class="math inline">\(r &gt; 1\)</span>, and if it is the other way around, <span class="math inline">\(r &lt; 1\)</span>. Note that for a realistic biological population, the death rate is limited by the number of individuals present in the population. The maximum number of individuals at any time is <span class="math inline">\(N(t)+bN(t)\)</span>, so this means that <span class="math inline">\(d \leq b +1\)</span>. Therefore, for a biological population, <span class="math inline">\(r \geq 0\)</span>.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="simple-linear-models.html#cb149-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">6</span></span>
+<span id="cb149-2"><a href="simple-linear-models.html#cb149-2" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb149-3"><a href="simple-linear-models.html#cb149-3" aria-hidden="true"></a><span class="kw">plot</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.5</span>, </span>
+<span id="cb149-4"><a href="simple-linear-models.html#cb149-4" aria-hidden="true"></a>    <span class="dt">cex.lab =</span> <span class="fl">1.5</span>, <span class="dt">xlab =</span> <span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;population&quot;</span>)</span>
+<span id="cb149-5"><a href="simple-linear-models.html#cb149-5" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb149-6"><a href="simple-linear-models.html#cb149-6" aria-hidden="true"></a><span class="kw">lines</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb149-7"><a href="simple-linear-models.html#cb149-7" aria-hidden="true"></a>leg.txt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;N(0)=5&quot;</span>, <span class="st">&quot;N(0)=1&quot;</span>)</span>
+<span id="cb149-8"><a href="simple-linear-models.html#cb149-8" aria-hidden="true"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, leg.txt, <span class="dt">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb149-9"><a href="simple-linear-models.html#cb149-9" aria-hidden="true"></a><span class="co"># par(new=TRUE)</span></span>
+<span id="cb149-10"><a href="simple-linear-models.html#cb149-10" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb149-11"><a href="simple-linear-models.html#cb149-11" aria-hidden="true"></a><span class="kw">plot</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.5</span>, </span>
+<span id="cb149-12"><a href="simple-linear-models.html#cb149-12" aria-hidden="true"></a>    <span class="dt">cex.lab =</span> <span class="fl">1.5</span>, <span class="dt">xlab =</span> <span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;population&quot;</span>)</span>
+<span id="cb149-13"><a href="simple-linear-models.html#cb149-13" aria-hidden="true"></a><span class="co"># par(new=FALSE)</span></span>
+<span id="cb149-14"><a href="simple-linear-models.html#cb149-14" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb149-15"><a href="simple-linear-models.html#cb149-15" aria-hidden="true"></a><span class="kw">lines</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb149-16"><a href="simple-linear-models.html#cb149-16" aria-hidden="true"></a>leg.txt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;N(0)=1000&quot;</span>, <span class="st">&quot;N(0)=500&quot;</span>)</span>
+<span id="cb149-17"><a href="simple-linear-models.html#cb149-17" aria-hidden="true"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, leg.txt, <span class="dt">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch14-sol"></span>
+<img src="QuantLife_files/figure-html/ch14-sol-1.png" alt="Plots of solutions of linear difference equations: a) $N(t+1) = 2N(t)$ with different initial values; b) $N(t+1) = 0.5N(t)$ with different initial values" width="50%" /><img src="QuantLife_files/figure-html/ch14-sol-2.png" alt="Plots of solutions of linear difference equations: a) $N(t+1) = 2N(t)$ with different initial values; b) $N(t+1) = 0.5N(t)$ with different initial values" width="50%" />
+<p class="caption">
+Figure 6.1: Plots of solutions of linear difference equations: a) <span class="math inline">\(N(t+1) = 2N(t)\)</span> with different initial values; b) <span class="math inline">\(N(t+1) = 0.5N(t)\)</span> with different initial values
+</p>
+</div>
+The solutions in formula  and  are exponential functions, which as we saw in section  have a limited menu of behaviors, depending on the value of <span class="math inline">\(r\)</span>. If <span class="math inline">\(r &gt; 1\)</span>, multiplication by <span class="math inline">\(r\)</span> increases the size of the population, so the solution <span class="math inline">\(N(t)\)</span> will grow. If <span class="math inline">\(r &lt; 1\)</span>, multiplication by <span class="math inline">\(r\)</span> decreases the size of the population, so the solution <span class="math inline">\(N(t)\)</span> will decay (see figure ). Finally, if <span class="math inline">\(r=1\)</span>, multiplication by <span class="math inline">\(r\)</span> leaves the population size unchanged, like in the pile of rocks model. Here is the complete classification of the behavior of population models with constant birth and death rates (assuming <span class="math inline">\(r&gt;0\)</span>):
+<p>As we see, there are only two options for solution of linear difference equations: ever-faster growth or decay to zero or another constant value. The exponential growth of populations is also known as   after the early population modeler Thomas Malthus. He used a simple population model with constant growth rate to predict demographic disaster due to the exponentially increasing population outstripping the growth in food production. In fact, human population has not been growing with a constant birth rate, and food production has (so far) kept up pace with population size, illustrating yet again that mathematical models are only as good as the assumptions that underlie them.</p>
+Like most programming languages, R allows one to define and use structures called functions. Some are already written and loaded into the R distribution, for example, the function  we use to compute the mean of a vector variable, while others can be defined by users. Functions are discrete chunks of code that can be  from the outside to perform some task. The function receives inputs from the call and returns the result back. Here is the general structure of a function in R:
+<p>The first word <code>myfunction'' is the name of the function, which will be used to \index{function!call}\emph{call} it. The word</code>function" is a keyword that R uses to identify the chunk of code as a function. Finally, in parentheses, is a comma separated list of input arguments. Let’s go ahead and make our first function. Copy the following code into a new script file, and run the script.
+&lt;&lt;comp14-1, tidy=TRUE, tidy.opts=list(width.cutoff=50)&gt;&gt;=
+dot.product &lt;- function(x,y){
+# function to calculate the dot product of two vectors
+if (length(x)==length(y)) {
+# check if the two vectors are the same length
+ans&lt;-sum(x*y)
+} else {
+# if vectors are not the same length, give an error message
+print(‘Vectors must be the same length!’)
+ans &lt;- NA
+}
+return(ans)
+}
+@
+You should see the function name dot.product appear in the upper right window of R Studio - this means the function was was created. However, it doesn’t do anything by itself. In order to use the function, you need to  it by invoking its name. This you can do either from the command line, or from the script after the function has been read. Copy the following three lines into the script file, and then run it again:
+&lt;&lt;comp14-2,tidy=TRUE,tidy.opts=list(width.cutoff=50)&gt;&gt;=
+vec1 &lt;- runif(10)
+vec2 &lt;- 1:10
+result&lt;-dot.product(vec1,vec2) # function call
+@
+Now the variable result contains the dot product of the two vectors vec1 and vec2. Note that  Once the variables are  inside the function, the function assigns vec1 and vec2 to x and y, respectively. When a function contains multiple input arguments, they are distinguished solely by the  to the function in the function call - e.g. the first variable will be called x and the second will be called y, while the function is executing. So please pay attention to the order in which you write the input variables in a function call - if they are out of order, the function will not compute correctly, even if their names appear to be correct.</p>
+<p>Computers are naturally suited for precise, repetitive operations. One can use this ability to solve difference equations by iterating a given function to produce a sequence of values of the dependent variable <span class="math inline">\(x\)</span>. We only need two things: to specify a computer function <span class="math inline">\(f(x)\)</span>, which returns the value of the iterated map for any input value <span class="math inline">\(x\)</span>, and the initial value <span class="math inline">\(X_0\)</span>. Then it is a matter of repeating the operation of evaluating <span class="math inline">\(f(X(t))\)</span> and storing it as the next value <span class="math inline">\(X(t+1)\)</span>. Here is an outline of the calculation, but bear in mind that the mathematical notation in the outline is different from the programming syntax of R. \</p>
+<p></p>
+%\begin{algorithm}
+%
+<p>%\begin{algorithmic}
+%define the iterated map function <span class="math inline">\(F(x)\)</span>
+%choose <span class="math inline">\(N\)</span> (number of iterations)
+%choose an initial condition <span class="math inline">\(X_0\)</span>
+%<span class="math inline">\(x[0] \gets X_0\)</span>
+%
+% <span class="math inline">\(x[i] \gets F(x[i-1])\)</span>
+%
+%\end{algorithmic}
+%
+%\end{algorithm}
+The resulting vector of values <span class="math inline">\(sol\)</span> is called a  of the difference equation. The numerical method has two disadvantages compared to an analytic solution: first, the solution can only be obtained for a specific initial value and number of iterations, and second, any computer simulation inevitably introduces some errors, for instance from round-off. In practice, however, most complex dynamical systems have to solved numerically, as analytic solutions are difficult or impossible to find.</p>
+<p> Let us solve the linear difference equation (the example of population doubling every time step):
+<span class="math display">\[N(t+1) = 2N(t)\]</span>
+In the script below script we define a new function in R which corresponds to the updating function of a difference equation, and use it to solve the difference equation for 30 time steps. In the second part of the script we solve the difference equation
+<span class="math display">\[N(t+1) = 0.8N(t)\]</span>
+using the same method then plot the solutions for both equations in figure  (script not shown). The solution of the first equation (variable <span class="math inline">\(sol1\)</span>) is exponentially growing, while the solution of the second equation (<span class="math inline">\(sol2\)</span>) is declining to zero.
+&lt;&lt;comp14-3,tidy=TRUE, tidy.opts=list(width.cutoff=50)&gt;&gt;=
+updating.funk &lt;- function(N){
+ans &lt;- 2<em>N # updating function f(N)
+return(ans)
+}
+numsteps&lt;-30 # set number of steps
+sol1 &lt;- rep(0,numsteps+1) # pre-allocate sol1
+sol1[1] &lt;- 100 # set initial value
+time &lt;-0:numsteps # define time vector
+for (i in 1:numsteps) { # repeat for numsteps
+sol1[i+1] &lt;-updating.funk(sol1[i])
+}
+updating.funk &lt;- function(N){
+ans &lt;- 0.8</em>N # updating function f(N)
+return(ans)
+}
+sol2 &lt;- rep(0,numsteps+1) # pre-allocate sol2
+sol2[1] &lt;- 100 # set initial value
+time &lt;-0:numsteps # define time vector
+for (i in 1:numsteps) { # repeat for numsteps
+sol2[i+1] &lt;-updating.funk(sol2[i])
+}
+@</p>
+<p> Let us now numerically solve a linear difference equation with a constant term, like ones we solved analytically in section .
+<span class="math display">\[ N(t+1) = -0.5N(t) +15\]</span>
+We do not show the script for solving this difference equation, because it simply replicates the script above with a modified function . The unseen script solves this difference equation starting with two different initial values <span class="math inline">\(N(0)=20\)</span> and <span class="math inline">\(N(0)=2\)</span>. The resulting solutions are shown in figure , demonstrating that regardless of the initial value, the solutions approach the constant number <span class="math inline">\(15/(1-(-0.5)) = 10\)</span>, just as predicted in formula .</p>
+<p>In this project you will calculate numerical solutions of difference equations. Follow the outline in section  to create a code that will iteratively update the variable for a specified number of steps and store it as a vector, and plot it as function of time. Hint: your code will be nearly identical for all the tasks, so once you get the first script to work properly, copy and paste it and modify the line that updates the variable (the updating function).</p>
+<p>For the following difference equations: 1) calculate the numerical solution for 100 steps staring with the given initial values; 2) plot the solution over time; 3) describe how the solution behaves in the long term, and whether it depends on the initial value.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-difference-equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["QuantLife.pdf", "QuantLife.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

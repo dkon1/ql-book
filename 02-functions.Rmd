@@ -598,3 +598,48 @@ Here $v$ refers to the rate of the entire catalytic process, that is, the rate o
 %Make a box?
 %Chemical kinetics models are important in a variety of biological fields. The concentration of a drug in the bloodstream is described by an equation that involves the rate of application of the drug and the rate of its removal, known as drug metabolism. The concentration of a sugar, such as fructose, in a cell an be modeled as a system of differential equations that describe all the reactions in the process of glycolysis. Many important molecules exist primarily to regulate each other, for instance, the product of a gene (the protein which is produced when the gene is expressed) can be used to turn on another gene, whose product may turn off the first gene. Such networks of interactions can also be described by a bunch of kinetics equations; the growing field of systems biology studies their complex behaviors.
 
+
+## R Assignment: Vector calculations and plotting
+
+1. Copy your script from day 1, question 1 and modify the line that assigns the time variable to instead assign it a vector from 0 to 1440 minutes (one for each minute); keep the same values for stroke volume and heart rate. Then your calculation for total volume should produce a vector of the same length as time. Print out the value of the vector after 3 hours (72 minutes), keeping in mind that it is the 73rd element of the vector. ANSWER: 324000 ml
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+Plot the volume vs time using the type line with black line color and label your axes. Then change the heart rate to 120 beats per minute and re-calculate the total blood volume with the new parmamer. Overlay that plot on top of the previous one using the lines() funcion with red line color. Based on the plots, describe what kind of function is this model, and what is the graphical difference between the two graphs.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE
+
+2. Copy your script from day 1, question 2 and modify the line that assigns the time variable to instead assign it a vector from 0 to 60 days (one for each day); keep the same values for all the other variables. Then your calculation for total number of infected should produce a vector of the same length as time. Print out the value of the vector after 10 days, keeping in mind that it is the 11th element of the vector. ANSWER: 43.1785 infected
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+Plot the total infected population vs time using the type line with black line color and label your axes. Then change the infection rate to 10% and recalculate the infection numbers with the new parameter. Overlay that plot on top of the previous one using the lines() function with red line color. Based on the plots, report what are the *approximate* doubling times for the number of infectious for the two different infection rates.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE
+
+3. Copy your script from day 1, question 3 and modify the line that assigns the time variable to instead assign it a vector from 0 to 100 years (one for each year); keep the same values for all the other variables. Then your calculation for the population should produce a vector of the same length as time. Print out the value of the vector after 15 years, keeping in mind that it is the 16th element of the vector. ANSWER: 3081.781 individuals
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+Plot the population vs time using the type line with black line color and label your axes. Then change the parameter A to 2 and overlay that plot on top of the previous one using the lines() function with red line color. Report the difference between the two plots in terms of  their initial values and their final values.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Linear difference equations | Quantifying Life</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Linear difference equations | Quantifying Life" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Linear difference equations | Quantifying Life" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dmitry Kondrashov" />
+
+
+<meta name="date" content="2020-09-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-regression.html"/>
+<link rel="next" href="linear-ordinary-differential-equations.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Quantifying Life (Web version) </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-assignment-calculations-using-variables"><i class="fa fa-check"></i><b>1.4</b> R Assignment: calculations using variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#r-assignment-vector-calculations-and-plotting"><i class="fa fa-check"></i><b>2.5</b> R Assignment: Vector calculations and plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
+<li class="chapter" data-level="3.2.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
+<li class="chapter" data-level="3.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#r-assignment-reading-in-data-and-fitting-functions-by-eye"><i class="fa fa-check"></i><b>3.4</b> R Assignment: Reading in data and fitting functions by eye</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
+<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
+<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
+<li class="chapter" data-level="4.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="linear-regression.html"><a href="linear-regression.html#r-assignment-linear-regression"><i class="fa fa-check"></i><b>4.5</b> R Assignment: Linear regression</a></li>
+</ul></li>
+<li class="part"><span><b>II Things that change over time</b></span></li>
+<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
+<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
+<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
+<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
+<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>5.2.1</b> simple linear models</a></li>
+<li class="chapter" data-level="5.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>5.2.2</b> models with a constant term</a></li>
+<li class="chapter" data-level="5.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>5.2.3</b> population growth and decline</a></li>
+<li class="chapter" data-level="5.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>5.3</b> Numerical solutions in R</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>5.3.1</b> for loops</a></li>
+<li class="chapter" data-level="5.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>5.3.2</b> using vectors with loops</a></li>
+<li class="chapter" data-level="5.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#r-assignment-numeric-solutions-of-difference-equations"><i class="fa fa-check"></i><b>5.4</b> R Assignment: Numeric solutions of difference equations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>6</b> Linear ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>6.1</b> Building differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>6.1.1</b> from discrete time to continuous</a></li>
+<li class="chapter" data-level="6.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>6.1.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.1.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>6.1.3</b> growth proportional to population size</a></li>
+<li class="chapter" data-level="6.1.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>6.1.4</b> chemical kinetics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations"><i class="fa fa-check"></i><b>6.2</b> Solutions of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>6.2.1</b> separate and integrate method</a></li>
+<li class="chapter" data-level="6.2.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>6.2.2</b> behavior of solutions of linear ODEs</a></li>
+<li class="chapter" data-level="6.2.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-inhomogeneous-odes"><i class="fa fa-check"></i><b>6.2.3</b> solutions of inhomogeneous ODEs</a></li>
+<li class="chapter" data-level="6.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>6.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>6.3</b> Numeric solutions and the Forward Euler method</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>6.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>6.4</b> Forward Euler method in R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>6.4.1</b> implementation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>6.4.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>6.4.3</b> error analysis</a></li>
+<li class="chapter" data-level="6.4.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>6.5</b> Applications of linear ODE models</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>6.5.1</b> model of pharmacokinetics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>6.5.2</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#r-assignment"><i class="fa fa-check"></i><b>6.6</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>7</b> Graphical analysis of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>7.1</b> Building nonlinear ODEs</a></li>
+<li class="chapter" data-level="7.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>7.2</b> Qualitative analysis of ODEs</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>7.2.1</b> graphical analysis of the defining function</a></li>
+<li class="chapter" data-level="7.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>7.2.2</b> fixed points and stability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="another-initial-value.html"><a href="another-initial-value.html"><i class="fa fa-check"></i><b>8</b> another initial value</a></li>
+<li class="chapter" data-level="9" data-path="another-initial-value-1.html"><a href="another-initial-value-1.html"><i class="fa fa-check"></i><b>9</b> another initial value</a></li>
+<li class="chapter" data-level="10" data-path="another-initial-value-2.html"><a href="another-initial-value-2.html"><i class="fa fa-check"></i><b>10</b> another initial value</a></li>
+<li class="chapter" data-level="11" data-path="another-initial-value-3.html"><a href="another-initial-value-3.html"><i class="fa fa-check"></i><b>11</b> another initial value</a></li>
+<li class="chapter" data-level="12" data-path="another-initial-value-4.html"><a href="another-initial-value-4.html"><i class="fa fa-check"></i><b>12</b> another initial value</a></li>
+<li class="chapter" data-level="13" data-path="another-initial-value-5.html"><a href="another-initial-value-5.html"><i class="fa fa-check"></i><b>13</b> another initial value</a></li>
+<li class="chapter" data-level="14" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>14</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantifying Life</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linear-difference-equations" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Linear difference equations</h1>
+<blockquote>
+<p>We’re captive on the carousel of time<br />
+We can’t return we can only look behind<br />
+From where we came<br />
+And go round and round and round<br />
+In the circle game<br />
+– Joni Mitchell, <em>The Circle Game</em></p>
+</blockquote>
+<p>All living things change over time, and this evolution can be quantitatively measured and analyzed. Mathematics makes use of equations to define models that change with time, known as  <em>dynamical systems</em>. In this unit we will learn how to construct models that describe the time-dependent behavior of some measurable quantity in life sciences. Numerous fields of biology use such models, and in particular we will consider changes in population size, the progress of biochemical reactions, the spread of infectious disease, and the spikes of membrane potentials in neurons, as some of the main examples of biological dynamical systems.</p>
+<p>Many processes in living things happen regularly, repeating with a fairly constant time period. One common example is the reproductive cycle in species that reproduce periodically, whether once a year, or once an hour, like certain bacteria that divide at a relatively constant rate under favorable conditions. Other periodic phenomena include circadian (daily) cycles in physiology, contractions of the heart muscle, and waves of neural activity. For these processes, theoretical biologists use models with  <em>discrete time</em>, in which the time variable is restricted to the integers. For instance, it is natural to count the generations in whole numbers when modeling population growth.</p>
+<p>This chapter will be devoted to analyzing dynamical systems in which time is measured in discrete steps. In this chapter you will learn to do the following:</p>
+<ul>
+<li><p>write down discrete-time (difference) equations based on stated assumptions</p></li>
+<li><p>find analytic solutions of linear difference equations</p></li>
+<li><p>use for loops in R</p></li>
+<li><p>compute numeric solutions of difference equations</p></li>
+</ul>
+<div id="discrete-time-population-models" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Discrete time population models</h2>
+<p></p>
+<p>Let us construct our first models of biological systems. We will start by considering a population of some species, with the goal of tracking its growth or decay over time. The variable of interest is the number of individuals in the population, which we will call <span class="math inline">\(N\)</span>. This is called the  dependent variable, since its value changes depending on time; it would make no sense to say that time changes depending on the population size. Throughout the study of dynamical systems, we will denote the  independent variable of time by <span class="math inline">\(t\)</span>. To denote the population size at time <span class="math inline">\(t\)</span>, we can write <span class="math inline">\(N(t)\)</span> but sometimes use <span class="math inline">\(N_t\)</span>.</p>
+<div id="static-population" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> static population</h3>
+<p>In order to describe the dynamics, we need to write down a rule for how the population changes. Consider the simplest case, in which the population stays the same for all time. (Maybe it is a pile of rocks?) Then the following equation describes this situation:
+<span class="math display">\[N(t+1) = N(t) \]</span>
+This equation mandates that the population at the next time step be the same as at the present time <span class="math inline">\(t\)</span>. This type of equation is generally called a  <em>difference equation</em>, because it can be written as a difference between the values at the two different times:
+<span class="math display">\[N(t+1) - N(t) = 0\]</span>
+This version of the model illustrates that a difference equation at its core describes the increments of <span class="math inline">\(N\)</span> from one time step to the next. In this case, the increments are always 0, which makes it plain that the population does not change from one time step to the next.</p>
+</div>
+<div id="exponential-population-growth" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> exponential population growth</h3>
+<p>Let us consider a more interesting situation: as a colony of dividing bacteria, such as <em>E. coli</em>, shown in figure . We will assume that each bacterial cell divides and produces two daughter cells at fixed intervals of time, and let us further suppose that bacteria never die. Essentially, we are assuming a population of immortal bacteria with clocks. This means that after each cell division the population size doubles. As before, we denote the number of cells in each generation by <span class="math inline">\(N(t)\)</span>, and obtain the equation describing each successive generation:
+<span class="math display">\[ N(t+1) = 2N(t)\]</span>
+It can also be written in the difference form, as above:
+<span class="math display">\[ N(t+1) - N(t) = N(t) \]</span>
+The increment in population size is determined by the current population size, so the population in this model is forever growing. This type of behavior is termed   <em>exponential growth</em>, which we will investigate further in section .</p>
+<div class="figure">
+<img src="ch14/Ecoli_dividing.png" alt="" />
+<p class="caption">Scanning electron micrograph of a dividing <em>Escherichia coli</em> bacteria; image by Evangeline Sowers, Janice Haney Carr (CDC) in public domain via Wikimedia Commons.</p>
+</div>
+</div>
+<div id="population-with-births-and-deaths" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> population with births and deaths</h3>
+<p>Suppose that a type of fish lives to reproduce only once after a period of maturation, after which the adults die. In this simple scenario, half of the population is female, a female always lays 1000 eggs, and of those, 1% survive to maturity and reproduce. Let us set up the model for the population growth of this idealized fish population. The general idea, as before, is to relate the population size at the next time step <span class="math inline">\(N(t+1)\)</span> to the population at the present time <span class="math inline">\(N(t)\)</span>.</p>
+<p>Let us tabulate both the increases and the decreases in the population size. We have <span class="math inline">\(N(t)\)</span> fish at the present time, but we know they all die after reproducing, so there is a decrease of <span class="math inline">\(N(t)\)</span> in the population. Since half of the population is female, the number of new offspring produced by <span class="math inline">\(N(t)\)</span> fish is <span class="math inline">\(500N(t)\)</span>. Of those, only 1% survive to maturity (the next time step), and the other 99% (<span class="math inline">\(495N(t)\)</span>) die. We can add all the terms together to obtain the following difference equation:
+<span class="math display">\[ 
+N(t+1) = N(t) - N(t) + 500N(t) - 495 N(t)  = 5N(t)
+\]</span></p>
+<p>The number 500 in the expression is the  <em>birth rate</em> of the population per individual, and the negative terms add up to the  <em>death rate</em> of 496 per individual. We can re-write the equation in difference form:
+<span class="math display">\[ 
+N(t+1) - N(t) = 4N(t)
+\]</span></p>
+<p>This expression again generates growth in the population, because the birth rate outweighs the death rate. </p>
+</div>
+<div id="dimensions-of-birth-and-death-rates" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> dimensions of birth and death rates</h3>
+<p>As we discussed in section  the dimensions of quantities in a model have to satisfy the rules of  dimensional analysis we discussed in chapter 2. In the case of population models, the birth and death rates measure the number of individuals that are born (or die) within a reproductive cycle for every individual at the present time. Their dimensions must be such that the terms in the equation all match:
+<span class="math display">\[ [N(t+1) - N(t)] = [population] = [r] [N(t)] = [r]  \times [population] \]</span>
+This implies that <span class="math inline">\(r\)</span> is algebraically dimensionless. However, the meaning of <span class="math inline">\(r\)</span> is the rate of change of population over one (generation) time step. <span class="math inline">\(r\)</span> is the birth or death rate of the population <em>per generation</em>, and therefore, when such rates are measured, they are reported with units of inverse time (e.g. number of offspring per year).</p>
+</div>
+<div id="linear-demographic-models" class="section level3" number="5.1.5">
+<h3><span class="header-section-number">5.1.5</span> linear demographic models</h3>
+<p>We will now write a general difference equation for any population with constant birth and death rates. This will allow us to substitute arbitrary values of the birth and death rates to model different biological situations. Suppose that a population has the birth rate of <span class="math inline">\(b\)</span> per individual, and the death rate <span class="math inline">\(d\)</span> per individual. Then the general model of the population size is:
+<span class="math display">\[\begin{equation}
+ N(t+1) = (1 + b - d)N(t)
+ \label{linear_pop}
+\end{equation}\]</span></p>
+<p>The general equation also allows us to check the dimensions of birth and death rates, especially as written in the incremental form: $ N(t+1) - N(t) = (b - d)N(t)$. The change in population rate over one reproductive cycle is given by the current population size multiplied by the difference of birth and death rates, which as we saw are algebraically dimensionless. The right hand side of the equation has the dimensions of population size, matching the difference on the left hand side. </p>
+</div>
+</div>
+<div id="solutions-of-linear-difference-models" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Solutions of linear difference models</h2>
+<p></p>
+<div id="simple-linear-models" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> simple linear models</h3>
+<p>Having set up the difference equation models, we would naturally like to solve them to find out how the dependent variable, such as population size, varies over time. A solution may be  <em>analytic</em>, meaning that it can be written as a formula, or  <em>numerical</em>, in which case it is generated by a computer in the form of a sequence of values of the dependent variable over a period of time. In this section, we will find some simple analytic solutions and learn to analyze the behavior of difference equations which we cannot solve exactly.</p>
+
+<div class="definition">
+<span id="def:diff_eqn" class="definition"><strong>(#def:diff_eqn) </strong></span>A function <span class="math inline">\(N(t)\)</span> is a  (over some time period <span class="math inline">\(a &lt; t &lt; b\)</span>) of a difference equation <span class="math inline">\(N(t+1) = f(N(t))\)</span> if it satisfies that equation (over some time period <span class="math inline">\(a &lt; t &lt; b\)</span>).
+</div>
+<p></p>
+<p>For instance, let us take our first model of the static population, <span class="math inline">\(N(t+1) = N(t)\)</span>. Any constant function is a solution, for example, <span class="math inline">\(N(t) = 0\)</span>, or <span class="math inline">\(N(t) = 10\)</span>. There are actually as many solutions as there are numbers, that is, infinitely many! In order to specify exactly what happens in the model, we need to specify the size of the population at some point, usually, at the “beginning of time”, <span class="math inline">\(t = 0\)</span>. This is called the  <em>initial condition</em> for the model, and for a well-behaved difference equation it is enough to determine a unique solution. For the static model, specifying the initial condition is the same as specifying the population size for all time.</p>
+<p>Now let us look at the general model of population growth with constant birth and death rates. We saw in equation  above that these can be written in the form <span class="math inline">\(N(t+1) = (1 + b - d) N(t)\)</span>. To simplify, let us combine the numbers into one growth parameter <span class="math inline">\(r = 1 + b - d\)</span>, and write down the general equation for population growth with constant growth rate:
+<span class="math display">\[N(t+1) =  rN(t)\]</span></p>
+<p>To find the solution, consider a specific example, where we start with the initial population size <span class="math inline">\(N_0 = 1\)</span>, and the growth rate <span class="math inline">\(r=2\)</span>. The sequence of population sizes is: 1, 2, 4, 8, 16, etc. This is described by the formula <span class="math inline">\(N(t) = 2^t\)</span>.</p>
+<p>In the general case, each time step the solution is multiplied by <span class="math inline">\(r\)</span>, so the solution has the same exponential form. The initial condition <span class="math inline">\(N_0\)</span> is a multiplicative constant in the solution, and one can verify that when <span class="math inline">\(t=0\)</span>, the solution matches the initial value:
+<span class="math display">\[\begin{equation}
+N(t)  = r^t N_0
+\label{eq:lin_discrete_sol}
+\end{equation}\]</span></p>
+<p>I would like the reader to pause and consider this remarkable formula. No matter what the birth and death parameters are selected, this solution predicts the population size at any point in time <span class="math inline">\(t\)</span>.</p>
+<p>In order to verify that the formula for <span class="math inline">\(N(t)\)</span> is actually a solution in the meaning of definition , we need to check that it actually satisfies the difference equation for all <span class="math inline">\(t\)</span>, not just a few time steps. This can be done algebraically by plugging in <span class="math inline">\(N(t+1)\)</span> into the left side of the dynamic model and <span class="math inline">\(N(t)\)</span> into the right side and checking whether they match. For <span class="math inline">\(N(t)\)</span> given by equation , <span class="math inline">\(N(t+1) = r^{t+1} N_0\)</span>, and thus the dynamic model becomes:
+<span class="math display">\[r^{t+1} N_0 = r \times r^t N_0\]</span>
+Since the two sides match, this means the solution is correct.</p>
+</div>
+<div id="models-with-a-constant-term" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> models with a constant term</h3>
+<p>Now let us consider a dynamic model that combines two different rates: a proportional rate (<span class="math inline">\(rN\)</span>) and a constant rate which does not depend on the value of the variable <span class="math inline">\(N\)</span>. We can write such a generic model as follows:
+<span class="math display">\[ N(t+1) =  rN(t) + a \]</span>
+The right-hand-side of this equation is a linear function of <span class="math inline">\(N\)</span>, so this is a linear difference equation with a constant term. What function <span class="math inline">\(N(t)\)</span> satisfies it? One can quickly check that that the same solution <span class="math inline">\(N(t) = r^t N_0\)</span> does not work because of the pesky constant term <span class="math inline">\(a\)</span>:
+<span class="math display">\[ r^{t+1} N_0 \neq r \times r^t N_0 + a\]</span></p>
+<p>To solve it, we need to try a different form: specifically, an exponential with an added constant. The exponential can be reasonably surmised to have base <span class="math inline">\(r\)</span> as before, and then leave the two constants as unknown: <span class="math inline">\(N(t) = c_1 r^t + c_2\)</span>. To figure out whether this is a solution, plug it into the linear difference equation above and check whether a choice of constants can make the two sides agree:
+<span class="math display">\[  N(t+1) =  c_1 r^{t +1} + c_2 = rN(t) + a  = rc_1 r^t + rc_2+ a\]</span>
+This equation has the same term <span class="math inline">\(c_1 r^{t +1}\)</span> on both sides, so they can be subtracted out. The remaining equation involves only <span class="math inline">\(c_2\)</span>, and its solution is <span class="math inline">\(c_2 = a/(1-r)\)</span>. Therefore, the general solution of this linear difference equation is the following expression, which is determined from the initial value by plugging <span class="math inline">\(t=0\)</span> and solving for <span class="math inline">\(c\)</span>.
+<span class="math display">\[\begin{equation}
+ N(t) = c r^t  + \frac{a}{1-r}
+\label{eq:ch14_sol_wconst}
+\end{equation}\]</span></p>
+<p><strong>Example.</strong> Take the difference equation <span class="math inline">\(N(t+1) = 0.5 N(t) + 40\)</span> with initial value <span class="math inline">\(N(0)= 100\)</span>. The solution, according to our formula is <span class="math inline">\(N(t) = c 0.5^t + 80\)</span>. At <span class="math inline">\(N(0) = 100 = c+80\)</span>, so <span class="math inline">\(c=20\)</span>. Then the compete solution is <span class="math inline">\(N(t) = 20 \times 0.5^t + 80\)</span>. To check that this actually works, plug this solution back into the difference equation:
+<span class="math display">\[ N(t+1) = 20 \times 0.5^{t+1} + 80 = 0.5 \times (20 \times 0.5^t + 80) + 40 =  20 \times 0.5^{t+1} + 80\]</span>
+The equation is satisfied and therefore the solution is correct.</p>
+</div>
+<div id="population-growth-and-decline" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> population growth and decline</h3>
+<p></p>
+<p>The parameter <span class="math inline">\(r\)</span> can assume different values, depending on the birth and death rates. If the birth rate is greater than the death rate, <span class="math inline">\(r &gt; 1\)</span>, and if it is the other way around, <span class="math inline">\(r &lt; 1\)</span>. Note that for a realistic biological population, the death rate is limited by the number of individuals present in the population. The maximum number of individuals at any time is <span class="math inline">\(N(t)+bN(t)\)</span>, so this means that <span class="math inline">\(d \leq b +1\)</span>. Therefore, for a biological population, <span class="math inline">\(r \geq 0\)</span>.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="linear-difference-equations.html#cb171-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">6</span></span>
+<span id="cb171-2"><a href="linear-difference-equations.html#cb171-2" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb171-3"><a href="linear-difference-equations.html#cb171-3" aria-hidden="true"></a><span class="kw">plot</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.5</span>, </span>
+<span id="cb171-4"><a href="linear-difference-equations.html#cb171-4" aria-hidden="true"></a>    <span class="dt">cex.lab =</span> <span class="fl">1.5</span>, <span class="dt">xlab =</span> <span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;population&quot;</span>)</span>
+<span id="cb171-5"><a href="linear-difference-equations.html#cb171-5" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb171-6"><a href="linear-difference-equations.html#cb171-6" aria-hidden="true"></a><span class="kw">lines</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb171-7"><a href="linear-difference-equations.html#cb171-7" aria-hidden="true"></a>leg.txt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;N(0)=5&quot;</span>, <span class="st">&quot;N(0)=1&quot;</span>)</span>
+<span id="cb171-8"><a href="linear-difference-equations.html#cb171-8" aria-hidden="true"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, leg.txt, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb171-9"><a href="linear-difference-equations.html#cb171-9" aria-hidden="true"></a>    <span class="dt">pch =</span> <span class="dv">1</span>, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb171-10"><a href="linear-difference-equations.html#cb171-10" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb171-11"><a href="linear-difference-equations.html#cb171-11" aria-hidden="true"></a><span class="kw">plot</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.5</span>, </span>
+<span id="cb171-12"><a href="linear-difference-equations.html#cb171-12" aria-hidden="true"></a>    <span class="dt">cex.lab =</span> <span class="fl">1.5</span>, <span class="dt">xlab =</span> <span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;population&quot;</span>)</span>
+<span id="cb171-13"><a href="linear-difference-equations.html#cb171-13" aria-hidden="true"></a>y0 &lt;-<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb171-14"><a href="linear-difference-equations.html#cb171-14" aria-hidden="true"></a><span class="kw">lines</span>(x, y0 <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span><span class="op">^</span>x, <span class="dt">t =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb171-15"><a href="linear-difference-equations.html#cb171-15" aria-hidden="true"></a>leg.txt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;N(0)=1000&quot;</span>, <span class="st">&quot;N(0)=500&quot;</span>)</span>
+<span id="cb171-16"><a href="linear-difference-equations.html#cb171-16" aria-hidden="true"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, leg.txt, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb171-17"><a href="linear-difference-equations.html#cb171-17" aria-hidden="true"></a>    <span class="dt">pch =</span> <span class="dv">1</span>, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch14-sol"></span>
+<img src="QuantLife_files/figure-html/ch14-sol-1.png" alt="Plots of solutions of linear difference equations: a) $N(t+1) = 2N(t)$ with different initial values; b) $N(t+1) = 0.5N(t)$ with different initial values" width="50%" /><img src="QuantLife_files/figure-html/ch14-sol-2.png" alt="Plots of solutions of linear difference equations: a) $N(t+1) = 2N(t)$ with different initial values; b) $N(t+1) = 0.5N(t)$ with different initial values" width="50%" />
+<p class="caption">
+Figure 5.1: Plots of solutions of linear difference equations: a) <span class="math inline">\(N(t+1) = 2N(t)\)</span> with different initial values; b) <span class="math inline">\(N(t+1) = 0.5N(t)\)</span> with different initial values
+</p>
+</div>
+<p>The solutions in formula  and  are exponential functions, which as we saw in section  have a limited menu of behaviors, depending on the value of <span class="math inline">\(r\)</span>. If <span class="math inline">\(r &gt; 1\)</span>, multiplication by <span class="math inline">\(r\)</span> increases the size of the population, so the solution <span class="math inline">\(N(t)\)</span> will grow. If <span class="math inline">\(r &lt; 1\)</span>, multiplication by <span class="math inline">\(r\)</span> decreases the size of the population, so the solution <span class="math inline">\(N(t)\)</span> will decay (see figure ). Finally, if <span class="math inline">\(r=1\)</span>, multiplication by <span class="math inline">\(r\)</span> leaves the population size unchanged, like in the pile of rocks model. Here is the complete classification of the behavior of population models with constant birth and death rates (assuming <span class="math inline">\(r&gt;0\)</span>):</p>
+<ul>
+<li><span class="math inline">\(r &gt; 1\)</span>: <span class="math inline">\(N(t)\)</span> grows without bound</li>
+<li><span class="math inline">\(r &lt; 1\)</span>: <span class="math inline">\(N(t)\)</span> decays to the constant <span class="math inline">\(a/(1-r)\)</span></li>
+<li><span class="math inline">\(r = 1\)</span>: <span class="math inline">\(N(t)\)</span> remains constant</li>
+</ul>
+<p>As we see, there are only two options for solution of linear difference equations: ever-faster growth or decay to zero or another constant value. The exponential growth of populations is also known as   after the early population modeler Thomas Malthus. He used a simple population model with constant growth rate to predict demographic disaster due to the exponentially increasing population outstripping the growth in food production. In fact, human population has not been growing with a constant birth rate, and food production has (so far) kept up pace with population size, illustrating yet again that mathematical models are only as good as the assumptions that underlie them.</p>
+</div>
+<div id="exercises" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Exercises</h3>
+<p>For the following scenarios for a population: 1) Construct a dynamic model by writing down a difference equation both in the updating function form (<span class="math inline">\(N(t+1) = f(N(t))\)</span>) and the increment form (<span class="math inline">\(N(t+1) - N(t) = g(N(t))\)</span>) and specify the time step; 2) find the solution of the linear difference equation with a generic initial value and check that it satisfies the difference equation by plugging the solution into your equation (in either form); 3) plug in the given initial value and predict the future.</p>
+<ol style="list-style-type: decimal">
+<li><p>Zombies have appeared in Chicago. Every day, each zombie produces 3 new zombies. Suppose that initially there is only one zombie, how many zombies will there be in 7 days?</p></li>
+<li><p>Suppose hunters kill 50 deer in a national forest every hunting season, while the deer by themselves have equal birth and death rates. If there are initially 500 deer in the forest, predict how many there will be in 5 years.</p></li>
+<li><p>The number of infected people in a population grows by 8% per day and those who become infected remain infected. If initially there are 8 infected, how many individuals will be infected in 45 days?</p></li>
+<li><p>Suppose bacteria in a population divide in 2 every hour and 90% of the current population dies after reproduction, not including the new offspring. If the population initially has 10 million bacteria, predict how many there will be in 12 hours.</p></li>
+<li><p>In a rabbit population, each pair produces 2.2 offspring every year (i.e. 1.1 per capita) and the adults have a 0.9 annual death rate after reproduction (and assume the whole population is paired up into mating pairs.) If initially there are 55 rabbits, predict how many there will be in 5 years.</p></li>
+<li><p>Consider the same rabbit population, but now a python that lives nearby eats exactly 1 rabbit a month. If initially there are 55 rabbits, how many do you predict will be in 10 years?</p></li>
+<li><p>10 fish are added to an aquarium every month, while 80% of those present survive every month and there is no reproduction. If initially there are 10 fish in the aquarium, predict how many there will be in 2 years.</p></li>
+<li><p>A Mardi Gras parade marches down the street, and every block 50 new revelers join the parade, while 20% of parade leaves for various reasons. Suppose the parade starts with 12 people, predict how many there will be after 30 blocks.</p></li>
+<li><p>Twenty flies fly into a house every day, and half of the flies in the house at beginning of each day find their way out (no births or deaths happen in the house.) If there are 10 files in the house initially, how many will there be in 12 days?</p></li>
+<li><p>Every day someone eats 10 pieces of candy from a bowl, while someone else adds half as many pieces as are currently in the bowl (before 10 pieces are removed.) If there are currently 20 pieces of candy in the bowl, how many will there be in 7 days?</p></li>
+</ol>
+</div>
+</div>
+<div id="numerical-solutions-in-r" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Numerical solutions in R</h2>
+<p></p>
+<div id="for-loops" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> for loops</h3>
+<p>Often times one has to write a script to perform the same (or similar) task many times. Like all programming languages, R has commands that call for repetition of the same commands multiple times. These structures are called . In this section you will learn about the  <em>for loop</em>, which looks like this:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="linear-difference-equations.html#cb172-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb172-2"><a href="linear-difference-equations.html#cb172-2" aria-hidden="true"></a>	body of the loop</span>
+<span id="cb172-3"><a href="linear-difference-equations.html#cb172-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>For example, the following script will print out “Hello!” ten times like this:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="linear-difference-equations.html#cb173-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb173-2"><a href="linear-difference-equations.html#cb173-2" aria-hidden="true"></a>    <span class="kw">print</span>(<span class="st">&quot;Hello!&quot;</span>)</span>
+<span id="cb173-3"><a href="linear-difference-equations.html#cb173-3" aria-hidden="true"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;
+## [1] &quot;Hello!&quot;</code></pre>
+<p>The for loop starts with the keyword <code>for</code>, then has the expression in parentheses (i in 1:10). <code>i</code> is called the <em>loop variable</em>, <code>in</code> is another keyword, and <code>1:10</code> is a <em>loop vector</em>. After the first line there is a curly bracket { and everything that follows until the closing bracket } is the <em>loop body</em>. The loop body is executed as many times as there are elements in the loop vector (in this example, 10 times) and the only thing that changes is the values of the loop variable i, which starts with the first element of the vector (1) and goes until it reaches the last element (10) and then stops:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="linear-difference-equations.html#cb175-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb175-2"><a href="linear-difference-equations.html#cb175-2" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Iteration number&quot;</span>, i))</span>
+<span id="cb175-3"><a href="linear-difference-equations.html#cb175-3" aria-hidden="true"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Iteration number 1&quot;
+## [1] &quot;Iteration number 2&quot;
+## [1] &quot;Iteration number 3&quot;
+## [1] &quot;Iteration number 4&quot;
+## [1] &quot;Iteration number 5&quot;
+## [1] &quot;Iteration number 6&quot;
+## [1] &quot;Iteration number 7&quot;
+## [1] &quot;Iteration number 8&quot;
+## [1] &quot;Iteration number 9&quot;
+## [1] &quot;Iteration number 10&quot;</code></pre>
+<p>It can be used to do repetitive calculations, for example, adding up all the integers in an array (of course the built-in function <code>sum()</code> will do it too):</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="linear-difference-equations.html#cb177-1" aria-hidden="true"></a><span class="co"># add up the integers from 1 to 10 and print out the total</span></span>
+<span id="cb177-2"><a href="linear-difference-equations.html#cb177-2" aria-hidden="true"></a>total&lt;-<span class="dv">0</span></span>
+<span id="cb177-3"><a href="linear-difference-equations.html#cb177-3" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb177-4"><a href="linear-difference-equations.html#cb177-4" aria-hidden="true"></a>  total&lt;-total<span class="op">+</span>i</span>
+<span id="cb177-5"><a href="linear-difference-equations.html#cb177-5" aria-hidden="true"></a>}</span>
+<span id="cb177-6"><a href="linear-difference-equations.html#cb177-6" aria-hidden="true"></a><span class="kw">print</span>(total)</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+</div>
+<div id="using-vectors-with-loops" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> using vectors with loops</h3>
+<p>It is especially useful to use loops to assign vector variables one element at a time. The loop variable (e.g. <code>i</code>) is usually used for <em>indexing</em> the vector variable. There are several necessary features of using vectors in for loops, so let us take an example script and break them down in this example of calculating a vector of the sum of integers from 1 up to the current number:</p>
+<ol style="list-style-type: decimal">
+<li><em>Pre-allocate</em> the vector variable: create a vector of the correct length prior to the loop by filling it with a placeholder value, e.g. 0 or NA (not a value).</li>
+</ol>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="linear-difference-equations.html#cb179-1" aria-hidden="true"></a>max &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb179-2"><a href="linear-difference-equations.html#cb179-2" aria-hidden="true"></a>total_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, max <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)  <span class="co"># pre-allocate the vector</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Only put in the loop what has to be repeated (e.g. don’t put the pre-allocation inside the loop);</li>
+</ol>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="linear-difference-equations.html#cb180-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>max) { <span class="co"># iterate for i from 1 to max</span></span>
+<span id="cb180-2"><a href="linear-difference-equations.html#cb180-2" aria-hidden="true"></a>  total_vec[i<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>total_vec[i] <span class="op">+</span><span class="st"> </span>i <span class="co"># assign to the next value of total_vec the sum of i and the current value of total_vec</span></span>
+<span id="cb180-3"><a href="linear-difference-equations.html#cb180-3" aria-hidden="true"></a>}</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Be careful with indexing inside for loops - this means paying careful attention to the lowest and the highest index that you’re using inside the loop. For example, if your loop vector goes from 1 to max (as above), the total number of elements in your vector will be max+1, because we assigned the element with index i+1 in the loop:</li>
+</ol>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="linear-difference-equations.html#cb181-1" aria-hidden="true"></a><span class="kw">print</span>(<span class="kw">length</span>(total_vec)) <span class="co"># print the number of elements of total_vec</span></span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="linear-difference-equations.html#cb183-1" aria-hidden="true"></a><span class="kw">print</span>(total_vec)</span></code></pre></div>
+<pre><code>##  [1]  0  1  3  6 10 15 21 28 36 45 55</code></pre>
+<p>Here is an example of a loop calculating the famous Fibonacci sequence, where the next value is defined to be the sum of two previous values in the sequence, and the plotting the resulting sequence, together with an exponential function that approximates it.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="linear-difference-equations.html#cb185-1" aria-hidden="true"></a>num_steps &lt;-<span class="st"> </span><span class="dv">20</span> <span class="co"># number of steps</span></span>
+<span id="cb185-2"><a href="linear-difference-equations.html#cb185-2" aria-hidden="true"></a>fib &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, num_steps <span class="op">+</span><span class="st"> </span><span class="dv">2</span>) <span class="co"># pre-allocate vector with correct number of elements with all 1s</span></span>
+<span id="cb185-3"><a href="linear-difference-equations.html#cb185-3" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>num_steps) {</span>
+<span id="cb185-4"><a href="linear-difference-equations.html#cb185-4" aria-hidden="true"></a>  fib[i<span class="op">+</span><span class="dv">2</span>] &lt;-<span class="st"> </span>fib[i<span class="op">+</span><span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>fib[i] <span class="co"># add elements i and i+1 and assign it to element i+2</span></span>
+<span id="cb185-5"><a href="linear-difference-equations.html#cb185-5" aria-hidden="true"></a>}</span>
+<span id="cb185-6"><a href="linear-difference-equations.html#cb185-6" aria-hidden="true"></a>time &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span>(num_steps<span class="op">+</span><span class="dv">1</span>) <span class="co"># define a &quot;time&quot; vector as the independent variable</span></span>
+<span id="cb185-7"><a href="linear-difference-equations.html#cb185-7" aria-hidden="true"></a><span class="kw">plot</span> (time, fib, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">xlab =</span> <span class="st">&#39;time steps&#39;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Fibonacci&quot;</span>)</span>
+<span id="cb185-8"><a href="linear-difference-equations.html#cb185-8" aria-hidden="true"></a><span class="co"># an exponential function wiht the Golden ratio base</span></span>
+<span id="cb185-9"><a href="linear-difference-equations.html#cb185-9" aria-hidden="true"></a>phi &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">sqrt</span>(<span class="dv">5</span>))<span class="op">/</span><span class="dv">2</span> <span class="co"># golden ratio</span></span>
+<span id="cb185-10"><a href="linear-difference-equations.html#cb185-10" aria-hidden="true"></a>sol &lt;-<span class="st"> </span><span class="fl">0.75</span><span class="op">*</span>phi<span class="op">^</span>time <span class="co"># calculate the exponential function vector (no loop required)</span></span>
+<span id="cb185-11"><a href="linear-difference-equations.html#cb185-11" aria-hidden="true"></a><span class="kw">lines</span>(time, sol, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>) <span class="co"># overlay the exponential function plot</span></span>
+<span id="cb185-12"><a href="linear-difference-equations.html#cb185-12" aria-hidden="true"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="co"># legend placement</span></span>
+<span id="cb185-13"><a href="linear-difference-equations.html#cb185-13" aria-hidden="true"></a>       <span class="kw">c</span>(<span class="st">&quot;Fibonacci&quot;</span>, <span class="st">&quot;exponential&quot;</span>), <span class="co"># vector containing labels for the legend</span></span>
+<span id="cb185-14"><a href="linear-difference-equations.html#cb185-14" aria-hidden="true"></a>       <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="co"># vector containing color codes (1 is black, 2 is red)</span></span>
+<span id="cb185-15"><a href="linear-difference-equations.html#cb185-15" aria-hidden="true"></a>       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="co"># vector specifying line types (0 is none, 1 is regular line)</span></span>
+<span id="cb185-16"><a href="linear-difference-equations.html#cb185-16" aria-hidden="true"></a>       <span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>), <span class="co"># vector specifying types of point markers (1 is cicle, NA is none)</span></span>
+<span id="cb185-17"><a href="linear-difference-equations.html#cb185-17" aria-hidden="true"></a>       <span class="dt">lwd=</span><span class="dv">3</span>) </span></code></pre></div>
+<p><img src="QuantLife_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+</div>
+<div id="exercises-1" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Exercises:</h3>
+<ol style="list-style-type: decimal">
+<li><p>Assign the value 5 to a variable and multiply it by 1.03, replacing the old value of the variable. The new value should be 5.15.</p></li>
+<li><p>Write a script to take a number and multiply it by 1.03 one hundred times using a for loop (see section 4.4.2) Starting with the initial value 5, the script should return the value 96.093.</p></li>
+<li><p>Preallocate a vector of values to be all zeros, assign the first element to 5, and then use a for loop to calculate 100 values by multiplying the previous one by 1.03 and assigning them to sequential elements of the vector, then plot that vector. You should see an exponentially growing curve, with the last element (101st) equal to 96.093.</p></li>
+<li><p>Fix the indexing error in the script below for calculating a vector of factorials. Each element of the vector <code>factorial_vec[i]</code> should be equal to <span class="math inline">\(i!= 1*2*3...*i\)</span>, so for example <code>factorial_vec[2]</code> should be 2 and <code>factorial_vec[3]</code> should be 6.</p></li>
+</ol>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="linear-difference-equations.html#cb186-1" aria-hidden="true"></a><span class="co"># multiply integers from 1 to 10 and assign the factorials to the vector </span></span>
+<span id="cb186-2"><a href="linear-difference-equations.html#cb186-2" aria-hidden="true"></a>max.num &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb186-3"><a href="linear-difference-equations.html#cb186-3" aria-hidden="true"></a>factorial_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,max.num)</span>
+<span id="cb186-4"><a href="linear-difference-equations.html#cb186-4" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>max.num) {</span>
+<span id="cb186-5"><a href="linear-difference-equations.html#cb186-5" aria-hidden="true"></a>  factorial_vec[i<span class="op">+</span><span class="dv">1</span>]&lt;-factorial_vec[i]<span class="op">*</span>i</span>
+<span id="cb186-6"><a href="linear-difference-equations.html#cb186-6" aria-hidden="true"></a>}</span>
+<span id="cb186-7"><a href="linear-difference-equations.html#cb186-7" aria-hidden="true"></a><span class="kw">print</span>(factorial_vec)</span></code></pre></div>
+</div>
+</div>
+<div id="r-assignment-numeric-solutions-of-difference-equations" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> R Assignment: Numeric solutions of difference equations</h2>
+<p>In this part you will calculate numeric solutions of difference equations. Use the code from the last of the exercises above to write a script to iteratively update the variable for a specified number of steps and store it as a vector, and plot it as function of time. Hint: your code will be nearly identical for all the tasks, so once you get the first script to work properly, copy and paste it and modify the line in the for loop that calculates the next values. Please use descriptive names for variables and label your axes!</p>
+<p>For each of the following questions, do these tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>write down the difference equation for the model;</p></li>
+<li><p>calculate the numerical solution for the model with the given initial values and for the specified time period;</p></li>
+<li><p>plot the solution over time (create vector for time!);</p></li>
+<li><p>describe how the solution behaves in the long term and whether it depends on the initial value (try different initial values!)</p></li>
+<li><p>The number of infected people in a population grows by 8% per day and those who become infected remain infected. If initially there are 8 infected, how many individuals will be infected in 45 days? ANSWER: about 255</p></li>
+</ol>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="linear-difference-equations.html#cb187-1" aria-hidden="true"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div>
+<p>YOUR ANSWERS GO HERE</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Suppose bacteria in a population divide in 2 every hour and 90% of the current population dies after reproduction, not including the new offspring. If the population initially has 10 million bacteria, predict how many there will be in 24 hours. ANSWER: about 98497327</li>
+</ol>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="linear-difference-equations.html#cb188-1" aria-hidden="true"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div>
+<p>YOUR ANSWERS GO HERE</p>
+<ol start="3" style="list-style-type: decimal">
+<li>In a rabbit population, each pair produces 2.2 offspring every year (i.e. 1.1 per capita) and the adults have a 0.9 annual death rate after reproduction (and assume the whole population is paired up into mating pairs.) If initially there are 60 rabbits, predict how many there will be in 25 years. ANSWER: about 5724</li>
+</ol>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="linear-difference-equations.html#cb189-1" aria-hidden="true"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div>
+<p>YOUR ANSWERS GO HERE</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Consider the same rabbit population, but now a python that lives nearby eats exactly 1 rabbit <em>per month</em>. If initially there are 60 rabbits, predict how many there will be in 25 years. ANSWER: 60</li>
+</ol>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="linear-difference-equations.html#cb190-1" aria-hidden="true"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div>
+<p>YOUR ANSWERS GO HERE</p>
+<ol start="5" style="list-style-type: decimal">
+<li>10 fish are added to an aquarium every month, while 80% of those present survive every month and there is no reproduction. If initially there are 10 fish in the aquarium, predict how many there will be in a year. ANSWER: about 47</li>
+</ol>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="linear-difference-equations.html#cb191-1" aria-hidden="true"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div>
+<p>YOUR ANSWERS GO HERE</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-ordinary-differential-equations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["QuantLife.pdf", "QuantLife.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
