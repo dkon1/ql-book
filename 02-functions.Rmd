@@ -70,7 +70,10 @@ $$ P(t) = \frac{A e^{kt}}{1 + B(e^{kt} -1)} $$
 
 A relationship between two variables addresses the basic question: when one variable changes, how does this affect the other? An equation, like the examples in the last section, allows one to calculate the value of one variable based on the other variable and parameter values. In this section we seek to describe more broadly how two variables are related by using the mathematical concept of functions. 
 
-**Definition:** A \index{function!mathematical} function is a mathematical rule which has an input and an output. A function returns a well-defined output for every input, that is, for a given input value the function returns a unique output value.
+```{definition, def-function}
+A function is a mathematical rule which has an input and an output. A function returns a well-defined output for every input, that is, for a given input value the function returns a unique output value.
+```
+
 
 In this  abstract definition of a function it doesn't have to be written as an algebraic equation, it only has to return a unique output for any given input value. In mathematics we usually write them down in terms of algebraic expressions. As in mathematical models, you will see two different kinds of quantities in equations that define functions: variables and parameters. The input and the output of a function are usually variables, with the input called the \index{variable!independent} *independent variable* and the output called the \index{variable!dependent} *dependent variable*. 
 
@@ -86,8 +89,10 @@ Below you will find examples of fundamental functions used in biological models 
 ### linear and exponential functions
 The reader is probably familiar with linear and exponential functions from algebra courses. However, they are so commonly used that it is worth going over them to refresh your memory and perhaps to see them from another perspective.
 
-\label{def:ch2_linfunk}
-**Definition** A \index{function!linear}\index{linear!function} linear function $f(x)$ is one for which the difference in two function values is the same for a specific difference in the independent variable. 
+```{definition, def-linfunc}
+A *linear function* $f(x)$ is one for which the difference in two function values is the same for a specific difference in the independent variable. 
+```
+
 
 In mathematical terms, this can be written an equation for any two values of the independent variable $x_1$ and $x_2$ and a difference $\Delta x$:
 
@@ -101,8 +106,10 @@ f(x) = ax + b
 The function contains two parameters: the \index{slope!linear function}\index{linear!slope} slope $a$ and the \index{y-intercept!linear function} y-intercept $b$. The graph of the linear function is a line (hence the name) and the slope $a$ determines its steepness. A positive slope corresponds to the graph that increases as $x$ increases, and a negative slope corresponds to a declining function. At $x=0$, the function equals $b$, and as $x \to \infty$, the function approaches positive infinity if $a>0$, and approaches negative infinity if $a<0$.
 
 
-\label{def:ch2_expfunk}
-**Definition** An \index{exponential!function}\index{function!exponential}exponential function $f(x)$ is one for which the ratio of two function values is the same for a specific difference in the independent variable. 
+ 
+```{definition, def-expfun}
+An *exponential function* $f(x)$ is one for which the ratio of two function values is the same for a specific difference in the independent variable.
+```
 
 Mathematically speaking, this can be written as follows for any two values of the independent variable $x_1$ and $x_2$ and a difference $\Delta x$:
 $$ \frac{f(x_1 + \Delta x)}{f(x_1)} = \frac{f(x_2 + \Delta x)}{f(x_2)}$$
@@ -599,9 +606,9 @@ Here $v$ refers to the rate of the entire catalytic process, that is, the rate o
 %Chemical kinetics models are important in a variety of biological fields. The concentration of a drug in the bloodstream is described by an equation that involves the rate of application of the drug and the rate of its removal, known as drug metabolism. The concentration of a sugar, such as fructose, in a cell an be modeled as a system of differential equations that describe all the reactions in the process of glycolysis. Many important molecules exist primarily to regulate each other, for instance, the product of a gene (the protein which is produced when the gene is expressed) can be used to turn on another gene, whose product may turn off the first gene. Such networks of interactions can also be described by a bunch of kinetics equations; the growing field of systems biology studies their complex behaviors.
 
 
-## R Assignment: Vector calculations and plotting
+## R Assignment
 
-1. Copy your script from day 1, question 1 and modify the line that assigns the time variable to instead assign it a vector from 0 to 1440 minutes (one for each minute); keep the same values for stroke volume and heart rate. Then your calculation for total volume should produce a vector of the same length as time. Print out the value of the vector after 3 hours (72 minutes), keeping in mind that it is the 73rd element of the vector. ANSWER: 324000 ml
+1. Copy your script from the R assignment in chapter 1, question 1 and modify the line that assigns the time variable to instead assign it a vector from 0 to 1440 minutes (one for each minute); keep the same values for stroke volume and heart rate. Then your calculation for total volume should produce a vector of the same length as time. Print out the value of the vector after 3 hours (72 minutes), keeping in mind that it is the 73rd element of the vector. ANSWER: 324000 ml
 
 ```{r}
 # THIS IS A COMMENT. YOUR CODE GOES HERE 
@@ -615,7 +622,7 @@ Plot the volume vs time using the type line with black line color and label your
 
 TYPE YOUR ANSWERS HERE
 
-2. Copy your script from day 1, question 2 and modify the line that assigns the time variable to instead assign it a vector from 0 to 60 days (one for each day); keep the same values for all the other variables. Then your calculation for total number of infected should produce a vector of the same length as time. Print out the value of the vector after 10 days, keeping in mind that it is the 11th element of the vector. ANSWER: 43.1785 infected
+2. Copy your script from the R assignment in chapter 1, question 2 and modify the line that assigns the time variable to instead assign it a vector from 0 to 60 days (one for each day); keep the same values for all the other variables. Then your calculation for total number of infected should produce a vector of the same length as time. Print out the value of the vector after 10 days, keeping in mind that it is the 11th element of the vector. ANSWER: 43.1785 infected
 
 ```{r}
 # THIS IS A COMMENT. YOUR CODE GOES HERE 
@@ -630,7 +637,7 @@ Plot the total infected population vs time using the type line with black line c
 
 TYPE YOUR ANSWERS HERE
 
-3. Copy your script from day 1, question 3 and modify the line that assigns the time variable to instead assign it a vector from 0 to 100 years (one for each year); keep the same values for all the other variables. Then your calculation for the population should produce a vector of the same length as time. Print out the value of the vector after 15 years, keeping in mind that it is the 16th element of the vector. ANSWER: 3081.781 individuals
+3. Copy your script from the R assignment in chapter 1, question 3 and modify the line that assigns the time variable to instead assign it a vector from 0 to 100 years (one for each year); keep the same values for all the other variables. Then your calculation for the population should produce a vector of the same length as time. Print out the value of the vector after 15 years, keeping in mind that it is the 16th element of the vector. ANSWER: 3081.781 individuals
 
 ```{r}
 # THIS IS A COMMENT. YOUR CODE GOES HERE 

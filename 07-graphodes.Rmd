@@ -185,98 +185,100 @@ abline(40,0,lty=2,lwd=2)
 
 ### fixed points and stability
 We have seen that the dynamics of solutions of differential equations depend on the initial value of the dependent variable: for some values the solution increases, for others it decreases, and for intermediate values it remains the same. Those special values separating intervals of increase and decrease are called fixed points (or equilibria), and the first step to understanding the dynamics of an ODE is finding its fixed points. A fixed point is a value of the solution at which the dynamical system stays constant, thus, the derivative of the solution must be zero. Here is  the formal definition:
-\begin{mosdef}
- For a differential equation $\dot x = f(x)$, a point $x^*$ which satisfies $f(x^*)=0$ is called a  \index{differential equation!fixed point}\emph{fixed point} or \index{differential equation!equilibrium|see{differential equation!fixed point}}\emph{equilibrium}, and the solution with the initial condition $x(0)=x^*$ is constant over time $x(t)=x^*$. 
- \label{def:ch16_fixedpt}
-\end{mosdef}
-For instance, the linear equation $\dot x  = rx$ has a single fixed point at $x^* = 0$. For a more interesting example, consider a logistic equation: $\dot x = x - x^2 $. Its fixed points are the solutions of $x - x^2 = 0$, therefore there two fixed points: $x^* = 0, 1$. We know that if the solution has either of the fixed points as the initial condition, it will remain at that value for all time.
+```{definition, def-fp}
+For an ordinary differential equation $\dot x = f(x)$, a point $x^*$ which satisfies $f(x^*)=0$ is called a *fixed point* or *equilibrium*, and the solution with the initial condition $x(0)=x^*$ is constant over time $x(t)=x^*$. 
+```
 
-Locating the fixed points is not sufficient to predict the global behavior of the dynamical system, however. What happens to the solution of a dynamical system if the initial condition is very close to an equilibrium, but not precisely at it? Put another way, what happens if the equilibrium is \emph{perturbed}? The solution may be attracted to the equilibrium value, that is, it approaches it ever-closer, or else it is not. In the first case, this is called a stable equilibrium, because a small perturbation does not dramatically change the long-term behavior of the solution. In the latter case, the equilibrium is called unstable, and the solution perturbed from the equilibrium never returns. These concepts are formalized in the following definition \citep{strogatz_nonlinear_2001}: 
- \begin{mosdef}
- A fixed point  $x^*$ of an ODE $\dot x = f(x)$ is called a \index{stability!fixed point}\emph{stable fixed point or sink)}, if for a sufficiently small number $\epsilon$, the solution $x(t)$ with the initial condition $x_0 = x^* + \epsilon$ approaches the fixed point $x^*$ as $t \rightarrow \infty$. If the solution $x(t)$ does not approach $x^*$ for all nonzero $\epsilon$, the fixed point is called \emph{an unstable fixed point or source.}
-\end{mosdef}
 
-To determine whether a fixed point is stable analytically we use the approach called \index{differential equation!linearization}\index{linearization!differential equation}\emph{linearization}, which involves replacing the function $f(x)$ with a linear approximation.  Let us define $\epsilon(t)$ to be the deviation of the solution $x(t)$ from the fixed point $x^*$, so we can write $x(t) = x^* + \epsilon(t)$. Assuming that $\epsilon(t)$ is small, we can write the function $f(x)$ using Taylor's formula: 
+**Example.** The linear equation $\dot x  = rx$ has a single fixed point at $x^* = 0$. For a more interesting example, consider a logistic equation: $\dot x = x - x^2$. Its fixed points are the solutions of $x - x^2 = 0$, therefore there two fixed points: $x^* = 0, 1$. We know that if the solution has either of the fixed points as the initial condition, it will remain at that value for all time.
+
+Locating the fixed points is not sufficient to predict the global behavior of the dynamical system, however. What happens to the solution of a dynamical system if the initial condition is very close to an equilibrium, but not precisely at it? Put another way, what happens if the equilibrium is perturbed? The solution may be attracted to the equilibrium value, that is, it approaches it ever-closer, or else it is not. In the first case, this is called a stable equilibrium, because a small perturbation does not dramatically change the long-term behavior of the solution. In the latter case, the equilibrium is called unstable, and the solution perturbed from the equilibrium never returns. These concepts are formalized in the following definition 
+
+```{definition, def-stable}
+A fixed point  $x^*$ of an ODE $\dot x = f(x)$ is called a *stable* fixed point (or sink) if for a sufficiently small number $\epsilon$, the solution $x(t)$ with the initial condition $x_0 = x^* + \epsilon$ approaches the fixed point $x^*$ as $t \rightarrow \infty$. If the solution $x(t)$ does not approach $x^*$ for all nonzero $\epsilon$, the fixed point is called an *unstable* fixed point (or source).
+```
+
+
+To determine whether a fixed point is stable analytically we use the approach called \index{differential equation!linearization}\index{linearization!differential equation} *linearization*, which involves replacing the function $f(x)$ with a linear approximation.  Let us define $\epsilon(t)$ to be the deviation of the solution $x(t)$ from the fixed point $x^*$, so we can write $x(t) = x^* + \epsilon(t)$. Assuming that $\epsilon(t)$ is small, we can write the function $f(x)$ using Taylor's formula: 
 $$ f(x^*+\epsilon(t))= f(x^*)+f'(x^*) \epsilon(t) + ... = f'(x^*) \epsilon(t) + ... $$
+
 The term $f(x^*)$ vanished because it is zero by definition \ref{def:ch16_fixedpt} of a fixed point. The ellipsis indicates all the terms of order $\epsilon(t)^2$ and higher, which are very small if $\epsilon(t)$ is small, and thus can be neglected. Thus, we can write the following approximation to the ODE $\dot x = f(x)$ near a fixed point:
+
 $$ \dot x =  \frac{d(x^* + \epsilon(t))}{dt} = \dot \epsilon(t) =  f'(x^*) \epsilon(t)$$
+
 Thus we replaced the complicated nonlinear ODE near a fixed point with a linear equation, which approximates the dynamics of the deviation $\epsilon(t)$ near the fixed point $x^*$; note that the derivative $f'(x^*)$ is a constant for any given fixed point. In section \ref{sec:math15} we classified the behavior of solutions for the general linear ODE $\dot x = rx$, and now we apply this classification to the behavior of the deviation $\epsilon(t)$. If the multiple $f'(x^*)$ is positive, the deviation $\epsilon(t)$ is growing, the solution is diverging away from the fixed point, and thus the fixed point is unstable. If the multiple $f'(x^*)$ is negative, the deviation $\epsilon(t)$ is decaying, the solution is converging to the fixed point, and thus the fixed point is stable. Finally, there is the borderline case of $f'(x^*) = 0$ which is inconclusive, and the fixed point may be either stable or unstable. The \index{differential equation!stability analysis} derivative stability analysis is summarized in the following:
-\begin{itemize}
-\item $f'(x^*) > 0$: the slope of $f(x)$ at the fixed point is positive, then the fixed point is \textbf{unstable}. 
-\item $f'(x^*) < 0$: the slope of $f(x)$ at the fixed point is negative, then the fixed point is \textbf{stable}. 
-\item $f'(x^*) = 0$: stability cannot be determined from the derivative.
-\end{itemize}
+
+* $f'(x^*) > 0$: the slope of $f(x)$ at the fixed point is positive, then the fixed point is \textbf{unstable}. 
+* $f'(x^*) < 0$: the slope of $f(x)$ at the fixed point is negative, then the fixed point is \textbf{stable}. 
+* $f'(x^*) = 0$: stability cannot be determined from the derivative.
+
 Therefore, knowing the derivative or the slope of the defining function at the fixed point is enough to know its stability. If the derivative has the discourtesy of being zero, the situation is tricky, because then higher order terms that we neglected make the difference. We will mostly avoid such borderline cases, but they are important in some applications \citep{strogatz_nonlinear_2001}.
 
-One word of caution: \textbf{the derivative of the defining function $f'(x)$ is not the second derivative of the solution $x(t)$.} This is a common mistake, because the function $f(x)$ is equal to the time derivative of $x(t)$. However, the derivative $f'(x)$ is not with respect to time, it is with respect to x, the dependent variable. In other words, it reflects the slope of the graph of the defining function $f(x)$, not the curvature of the graph of the solution $x(t)$.
+**A word of caution:** The derivative of the defining function $f'(x)$ is not the second derivative of the solution $x(t)$. This is a common mistake, because the function $f(x)$ is equal to the time derivative of $x(t)$. However, the derivative $f'(x)$ is not with respect to time, it is with respect to x, the dependent variable. In other words, it reflects the slope of the graph of the defining function $f(x)$, not the curvature of the graph of the solution $x(t)$.
 
-To summarize, here is an outline of the steps for analyzing the behavior of solutions of an autonomous one-variable ODE. These tasks can be accomplished either by plotting the defining function $f(x)$ and finding the fixed points and their stability based on the plot, or by solving for the fixed points on paper, then finding the derivative $f'(x)$ and plugging in the values of the fixed points to determine their stability. Either approach is valid, but the analytical methods are necessary when dealing with models that have unknown parameter values, which makes it impossible to represent the defining function in a plot. \\
+To summarize, here is an outline of the steps for analyzing the behavior of solutions of an autonomous one-variable ODE. These tasks can be accomplished either by plotting the defining function $f(x)$ and finding the fixed points and their stability based on the plot, or by solving for the fixed points on paper, then finding the derivative $f'(x)$ and plugging in the values of the fixed points to determine their stability. Either approach is valid, but the analytic methods are necessary when dealing with models that have unknown parameter values, which makes it impossible to represent the defining function in a plot. 
 
-\textbf{Outline of qualitative analysis of an ODE}
-\begin{itemize}
-
-\item find the fixed points by setting the defining function $f(x)=0$ and solving for values of $x^*$
-
-\item divide the domain of $x$ into intervals separated by fixed points $x^*$
-
-\item determine on which interval(s) the solution $x(t)$ is increasing and on which it is decreasing
-
-\item use derivative stability analysis (graphically or analytically) to determine which fixed points are stable
-
-\item sketch the solutions $x(t)$ starting at different initial values, based on the stability analysis and whether the solution is increasing or decreasing in a particular interval
-
-\end{itemize}
+### Outline of qualitative analysis of an ODE
 
 
-\textbf{Example: linear model.} Consider the linear ODE that we analyzed above $dx/dt = 4x -100$. Let us go through the steps of qualitative analysis:
-\begin{itemize}
+* find the fixed points by setting the defining function $f(x)=0$ and solving for values of $x^*$
 
-\item find the fixed points by setting the defining function to 0: $0 = 4x -100$, so there is only one fixed point $x^* = 25$
+* divide the domain of $x$ into intervals separated by fixed points $x^*$
 
-\item divide the domain of $x$ into intervals separated by fixed points $x^*$: the intervals are $x<25$ and $x>25$
+* determine on which interval(s) the solution $x(t)$ is increasing and on which it is decreasing
 
-\item the solution is decreasing on the interval $x<25$ because $f(x)<0$ there, and the solution is increasing on the interval $x>25$ because $f(x)>0$
+* use derivative stability analysis (graphically or analytically) to determine which fixed points are stable
 
-\item the derivative $f'(x)$ at the fixed point is 4, so the fixed point is \textbf{unstable}
-
-\item solutions $x(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_linear}b and they behave as follows: solutions with initial values below $x^*=25$ decreasing, and those with initial values above $x^*=25$ increasing.
-\end{itemize}
-
-\textbf{Example: logistic model.} \index{model!logistic}\index{function!logistic}Consider the logistic model from the previous subsection,  $dP/dt =0.3P(1-P/40)$. We have analyzed the stability of the two fixed points using the plot in figure \ref{fig:ch16_flow_logistic}, and saw that the flow takes the solution away from $P=0$, and toward $P=K$, thus the first fixed point is unstable, while the second is stable. Let us repeat the analysis using analytical tools:
-\begin{itemize}
-
-\item find the fixed points by setting the defining function to 0: $0 = 0.3P(1-P/40)$. The two solutions are $P^*=0$ and $P^*=40$.
-
-\item divide the domain of $P$ into intervals separated by fixed points $P^*$: the intervals are $P<0$; $0<P<40$; and $P>40$
-
-\item the solution is decreasing on the interval $P<0$ because $f(P)<0$ there, the solution is increasing on the interval $0<P<40$ because $f(P)>0$, and the solution is decreasing  for $P>40$ because $f(P)<0$ there
-
-\item the derivative is $f'(P)=0.3-0.3P/20$; since $f'(0)=0.3 > 0$, the fixed point is \textbf{unstable}; since $P'(40)=-0.3<0$, the fixed point is \textbf{stable}
-
-\item solutions $P(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_logistic}b and they behave as follows: solutions with initial values below $P^*=0$ decreasing, those with initial values between 0 and 40 are increasing and asymptotically approaching 40, and those with initial values above 40 decreasing and asymptotically approaching 40. 
-\end{itemize}
-
-% This can be done more generally by our derivative test: taking the derivative of the function on the right-hand-side (with respect to $P$), we get $f'(P)  = r(1-2\frac{P}{K})$. Assuming $r>0$ (the population is viable), $f'(0)= r$ is positive, and the fixed point is therefore unstable. This makes biological sense, since we assumed positive inherent population growth, so given a few individuals, it will increase in size. On the other hand, $P'(K) = r(1-2) = -r$, so this fixed point is stable. Thus, according to the logistic model, a population with a positive inherent growth rate will not grow unchecked, like in the exponential model, but will increase until it reaches its carrying capacity, at which it will stay (if all parameters remain constant).
+* sketch the solutions $x(t)$ starting at different initial values, based on the stability analysis and whether the solution is increasing or decreasing in a particular interval
 
 
-\textbf{Example: semi-stable fixed point.} Consider the ODE  $dx/dt =  -x^3 + x^2 $, whose defining function is plotted in figure \ref{fig:ch16_flow_semi}a, showing two fixed points at $x = 0, 1$. 
-  \begin{itemize}
+**Example: linear model.** Consider the linear ODE that we analyzed above $dx/dt = 4x -100$. Let us go through the steps of qualitative analysis:
 
-\item find the fixed points by setting the defining function to 0: $0 =  -x^3 + x^2$. The two fixed points are $x^*=0$ and $x^*=1$.
 
-\item divide the domain of $x$ into intervals separated by fixed points $x^*$: the intervals are $x<0$; $0<x<1$; and $x>1$
+* find the fixed points by setting the defining function to 0: $0 = 4x -100$, so there is only one fixed point $x^* = 25$
 
-\item the solution is increasing on the interval $x<0$ because $f(x)>0$ there, the solution is increasing on the interval $0<x<1$ because $f(x)>0$, and the solution is decreasing  for $x>1$ because $f(x)<0$ there
+* divide the domain of $x$ into intervals separated by fixed points $x^*$: the intervals are $x<25$ and $x>25$
 
-\item the derivative is $f'(x)=-3x^2+2x$; since $f'(0)=0$, the fixed point is undetermined; since $f'(1)=-1<0$, the fixed point is stable.
+* the solution is decreasing on the interval $x<25$ because $f(x)<0$ there, and the solution is increasing on the interval $x>25$ because $f(x)>0$
 
-\item the solutions $x(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_semi}b, and they behave as follows: solutions with initial values below 0 are increasing and asymptotically approaching 0, those with initial values between 0 and 1 are increasing and asymptotically approaching 1, and those with initial values above 1 are decreasing and asymptotically approaching 1. 
-\end{itemize}
+* the derivative $f'(x)$ at the fixed point is 4, so the fixed point is *unstable*
 
-This example shows how graphical analysis can help when derivative analysis is undetermined. The red arrows on the x-axis of figure \ref{fig:ch16_flow_semi} show the direction of the flow in the three different regions separated by the fixed points. Flow is to the right for $x<1$, to the left for for $x>1$; it is clear that the arrows approach the fixed point from both sides, and thus the fixed point  is stable, as the negative slope of $f(x)$ at  $x=1$ indicates. One the other hand, the fixed point at $x=0$ presents a more complicated situation: the slope of $f(x)$ is zero, and the flow is rightward on both sides of the fixed point. This type of fixed point is sometimes called \emph{semi-stable}, because it is stable when approached from one side, and unstable when approached from the other.  
+* solutions $x(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_linear}b and they behave as follows: solutions with initial values below $x^*=25$ decreasing, and those with initial values above $x^*=25$ increasing.
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-<<ch16-math3, echo=FALSE, fig.width=4.5, fig.height=4.5, out.width='0.49\\linewidth',fig.show='hold'>>=
+
+** Example: logistic model.** \index{model!logistic}\index{function!logistic} Consider the logistic model from the previous subsection,  $dP/dt =0.3P(1-P/40)$. We have analyzed the stability of the two fixed points using the plot in figure \ref{fig:ch16_flow_logistic}, and saw that the flow takes the solution away from $P=0$, and toward $P=K$, thus the first fixed point is unstable, while the second is stable. Let us repeat the analysis using analytic tools:
+
+
+* find the fixed points by setting the defining function to 0: $0 = 0.3P(1-P/40)$. The two solutions are $P^*=0$ and $P^*=40$.
+
+* divide the domain of $P$ into intervals separated by fixed points $P^*$: the intervals are $P<0$; $0<P<40$; and $P>40$
+
+* the solution is decreasing on the interval $P<0$ because $f(P)<0$ there, the solution is increasing on the interval $0<P<40$ because $f(P)>0$, and the solution is decreasing  for $P>40$ because $f(P)<0$ there
+
+* the derivative is $f'(P)=0.3-0.3P/20$; since $f'(0)=0.3 > 0$, the fixed point is *unstable*; since $P'(40)=-0.3<0$, the fixed point is *stable*
+
+* solutions $P(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_logistic}b and they behave as follows: solutions with initial values below $P^*=0$ decreasing, those with initial values between 0 and 40 are increasing and asymptotically approaching 40, and those with initial values above 40 decreasing and asymptotically approaching 40. 
+
+
+This can be done more generally using the derivative test: taking the derivative of the function on the right-hand-side (with respect to $P$), we get $f'(P)  = r(1-2\frac{P}{K})$. Assuming $r>0$ (the population is viable), $f'(0)= r$ is positive, and the fixed point is therefore unstable. This makes biological sense, since we assumed positive inherent population growth, so given a few individuals, it will increase in size. On the other hand, $P'(K) = r(1-2) = -r$, so this fixed point is stable. Thus, according to the logistic model, a population with a positive inherent growth rate will not grow unchecked, like in the exponential model, but will increase until it reaches its carrying capacity, at which it will stay (if all parameters remain constant).
+
+**Example: semi-stable fixed point.** Consider the ODE  $dx/dt =  -x^3 + x^2$, whose defining function is plotted in figure \ref{fig:ch16_flow_semi}a, showing two fixed points at $x = 0, 1$.
+
+
+* find the fixed points by setting the defining function to 0: $0 =  -x^3 + x^2$. The two fixed points are $x^*=0$ and $x^*=1$.
+
+* divide the domain of $x$ into intervals separated by fixed points $x^*$: the intervals are $x<0$; $0<x<1$; and $x>1$
+
+* the solution is increasing on the interval $x<0$ because $f(x)>0$ there, the solution is increasing on the interval $0<x<1$ because $f(x)>0$, and the solution is decreasing  for $x>1$ because $f(x)<0$ there
+
+* the derivative is $f'(x)=-3x^2+2x$; since $f'(0)=0$, the fixed point is *undetermined*; since $f'(1)=-1<0$, the fixed point is *stable*.
+
+* the solutions $x(t)$ starting at different initial values are shown in figure \ref{fig:ch16_flow_semi}b, and they behave as follows: solutions with initial values below 0 are increasing and asymptotically approaching 0, those with initial values between 0 and 1 are increasing and asymptotically approaching 1, and those with initial values above 1 are decreasing and asymptotically approaching 1. 
+
+
+This example shows how graphical analysis can help when derivative analysis is undetermined. The red arrows on the x-axis of figure \ref{fig:ch16_flow_semi} show the direction of the flow in the three different regions separated by the fixed points. Flow is to the right for $x<1$, to the left for for $x>1$; it is clear that the arrows approach the fixed point from both sides, and thus the fixed point  is stable, as the negative slope of $f(x)$ at  $x=1$ indicates. One the other hand, the fixed point at $x=0$ presents a more complicated situation: the slope of $f(x)$ is zero, and the flow is rightward on both sides of the fixed point. This type of fixed point is sometimes called *semi-stable*, because it is stable when approached from one side, and unstable when approached from the other.  
+
+```{r ch7-flow3, echo=FALSE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'a) plot of the defining function of the ODE  dx/dt = -x^3 + x^2 with direction of flow of x(t) indicated with arrows on the x-axis; b) plot of solutions x(t) of the ODE staring with three initial values..'}
 # defining function for the  ODE dx/dt = x^2-x^3
 semi_funk <- function (x,r,K){
   return(x^2-x^3)
@@ -321,39 +323,117 @@ lines(t,y,lwd=3, cex=1.5, cex.axis=1.5,cex.lab=1.5)
 
 abline(0,0,lty=2,lwd=2)
 abline(1,0,lty=2,lwd=2)
-@
-%   \centering
- %   \includegraphics[width=4in]{ch16/lec2_fig1.jpg} 
-   \caption{plot of the defining function of the ODE $ \dot x = -x^3 + x^2 $ with direction of flow of $x(t)$ indicated with arrows on the $x$-axis; b) plot of solutions $x(t)$ of the ODE staring with three initial values.}
-   \label{fig:ch16_flow_semi}
-\end{figure}
-
-\exercise{$$ \frac{dN}{dt} = 0.2N - 1200; \; N \in (0,10000); \; N(0) = 800; \; N(0) = 8000 $$}
-
-\exercise{$$ \frac{dP}{dt} = 0.3P(40-P); \; P \in (-1, 60); \; P(0) = 50; \; P(0) = 10$$}
-
-\exercise{$$ \frac{dZ}{dt} = Z^2-50Z; \; Z \in (-1, 70); \; Z(0) = 3; \; Z(0) = 60$$}
-
-\exercise{$$ \frac{dI}{dt} = 0.1I(1-I) - 0.03I; \;  I \in (-0.1, 1.1); \; I(0) = 0.2; \; I(0) = 0.9 $$}
-
-\exercise{$$  \frac{dR}{dt} = \frac{R}{1+R}-0.1R; \; R \in (-0.1, 10); \; R(0) = 20; \; R(0) = 0 $$}
-
-\exercise{$$  \frac{dP}{dt} =  0.02P(P-100)(1200-P) \; P \in (-0.1, 1200); \; P(0) = 20; \; P(0) = 1000 $$}
-
-\exercise{$$  \frac{dY}{dt} =  0.01Y(Y-100)(Y-200) \; Y \in (-0.1, 300); \; Y(0) = 20; \; Y(0) = 250 $$}
-
-%\item $$ \frac{dC}{dt} = 0.02 C \ln \left(  \frac{10^7}{C} \right); \; C(0) = 100; \; C(0) = 10000 $$
-\exerciseshere{For the following differential equations: a) plot the defining function over the indicated range (use any computational tools you wish) to determine the intervals on which the dependent variable is increasing and decreasing; b) find the equilibria c) determine the stability of each equilibrium;  d) based on your analysis in parts a-c, sketch (by hand) plots of the solutions with the specified initial values.}
+```
 
 
-\problem{The logistic function \index{logistic model}\index{function!logistic}was defined in chapter 2, equation 2.4. Verify that the logistic function with independent variable $t$ solves the logistic ODE in equation \ref{eq:log_cont_model} and relate the parameters in the function to the parameters $r$ and $K$ in the ODE.}
-
-\problemshere
+For the following differential equations: a) plot the defining function over the indicated range (use any computational tools you wish) to determine the intervals on which the dependent variable is increasing and decreasing; b) find the equilibria c) determine the stability of each equilibrium;  d) based on your analysis in parts a-c, sketch (by hand) plots of the solutions with the specified initial values.
 
 
-\section{Modeling of infectious disease spread}
+1. $$ \frac{dC}{dt} = -0.2C + 60; \; C \in (0,500); \; C(0) = 200; \; C(0) = 400 $$
+
+2. $$ \frac{dP}{dt} = 0.01P(800-P) - 0.5P; \; P \in (-1, 1000); \; P(0) = 100; \; P(0) = 800$$
+
+3. $$ \frac{dR}{dt} = R(80-R) - 1200; \; R \in (-1, 100); \; R(0) = 10; \; R(0) = 80$$ 
+
+4. $$ \frac{dI}{dt} = 0.1I(1-I) - 0.03I; \;  I \in (-0.1, 1.1); \; I(0) = 0.2; \; I(0) = 0.9 $$ 
+
+5. $$  \frac{dR}{dt} = \frac{R}{1+R}-0.1R; \; R \in (-0.1, 10); \; R(0) = 20; \; R(0) = 0 $$ 
+6. $$  \frac{dP}{dt} =  0.02P(P-100)(1200-P) \; P \in (-0.1, 1200); \; P(0) = 20; \; P(0) = 1000 $$ 
+
+7. $$  \frac{dY}{dt} =  0.01Y(Y-100)(Y-200) \; Y \in (-0.1, 300); \; Y(0) = 20; \; Y(0) = 250 $$ 
+
+8. (harder) The logistic function \index{logistic model}\index{function!logistic}was defined in chapter 2, equation 2.4. Verify that the logistic function with independent variable $t$ solves the logistic ODE in equation \ref{eq:log_cont_model} and relate the parameters in the function to the parameters $r$ and $K$ in the ODE.
+
+## Functions in R
+
+Like most programming languages, R allows one to define and use structures called \index{function!in R}\index{R programming!function}functions. Some are already written and loaded into the R distribution, for example, the function `mean()` we use to compute the mean of a vector variable, while others can be defined by users. Functions are discrete chunks of code that can be *called* from the outside to perform some task. The function receives inputs from the call and returns the result back. Here is the general structure of a function in R:
+```{r, tidy=TRUE, eval = FALSE}
+myfunction <- function(arg1, arg2, ... ){
+   statements
+   return(answer)
+}
+```
+
+
+
+
+
+
+A function is a piece of code that is **defined** separately and can be **called** by other pieces of code. The main purpose is to create a "black box" that does a specific job and can be used repeatedly just by calling the function (invoking its name), rather than copying the code repeatedly. 
+
+A function generally has input variables (although sometimes there are none) and returns an output using the `return()` statement. It is important to distinguish between the *inside* of the function - the code between the curly braces in the function definition - and the *outside*, that is everything else. The inputs are *passed* to the function in the call (through the parentheses) and then used inside the function to do its business and produce an output, which is then *returned* back to the place in the code where the function was called.
+
+
+### defining a function
+Here is an example of a function definition, with input variables N and r. Between the curly braces is the *body of the function*, which in this case multiplies the two input variables and then returns them.
+
+```{r}
+my_funk <- function(N,r){ 
+  ans <- r*N # updating function f(N)
+  return(ans)
+}
+```
+
+Note that after running the code chunk above, you should see the name `my_funk` in your environment (under Functions). This means this function is defined in memory and ready to be called.
+
+### calling a function
+
+After a function is defined, it is ready to be called (executed) by invoking its name and giving the correct number of inputs. Here's an example of a function call:
+```{r}
+a <- 30
+y <- 1:10
+print(my_funk(y, a))
+```
+Notice that the variable names in the fuction call do not have to be same as what they are called within the function. IMPORTANT: a function uses the order of variables in the function call, called *external variables* (`y`, `a`) to assign their names within the function, called *internal variables* (`N`, `r`). (There is a way to specify which input belongs to which internal variable, e.g. `plot(x=time, y=sol)` and in that case the order is not important.)
+
+### using a function to solve a difference equation
+
+We have solved discrete-time dynamic models (difference equations) using for loops. You can use a function to calculate the next value of the solution, by passing the current value and any parameters as inputs to the function, as you can see in the code chunk below:
+
+```{r}
+numsteps<-30 # set number of steps
+sol <- rep(0,numsteps+1) # pre-allocate sol1
+sol[1] <- 100 # set initial value
+r <- 2 # define the multiplicative constant
+for (i in 1:numsteps) { # repeat for numsteps
+  sol[i+1] <- my_funk(sol[i], r) # calculate the next value
+}
+time <- 0:numsteps # define time vector
+plot(time,sol,t='b',xlab='time',ylab='solution',lwd=2)
+```
+
+### Exercises
+
+1. Write a function that takes the input variable and multiplies it by 1.03, like the mathematical function $f(x) = 1.03x$.
+
+```{r}
+# YOUR CODE HERE
+```
+
+2. Use the function to take a variable and multiply it by 1.03, replacing the old value of the variable. If the initial value is 5, the new value should be 5.15.
+
+```{r}
+# YOUR CODE HERE
+```
+
+3. Write a script to take a variable and multiply it by 1.03 one hundred times, replacing the old value of the variable **using a for loop and the function you created**. Starting with the initial value is 5, the script should return the value 96.093.
+
+```{r}
+# YOUR CODE HERE
+```
+
+
+4. Modify the script above to save all the intermediate values into a vector, and plot a graph of this vector vs. the iteration step (from 1 to 101). Hint: this is exactly like the example code above.
+
+```{r}
+# YOUR CODE HERE
+```
+
+
+## Modeling the spread of infectious disease spread
 \label{sec:bio16} 
-The field of \index{model!epidemiology}\index{differential equation!SIS model}\emph{epidemiology}  studies the distribution of disease and health states in populations. Epidemiologists describe and model these issues with the goal of helping public health workers devise interventions to improve the overall health outcomes on a large scale. One particular topic of interest is the the spread of infectious disease and how best tor respond to it.. Because epidemiology is concerned with large numbers of people, the models used in the field do not address the details of an individual disease history. One approach to modeling this is to put people into categories, which is called a \index{epidemic!compartment model}\emph{compartment model}. We already saw an example of such models in chapter 10 with a Markov model describing a person with two states: susceptible and infected. Dividing people into categories involves the assumption that everyone in a particular category behaves in the same manner: for instance, all susceptible people are infected with the same rate and all infected people recover with the same rate. 
+
+The field of \index{model!epidemiology}\index{differential equation!SIS model *epidemiology* studies the distribution of disease and health states in populations. Epidemiologists describe and model these issues with the goal of helping public health workers devise interventions to improve the overall health outcomes on a large scale. One particular topic of interest is the the spread of infectious disease and how best tor respond to it.. Because epidemiology is concerned with large numbers of people, the models used in the field do not address the details of an individual disease history. One approach to modeling this is to put people into categories, such as *susceptible* (those who can be infected but are not), *infectious* (those who are infected and can spread the disease), and *recovered* (those who cannot be infected or spread disease). This type of models is called a \index{epidemic!compartment model} *compartment model* and they are they commonly used to represent infectious disease on a population level both for deterministic models (e.g. ODEs) and stochastic models (e.g. Markov models). Dividing people into categories involves the assumption that everyone in a particular category behaves in the same manner: for instance, all susceptible people are infected with the same rate and all infected people recover with the same rate. 
 
 Let us construct an ODE to describe a two-compartment epidemiology model. There are two dependent variables to be tracked: the number of susceptible ($S$) and infected ($I$) individuals in the population. The susceptible individuals can get infected, while the infected ones can recover and become susceptible again. The implicit assumption is that there is no immunity, and recovered individuals can get infected with the same ease as those who were never infected. There are some human diseases for which this is true, for instance the common cold or gonorrhea. Transitions between the different classes of individuals can be summarized by the following scheme:
 $$ S + I \xrightarrow{\beta} I \xrightarrow{\gamma} S $$
@@ -372,7 +452,8 @@ This means that there are two equilibrium levels of infection: either nobody is 
 
 Use the derivative test to check for stability. First, find the general expression for derivative of the defining function: $f'(I) = -2 \beta I + \beta N - \gamma $.
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-<<ch16-sis1, echo=FALSE, fig.width=4.5, fig.height=4.5, out.width='0.49\\linewidth',fig.show='hold'>>=
+
+```{r ch7-flow-sis1, echo=FALSE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Graphical analysis of the SIS model with $I$ representing the fraction of infected individuals (N=1) and beta=0.5 and gamma = 0.2; a) plot showing the flow of the solutions on the I-axis, with a stable equilibrium at 0.6 and an unstable equilibrium at 0; b) three solutions of the model starting at three different initial values all converge to the same fraction of infected.'}
 # defining function for the SI ODE dx/dt = -beta*(S)*(N-S)+gamma*(N-S)
 SI_funk <- function (I,N,beta,gamma){
   return(beta*(I)*(N-I)-gamma*I)
@@ -421,17 +502,10 @@ lines(t,y,lwd=3, cex=1.5, cex.axis=1.5,cex.lab=1.5)
 
 abline(0,0,lty=2,lwd=2)
 abline(N-gamma/beta,0,lty=2,lwd=2)
-@
+```
 
-%   \centering
-  % \includegraphics[width=3in]{ch16/sis_stable.png} 
-  % \includegraphics[width=3in]{ch16/sis_unstable.png} 
-   \caption{Graphical analysis of the SIS model with $I$ representing the fraction of infected individuals ($N=1$) and $\beta=0.5$ and $\gamma = 0.2$; a) plot showing the flow of the solutions on the $I$-axis, with a stable equilibrium at 0.6 and an unstable equilibrium at 0; b) three solutions of the model starting at three different initial values all converge to the same fraction of infected.}
-   \label{fig:ch16_flow_sis1}
-\end{figure}
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-<<ch16-sis2, echo=FALSE, fig.width=4.5, fig.height=4.5, out.width='0.49\\linewidth',fig.show='hold'>>=
+```{r ch7-flow-sis2, echo=FALSE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Graphical analysis of the SIS model with I representing the fraction of infected individuals (N=1) and beta=0.2 and gamma = 0.3; a) plot showing the flow of the solutions on the I-axis, with a stable equilibrium at 0 and an unstable equilibrium at -0.5; b) three solutions of the model starting at three different initial values all converge to 0 infected.'}
 # defining function for the SI ODE dx/dt = -beta*(S)*(N-S)+gamma*(N-S)
 SI_funk <- function (I,N,beta,gamma){
   return(beta*(I)*(N-I)-gamma*I)
@@ -480,51 +554,47 @@ lines(t,y,lwd=3, cex=1.5, cex.axis=1.5,cex.lab=1.5)
 
 abline(0,0,lty=2,lwd=2)
 abline(N-gamma/beta,0,lty=2,lwd=2)
-@
-   \caption{Graphical analysis of the SIS model with $I$ representing the fraction of infected individuals ($N=1$) and $\beta=0.2$ and $\gamma = 0.3$; a) plot showing the flow of the solutions on the $I$-axis, with a stable equilibrium at 0 and an unstable equilibrium at -0.5; b) three solutions of the model starting at three different initial values all converge to 0 infected.}
-   \label{fig:ch16_flow_sis2}
-\end{figure}
+```
 
 The stability of the fixed point $I^* = 0$ is found by plugging in this value into the derivative formula: $f'(0) = \beta N - \gamma $. We learned in section \ref{sec:math16} that a fixed point is stable if the derivative of the defining function is negative. Therefore, $I^* = 0$ is stable if $\gamma - \beta N > 0$, and unstable otherwise. This gives us a \index{differential equation!stability condition}\emph{stability condition} on the values of the biological parameters. If the recovery rate $\gamma$ is greater than the rate of infection for the population (the transmission rate multiplied by the population size) $\beta N$, then the no-infection equilibrium is stable. This predicts that the infection dies out if the recovery rate is faster than the rate of infection, which makes biological sense.
 
-Similarly, we find the stability of the second fixed point $ I^* =  N - \gamma/\beta $ by substituting its value into the derivative, to obtain $f'(N - \gamma/\beta) = \gamma  - \beta N  $. By the same logic, as above, this fixed point is stable if $ \gamma  - \beta N  < 0 $, or if $\gamma < \beta N$. This is a complementary condition for the fixed point at 0, that is, only one fixed point can be stable for any given parameter values. In the biological interpretation, if the transmission rate $\beta N$ is greater than the recovery rate $\gamma$, then the epidemic will persist. 
+Similarly, we find the stability of the second fixed point $I^* =  N - \gamma/\beta$ by substituting its value into the derivative, to obtain $f'(N - \gamma/\beta) = \gamma  - \beta N$. By the same logic, as above, this fixed point is stable if $\gamma  - \beta N  < 0$, or if $\gamma < \beta N$. This is a complementary condition for the fixed point at 0, that is, only one fixed point can be stable for any given parameter values. In the biological interpretation, if the transmission rate $\beta N$ is greater than the recovery rate $\gamma$, then the epidemic will persist. 
 
 We can use our graphical analysis skills to illustrate the situation. Consider a situation in which $\gamma < \beta N$. As predicted by stability analysis, the  zero infection equilibrium should be unstable, and the equilibrium at $N - \gamma/\beta$ should be stable. In order to plot the function $f(I) =  \beta I (N - I) - \gamma I $, we choose the specific parameter values $N=1$, $\gamma = 0.1$ and $\beta = 0.2$; setting $N=1$ means $S$ and $I$ represent the fraction of the population in the susceptible and infected categories. Figure \ref{fig:ch16_flow_sis1}a shows the direction of the flow on the $I$-axis prescribed by the defining function $f(I)$ with red arrows.  It is clear that solutions approach the fixed point at $N - \gamma/\beta$  from both directions, which make it a stable fixed point, while diverging from $I=0$, as shown in figure \ref{fig:ch16_flow_sis1}b.
 
-On the other hand, if $\gamma > \beta N$, stability analysis predicts that the no-infection equilibrium ($I=0$) is stable.  Figure \ref{fig:ch16_flow_sis2}a shows the plot of the defining function for the parameter values  $N=1$, $\gamma = 0.3$ and $\beta = 0.2$. The flow on the $I$-axis is toward the zero equilibrium, therefore it is stable. Note that the second equilibrium at $ I^* =  N - \gamma/\beta $ is negative, and thus has no biological significance. The solutions, if the initial value is positive, all approach 0, so the infection inevitably dies out. 
+On the other hand, if $\gamma > \beta N$, stability analysis predicts that the no-infection equilibrium ($I=0$) is stable.  Figure \ref{fig:ch16_flow_sis2}a shows the plot of the defining function for the parameter values  $N=1$, $\gamma = 0.3$ and $\beta = 0.2$. The flow on the $I$-axis is toward the zero equilibrium, therefore it is stable. Note that the second equilibrium at $I^* =  N - \gamma/\beta$ is negative, and thus has no biological significance. The solutions, if the initial value is positive, all approach 0, so the infection inevitably dies out. 
 
-Mathematical modeling of epidemiology has been a success story in the last few decades. Public health workers routinely estimate the \index{parameter!basic reproductive ratio}parameter called the \index{epidemic!basic reproductive ratio}\emph{basic reproductive ratio} $R_0$ defined to be the average number of new infections caused by a single infected individual in a susceptible population. This number comes out of our analysis above, where we found $R_0 = N \beta/\gamma$ to determine whether or not an epidemic persisted \citep{brauer_mathematical_2011}. This number is critical in more sophisticated models of epidemiology.
+Mathematical modeling of epidemiology has been a success story in the last few decades. Public health workers routinely estimate the \index{parameter!basic reproductive number}parameter called the \index{epidemic!basic reproductive number} *basic reproductive number* $R_0$ defined to be the average number of new infections caused by a single infected individual in a susceptible population. This number comes out of our analysis above, where we found $R_0 = N \beta/\gamma$ to determine whether or not an epidemic persisted \citep{brauer_mathematical_2011}. This number is critical in more sophisticated models of epidemiology.
 
-Mathematical models are used to predict the time course of an epidemic, called the \index{epidemic!curve} \emph{epidemic curve} and then advise on the public health interventions that can reduce the number of affected individuals. In reality, most epidemic curves have the shape similar to the data from the Ebola virus epidemic in figure \ref{fig:ch16-ebola}. Most such curves show an initial increase in infections, peaking, and the declining to low levels, which is fundamentally different than the solution curves we obtained from the two-compartment model. To describe dynamics of this nature, models with more than two variables are needed, such as classic three-compartment SIR models (susceptible-infected-recovered) models and their modifications \citep{brauer_mathematical_2011}. Being able to predict the future of an epidemic based on $R_0$ and other parameters allows public health officials to prepare and deploy interventions (vaccinations, quarantine, etc.) that have the best shot at minimizing the epidemic.
+Mathematical models are used to predict the time course of an epidemic, called the \index{epidemic!curve} *epidemic curve* and then advise on the public health interventions that can reduce the number of affected individuals. In reality, most epidemic curves have the shape similar to the data from the Ebola virus epidemic in figure \ref{fig:ch16-ebola}. Most such curves show an initial increase in infections, peaking, and the declining to low levels, which is fundamentally different than the solution curves we obtained from the two-compartment model. To describe dynamics of this nature, models with more than two variables are needed, such as classic three-compartment SIR models (susceptible-infected-recovered) models and their modifications \citep{brauer_mathematical_2011}. Being able to predict the future of an epidemic based on $R_0$ and other parameters allows public health officials to prepare and deploy interventions (vaccinations, quarantine, etc.) that have the best shot at minimizing the epidemic.
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-<<ch16-ebola, echo=FALSE, fig.width=4.5, fig.height=4.5, out.width='0.49\\linewidth',fig.show='hold'>>=
+```{r ch7-ebola, echo=FALSE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Number of new cases of ebola virus infections  per week in Liberia (left) and Sierra Leone (right), time ranging from March 17, 2014 (week 1) until May 20, 2015 (week 61). Data from http://apps.who.int/gho/data/node.ebola-sitrep.'}
 liberia <- read.table('data/ebola_liberia.txt',header=TRUE)
 barplot(liberia$cases,names.arg=liberia$week,xlab='time (weeks)',axisnames=TRUE,ylab='new ebola cases',col=2,cex=1.5, cex.axis=1.5,cex.lab=1.5)
 SL <- read.table('data/ebola_SL.txt',header=TRUE)
 evens <- seq(2,122,2)
 barplot(SL$cases[evens],names.arg=SL$week[evens]/2,xlab='time (weeks)',axisnames=TRUE,ylab='new ebola cases',col=2,cex=1.5, cex.axis=1.5,cex.lab=1.5)
-@
-\caption{Number of new cases of ebola virus infections  per week in Liberia (left) and Sierra Leone (right), time ranging from March 17, 2014 (week 1) until May 20, 2015 (week 61). Data from \url{http://apps.who.int/gho/data/node.ebola-sitrep}. }
- \label{fig:ch16-ebola}
-\end{figure}
+```
 
-\discussion{What effect does changing the infection rate $\beta$ have on the basic reproductive rate? Explain the biological intuition behind this.}
+### Discussion
 
-\discussion{What effect does changing the recovery rate $\gamma$ have on the basic reproductive rate? Explain the biological intuition behind this.}
+The following questions encourage you to think critically about modeling of infectious diseases.
 
-\discussion{Discuss what assumptions are made by using compartment models, and when they might be justified.}
+1. What effect does changing the infection rate $\beta$ have on the basic reproductive rate? Explain the biological intuition behind this.}
 
-\discussion{Discuss the difference in assumptions in using a Markov model with Susceptible and Infected compartments compared to an ODE model with the same two compartments. Under what circumstances does it make sense to use one or the other?}
+2. What effect does changing the recovery rate $\gamma$ have on the basic reproductive rate? Explain the biological intuition behind this.}
 
-\discussion{Read the paper \citep{agusto_mathematical_2015} and discuss the strengths and limitations of the more complicated compartment model intended to account for human behavior.}
+3. Discuss what assumptions are made by using compartment models, and when they might be justified.}
 
-\discussionshere{The following questions encourage you to think critically about modeling of infectious diseases.}
+4. Discuss the difference in assumptions in using a Markov model with Susceptible and Infected compartments compared to an ODE model with the same two compartments. Under what circumstances does it make sense to use one or the other?}
 
-\section{Computational projects}
-\label{sec:proj16}
-In these projects you will use graphical analysis of ODEs to find fixed points and their stability. This requires plotting the defining function of the ODE, as shown in the following example script. The last line plots a horizontal line y=0 to help located the fixed points.
-<<example-1, tidy=TRUE, tidy.opts=list(width.cutoff=50), eval=FALSE>>=
+5. Read the paper \citep{agusto_mathematical_2015} and discuss the strengths and limitations of the more complicated compartment model intended to account for human behavior.}
+
+
+## R Assignment
+
+
+```{r}
 # Define the function:
 DefFunk <- function (x,a,b){
   ans <- a*x^2-b
@@ -533,49 +603,112 @@ DefFunk <- function (x,a,b){
 a <- 1
 b <- 4
 x<-seq(-5,5,0.1) # define the array of values of x
-# calculate the values of y using a function
-y<-DefFunk(x,a,b) 
- # plot the function
-plot(x,y,t="l",xlab="x", ylab="dx/dt")
+y<-DefFunk(x,a,b) # calculate the values of y using a function
+plot(x,y,t="l",xlab="x", ylab="dx/dt") # plot the function
 abline(0,0) # draw a line for y=0
-@
+```
 
-Notice that I used two input variables into the defining function (a and b) as parameters that can be changed \emph{outside} the function. This is a good coding practice - the best way to use a function is by changing its inputs, not monkeying with its code.
+Notice that I used two input variables into the defining function (a and b) as parameters that can be changed *outside* the function. This is good coding practice - the best way to use a function is by changing its inputs, not monkeying with its internal code.
 
-After qualitative analysis, you will check whether solutions behave in the predicted way by running Forward Euler to calculate the numerical solution. You can use the code from the assignment in chapter 16 to compute the numerical solution, simply change the function name inside the for loop. 
+After qualitative analysis, you will check whether solutions behave in the predicted way by running Forward Euler to calculate the numerical solution. 
 
-\subsection{logistic population growth model}
-This is the \index{population!logistic model}\index{logistic model!continuous time}logistic model of population growth, with $P$ representing population size,  $r$ is the growth rate parameter, and $K$ is the carrying capacity parameter; $P$ is measured in thousands, and time is measured in years.
+
+### logistic population model
+
+This is the logistic model of population growth, with P representing population size, r is the growth rate parameter, and K is the carrying capacity parameter; P is measured in thousands, and time is measured in years.
 $$ \frac{dP}{dt} = rP(1-P/K) $$
 
-\subsection*{Tasks}
-\begin{enumerate}
-\item For the values of $r=0.3$ and $K=40$, plot the graph of the defining function (right-hand side of the ODE) in R over some interval that includes all zeros of the function. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: $P(0) = 1$; $P(0) = 39$; $P(0) = 20$. 
+1. a) For the values of r=0.3 and K=40, plot the graph of the defining function (right-hand side of the ODE) in R over some interval that includes all zeros of the function. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: P(0) = 1; P(0) = 39; P(0) = 20.
 
-\item For the values of the parameters $r=0.02$ and $K=120$, plot the graph of the defining function (right-hand side of the ODE) in R over some interval that includes all zeros of the function. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: $P(0) = 10$; $P(0) = 50$; $P(0) = 150$.
+```{r}
+#YOUR CODE HERE
+```
 
-\item  Write a script that uses the Forward Euler method to solve the logistic ODE for any given values of $r$ and $K$. Use this script to solve the logistic ODE with parameters $r=0.3$ and $K=40$, with a small time step (e.g. $dt =0.1$) and the following initial values: $P(0) = 1$; $P(0) = 39$; $P(0) = 20$. Plot the numerical solutions of the ODE over a sufficiently large time $Tmax$ to observe convergence. Do the solution plots look consistent with your prediction in task 1?
+YOUR ANSWERS HERE
 
-\item Use your Forward Euler script to solve the logistic ODE with parameters $r=0.02$ and $K=120$, with a small time step (e.g. $dt =0.01$) and the following initial values: $P(0) = 10$; $P(0) = 50$; $P(0) = 150$. Plot the numerical solutions of the ODE over a sufficiently large time $Tmax$ to observe convergence. Do the solution plots look consistent with your prediction in task 2?
 
-\item Let $r=0.3$ and $K=40$ and start at $P(0)=1$. Gradually increase $dt$ until you see the solution behaving differently than expected. Report at what value of $dt$ this strange behavior begins, investigate what happens for even larger time steps, and describe what happens to the solutions.
 
-\end{enumerate}
+b) Uses the Forward Euler method to calculate the numeric solution of the logistic ODE for any given values of r and K (they should be inputs into your defining function). Use this script to solve the logistic ODE with parameters r=0.3 and K=40, with a small time step (e.g. dt=0.1) and the following initial values: P(0) = 1; P(0) = 39; P(0) = 20. Calculate the numerical solutions of the ODE over a sufficiently large time Tmax to observe convergence, and plot all three in the same figure.  Do the solution plots look consistent with your prediction in question a?
 
-\subsection{SIS epidemic model}
-The following ODE is a simple model of an infectious epidemic with only two kinds of individuals: susceptible and infected, and where the total population size stays the same. The variable $I$ is the fraction of individuals in the population who are infected, and the parameters $\beta$ and $\gamma$ are the infection and recovery rates, respectively; time is measured in days \citep{britton_essential_2004}.
-$$  \frac{dI}{dt} = \beta I(1-I) - \gamma I  $$
-\subsection*{Tasks}
+```{r}
+#YOUR CODE HERE
+```
 
-\begin{enumerate}
-\item For the values of $\beta = 0.1$ and $\gamma=0.03$ plot the graph of the defining function (right-hand side of the ODE) in R over the interval $[0,1]$. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: $I(0) = 0.01$; $I(0) = 0.8$; $I(0) = 0.5$.
+YOUR ANSWERS HERE
+  
+2. For the values of the parameters r=0.02 and K=120, plot the graph of the defining function (right-hand side of the ODE) in R over some interval that includes all zeros of the function. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: P(0) = 10; P(0) = 50; P(0) = 150.
 
-\item For the values of $\beta = 0.1$ and $\gamma=0.5$ plot the graph of the defining function (right-hand side of the ODE) in R over the interval $[0,1]$. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: $I(0) = 0.01$; $I(0) = 0.8$; $I(0) = 0.5$.
+```{r}
+#YOUR CODE HERE
+```
 
-\item Use your script for Forward Euler method from the previous chapter to solve the SI model ODE for any given values of $\beta$ and $\gamma$. Use this script to solve the SI model ODE with parameters  $\beta = 0.1$ and $\gamma=0.03$, with a small time step (e.g. $dt =0.1$) and the following initial values: $I(0) = 0.01$; $I(0) = 0.8$; $I(0) = 0.5$. Plot the numerical solutions of the ODE over a sufficiently large time $Tmax$ to observe convergence.  In each case, report whether the solution approaches zero (the epidemic burns out), how the behavior depends on the initial value, and comment on whether the solution dynamics agrees with your prediction in task 1.
+YOUR ANSWERS HERE
+  
+  
+b) Use the Forward Euler method to calculate the numeric solution of the logistic ODE with parameters r=0.02 and K=120 with a small time step (e.g. dt=0.1) and the following initial values: P(0) = 10; P(0) = 50; P(0) = 150. Plot the numeric solutions of the ODE over a sufficiently large time Tmax to observe convergence. Do the solution plots look consistent with your prediction in question a?
 
-\item Use your Forward Euler script to solve the SI model ODE with parameters $\beta = 0.1$ and $\gamma=0.5$, with a small time step (e.g. $dt =0.1$) and the following initial values: $I(0) = 0.01$; $I(0) = 0.8$; $I(0) = 0.5$. Plot the numerical solutions of the ODE over a sufficiently large time $Tmax$ to observe convergence. In each case, report whether the solution approaches zero (the epidemic burns out), how the behavior depends on the initial value, and comment on whether the solution dynamics agrees with your prediction in task 2.
+```{r}
+#YOUR CODE HERE
+```
 
-\item For $I(0)=0.5$ and $\beta=0.1$; starting with $\gamma=0.3$, progressively decrease the value of the recovery rate $\gamma$, and report the behavior of the numerical solution (with a small enough $dt$ and a large enough $Tmax$). Report the critical value  of $\gamma$ at which the solution converges to a positive number in the long run (epidemic becomes self-sustaining). Keep decreasing the recovery rate and report what happens to the equilibrium fraction of infected people. Does it ever get to 1?
+YOUR ANSWERS HERE
 
-\end{enumerate}
+  
+3. Let r=0.3 and K=40 and start at P(0)=1. Gradually increase dt until you see the solution behaving differently than expected. Report at what value of dt this strange behavior begins, investigate what happens for even larger time steps, and describe what happens to the solutions.
+
+```{r} 
+#YOUR CODE HERE
+```
+
+YOUR ANSWERS HERE
+
+
+### SIS model of infectious disease
+
+The following ODE is a simple model of an infectious epidemic with only two kinds of individuals: susceptible and infected, and where the total population size stays the same.  The variable I is the fraction of individuals in the population who are infected, and the parameters beta and gamma are the infection and recovery rates, respectively; time is measured in days.
+$$ \frac{dI}{dt} = \beta I(1-I) - \gamma I $$
+
+1. a) For the values of beta = 0.4 and gamma=0.1 plot the graph of the defining function (right-hand side of the ODE) in R over the interval [0,1]. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: I(0) = 0.01; I(0) = 0.8; I(0) = 0.5.
+
+```{r}
+#YOUR CODE HERE
+```
+
+YOUR ANSWERS HERE
+
+
+b) Write a Forward Euler script to calculate the numeric solution of the SIS model ODE for any given values of beta and gamma (they should be inputs into your defining function). Use this script to solve the SIS model ODE with parameters  beta = 0.4 and gamma=0.1 , with a small time step (e.g. dt=0.1) and the following initial values: I(0) = 0.01, I(0) = 0.5, I(0) = 0.9. Plot the numerical solutions of the ODE over a sufficiently large time Tmax to observe convergence. Report whether the epidemic persists or burns out, whether it depends on the initial value, and comment on whether the solution dynamics agrees with your prediction in question a).
+
+```{r}
+#YOUR CODE HERE
+```
+
+YOUR ANSWERS HERE
+
+  
+2. a) For the values of beta=0.1 and gamma=0.2 plot the graph of the defining function (right-hand side of the ODE) in R over the interval [0,1]. Based on the graph, find the equilibria of the ODE, determine their stability, and predict the behavior of the solution for the following initial values: I(0) = 0.01; I(0) = 0.5; I(0) = 0.8.
+
+```{r}
+#YOUR CODE HERE
+```
+  
+YOUR ANSWERS HERE
+
+  
+  
+b) Use the Forward Euler script to solve the SIS model ODE with parameters beta=0.1 and gamma=0.2 with a small time step (e.g. dt=0.1) and the following initial values: I(0) = 0.01; I(0) = 0.8; I(0) = 0.5. Plot the numerical solutions of the ODE over a sufficiently large time Tmax to observe convergence. Report whether the epidemic persists or burns out (converges to zero), how it depends on the initial value, and comment on whether the solution dynamics agrees with your prediction in question a.
+
+```{r}
+#YOUR CODE HERE
+```
+
+YOUR ANSWERS HERE
+
+  
+3. For I(0)=0.5 and beta=0.1, starting with gamma=0.3, progressively decrease the value of the recovery rate gamma, and report the behavior of the numerical solution (with a small enough dt and a large enough Tmax so you can see the asymptotic behavior). Report the critical value  of gamma at which the fraction of infected converges to a positive equilibrium value (the disease does not burn out.) Keep decreasing the recovery rate and report what happens to the equilibrium fraction of infected people. Does it ever get to 1?
+
+```{r}
+#YOUR CODE HERE
+```
+
+YOUR ANSWERS HERE

@@ -43,8 +43,11 @@ A data set contains more than one measurement, the number of them is called the 
 
 The value that occurs most frequently in the data set is called its \index{mode}\emph{mode}. For some data sets, particularly those which are symmetric, the mode coincides with the mean (see next paragraph) and the median, but for many others it is distinct. The mode is the most visual of the three statistics, as it can be picked out from the histogram plot of a data set  (which is described in subsection 3.2.3) as the value corresponding to the maximum frequency. The mode can also be used for both categorical and numerical data.
 
-The average or \index{mean!data}\index{data!mean} *mean* of a data set is the sum of all the values divided by the number of values. It is also called the *expected value* (particularly in the context of probability, which we will discuss later) because it allows to simply predict the sum of a large number of measurements with a given mean, by multiplying the mean by the number. The mean can be calculated only for a numerical data set, since we cannot add non-numerical values. The definition of the mean of a data set $X$ is the same as for the average and is usually indicated with a bar over the letter for the measured data variable:
+The average or \index{mean!data}\index{data!mean} *mean* of a data set is the sum of all the values divided by the number of values. It is also called the *expected value* (particularly in the context of probability, which we will discuss later) because it allows to simply predict the sum of a large number of measurements with a given mean, by multiplying the mean by the number. The mean can be calculated only for a numerical data set, since we cannot add non-numerical values. 
 
+```{definition, def-mean}
+The *mean* of a data set $X$, also known as the average or the arithmetic mean is usually indicated with a bar over the variable symbol, and defined as the sum of the values divided by the number of values:
+```
 \begin{equation}
   \bar X  = \frac{1}{n} \sum_{i=1}^n x_i 
 \label{eq:ch3_mean_def}
@@ -85,8 +88,11 @@ For the (small) data sets given below, calculate the mean and the median (by han
 
 The center of a data set is obviously important, but so is the spread around the center. Sometimes the spread is caused by noise or error, for example in a data set of repeated measurements of the same variable under the same conditions. Other times the variance is due to real changes in the system, or due to inherent randomness of the system, and the size of the spread, as well as the shape of the histogram are important for understanding the mechanism. The simplest way to describe the spread of a numerical data set is to look at the difference between the maximum and minimum values, called the \index{data!range} *range*. However, it is obviously influenced by outliers, since the extreme values are used. To describe the typical spread, we need to use all the values in the data set, and see how far each one is from the center, measured by the mean.
 
-There is a problem with the naive approach: if we just add up all the differences of data values from the mean, the positives will cancel the negatives, and we'll get an artificially low spread. One way to correct this is to take the absolute value of the differences before adding them up. However, for somewhat deep mathematical reasons, the standard measure of spread uses not absolute values, but squares of the differences, and then divides that sum not by the number of data points $n$ but by $n-1$. This is called the \index{variance!data}\index{data!variance} *variance* of a data set, and it is calculated by the formula: \citep{whitlock_analysis_2008}
+There is a problem with the naive approach: if we just add up all the differences of data values from the mean, the positives will cancel the negatives, and we'll get an artificially low spread. One way to correct this is to take the absolute value of the differences before adding them up. However, for somewhat deep mathematical reasons, the standard measure of spread uses not absolute values, but squares of the differences, and then divides that sum not by the number of data points $n$ but by $n-1$. 
 
+```{definition, def-var}
+The *variance* of a data set $X$ with $n$ values is the sum of the squared differences of each value of the variable from the mean, divided by $n-1$: 
+```
 \begin{equation}
  Var(X) = \frac{1}{n-1} \sum_{i=1}^n (\bar X - x_i)^2
 \end{equation}
@@ -118,14 +124,14 @@ For the (small) data sets below, calculate the range, variance, and standard dev
 
 8. Consider the hypothetical town with 1000 households with mean and median wealth of \$100,000 and one person with assets for \$50 billion. Calculate the mean value of the combined data set, and compare it to the new median value.
 
-9. Suppose that a data set has a fixed range (e.g. all values have to lie between 0 and 1). What is the greatest possible standard deviation for any data set within the range? Hint: think about how to place the points as far from the mean as possible. How do the data sets above relate to your prediction?}
+9. (harder) Suppose that a data set has a fixed range (e.g. all values have to lie between 0 and 1). What is the greatest possible standard deviation for any data set within the range? Hint: think about how to place the points as far from the mean as possible. How do the data sets above relate to your prediction?}
 
 
 ### describing data sets in graphs
 
 Data sets can be presented visually to indicate the frequency of different values. This can be done in a number of ways, depending on the kind of data set. For a data set with only a few values, e.g. a categorical data set, a good way to represent it is with a pie chart. Each category is represented by a slice of the pie with the area of the same share of the pie as the fraction of the data set in the category. There is some evidence, however, that pie charts can be misleading to the eye, so R does not recommend using them.
 
-For a numerical data set it is useful to plot the frequencies of a range of values, which is called a \index{histogram!definition} *histogram*. Its independent axis has the values of the data variable, and the dependent axis has the frequency of those values. If the data set consists of real numbers that range across an interval, that interval is divided into subintervals (usually of equal size), called bins, and the number of measurements in each bin is indicated on the y-axis. In order to be visually informative, there should be a reasonable number (usually no more than a few dozen, although it varies) of bins. The most frequent/common measurements are represented as the highest bars or points on the histogram. Histograms can denote either the counts of measurements in each bin, or to show the fraction of the total number of measurements in each bin. The only difference between those two kinds of histogram is the scale of the y-axis, and, confusingly, both can be called frequencies.
+For a numerical data set it is useful to plot the frequencies of a range of values, which is called a \index{histogram!definition} *histogram*. Its independent axis has the values of the data variable, and the dependent axis has the frequency of those values. If the data set consists of real numbers that range across an interval, that interval is divided into subintervals (usually of equal size), called bins, and the number of measurements in each bin is indicated on the y-axis. In order to be visually informative, there should be a reasonable number (usually no more than a few dozen, although it varies) of bins. The most frequent measurements are represented as the highest bars or points on the histogram. Histograms can denote either the counts of measurements in each bin, or to show the fraction of the total number of measurements in each bin. The only difference between those two kinds of histogram is the scale of the y-axis, and, confusingly, both can be called frequencies.
 
 ```{r fig-ch3-bacillus, echo=FALSE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Length of bacteria Bacillus subtilis measured under the microscope as discrete values with step of 0.5; data from citep{watkins-intro-stats}'}
 data<-read.table('data/bacillus_length.txt', header=TRUE)
@@ -185,9 +191,9 @@ mean(vitals$HR)
 sd(vitals$HR)
 ```
 
-The R command read.table() reads this file and and puts it into a *data frame* called data. The three variables are stored inside the data frame, and can be accessed by appending the dollar sign and variable name to the data frame, so `data$HR` refers to only the heart rates, and `data$Temp` refers to the body temperatures. The plot shows the relationship of the two data variables, and the funtion abline(98.6,0) plots a line with the intercept 98.6a and slope 0 on top of the scatterplot.
+The R command read.table() reads this file and and puts it into a *data frame* called data. The three variables are stored inside the data frame, and can be accessed by appending the dollar sign and variable name to the data frame, so `data$HR` refers to only the heart rates, and `data$Temp` refers to the body temperatures. The plot shows the relationship of the two data variables, and the function `abline(98.6,0)` plots a line with the intercept 98.6a and slope 0 on top of the scatterplot.
 
-You can also load data from a package, e.g. `HistData`, which contains many classic data sets. Got to the Packages tab in the lower right window in R Studio, click Install and type HistData. We will use the data set called Galton that contains the heights of parents (the mean of mother's and father's) and their children, in variables parent and child. The script below plots the two variables, with parent as the independent (explanatory) variable and child as the dependent (response) variable.
+You can also load data from a package, e.g. `HistData`, which contains many classic data sets. Got to the Packages tab in the lower right window in R Studio, click Install and type `HistData`. We will use the data set called `Galton` that contains the heights of parents (the mean of mother's and father's) and their children, in variables parent and child. The script below plots the two variables, with parent as the independent (explanatory) variable and child as the dependent (response) variable.
 
 ```{r, tidy=TRUE, tidy.opts=list(width.cutoff=50), fig.align='center'}
 library(HistData)
@@ -210,7 +216,7 @@ paste("The standard deviation of  child height is:", sd(Galton$child))
 ```
 Why do you think the standard deviation of parental height is much smaller?
 
-R has histogram function hist(), which does a passable job of representing the distribution of a variable such as child height or parent height. Compare the width of the two distributions and consider why they are different.
+R has histogram function `hist()`, which does a passable job of representing the distribution of a variable such as child height or parent height. Compare the width of the two distributions and consider why they are different.
 
 ```{r, tidy=TRUE, tidy.opts=list(width.cutoff=50), fig.show='hold', out.width='50%', fig.asp=.7, fig.align='center'}
 hist(Galton$child)
@@ -263,7 +269,7 @@ mean(Galton$parent/child)
 sd(Galton$parent/child)
 ```
 
-## R Assignment: Reading in data and fitting functions by eye
+## R Assignment
 
 In this section you will read in three different data files and assign each data frame a descriptive name, e.g. Alcohol, and then plot and fit relationship between the variables within each data frame. Your task will be to choose the parameters slope and intercept that produce a plot that does a decent job of resembling the data, meaning that the line should pass through the scatterplot and capture its trend (rising or falling) fairly well.
 

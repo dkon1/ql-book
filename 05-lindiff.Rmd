@@ -302,7 +302,7 @@ print(factorial_vec)
 ```
 
 
-## R Assignment: Numeric solutions of difference equations
+## R Assignment
 
 In this part you will calculate numeric solutions of difference equations. Use the code from the last of the exercises above to write a script to iteratively update the variable for a specified number of steps and store it as a vector, and plot it as function of time. Hint: your code will be nearly identical for all the tasks, so once you get the first script to work properly, copy and paste it and modify the line in the for loop that calculates the next values. Please use descriptive names for variables and label your axes! 
 
@@ -314,7 +314,7 @@ For each of the following questions, do these tasks:
 4. describe how the solution behaves in the long term and whether it depends on the initial value (try different initial values!)
 
 
-1. The number of infected people in a population grows by 8\% per day and those who become infected remain infected. If initially there are 8 infected, how many individuals will be infected in 45 days? ANSWER: about 255
+1. The number of infected people in a population grows by 8% per day and those who become infected remain infected. If initially there are 8 infected, how many individuals will be infected in 45 days? ANSWER: about 255
 
 ```{r}
 # YOUR CODE HERE

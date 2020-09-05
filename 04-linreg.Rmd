@@ -105,7 +105,7 @@ B($m^2/kg$)   H($^\circ C /min)$
     2.4           0.031
     2.1           0.006
 
-Table: Body leanness (B) and heat loss rate (H)  in boys; partial dataset from \citep{sloan_cooling_1973}
+Table: Body leanness (B) and heat loss rate (H)  in boys; partial data set from \citep{sloan_cooling_1973}
 
 \label{tab:ch8_bh}
 
@@ -304,7 +304,7 @@ Please read the paper on measuring the rate of \index{sequencing!whole genome} d
 
 4. What do you make of the historical data of paternal ages the authors present at the end of the paper? Can you postulate a testable hypothesis based on this observation?
 
-## R Assignment: Linear regression
+## R Assignment
  
 In each of the following questions, do these tasks:
 

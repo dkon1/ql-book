@@ -296,7 +296,7 @@ area <- pir^2
 ```
 
 
-## R Assignment: calculations using variables
+## R Assignment
 
 In the following tasks you will translate mathematical models into R commands and make the computer perform calculations. The first step is to give descriptive names to these variables (instead of single letters!), and then use these variables to calculate the predictions of the models.
 
