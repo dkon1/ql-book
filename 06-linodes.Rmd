@@ -146,7 +146,7 @@ An ordinary differential equation is an equation that contains derivatives of th
 
 For the time being, we will restrict ourselves to ODEs with the highest derivative being of first order, called *first-order* ODEs. Second-order ODEs are common in models derived from physics, but can actually be converted to first-order ODEs, though it requires an additional dependent variable. Third and higher order ODEs are very uncommon. To be precise:
 ```{definition, def-firstode}
-A \emph{first-order} ODE is one where the derivative $dx/dt$ is  equal to a *defining function* $f(x,t)$, like this: 
+A *first-order* ODE is one where the derivative $dx/dt$ is  equal to a *defining function* $f(x,t)$, like this: 
 $$\frac{dx} {dt} = \dot x = f(x,t)$$
 ```
 
@@ -172,21 +172,33 @@ An ODE is \index{differential equation!homogeneous}\emph{homogeneous} if every t
 \end{mosdef}
 For instance, $\dot x = x^2 + \sin(x)$ is homogeneous, while $\dot x = -x + 5t$ is not. 
 
-Most simple biological models that we will encounter in the next two chapters are autonomous, homogeneous ODEs. However, inhomogeneous equations are important in many applications, and we will encounter them at the end of the present section.
+Most simple biological models that we will encounter in the next two chapters are autonomous, homogeneous ODEs. However, nonhomogeneous equations are important in many applications, and we will encounter them at the end of the present section.
 
 ### separate and integrate method
-The  \index{differential equation!analytic solution} \emph{solution of a differential equation} is a function of the independent variable that satisfies the equation for a range of values of the independent variable. In contrast with algebraic equations, we cannot simply isolate $x$ on one side of the equal sign and find the solutions as one, or a few numbers. Instead, solving ordinary differential equations is very tricky, and no general strategy for solving an arbitrary ODE exists. Moreover, a solution for an ODE is not guaranteed to exist at all, or not for all values of $t$. We will discuss some of the difficulties later, but let us start with equations that we can solve.
+
+```{definition, def-ode-sol}
+The *analytic (or exact) solution* of an ordinary differential equation is a function of the independent variable that satisfies the equation. If no initial value is given, then the *general solution* function will contain an uknown *integration constant*. If an initial value is specified, the integration constant can be found to obtain a *specific solution*. 
+```
+
+
+This means that the solution function obeys the relationship between the derivative and the defining function that is specified by the ODE. To verify that a function is a solution of a given ODE, take its derivative and check whether it matches the other side of the equation.
+
+
+**Example**. The function $x(t) = 3t^2 +C$ is a general solution of the ODE $\dot x = 6t$, which can be verified by taking the derivative: $\dot x (t) = 6t$. Since this matches the right-hand side of the ODE, the solution is valid.
+
+**Example**. The function $x(t) = Ce^{5t}$ is a general solution of the ODE $\dot x = 5x$. This can be verified by the taking the derivative: $\dot x = 5C e^{5t}$ and comparing it with the right-hand side of the ODE: $5x = 5 Ce^{5t}$. Since the two sides of the equation agree, the solution is valid.
+
+
+In contrast with algebraic equations, we cannot simply isolate $x$ on one side of the equal sign and find the solutions as one, or a few numbers. Instead, solving ordinary differential equations is very tricky, and no general strategy for solving an arbitrary ODE exists. Moreover, a solution for an ODE is not guaranteed to exist at all, or not for all values of $t$. We will discuss some of the difficulties later, but let us start with equations that we can solve.
 
 The most obvious strategy for solving an ODE is integration. Since a differential equation contains derivatives, integrating it can remove the derivative. In the case of the general first order equation, we can integrate both sides to obtain the following:
-$$ \int \frac{dx}{dt} dt = \int f(x,t) dt \Rightarrow x + C = \int f(x,t) dt$$
-The constant of integration $C$ appears as in the standard anti-derivative definition. It can be specified by an initial condition for the solution $x(t)$.
-
-The simplest method of analytic solution of a first-order ODEs, which I call \index{differential equation!separate-and-integrate} *separate-and-integrate* consists of the following steps:
+$$ \int \frac{dx}{dt} dt = \int f(x,t) dt \Rightarrow x(t) + C = \int f(x,t) dt$$
+The constant of integration $C$ appears as in the standard antiderivative definition. It can be specified by an initial condition for the solution $x(t)$. Unless the function $f(x,t)$ depends only on $t$, it is not possible to evaluate the integral above. Instead, various tricks are used to find the analytic solution. The simplest method of analytic solution of a first-order ODEs, which I call \index{differential equation!separate-and-integrate} *separate-and-integrate* consists of the following steps:
 
 1. use algebra to place the dependent and independent variables on different sides of the equations, including the differentials (e.g. $dx$ and $dt$)
 2. integrate both sides with respect to the different variables, don't forget the integration constant 
-3. solve for the dependent variable (e.g. $x$)
-4. plug in $t=0$ and use the initial value $x(0)$ to solve for the integration constant 
+3. solve for the dependent variable (e.g. $x$) to find the *general solution*
+4. plug in $t=0$ and use the initial value $x(0)$ to solve for the integration constant  and find the the *specific solution*
 
 **Example.** Consider a very simple differential equation: $\dot x  = a$, where $\dot x$ stands for the time derivative of the dependent variable $x$, and $a$ is a constant. It can be solved by integration:
 $$ \int \frac{dx}{dt} dt  = \int a dt  \Rightarrow x(t) + C = at $$
@@ -212,8 +224,8 @@ The rate $r$ being positive reflects the dominance of birth rate over death rate
 
 **Example.**  The solution for the biochemical kinetic model in equation \ref{eq:lin_chem_kin} is identical except for the sign: $A(t) = A_0 e^{-kt}$. When the reaction rate $k$ is positive, as it is in chemistry, the concentration of $A$ decays to 0 over time. This should be obvious from our model, since there is no back reaction, and the only chemical process is conversion of $A$ into $B$.  The concentration of $B$ can be found by using the fact that the total concentration of molecules in the model is conserved. Let us call it $C$. Then $B(t) = C - A(t) = C- A_0e^{-kt}$. The concentration of $B$ increases to the asymptotic limit of $C$, meaning that all molecules of $A$ have been converted to $B$.
 
-### solutions of inhomogeneous ODEs
-The two models we have seen above are non-homogeneous, because they involve a term without a dependent variable, and linear, because the relationship with the dependent variable term is proportional. They can be solved on paper using the same separate-and-integrate method, modified slightly to handle the constant term. Here are the steps to solve the generic linear ODE with a constant term $\dot x = ax +b$:
+### solutions of nonhomogeneous ODEs
+ODEs that contain at least one term without the dependent variable are a bit more complicated. If the defining function is $f(x,t)$ is *linear* in the dependent variable $x$, they can be solved on paper using the same separate-and-integrate method, modified slightly to handle the constant term. Here are the steps to solve the generic linear ODE with a constant term $\dot x = ax +b$:
 
 1.  separate the dependent and independent variables on different sides of the equations, by dividing both sides by the right hand side $ax+b$, and multiplying both sides by the differential $dt$
 2. integrate both sides with respect to the different variables, don't forget the integration constant! 
@@ -221,7 +233,7 @@ The two models we have seen above are non-homogeneous, because they involve a te
 4. plug in $t=0$ and use the initial value $x(0)$ to solve for the integration constant 
 
 **Example.** Let us solve the following ODE model using separate and integrate with the given initial value:
-$$\frac{dx}{dt} = 4x -100;  \; x(0) = 32 $$
+$$\frac{dx}{dt} = 4x -100;  \; x(0) = 30$$
 
 1.  separate the dependent and independent variables:
 $$ \frac{dx}{4x - 100} = dt$$
@@ -235,7 +247,7 @@ $$  \ln | 4x- 100 |  = 4t + C \Rightarrow 4x-100 = e^{4t} B  \Rightarrow x = 25 
 Here the first step was to multiply both sides by 4, and the second to use both sides as the exponents of $e$, removing the natural log from the left hand side, and finally simple algebra to solve for $x$ as a function of $t$.
 
 4. solve for the integration constant:
-$$ x(0) = 25  + B = 32 \Rightarrow B = 7$$
+$$ x(0) = 25  + B = 30 \Rightarrow B = 5$$
 Here the exponential ``disappeared'' because $e^0=1$.
 \end{enumerate}
 Therefore, the complete solution of the ODE with the given initial value is
@@ -248,7 +260,7 @@ $$ x(t) = Ce^{at} + D$$
 
 This can be tested by plugging the solution back into the ODE to see if it satisfies the equation. First, take the derivative of the solution to get the left-hand side of the ODE: $\frac{dx}{dt} = Ca e^{at}$; the plug in $x(t)$ into the right hand side of the ODE: $aCe^{at} + aD +b$. Setting the two sides equal, we get: 
 $$Ca e^{at} = aCe^{at} + aD +b$$
-which is satisfied if $aD + b = 0$, which means $D= -b/a$. This is consistent with the example above, the additive constant in the solution was 0.8, which is $-b/a= -(4)/5=0.8$. 
+which is satisfied if $aD + b = 0$, which means $D= -b/a$. This is consistent with the example above, the additive constant in the solution was 25, which is $-b/a= -(-100)/4 = 25$. 
 
 In short, if you want to solve a linear ODE $\dot x= ax +b$ , you can bypass the separate-and-integrate process, because the general solution always has the form:
 \begin{equation}

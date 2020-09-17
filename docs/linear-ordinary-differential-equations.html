@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2020-09-05" />
+<meta name="date" content="2020-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -456,7 +456,7 @@ One of the basic properties of the derivative is that the sum of derivatives is 
 For the time being, we will restrict ourselves to ODEs with the highest derivative being of first order, called <em>first-order</em> ODEs. Second-order ODEs are common in models derived from physics, but can actually be converted to first-order ODEs, though it requires an additional dependent variable. Third and higher order ODEs are very uncommon. To be precise:
 
 <div class="definition">
-<span id="def:def-firstode" class="definition"><strong>Definition 6.2  </strong></span>A  ODE is one where the derivative <span class="math inline">\(dx/dt\)</span> is equal to a <em>defining function</em> <span class="math inline">\(f(x,t)\)</span>, like this:
+<span id="def:def-firstode" class="definition"><strong>Definition 6.2  </strong></span>A <em>first-order</em> ODE is one where the derivative <span class="math inline">\(dx/dt\)</span> is equal to a <em>defining function</em> <span class="math inline">\(f(x,t)\)</span>, like this:
 <span class="math display">\[\frac{dx} {dt} = \dot x = f(x,t)\]</span>
 </div>
 <p>The defining function may potentially depend on both the dependent variable <span class="math inline">\(x\)</span> and the  independent variable <span class="math inline">\(t\)</span>. If it only depends on <span class="math inline">\(x\)</span>, it is called an <em>autonomous</em> ODE, for example:</p>
@@ -477,7 +477,11 @@ For instance, <span class="math inline">\(\dot x = x^2 + \sin(x)\)</span> is hom
 <p>Most simple biological models that we will encounter in the next two chapters are autonomous, homogeneous ODEs. However, inhomogeneous equations are important in many applications, and we will encounter them at the end of the present section.</p>
 <div id="separate-and-integrate-method" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> separate and integrate method</h3>
-<p>The   is a function of the independent variable that satisfies the equation for a range of values of the independent variable. In contrast with algebraic equations, we cannot simply isolate <span class="math inline">\(x\)</span> on one side of the equal sign and find the solutions as one, or a few numbers. Instead, solving ordinary differential equations is very tricky, and no general strategy for solving an arbitrary ODE exists. Moreover, a solution for an ODE is not guaranteed to exist at all, or not for all values of <span class="math inline">\(t\)</span>. We will discuss some of the difficulties later, but let us start with equations that we can solve.</p>
+
+<div class="definition">
+<span id="def:def-ode-sol" class="definition"><strong>Definition 6.3  </strong></span>The <em>solution of an ordinary differential equation</em> is a function of the independent variable that satisfies the equation. If an initial value is specified, it is called a <em>specific solution</em>. If no initial value is given, then the <em>general solution</em> function will contain an uknown <em>integration constant</em>.
+</div>
+<p>In contrast with algebraic equations, we cannot simply isolate <span class="math inline">\(x\)</span> on one side of the equal sign and find the solutions as one, or a few numbers. Instead, solving ordinary differential equations is very tricky, and no general strategy for solving an arbitrary ODE exists. Moreover, a solution for an ODE is not guaranteed to exist at all, or not for all values of <span class="math inline">\(t\)</span>. We will discuss some of the difficulties later, but let us start with equations that we can solve.</p>
 <p>The most obvious strategy for solving an ODE is integration. Since a differential equation contains derivatives, integrating it can remove the derivative. In the case of the general first order equation, we can integrate both sides to obtain the following:
 <span class="math display">\[ \int \frac{dx}{dt} dt = \int f(x,t) dt \Rightarrow x + C = \int f(x,t) dt\]</span>
 The constant of integration <span class="math inline">\(C\)</span> appears as in the standard anti-derivative definition. It can be specified by an initial condition for the solution <span class="math inline">\(x(t)\)</span>.</p>
