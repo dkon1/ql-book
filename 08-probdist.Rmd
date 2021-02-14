@@ -1,3 +1,5 @@
+# (PART) Randomness in observations {-} 
+
 # Random variables and distributions
 
 
@@ -267,7 +269,7 @@ This can be generalize to a uniform random variable on integers between $a$ and 
 $$ Var(U) = \frac{(b-a+1)^2 - 1}{12} = \frac{(b-a)^2 + 2(b-a)}{12}$$
 
 
-```{r fig-unif-dist, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Two uniform random distributions with integer values with different ranges.'}
+```{r fig-unif-dist, fig.show ='hold', echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'Two uniform random distributions with integer values with different ranges.'}
 n <- 4
 unif.dist <- rep(1/n,n)
 values <- 0:(n-1)

@@ -32,8 +32,7 @@ def:def-rand-var
 def:def-prb-dist
 def:def-exp-val
 def:def-var-rv
-fig:fig-unif-dist-1
-fig:fig-unif-dist-2
+fig:fig-unif-dist
 def:def-binom
 fig:fig-bin-dist-1
 fig:fig-bin-dist-2

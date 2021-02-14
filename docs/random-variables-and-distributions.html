@@ -320,6 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#sis-model-of-infectious-disease"><i class="fa fa-check"></i><b>7.5.2</b> SIS model of infectious disease</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>III Randomness in observations</b></span></li>
 <li class="chapter" data-level="8" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>8</b> Random variables and distributions</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>8.1</b> Random variables and distributions</a>
@@ -568,16 +569,10 @@ Var(U) = \frac{(n+1)(2n+1)n}{6(n+1)} - \frac{n^2}{4} =   \frac{2n^2+n}{6} - \fra
 \]</span></p>
 <p>This can be generalize to a uniform random variable on integers between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (omitting the algebraic details) so the variance for that uniform random variable is:</p>
 <p><span class="math display">\[ Var(U) = \frac{(b-a+1)^2 - 1}{12} = \frac{(b-a)^2 + 2(b-a)}{12}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig-unif-dist-1"></span>
-<img src="QuantLife_files/figure-html/fig-unif-dist-1.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:fig-unif-dist"></span>
+<img src="QuantLife_files/figure-html/fig-unif-dist-1.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" /><img src="QuantLife_files/figure-html/fig-unif-dist-2.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
 <p class="caption">
 Figure 8.1: Two uniform random distributions with integer values with different ranges.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:fig-unif-dist-2"></span>
-<img src="QuantLife_files/figure-html/fig-unif-dist-2.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
-<p class="caption">
-Figure 8.2: Two uniform random distributions with integer values with different ranges.
 </p>
 </div>
 </div>
@@ -623,19 +618,19 @@ Var(B) = Var\left[\sum_{i=1}^n X\right]  = \sum_{i=1}^n Var(X) =\sum_{i=1}^n p(1
 <div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-1"></span>
 <img src="QuantLife_files/figure-html/fig-bin-dist-1-1.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-1-2.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.3: The binomial distribution for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 8.2: The binomial distribution for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-2"></span>
 <img src="QuantLife_files/figure-html/fig-bin-dist-2-1.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-2-2.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.4: The binomial distribution for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 8.3: The binomial distribution for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-3"></span>
 <img src="QuantLife_files/figure-html/fig-bin-dist-3-1.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-3-2.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.5: The binomial distribution for <span class="math inline">\(n=50\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
 </div>
@@ -712,7 +707,7 @@ The answer to the original question is found by taking the complementary probabi
 <div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-4"></span>
 <img src="QuantLife_files/figure-html/fig-bin-dist-4-1.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-4-2.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" />
 <p class="caption">
-Figure 8.6: The binomial distribution for two different values of n and p produced using dbinom() function.
+Figure 8.5: The binomial distribution for two different values of n and p produced using dbinom() function.
 </p>
 </div>
 
