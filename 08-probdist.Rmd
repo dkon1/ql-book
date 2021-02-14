@@ -290,7 +290,7 @@ The first result is likely intuitive, but the second deserves a comment. Note th
 One can extend this scenario and ask what happens in a string of Bernoulli trials, for instance, in a string of 10 coin tosses, or in testing 20 randomly selected people for a mutation. The mathematical problem is to calculate the probability distribution of the number of success out of many trials. This is known as the binomial random variable, which is defined as the sum of $n$ independent, identical Bernoulli random variables.
 
 
-```{definition, def-var}
+```{definition, def-binom}
 Given $n$ independent Bernoulli trials $X$ with the same probability of success $p$, the *binomial random variable* is defined as: 
 $$B = \sum_{i=1}^n X_i$$
 where $X_i$ is the random variable from the i-th Bernoulli trial, which takes values of 1 and 0.
