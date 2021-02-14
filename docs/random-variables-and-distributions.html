@@ -391,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">An illustration of the sample space of all people with two events: tall people and those who like tea.</p>
 </div>
 <p><strong>Example.</strong> You can ask a person two questions: how tall are you (and classify them either as short or tall) and do you like tea (yes or no), and you’ve performed a random experiment. The randomness comes not from the answers (assuming the person doesn’t randomly lie) but from the selection of the respondent. We will discuss randomly selecting a sample from a population in the next chapter. This random experiment has four outcomes: tall person who likes tea, tall person who does not like tea, short person who likes tea, and short person who does not like tea. This sample space and events is illustrated in figure  with a Venn diagram, which uses geometric shapes as representations of events as subsets of the entire sample space. These outcomes can be grouped into events by one of the responses: e.g. tall person (<span class="math inline">\(A\)</span>) or person who doesn’t like tea (<span class="math inline">\(-B\)</span>).</p>
-<p><strong>Example.</strong> A random experiment with two outcomes, called a <em>Bernoulli trial</em> (after the famous Italian mathematician), can describe a variety of situations: a coin toss (heads or tails), a competition with two outcomes (win or loss), the allele of a gene (normal or mutant). The sample space for a single Bernoulli trial consists of just two outcomes: <span class="math inline">\(\{H,T\}\)</span> (for a coin toss). If the experiment is performed repeatedly, the sample space gets more complicated. For two Bernoulli trials there are four different outcomes <span class="math inline">\(\{HH, HT, TH, TT \}\)</span>. One can define different events for this sample space: the event of getting two heads in two tosses contains one outcome: <span class="math inline">\(\{HH\}\)</span>, the event of getting a single head contains two: <span class="math inline">\(\{TH, HT\}\)</span>.</p>
+<p><strong>Example.</strong> A random experiment with two outcomes, called a <em>Bernoulli trial</em> (after the famous Swiss mathematician), can describe a variety of situations: a coin toss (heads or tails), a competition with two outcomes (win or loss), the allele of a gene (normal or mutant). The sample space for a single Bernoulli trial consists of just two outcomes: <span class="math inline">\(\{H,T\}\)</span> (for a coin toss). If the experiment is performed repeatedly, the sample space gets more complicated. For two Bernoulli trials there are four different outcomes <span class="math inline">\(\{HH, HT, TH, TT \}\)</span>. One can define different events for this sample space: the event of getting two heads in two tosses contains one outcome: <span class="math inline">\(\{HH\}\)</span>, the event of getting a single head contains two: <span class="math inline">\(\{TH, HT\}\)</span>.</p>
 <p>In order to to describe the composition of a sample space, we need to define the word <em>probability</em> . While it is familiar to everyone from everyday usage, it is difficult to define without using other similar words, such as likelihood or plausibility, which are also in need of definition. It is accepted that something with a high probability happens often, while something with a low frequency is seldom observed. The other notion is that probability can range between 0 (meaning something that never occurs) and 1 (something that occurs every time). These notions lead to the commonly accepted definition:</p>
 
 <div class="definition">
@@ -489,7 +489,8 @@ The graph of a probability distribution function lies above zero because all pro
 </ul>
 <p><span class="math display">\[E(X+Y) = \sum_i \sum_j (a_i+b_j) P(a_i, b_j)\]</span>
 We can split the sum into two terms by the distributive property of multiplication and then take out the values <span class="math inline">\(a_i\)</span> and <span class="math inline">\(b_j\)</span> out of the sum that they do not depend on:</p>
-<p><span class="math display">\[E(X+Y) = \sum_i \sum_j a_i P(a_i, b_j) + \sum_i \sum_j b_j P(a_i, b_j)= \sum_i a_i  \sum_j  P(a_i, b_j) +  \sum_j b_j \sum_i P(a_i, b_j) \]</span>
+<p><span class="math display">\[E(X+Y) = \sum_i \sum_j a_i P(a_i, b_j) + \sum_i \sum_j b_j P(a_i, b_j)=\]</span>
+<span class="math display">\[=\sum_i a_i  \sum_j  P(a_i, b_j) +  \sum_j b_j \sum_i P(a_i, b_j) \]</span>
 The joint distributions added up over all values of one variable, become single-variable distributions, so this leaves us with two sums which are the two separate expected values:</p>
 <p><span class="math display">\[E(X+Y) =  \sum_i a_i P(a_i) +  \sum_j b_j P(b_j) = E(X) + E(Y) \]</span></p>
 <p><strong>Example.</strong> The expected value of the number of heads out of two coin tosses can be calculated using the probability distribution function we found above:
@@ -505,29 +506,31 @@ The expected number of mutants in a sample of two people is 0.4, which may seem 
 <h3><span class="header-section-number">8.1.5</span> variance of random variables</h3>
 <p>Knowledge of the expected value says nothing about how the random variable actually varies: expectation does not distinguish between a random variable which is constant and one which can deviate far from the mean. In order to quantify this variation, one might be tempted to compute the mean differences from the mean value, but it does not work:</p>
 <p><span class="math display">\[ E(X-\mu_X) =  \sum_i (x_i-\mu_x)P(x_i) = \sum_i x_i P(x_i) - \mu_x \sum_i P(x_i) = \mu_x - \mu_x = 0\]</span>
-The problem is, if we add up all the differences from the mean, the positive ones end up canceling the negative ones. This is why it makes sense to square the differences and add them up:</p>
+The problem is, if we add up all the differences from the mean, the positive ones end up canceling the negative ones and the expected value of those deviations is exactly zero. This is why it makes sense to square the differences and add them up:</p>
 
 <div class="definition">
 <span id="def:def-var-rv" class="definition"><strong>Definition 8.8  </strong></span>The <em>variance</em> of a discrete random variable <span class="math inline">\(X\)</span> with probability distribution <span class="math inline">\(P(x)\)</span> is
 <span class="math display">\[ Var(X) = E((X-\mu_X)^2) = \sum_{i=1}^N (x_i-\mu_x)^2P(x_i)\]</span>
 </div>
 <p>One useful property of the variance is:
-<span class="math display">\[ Var(X) = \sum_i (x_i^2 - 2x_i\mu_x + \mu_x^2)P(x_i) = \sum_i x_i^2 P(x_i) - 2\mu_x\sum_i x_i P(x_i) + \mu_x^2 \sum_i P(x_i) = E(X^2) - E(X)^2 \]</span>
+<span class="math display">\[ Var(X) = \sum_i (x_i^2 - 2x_i\mu_x + \mu_x^2)P(x_i) =\]</span>
+<span class="math display">\[= \sum_i x_i^2 P(x_i) - 2\mu_x\sum_i x_i P(x_i) + \mu_x^2 \sum_i P(x_i) = E(X^2) - E(X)^2 \]</span>
 So variance can be calculated as the difference between the expectation of the variable squared and the squared expectation. Note that the variance is given in units of the variable squared, so in order to measure the spread of the variable in the same units, we take the square root of the variance and call it the <em>standard deviation</em>:
 <span class="math display">\[\sigma_x = \sqrt{Var(X)}\]</span>
 While the expectation of a sum of random variables is the sum of their expectations, for any random variables, the same is not true for the variance. However, there is a special condition under which this is true. First, let us write the variance of a sum of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
 <p><span class="math display">\[Var(X+Y) = E \left[ (X+Y)-(\mu_X+\mu_Y) \right]^2 =\]</span></p>
-<p><span class="math display">\[ = E[ (X-\mu_X)^2 +(Y-\mu_Y)^2 - 2(X-\mu_X)(Y-\mu_Y)] =  \]</span>
+<p><span class="math display">\[ = E[ (X-\mu_X)^2 +(Y-\mu_Y)^2 - 2(X-\mu_X)(Y-\mu_Y)] = \]</span>
 <span class="math display">\[=E (X-\mu_X)^2 +  E(Y-\mu_Y)^2   -2 E[(X-\mu_X)(Y-\mu_Y)] = \]</span></p>
 <p><span class="math display">\[ = Var(X) + Var(Y)  -2 E[(X-\mu_X)(Y-\mu_Y)] \]</span>
 If you write out the last term as a sum, it is none other than the <em>covariance</em> of the two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, which we saw in the chapter on linear regression. So for any two random variables that have zero covariance, their variance is additive!</p>
-<p><em>Example.</em> The variance of the number of heads out of two coin tosses can be calculated using its probability distribution function and the expected value (1) from above:
+<p><strong>Example.</strong> The variance of the number of heads out of two coin tosses can be calculated using its probability distribution function and the expected value (1) from above:
 <span class="math display">\[ Var(X) = (0-1)^2 \times P(0) + (1-1)^2 \times P(1) + (2-1)^2 \times P(2) = 1/4+0+1/4 = 1/2\]</span>
 Since the variance is 1/2, the standard deviation, or the expected distance from the mean value is <span class="math inline">\(\sigma= \sqrt{1/2}\)</span>.</p>
-<p><em>Example.</em> The variance of the number of mutants out of two people can be calculated using its probability distribution function and the expected value (0.4) from above:
-<span class="math display">\[ E(X) = (0-0.4)^2 \times P(0) + (1-0.4)^2 \times P(1) + (2-0.4)^2 \times P(2) = 0.4^2 \times 0.64+0.6^2 \times 0.32+1.6^2 \times 0.04 = 0.32\]</span>
+<p><strong>Example.</strong> The variance of the number of mutants out of two people can be calculated using its probability distribution function and the expected value (0.4) from above:
+<span class="math display">\[ E(X) = (0-0.4)^2 \times P(0) + (1-0.4)^2 \times P(1) + (2-0.4)^2 \times P(2) =\]</span>
+<span class="math display">\[ = 0.4^2 \times 0.64+0.6^2 \times 0.32+1.6^2 \times 0.04 = 0.32\]</span>
 Since the variance is 0.32, the standard deviation, or the expected distance from the mean value is <span class="math inline">\(\sigma= \sqrt{0.32}\)</span>.</p>
-<p><em>Example.</em>We have computed the expected value for the number of wins in two fringehead fights, so now let us find the variance and standard deviation. We already know the possible values of <span class="math inline">\(X\)</span>, and the associated probabilities, so we calculate:
+<p><strong>Example.</strong> We have computed the expected value for the number of wins in two fringehead fights, so now let us find the variance and standard deviation. We already know the possible values of <span class="math inline">\(X\)</span>, and the associated probabilities, so we calculate:
 <span class="math display">\[ E(X^2) = 0^2 \times 1/16 + 1^2 \times 6/16 + 2^2 \times 9/16 = 42/16\]</span>
 Then the variance is:
 <span class="math display">\[ Var(X) = E(X^2)  - E(X)^2 = 42/12 - 9/4 = (42-27)/16 = 15/16\]</span>
@@ -537,11 +540,11 @@ and the standard deviation is <span class="math inline">\(\sigma = \sqrt{15}/4\)
 <h3><span class="header-section-number">8.1.6</span> Exercises</h3>
 <p>Calculate the expected values and variances of the following probability distributions, where the possible values of the random variable are in curly brackets, and the probability of each value is indicated as <span class="math inline">\(P(x)\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(X=\{0, 1\}\)</span> and <span class="math inline">\(P(0) = 0.1, P(1) = 0.9\)</span></p></li>
-<li><p><span class="math inline">\(X=\{1,2,3\}\)</span> and <span class="math inline">\(P(1) = P(2) = P(3)=1/3\)</span></p></li>
-<li><p><span class="math inline">\(X=\{10, 15, 100\}\)</span> and <span class="math inline">\(P(10) = 0.5, P(15) = 0.3, P(100)=0.2\)</span></p></li>
-<li><p><span class="math inline">\(X=\{0, 1, 2, 3, 4\}\)</span> and <span class="math inline">\(P(0) = 1/16, P(1) = 0.2, P(2) = 0.2, P(3) = 0.2, P(4) = 1/16\)</span></p></li>
-<li><p><span class="math inline">\(X=\{-1.5, -0.4, 0.3, 0.9\}\)</span> and $P(-1.5) = 0.4, P(-0.4) = 0.2, P(0.3) = 0.35, P(0.9) = 0.05, $</p></li>
+<li><p><span class="math inline">\(X=\{0, 1\}\)</span> and <span class="math inline">\(P(0) = 0.1, P(1) = 0.9\)</span>.</p></li>
+<li><p><span class="math inline">\(X=\{1,2,3\}\)</span> and <span class="math inline">\(P(1) = P(2) = P(3)=1/3\)</span>.</p></li>
+<li><p><span class="math inline">\(X=\{10, 15, 100\}\)</span> and <span class="math inline">\(P(10) = 0.5, P(15) = 0.3, P(100)=0.2\)</span>.</p></li>
+<li><p><span class="math inline">\(X=\{0, 1, 2, 3, 4\}\)</span> and <span class="math inline">\(P(0) = 1/16, P(1) = 0.2, P(2) = 0.2, P(3) = 0.2, P(4) = 1/16\)</span>.</p></li>
+<li><p><span class="math inline">\(X=\{-1.5, -0.4, 0.3, 0.9\}\)</span> and <span class="math inline">\(P(-1.5) = 0.4, P(-0.4) = 0.2, P(0.3) = 0.35, P(0.9) = 0.05\)</span>.</p></li>
 </ol>
 </div>
 </div>
@@ -564,13 +567,13 @@ So the expected value is the mean of all the values of the uniform random variab
 <p><span class="math display">\[ Var(U) = E(U^2) - E(U)^2 =  \frac{1}{n} \sum_{i=1}^n  a_i^2  -  \frac{1}{n^2} \left(\sum_{i=1}^n  a_i \right)^2\]</span>
 <strong>Example.</strong> In the special case of the uniform distribution of <span class="math inline">\(n+1\)</span> integers between 0 and <span class="math inline">\(n\)</span> (<span class="math inline">\(a_i = i\)</span>, for <span class="math inline">\(i=0,..., n\)</span>), each value has probability <span class="math inline">\(P = 1/(n+1)\)</span>. The variance can be calculated using the formula for the sum of squares:
 <span class="math inline">\(\sum_{i=0}^n i^2 =n(n+1)(2n+1)/6\)</span>.</p>
-<p><span class="math display">\[
-Var(U) = \frac{(n+1)(2n+1)n}{6(n+1)} - \frac{n^2}{4} =   \frac{2n^2+n}{6} - \frac{n^2}{4} = \frac{n(n+2)}{12}
+<p><span class="math display">\[ Var(U) = \frac{(n+1)(2n+1)n}{6(n+1)} - \frac{n^2}{4} =   \frac{2n^2+n}{6} - \frac{n^2}{4} = \frac{n(n+2)}{12}
 \]</span></p>
 <p>This can be generalize to a uniform random variable on integers between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (omitting the algebraic details) so the variance for that uniform random variable is:</p>
-<p><span class="math display">\[ Var(U) = \frac{(b-a+1)^2 - 1}{12} = \frac{(b-a)^2 + 2(b-a)}{12}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig-unif-dist"></span>
-<img src="QuantLife_files/figure-html/fig-unif-dist-1.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" /><img src="QuantLife_files/figure-html/fig-unif-dist-2.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
+<p><span class="math display">\[ Var(U) = \frac{(b-a+1)^2 - 1}{12} = \frac{(b-a)^2 + 2(b-a)}{12}
+\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unif-dist"></span>
+<img src="QuantLife_files/figure-html/unif-dist-1.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" /><img src="QuantLife_files/figure-html/unif-dist-2.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
 <p class="caption">
 Figure 8.1: Two uniform random distributions with integer values with different ranges.
 </p>
@@ -600,7 +603,7 @@ where <span class="math inline">\(X_i\)</span> is the random variable from the i
  P(\mathrm{k \; wins \; in \; n \; trials}) =  P(B=k)= \binom{n}{k}  p^k (1-p)^{n-k}
 \]</span></p>
 <p>This is the probability distribution of the binomial random variable <span class="math inline">\(B\)</span>.</p>
-<p>The binomial random variable has much simpler formulas for the mean and the variance. First, we know that the mean of a sum of random variables is the sum of the means and the binomial random variable is a sum of <span class="math inline">\(n\)</span> Bernoulli random variables <span class="math inline">\(X\)</span>. Let us say <span class="math inline">\(X\)</span> takes only the values of 0 and 1 with probabilities <span class="math inline">\(q\)</span> and <span class="math inline">\(p\)</span>, so we compute the expected value of <span class="math inline">\(B\)</span>:</p>
+<p>The binomial random variable has much simpler formulas for the mean and the variance. First, we know that the mean of a sum of random variables is the sum of the means and the binomial random variable is a sum of <span class="math inline">\(n\)</span> Bernoulli random variables <span class="math inline">\(X\)</span>. Let us say <span class="math inline">\(X\)</span> takes only the values of 0 and 1 with probabilities <span class="math inline">\(1-p\)</span> and <span class="math inline">\(p\)</span>, so we can use the additive property of expected value to calculate <span class="math inline">\(E(B)\)</span>:</p>
 <p><span class="math display">\[
 E(B) = E\left[\sum_{i=1}^n X\right] = \sum_{i=1}^n E(X) = \sum_{i=1}^n p = np 
 \]</span>
@@ -615,20 +618,20 @@ We saw in section on variance above that the expected value of deviations from t
 Var(B) = Var\left[\sum_{i=1}^n X\right]  = \sum_{i=1}^n Var(X) =\sum_{i=1}^n p(1-p) = np(1-p)
 \]</span></p>
 <p>For any given number of Bernoulli trials, the variance has a quadratic dependence on probability of success <span class="math inline">\(p\)</span>: if <span class="math inline">\(p=1\)</span> or <span class="math inline">\(p=0\)</span>, corresponding to all successes, or all failures, respectively, then the variance is zero, since there is no spread in the outcome. For a fair coin <span class="math inline">\(p=1/2\)</span> the variance is highest. This can be seen in the plots of binomial random variables for <span class="math inline">\(n=2\)</span>, <span class="math inline">\(n=5\)</span>, and <span class="math inline">\(n=50\)</span>, shown in figures below.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-1"></span>
-<img src="QuantLife_files/figure-html/fig-bin-dist-1-1.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-1-2.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:bin-dist-1"></span>
+<img src="QuantLife_files/figure-html/bin-dist-1-1.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-1-2.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
 Figure 8.2: The binomial distribution for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-2"></span>
-<img src="QuantLife_files/figure-html/fig-bin-dist-2-1.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-2-2.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:bin-dist-2"></span>
+<img src="QuantLife_files/figure-html/bin-dist-2-1.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-2-2.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
 Figure 8.3: The binomial distribution for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-3"></span>
-<img src="QuantLife_files/figure-html/fig-bin-dist-3-1.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-3-2.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:bin-dist-3"></span>
+<img src="QuantLife_files/figure-html/bin-dist-3-1.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-3-2.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
 Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
@@ -638,10 +641,10 @@ Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</sp
 <h3><span class="header-section-number">8.2.3</span> Exercises</h3>
 <p>Calculate the means and variances based on the plotted distributions using the definitions  and  and compare your calculations against equations  and  (for uniform random variables) and equations  and  (for binomial random variables)</p>
 <ol style="list-style-type: decimal">
-<li><p>Calculate the mean and the variance for the two uniform distributions plotted in figure .</p></li>
-<li><p>Calculate the mean and the variance for the two binomial distributions plotted in figure .</p></li>
-<li><p>Calculate the mean and the variance for the two binomial distributions plotted figure .</p></li>
-<li><p>Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure .</p></li>
+<li><p>Calculate the mean and the variance for the two uniform distributions plotted in figure <a href="random-variables-and-distributions.html#fig:unif-dist">8.1</a>.</p></li>
+<li><p>Calculate the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-1">8.2</a>.</p></li>
+<li><p>Calculate the mean and the variance for the two binomial distributions plotted figure <a href="random-variables-and-distributions.html#fig:bin-dist-2">8.3</a>.</p></li>
+<li><p>Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-3">8.4</a>.</p></li>
 </ol>
 </div>
 <div id="testing-for-mutants" class="section level3" number="8.2.4">
@@ -649,7 +652,7 @@ Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</sp
 <p>Suppose that you’re screening people for a particular genetic abnormality. It is known from prior experience that about 5% of this population carry this mutation. You run your tests on a group of 20 people, and the results indicate that 3 of them are carriers. Clearly, this is higher than you expected - 3/20 is 15%, or 3 times higher than the estimate. One of your colleagues exclaims, What are the odds of this?</p>
 <p>To answer this question, one must start by stating your assumptions. First, the people tested must be chosen from the same population, so we can assume a priori each had probability 5% of being a carrier. Second, the people must be selected without bias, that is, selection of one must be unlinked or independent of others. As a counter-example, if your selection included an entire biological family, that would be a biased selection - it may be that the whole family has the mutation, or maybe they don’t, but either way probability is no longer determined on a person-by-person basis. If these assumptions are made, then one can calculate the probability of making a selection of 20 people that includes 3 carriers of the mutation, using the binomial distribution.</p>
 <p>The formula for the binomial distribution in equation  provides the answer for any given number of mutants. For example, the probability of 3 people out of 20 being carriers for the mutation is:
-<span class="math display">\[  P(\mathrm{3 \ out \ of  \ 20}; \ p=0.05) = \binom{20}{3} \times 0.05^3  \times 0.985^{17} =  \]</span>
+<span class="math display">\[P(\mathrm{3 \ out \ of  \ 20}; \ p=0.05) = \binom{20}{3} \times 0.05^3  \times 0.985^{17} =  \]</span>
 <span class="math display">\[ = 1140 \times 0.05^3 \times 0.985^{17} \approx 0.0596\]</span></p>
 <p>One may want to ask a different question: what is the probability that there are at least 3 mutants in the sample of 20 people? To most efficient way to calculate this it is to answer the complementary question first: what is the probability that there are fewer than 3 mutants out of 20 people? This corresponds to three values of the random variable: 0, 1, or 2. We can calculate the total probability by adding up the three separate probabilities, since they represent non-overlapping events (one can’t have 1 and 2 mutants in a sample simultaneously):
 <span class="math display">\[ P(B &lt; 3; \  p=0.05) = P(B=0) + P(B=1) + P(B=2) = \]</span>
@@ -704,8 +707,8 @@ The answer to the original question is found by taking the complementary probabi
 <span id="cb251-6"><a href="random-variables-and-distributions.html#cb251-6" aria-hidden="true"></a>prob.dist &lt;-<span class="st"> </span><span class="kw">dbinom</span>(values.vec,n,p)</span>
 <span id="cb251-7"><a href="random-variables-and-distributions.html#cb251-7" aria-hidden="true"></a><span class="kw">barplot</span>(prob.dist,<span class="dt">names.arg=</span>values.vec,<span class="dt">xlab=</span><span class="st">&#39;binomial RV&#39;</span>,<span class="dt">ylab=</span><span class="st">&#39;probability&#39;</span>,</span>
 <span id="cb251-8"><a href="random-variables-and-distributions.html#cb251-8" aria-hidden="true"></a><span class="dt">main=</span><span class="st">&#39;binom dist with n=20 and p=0.6&#39;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:fig-bin-dist-4"></span>
-<img src="QuantLife_files/figure-html/fig-bin-dist-4-1.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" /><img src="QuantLife_files/figure-html/fig-bin-dist-4-2.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:bin-dist-4"></span>
+<img src="QuantLife_files/figure-html/bin-dist-4-1.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" /><img src="QuantLife_files/figure-html/bin-dist-4-2.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" />
 <p class="caption">
 Figure 8.5: The binomial distribution for two different values of n and p produced using dbinom() function.
 </p>

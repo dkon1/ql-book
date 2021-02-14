@@ -14,14 +14,15 @@ description: This is a minimal example of using the bookdown package to write a 
   The output format for this example is bookdown::gitbook.
 ---
 
-```{r include=FALSE}
+```{r include=FALSE, cache=TRUE}
 # automatically create a bib database for R packages
+library(knitr)
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+# set global chunk options
+opts_chunk$set(fig.path='figure/minimal-', out.width='50%', fig.asp=.75, fig.align='center', fig.show='hold', tidy = TRUE)
 ```
-
-
 
 
 # Purpose and purview {-}

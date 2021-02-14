@@ -32,12 +32,12 @@ def:def-rand-var
 def:def-prb-dist
 def:def-exp-val
 def:def-var-rv
-fig:fig-unif-dist
+fig:unif-dist
 def:def-binom
-fig:fig-bin-dist-1
-fig:fig-bin-dist-2
-fig:fig-bin-dist-3
-fig:fig-bin-dist-4
+fig:bin-dist-1
+fig:bin-dist-2
+fig:bin-dist-3
+fig:bin-dist-4
 a-brief-motivation-of-mathematical-modeling
 purpose-of-this-book
 organization-of-the-book
