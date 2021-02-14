@@ -1,6 +1,4 @@
 # Linear ordinary differential equations
-\chaptermark{linear ODEs}
-
 
 > He felt a restless, vague ambition  
 A craving for a change of air  

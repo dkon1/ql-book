@@ -1,0 +1,477 @@
+\chapter{Independence of random variables}
+\chaptermark{Independence}
+
+\begin{chapquote} {They Might Be Giants, \emph{Unrelated Thing}}
+Unconnected and free, \\
+No relationship to anything.
+\end{chapquote} 
+
+In the first part of the book we learned how to describe data sets and probability distributions of random variables. So far we have not discussed how two or more variables may influence each other, and the next four chapters will be devoted to relationships between two variables. Many experiments in biology result in observations that naturally fall into a few categories, for example: sick or healthy patients, presence or absence of a mutation, etc. The resulting data sets are called \index{data!categorical}\emph{categorical}.  Unlike \emph{numerical} data sets that we will investigate later in chapters 8 and 9, they are not usually represented by numbers. Although it is possible, for instance, to denote mutants with the number 1 and wild type with 0, such designation does not add any value. Categorial variables require different tools for analysis than numerical ones; one cannot compute a linear regression between two categorical variables, because there is no meaningful way to place categories on axes. In this chapter we will learn about methods for determining whether two categorical random variables have a relationship, based on data.
+\begin{enumerate}
+
+\item define conditional probability,
+
+\item define independence for events and random variables,
+
+\item use a categorical data table in a statistical test to decide whether two variables are independent,
+
+\item item enter a contingency table as a matrix in R, 
+
+\item calculate the uncertainty of this decision, based on the data set using R.
+
+\end{enumerate}
+
+\section{Categorical data sets with two variables}
+\sectionmark{Categorical data sets}
+\label{sec:model6}
+
+%\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=4in]{ch6/trisomy_age_table1.png} 
+%   \caption{Table 1 from \citep{malone_first-trimester_2005}, showing the variables of maternal age and trisomy 21 (Down's syndrome) status of the fetus.}
+%   \label{fig:trisomy_age}
+%\end{figure}
+
+What kind of relationship can there be between categorical variables? It cannot be expressed in algebraic form, because without numeric values we cannot talk about a variable increasing or decreasing. Instead, the question is, does one variable being in a particular category have an effect on which category the second variable falls into?  Let us say you want to know whether the age of the mother has an effect on the child having trisomy 21 (a.k.a. Down's syndrome), a genetic defect in which an embryo receives three chromosomes 21 instead of the normal two. The age of the mother is a numerical variable, but it can be classified into two categories: less than 35 and 35 or more years of age. The trisomy status of a fetus is clearly a binary, categorical variable: the fetus either has two chromosomes 21 or three. 
+
+The data are presented in a two-way or \index{contingency table}\emph{contingency table}, which is a common way of presenting a data set with two categorical variables. The rows in such tables represent different categories of one variable and the columns represent the categories of the other, and the cells contain the data measurements of their overlaps. Table \ref{tab:data_table_DS_age} shows a contingency table for the data set on \index{medical!maternal age}Down's syndrome and maternal age, in which the rows represent the two categories of maternal age and the columns represent the presence or absence of the syndrome. Each internal cell (as opposed to the total counts on the margins) corresponds to the number of measurement where both variables fall into the specified category, for instance the number of fetuses with the syndrome and a mother under 35 is 28.
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{lccc} % Column formatting, @{} suppresses leading/trailing space
+       Maternal age/ Down's syndrome  & No DS & DS & Total  \\
+      under 35 years & 29,806   & 28 & 29,834 \\
+      35 years or above  &  8,135 & 64  & 8,199 \\
+      Total & 37,941 & 92 & 38,033\\
+   \end{tabular}
+   \caption{Contingency table for maternal age and incidence of Down's syndrome. Numbers represent counts of patients belonging to both categories in the row and the column. DS = Down's syndrome. From \citep{malone_first-trimester_2005}.}
+   \label{tab:data_table_DS_age}
+\end{table}
+
+Once the data are organized into a contingency table, we can address the main question stated above: does the age of the mother have an effect on whether a fetus inherits three chromosomes 21? Perhaps the first approach that suggests itself is \textbf{to compare the fraction of mothers carrying a fetus with DS for the two age categories}. In this case, the fraction for the under-35 category is $28/29834 \approx 0.00094$, while for the 35-and-over category the fraction is $64/8199 \approx 0.0078$. The two fractions are different by almost a factor of 10, which certainly suggest a real difference between the two categories. However, all data contain an element of randomness and a pinch of error, thus there needs to be quantifiable way of deciding what constitutes a real effect. This leads us to the questions posed and addressed in this chapter.
+\begin{enumerate}
+
+\item Based on the data, how strong is the effect of advanced maternal age on the prevalence of DS?
+
+\item Is the observed effect real, or is it due to random variation in sampling?
+
+\end{enumerate}
+
+\section{Mathematics of independence}
+\label{sec:math6_1}
+\subsection{conditional probability and information}
+Let us return to the abstract description of probability first introduced in section \ref{sec:math4_1}. There we used the notion of sample space and its subsets, called events, to describe collections of experimental outcomes. Suppose that you have some information about a random experiment that restricts the possible outcomes to a particular subset (event). In other words, you have ruled out some outcomes, so the only possible outcomes are those in the complementary set. This will affect the probability of other events in the sample space, because your information may have ruled out some of the outcomes in that event as well. 
+
+\begin{mosdef} 
+For two events $A$ and $B$ in a sample space $\Omega$ with a probability measure $P$, the \emph{probability of $A$ given $B$}, called the  \index{probability!conditional}\emph{conditional probability} is defined as
+$$ P(A|B) = \frac{P(A\cap B)}{P(B)}$$
+where $A \cap B$ is the intersection of events $A$ and $B$, also known as ``$A$ and $B$'' which is the event that consists of all outcomes that are in both $A$ and $B$.
+\end{mosdef}
+In words, given the knowledge that an event $B$ occurs, the sample space is restricted to the subset $B$, which is why the denominator in the definition is $P(B)$. The numerator is all the outcomes we are interested in, which is $A$, but since we are now restricted to $B$, the numerator consists of all the elements of $A$ which are also in $B$, or $A \cap B$. The definition makes sense in two extreme cases: if $A = B$ and if $A$ and $B$ are mutually exclusive:
+\begin{itemize}
+\item $ P(B|B) = P(B \cap B) /P(B) = P(B)/P(B) = 1$ (probability of $B$ given $B$ is 1)
+\item if $P(A\cap B) =0 $, then $P(A|B) = 0/P(B) = 0$ (if $A$ and $B$ are mutually exclusive, then probability of $A$ given $B$  is 0)
+\end{itemize}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+ \centering
+\includegraphics[width=2.5in]{ch6/cond_prob_tikz.png} 
+\caption{A Venn diagram of the sample space of all people with two events: tall people ($A$) and those who like tea ($B$) with probabilities of $A$, $B$ and their intersection indicated.}
+ \label{fig:ch6_cond_prob}
+\end{figure}
+There are some common misunderstandings about conditional probability, which are usually the result of discrepancies between everyday word usage and precise mathematical terminology.  First, the probability of $A$ given $B$ is not the same as probability of $A$ and $B$. These concepts seem interchangeable because the statement ``what are the odds of finding a tall person who likes tea?'' is hard to distinguish from ''what are the odds that a person who is tall likes tea?'' The difference in these concepts can be illustrated using a Venn diagram, shown in figure \ref{fig:ch6_cond_prob}. Based on the probabilities indicated there, the probability of randomly selecting a person who is both tall and likes tea is $P(A\cap B) = 0.1$, while the probability that a tea drinker is tall is $P(A | B) = 0.1/0.3 = 1/3$, which are different values.
+
+A similar misconception is to be cavalier about the order of conditionality. In general, $P(A | B) \neq P(B |A)$, except in special cases. Going back to the illustration in figure \ref{fig:ch6_cond_prob}, the probability that a tea drinker is tall $P(A | B) = 1/3$ is the different than the probability that a tall person is a tea drinker $P(B|A) = 0.1/0.5 = 0.2$. One must take care when interpreting written statements to carefully distinguish what is known \emph{a priori} and what remains under investigation. In the statement $P(A | B)$, $B$ represents what is known, and $A$ represents what is still to be investigated. 
+
+\textbf{Example.} Let us return to the data set in the previous section. Data table \ref{tab:data_table_DS_age} describes a sample space with four outcomes and several different events. One can calculate the probability of a fetus having Down's syndrome (event) based on the entire data set of 38,033 mothers, and 92 total cases of DS, so the probability is $92/38,033 \approx 0.0024$. Similarly, we can calculate the probability of a mother being above 35 as $8,199/ 38,033 \approx 0.256$. 
+
+Now we can calculate the conditional probability of a mother over 35 having a DS fetus, but first we have to be clear about what information is known and what is not. If the age of the mother is known to be over 35 (mature age or MA), then we calculate $P(DS | MA) = 64/8,199 \approx 0.008$. Notice that the denominator is restricted by the information that the mother is over 35, and thus only women in that category need to be considered for the calculation. 
+
+On the other hand, if we have the information that the fetus has DS, we can calculate the reversed conditional probability, what is the probability that a fetus with DS has a mother above age 35? $P(MA | DS) = 64/92 \approx 0.7$. Notice that is both calculations the numerators are the same, since they both are the intersection between the two events, but the denominators are different, because they depend on which event is given.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=2in]{ch6/mendel_flowers.png} 
+   \caption{Punnet square of a cross of two heterozygous pea plants showing the possible genotypes and phenotypes of offspring, figure by Madprime in public domain via Wikimedia Commons.}
+   \label{fig:mendel_flowers}
+\end{figure}
+
+\exercise{What is the probability of an offspring having purple flowers? white flowers?}
+
+\exercise{What is the probability of an offspring having genotype $BB$? genotype $Bb$? genotype $bb$?}
+
+\exercise{What is the probability of an offspring having genotype $BB$, given that its flowers are purple?}
+
+\exercise{What is the probability of an offspring having genotype $Bb$, given that its flowers are purple?}
+
+\exercise{What is the probability of an offspring having genotype $BB$, given that its flowers are white?}
+
+\exercise{What is the probability of an offspring having genotype $Bb$, given that its flowers are white?}
+
+\exercise{What is the probability of an offspring having purple flowers, given that its genotype is $BB$?}
+
+\exerciseshere{In figure \ref{fig:mendel_flowers} there is a table of genotypes from the classic Mendelian experiment with genetics and color of pea flowers. The parents are both heterozygous, meaning each has a copy of the dominant (purple) allele B and the recessive (white) allele b. The possible genotypes of offspring are shown inside the square, and all four outcomes have equal probabilities. Based on this information, answer the following questions.}
+
+
+%\textbf{Example:}
+
+%\subsection{Monty Hall problem}
+%Thinking about incorporating new information can be counterintuitive. Take the famous example of the (modified) Let's Make a Deal contest, also known as the Monty Hall problem. In the game, prize is hidden behind one of three doors, with equal probability. The contestant chooses a door to open, but the host asks to wait and then the host opens one of the two remaining doors, revealing that it does not contain a prize. It must be noted that the host knows where the prize is and never opens a door with the prize, and if there are two options (that is, the contestant initially picks the door with the prize) then the host chooses one by flipping a fair coin. 
+%The question posed to the player is: do you want to stick with your initial pick, or switch to the remaining unopened door?
+
+%At first, it may seem that since the probability of the prize being behind any particular door is the same, opening one door should not change that fact. But consider this more carefully: we were given information, and we need to compute the conditional probability of winning in the two cases. Let us compare the sample space with and without the information provided by opening of the door with no prize. 
+
+%The sample space without any additional information is:
+%\begin{enumerate}
+%\item Prize behind door 1, $P = 1/3$
+%\item Prize behind door 2, $P = 1/3$
+%\item Prize behind door 3, $P = 1/3$
+%\end{enumerate} 
+%Given that door 1 was selected, switching to either door 2 or door 3 results in the same probability of winning (1/3). The same calculation applies if any other is selected. 
+
+%One the other hand, the conditional sample space after choosing door 1 and opening one remaining door with on prize can be written as follows: \\
+%\begin{enumerate}
+%\item Prize behind door 1,  door 2 or 3 opened, $P = 1/3$
+%\item Prize behind door 2, door 3 opened, $P = 1/3$
+%\item Prize behind door 3, door 2 opened, $P = 1/3$
+%\end{enumerate} 
+
+%\begin{table}[h!]
+ %  \centering
+%   \begin{tabular}{cccc} % Column formatting, @{} suppresses leading/trailing space
+ %       Prize/Open & Door 1  &  Door 2 & Door 3 \\
+ %     Door 1   & 0 & 1/6 & 1/6\\
+  %    Door 2   & 0   & 1/6 & 1/6  \\
+  %    Door 3  &  0  & 1/6 & 1/6   \\      
+ %  \end{tabular}
+ %  \caption{Probability of each event in sample space after contestant chooses door 1 and the host opens one of the remaining doors without knowledge of the prize. The top indicates which door is open and the left column indicates which door contains the prize.}
+%   \label{tab:MontyHall1}
+%\end{table}
+
+%\begin{table}[h!]
+ %  \centering
+  % \begin{tabular}{cccc} % Column formatting, @{} suppresses leading/trailing space
+  %      Prize/Open & Door 1  &  Door 2 & Door 3 \\
+  %    Door 1   & 0 & 1/6 & 1/6\\
+  %    Door 2   & 0   & 0 & 1/3  \\
+  %    Door 3  &  0  & 1/3  & 0   \\      
+ %  \end{tabular}
+ %  \caption{Probability of each event in sample space after contestant chooses door 1 and the host opens one of the remaining doors, avoiding the door with the prize. The top indicates which door is open and the left column indicates which door contains the prize.}
+%   \label{tab:MontyHall2}
+%\end{table}
+
+%Thus, the probability of winning by staying with door 1 is 1/3. The event of switching is a combination of events 2 and 3, and thus its probability is 2/3. The additional information provided by the host opening a door with no prize re-shaped the sample space. 
+
+%\section{biological examples}
+
+\subsection{independence of events}
+We first encountered the notion of independence in chapter 3, where  two events were said to be independent if they did not ``affect each other''. The mathematical definition uses the language of conditional probability to make this notion precise. It says that $A$ and $B$ are independent if given the knowledge of $A$, the probability of $B$ remains the same, and vice versa.
+\begin{mosdef}
+Two events $A$ and $B$ are \index{independence!events} \emph{independent} if $ P(A|B) = P(A)$, or equivalently if $P(B|A) = P(B)$.
+\end{mosdef}
+
+Independence is not a straightforward concept. It may be confused with mutual exclusivity, as one might surmise that if $A$ and $B$ have no overlap, then they are independent. That however, is false by definition, since $P(A|B)$ is 0 for two mutually exclusive events. The confusion stems from thinking that if $A$ and $B$ are non-overlapping, then they do not influence each other. But the notion of influence in this definition is about information; so of course if $A$ and $B$ are mutually exclusive, the knowledge that one of them occurs has an influence of the probability of the other one occurring.
+
+A useful way to think about independence is in terms of fractions of outcomes. The probability of $A$ is the fraction of outcomes out of the entire sample space which is in $A$, while the probability of $A$ given $B$ is the fraction of outcomes in $B$ which are also in $A$. The definition of independence equates the two fractions, therefore, if $A$ occupies 1/2 of sample space, in order for $A$ and $B$ to be independent, events in $A$ must constitute 1/2 of the event $B$. In the illustration in figure \ref{fig:ch6_cond_prob}, the fraction of tall people is 0.5 of the sample space, but the fraction of tea-drinkers who are tall is $0.1/0.3=1/3$. Since the two fractions are different, $A$ and $B$ are not independent.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=2.25in]{ch6/indep_ex1.png} 
+    \includegraphics[width=2.25in]{ch6/indep_ex2.png} 
+     \includegraphics[width=2.25in]{ch6/indep_ex3.png} 
+   \caption{Three examples of two events inside a sample space with different probabilities: mutually exclusive, partially overlapping, and completely overlapping}
+   \label{fig:ch6_indep_ex}
+\end{figure}
+
+\exercise{Based on the two non-overlapping (mutually exclusive) events, calculate the conditional probability $P(A|B)$ and compare it with $P(A)$. Are $A$ and $B$ independent?}
+
+\exercise{Based on the two partially overlapping events, calculate the conditional probability $P(A|B)$ and compare it with $P(A)$. Are $A$ and $B$ independent?}
+
+\exercise{Based on the two completely overlapping events, calculate the conditional probability $P(A|B)$ and compare it with $P(A)$. Are $A$ and $B$ independent?}
+
+\exerciseshere{Consider three examples of events and their intersections in figure \ref{fig:ch6_indep_ex}.}
+
+\subsection{calculation of expected frequencies}
+The definition of independence is abstract, but it has a direct consequence of great computational value. From the definition of conditional probability, $P(A|B) = P(A\cap B)/P(B)$, and if $A$ and $B$ are independent then $P(A|B)$ can be replaced with $P(A)$, leading to the expression $P(A) = P(A\cap B)/P(B)$. Multiplying both sides by $P(B$) gives us the formula called the \index{independence!product rule}\emph{product rule}, which states that two events are independent if and only if \citep{feller_introduction_????}:
+\begin{equation}
+P(A \cap B) = P(B)P(A)
+\label{eq:prod_rule}
+\end{equation}
+
+The product rule is extremely useful for computing probability distributions of complicated random variables. Recall that the binomial distribution, which we saw in section \ref{sec:math4_2} is based on a string of $n$ Bernoulli trials which are independent of each other, which allows the calculation of the probability of a string of successes and failures, or heads/tails, etc. In practice, independence between processes is rarely true in the idealized mathematical sense. However, computing the probability of two random variables without independence is extremely difficult, so it is useful to make the independence assumption and then test it against the data. If it stands up, you have a good predictive model, and if it does not, you have learned that two processes are somehow linked, which is very useful.
+
+
+The product rule enables us to extend the notion of independence from events to variables. The concepts of independence is the same in both contexts, since the probability of a value $x$ of a random variable $X$ corresponds to the probability of the event that gets mapped to $x$ by the variable. In order to make independence applicable to variables, the condition must hold true for all possible values of both random variables. That way, knowing the value of one variable has no effect on the probability of the other. In order to make it simpler to calculate, we will use the product rule as the equivalent condition for independence:
+\begin{mosdef}
+Two random variables $X$ and $Y$ are \index{independence!random variables} \emph{independent} if for all possible values of $x$ and $y$
+$$ P(X=x  \cap Y=y) = P(X=x)P(Y=y)$$
+\end{mosdef}
+
+This allows us to address one of the questions posed at the beginning of the chapter: how can one measure whether a data set has independent variables? The definition allows us to calculate what we would \textbf{expect if the variables were independent.} Given a data set in the form of a contingency table, such as table \ref{tab:data_table_DS_age}, we can first calculate the probabilities of the two variables separately, and then from that predict the probabilities of the two variables together. 
+
+\textbf{Example.} Let us calculate the expected probabilities and frequencies of Down's syndrome in pregnant women in the two age categories. First, compute the probabilities of having Down's syndrome (and not having it), based on all the pregnancies in the data set: $P(DS) = 92/38033 \approx 0.002419$; the complementary probability is $P(no \ DS) = 1 - P(DS)$. Similarly, we can calculate the probability that a pregnant woman is 35 or over, based on the entire data set (let's denote this event $MA$ for ``mature age''). $P(MA) = 8199/38033 \approx 0.21558$; the complementary probability is $P(YA) = 1  - P(MA)$ ($YA$ stands for ``young age''). 
+
+These separate probabilities were calculated from the data, and now we can use them to calculate the predicted probabilities of different outcome, based on the assumption of independence. The probability of a mature-age woman having a pregnancy with Down's syndrome, based on the product rule is $P(MA \& DS) \approx 0.0024 \times 0.216 = 0.000518$. Similarly, we can calculate the probabilities of the other three outcomes: $P(YA \& DS) \approx 0.0019 $; $P(MA \& no \ DS)  \approx 0.2156$; $P(YA \& no \ DS) \approx 0.782$.
+
+These probabilities are the predictions based on the assumption that the two variables are independent. To compare the predictions with the data, we need to take one more step: convert the probabilities into counts, or frequencies of each occurrence. Since the probability is a fraction out of all outcomes, to generate the predicted frequency we need to multiply the probability by the total number of data points, in this case pregnant patients. The results of this calculation are seen in table \ref{tab:exp_table_DS_age} with expected frequencies shown instead of experimental observations.
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{lccc} % Column formatting, @{} suppresses leading/trailing space
+       Maternal age/ DS  & No DS & DS & Total  \\
+      under 35 years & 29,761.8  & 72.2 & 29,834 \\
+      35 years or above  &  8,179.2 & 19.8  & 8,199 \\
+      Total & 37,941 & 92 & 38,033\\
+   \end{tabular}
+   \caption{Expected frequencies of Down's syndrome for two different age groups of mothers, assuming that age and Down's syndrome are independent.}
+   \label{tab:exp_table_DS_age}
+\end{table}
+
+Notice that expected frequencies do not need to be integers, because they are the result of prediction and not a data measurement. Now that we have a prediction, we can compare it with the measurements in the data table \ref{tab:data_table_DS_age}. The numbers are substantially different, and we can see that the predicted frequency of Down's syndrome for women under 35 is larger than the frequencies for women at or above 35, due to the larger fraction of patients in the younger age group. However, how certain are we that the difference is not due to chance, and is in fact is due to a relationship between the two variables? To answer this question, we again leave the theoretical confines of probability and venture on an excursion into the wonderful and wild world of statistics. 
+
+\section{Testing for independence}
+\label{sec:math6_2}
+
+\subsection{hypothesis testing}
+The scientific method is based on \index{hypothesis!testing} \emph{testing hypotheses} and deciding whether to reject them. To do this, scientists formulate an idea (hypothesis), then accumulate data that can challenge it, and if the data contradict the hypothesis, they discard it (the hypothesis, not the data!) No hypothesis in science is ever proven in an absolute sense, which is why it is fundamentally different from mathematics. A hypothesis that has survived many tests and was found to be consistent with all available observations becomes a \emph{theory}, like the theory of gravity or of evolution. But unlike a theorem, a scientific theory is not certain, and if solid evidence were to surface that contradicts Netwon's gravitational theory, it would be falsified and thrown out (again, the theory, not the evidence.)
+
+The hypothesis to be tested is usually called the  \index{hypothesis!null}\emph{null hypothesis}, which helpfully rhymes with dull, because it represents the lack of anything interesting, essentially the default state of the system. In order to reject the null hypothesis, the data has to be substantially different from what is expected as default. For instance, medical tests have the null hypothesis that the patient is normal/healthy, and only if the results are substantially different from normal the patient is considered ill. Another common example is the criminal justice system: a defendant on trial undergoes a binary test where the null hypothesis is innocence. Only if the prosecutor's evidence is strong, that is, shows guilt beyond a reasonable doubt, that the null hypothesis is rejected and the defendant found guilty.
+
+Tests are binary, in that there are only two possible decisions: to reject the hypothesis or to not reject it. We can never truly accept a hypothesis as true, due to the impossibility of perfect knowledge of the world. The decision to reject a hypothesis is called a  \index{test!positive result} \emph{positive} test result, which seems backwards, but remember that the default or null hypothesis is a lack of anything unusual or interesting, so if the data are different from default, it is called a positive result. The decision to not reject the null hypothesis is called a \index{test!negative result} \emph{negative} test result. You are probably familiar with this in a medical context: if you've ever been tested for a disease, you know that a negative result is good news!
+
+Hypothesis testing is also binary on the front end: if we had perfect knowledge, we could say whether the hypothesis is true or not. Ideally, we want the test to reject a false null hypothesis, and not reject a true null hypothesis. These results are called, respectively, a \emph{true positive} and a \emph{true negative}. In the language of probability, they are defined as follows:
+\begin{mosdef}
+For a hypothesis test, the probability of a \index{test!true positive} \emph{true positive} result is the probability of a positive result for a false hypothesis, and the probability of a \index{test!true negative} \emph{true negative} result is the probability of a negative result for a true hypothesis, or in mathematical notation:
+$$ P(TP) = P(Pos \& F); \; P(TN) = P(Neg \& T)  $$
+Conversely, the probability of a \index{test!false positive} \emph{false positive} result is the probability of a positive result for a true hypothesis, and the probability of a  \index{test!false negative}\emph{false negative} result is the probability of a negative result for a false hypothesis, or in mathematical notation:
+$$ P(FP) = P(Pos \& T); \; P(FN) = P(Neg \& F)  $$
+\end{mosdef}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccc} % Column formatting, @{} suppresses leading/trailing space
+        Test result & Hypothesis False  &  Hypothesis True \\
+      Positive   & TP & FP \\
+      Negative   & FN  & TN \\
+   \end{tabular}
+   \caption{Two-way table summarizing the four possible results of hypothesis testing. The values may be expressed either as counts, or as fractions (probabilities).}
+   \label{tab:Hypothesis_Testing}
+\end{table}
+These definitions are summarized in the table \ref{tab:Hypothesis_Testing}. Based on these probabilities, one can compute the measures of quality of a given test, defined as follows:
+
+\begin{mosdef}
+The \index{test!sensitivity} \emph{sensitivity} of a test is the probability of obtaining the positive result, given a false hypothesis; and the  \index{test!specificity}  \emph{specificity} of a test is the probability of obtaining the negative result, given a true hypothesis. There are two kinds of \emph{error rates}:  \index{test!type I error} \emph{type I error rate} is the probability of obtaining the positive result, given a true hypothesis (complementary to specificity), and the  \index{test!type II error}  \emph{type II errors} is the probability of obtaining the negative result, given a false hypothesis (complementary to sensitivity). All four parameters (rates) of a binary test are summarized as follows:
+$$ Sen = \frac{TP}{TP+FN};  \; Spec = \frac{TN}{TN+FP}$$
+$$ FPR = \frac{FP}{TN+FP};  \; FNR = \frac{FN}{TP+FN}$$
+\end{mosdef}
+Notice that knowledge of sensitivity and specificity determine the type I and type II error rates of a test since they are complementary events.  Of course, it is desirable for a test to be both very sensitive (reject false null hypotheses, detect disease, convict guilty defendants) and very specific (not reject true null hypotheses, correctly identify healthy patients, acquit innocent defendants), but no test is perfect, and sometimes it makes the wrong decision. This is where statistical inference comes into play: given some information about these parameters,  a statistician can calculate the error rate in making different decisions.
+
+\exercise{Calculate the marginal probabilities of the individual random variables, i.e. the probability of positive and negative X-ray test results, and of TB being present and absent.}
+
+\exercise{Find the probability of positive result given that TB is absent (false positive rate) and the probability of a negative result given that TB is absent (specificity).}
+
+\exercise{Find the probability of negative result given that TB is present (false negative rate) and the probability of a positive result given that TB is present (sensitivity).}
+
+\exercise{Find the probability that a person who tests positive actually has TB (probability of TB present given a positive result).}
+
+\exercise{Find the probability that a person who tests negative does not have TB (probability of no TB given a negative result).}
+
+\exercise{Assuming the test result and the TB status are independent, calculate the expected probability of both TB being present and a positive X-ray test.}
+
+\exercise{Under the same assumption, calculate the expected probability of both TB being absent and a positive X-ray test.}
+
+\exerciseshere{Table \ref{tab:TB_test} shows the results of using X-ray imaging as a diagnostic test for tuberculosis in patients with known TB status. Use it to answer the questions below.}
+\begin{table}[h!]
+   \centering
+   %\topcaption{Table captions are better up top} % requires the topcapt package
+   \begin{tabular}{ lcr} % Column formatting, @{} suppresses leading/trailing space
+      Test for TB &  TB absent & TB present \\
+      Negative X-ray   &  1739  & 8    \\
+      Positive X-ray    &  51 &  22  \\
+   \end{tabular}
+   \caption{Data for TB testing using X-ray imaging}
+   \label{tab:TB_test}
+\end{table} 
+
+\subsection{rejecting the null hypothesis}
+Hypothesis testing is one of the most important applications of statistics. A lot of people think of statistics as a collection of tests to be used for different hypotheses, which is too simplistic, but different tests do occupy a large fraction of statistics books. In this book we will only dip a toe into hypothesis testing, and will primarily approach it in a probabilistic (model-centered) way rather than from a  statistical (data-centered) viewpoint. Probability allows us to calculate the sensitivity and specificity of a test for a given null hypothesis, provided the hypothesis is simple enough and the data are sampled correctly. Here is a simple example:
+
+\textbf{Example: testing whether a coin is fair.} Suppose we want to know whether a coin is fair (has equal probabilities of heads and tails) based on a data set of several coin tosses. How much evidence do we need in order to reject the hypothesis of a fair coin with a small chance of making a type I error? What is the corresponding chance of making a type II error, not detecting an unfair coin? 
+
+Let us first consider a data set of two coin tosses. If one is heads and one is tails, it's obvious we have no evidence to reject the null hypothesis. But what if both times the coin landed heads? The probability of this happening for a fair coin is 1/4, which means that if you reject the null hypothesis based on the evidence, your probability of committing a type I error is 1/4. However, it is very difficult to answer the second question about making a type II error, because in order to do the calculation we need to know something about the probability of heads or tails. The hypothesis being false only means that the probability is not 1/2, but it could be anything between 0 and 1. 
+
+Let us see how this test fares for a larger sample size. Suppose we toss a coin $n$ times, and if all $n$ come up heads, then we reject the hypothesis that the coin is fair. A fair coin will come up all heads with probability $1/2^n$, so that is the rate of false positives for this test. For example, if a coin came up heads ten times in a row, there is only a 1/1024 probability that this is the result of a fair coin, so the probability of making a type I error is less than 0.1\%. Is this careful enough? This question cannot be answered mathematically - it depends on your sense of acceptable risk of making a mistake. Notice that if you decide to use a very stringent criteria for rejecting a null hypothesis, you will necessarily end up not rejecting more false hypotheses. Such is the face of us mortals, dealing with imperfect information in an uncertain world.
+
+This leads us to an important new idea: the probability that a given data set is produced from the model of the null hypothesis is called the \emph{p-value} of a test. In the example of coin tosses we just studied, the p-value was $p=1/2^n$. However, what if the data had 9 heads out of 10 tosses? The p-value then would be the probability of obtaining \textbf{9 or 10 heads out of 10}. This is because to compute the probability of making a false positive error, we consider all cases that could have produced the result that is as different from expectation, or even further from expectation (in this case, 5 heads out of 10) than the data. \citep{whitlock_analysis_2008}.
+
+\begin{mosdef}
+For a given data set $D$ and a null hypothesis $H_0$, the  \index{test!p-value}  \emph{p-value} is defined as the probability of obtaining a result \textbf{as far from expectation or farther than the data}, given the null hypothesis.
+\end{mosdef}
+The p-value is the most used, misused, and even abused quantity is statistics, so please think carefully about its definition. One reason this notion is frequently misused is because it is very tempting to conclude that the p-value is the probability of the null hypothesis being true, based on the data. That is not true! The definition has the opposite direction of conditionality - we assume that the null hypothesis is true, and based on that calculate the probability of obtaining the data. There is no way (according to classical ``frequentist'' statistics) of assigning a probability to the truth of a hypothesis, because it is not the result of an experiment. 
+
+The simplest way to describe the p-value is that it is the \textbf{likelihood of the hypothesis, based on the data set.} This means that the smaller the p-value, the less likely the hypothesis, and one can be more certain about rejecting the hypothesis. Alternatively, the p-value represents the \textbf{probability of making a type 1 error, or rejecting the correct null hypothesis.} These two notions may seem to be in conflict, but they tell the same story: if the hypothesis is likely, the probability of making a type 1 error is high.
+
+\subsection{the chi-squared statistic}
+Now we are ready to address the question of testing the independence hypothesis based on the table of observations and the calculated table of expected counts. In order to measure the difference between what is expected for a data table with two independent variables and the actual observations, we need to gather these differences into a single number. One can devise several ways of doing this, but the accepted measure is called the \index{chi-squared!statistic}\emph{chi-squared statistic} and it is defined as follows:
+\begin{mosdef}
+The chi-squared value for the independence test is calculated on the basis of a two-way table with $m$ rows and $n$ columns as the sum of the differences between the observed counts and the computed expected counts as follows:
+$$  \chi^2= \sum_i \frac{(Observed(i)-Expected(i))^2}{Expected(i)} $$
+The number of degrees of freedom of chi-squared is $d.f. = (m-1)(n-1)$.
+\end{mosdef}
+
+This number describes how far away the data is from what is expected for an independent data set. Therefore, the larger the chi squared statistic, the larger the differences between observed and expected frequency, and thus the null hypothesis  of independence is less likely. However, simply obtaining the $\chi^2$ is not enough to say whether the two variables are independent. We need to translate the chi-squared value into the language of probability, that is to ask, what is the probability of obtaining a data set with a particular $\chi^2$ value, if those two variables were independent.
+
+This question is answered using the \index{distribution!chi-squared}\index{chi-squared!distribution}\emph{chi-squared probability distribution}, which describes the probability of the random variable $\chi^2$. Like the normal distribution we saw in section \ref{sec:math5} it is a continuos distribution, because $\chi^2$ can take any (positive) real value. In another similarity, the  $\chi^2$ distribution has an even more complicated functional form than the normal distribution, so I do not present it here, because it is not enlightening. I will also not share the derivation of the mathematical form of the distribution, as it is far outside the goals of this text. In practice, nobody computes either the chi-squared statistic or its probability distribution function by hand, instead computers handle these chores. The chi-squared distribution has one key parameter, called the number of degrees of freedom, which was defined above. Depending on d.f. the distribution changes, specifically for more degrees of freedom the distribution moves to the right, that is, the chi-squared values tend to be larger.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=4in]{ch6/Chi-Squared_Distribution.png} 
+   \caption{The chi-squared distribution is used to compute the p-value as the total probability of obtaining a $\chi^2$ value at least as far from 0 as observed; image by  Inductiveload in public domain via Wikimedia Commons.}
+   \label{fig:ch6_chisq_dist}
+\end{figure}
+
+The chi-squared distribution is used to determine the probability of obtaining a chi-squared statistic as at least as large as observed, based on the null hypothesis of independence. Figure \ref{fig:ch6_chisq_dist} shows a plot of the chi-squared distribution, as well as the total probability to the right of an observed $\chi^2$. This allows one to use it for the \index{test!chi-squared}\\index{chi-squared!test}\emph{chi-squared test} for independence between random variables, by comparing the p-value obtained from the distribution (by a computer) against a number called the \index{statistics!significance}\emph{significance} level, which is decided by humans. The significance value $\alpha$ is a threshold that the test has to clear in order to reject the null hypothesis: if the p-value is less than $\alpha$, the independence hypothesis is rejected, otherwise it stands, although one can never say that the independence hypothesis is accepted.
+
+There is no mathematical or statistical method for determining the appropriate significance level, it is entirely up to the users to decide how much risk of rejecting a true null hypothesis they are willing to tolerate. If you choose 0.01, that means you want the likelihood of the hypothesis to be less than 1\% percent in order to reject it. This is entirely arbitrary, and using a rigid significance level to decide whether a hypothesis is true can lead to major problems which we will discuss in the next chapter.
+
+Like all mathematical models, the chi-squared distribution relies on a set of assumptions. If the assumptions are violated, then the probability distribution does not apply and the p-value does not reflect the actual likelihood of the hypothesis. Here are the \index{chi-squared!assumptions}assumptions:
+
+\begin{itemize}
+
+\item the data is from a simple random sample of the population, so that every subgroup of a certain size has an equal probability of being selected for the sample.
+
+
+\item the sample size must be sufficiently large, the exact number depends on the degrees of freedom 
+
+
+\item expected cell counts cannot be too small; a rule of thumb is that they must be at least 5 for a two by two table
+
+
+\item the observations are always assumed to be independent of each other, that is one measurement has no effect on others; note that this does not mean the assumption that random variables are independent (that's what we are testing!)
+
+\end{itemize}
+
+\section{Hypothesis testing in R}
+\label{sec:comp6}
+R has many functions for different tests, including the chi-squared test\index{R programming!chi-squared test}. To use it, one first has to input a data set in the form of a two-way table, where each row represents the values of one random variable, and each column represents the values of the second random variable. The following script shows how to manually input a 2 by 2 contingency table into a matrix. In the matrix function, ncol stands for number of columns, and nrow for number of rows. Notice the order in which the numbers are put into the matrix: down the first column, then the second, etc. Type \texttt{help(matrix)} for more details. In order to access a specific element of the matrix, just like in vectors, R uses square brackets and two indices, first one for row, and second for column. Below are examples of accessing two elements of the matrix data defined above, and how to reference a particular element of the matrix.
+<<comp6-1, tidy=TRUE,tidy.opts=list(width.cutoff=50)>>=
+data <- matrix(c(442,514,38,6),ncol=2,nrow=2)
+print(data)
+print(data[1,2])
+print(data[2,1])
+@
+
+Based on a given data set, how likely is the hypothesis that the two random variables are independent?  It is hard to do by hand (in the old days, you looked it up in a table of chi-squared values) but R will do it all for us: 1) calculate the expected counts, 2) compute the chi-squared value for the table, and 3) use the number of degrees of freedom and the chi-squared value to calculate the p-value of the independence hypothesis based on it. Use the \texttt{chisq.test()} function, and you will see output like this:
+<<comp6-2, tidy=TRUE,tidy.opts=list(width.cutoff=50)>>=
+test.output <- chisq.test(data)
+print(test.output)
+@
+The results are the chi-squared values, the number of degrees of freedom (which depends on the number of rows and columns in the two-way table) and the p-value. The p-value is used to decide whether to reject the hypothesis, because it represents the likelihood of the hypothesis, given the data. In this case, the p-value is pretty small, so it seems relatively safe to reject the hypothesis of independence.  To see the results of the hypothesis test, type \texttt{print(test.output)}, and to access the p-value individually, use \texttt{test.output\$p.value}.
+
+Finally, we need to specify the significance level $\alpha$ for the hypothesis test. This refers to the probability of rejecting a true null hypothesis, by random chance. For instance, if you reject the hypothesis at $\alpha=0.05$ significance, you're accepting a 5\% chance that you \emph{falsely rejected a correct hypothesis} (also called the rate of false positives). Note that it says nothing about failing to reject an incorrect hypothesis (also called the rate of false negatives.) 
+
+\section{Independence in data sets}
+\label{sec:bio6}
+\subsection{maternal age and Down's syndrome}
+Let us return to the data presented in section \index{medical!maternal age}\ref{sec:model6}. We noted that the fraction of women in different age categories carrying fetuses with DS are different, but how certain are we that is not a fluke? To test the hypothesis of independence, we input the data into R and then run the chi-squared test:
+<<bio6-1, tidy=TRUE,tidy.opts=list(width.cutoff=50)>>=
+data <- matrix(c(29806, 8135, 28, 64),ncol=2,nrow=2)
+test.output <- chisq.test(data)
+print(test.output)
+@
+Based on the calculations, we can answer the questions posed at the end of section \ref{sec:model6}:
+\begin{enumerate}
+
+\item Independence between the two variables means that the fraction of women with DS fetuses should be the same for all age groups (or vice versa).
+
+\item To measure the extent of dependence of the two variables, calculate the chi-squared parameter, which is about 122.
+
+\item This allows us to calculate the p-value and test the hypothesis. Here the p-value is very small (the number is actually caused by machine error). Therefore, the hypothesis can be 
+rejected with a very small risk of making an error.
+\end{enumerate}
+
+
+\subsection{stop-and-frisk and race}
+The practice of New York Police Department dubbed ``stop-and-frisk'' \index{policy!stop-and-frisk}gives police officers to power to stop, question, and search people on the street without a warrant. Since the practice commenced in the early 2000s, it has generated controversy for several reasons. First, the 4th amendment to the U.S. Constitution limits the power of the state to detain and search citizens, by mandating that officials first obtain a warrant based on ``probable cause,'' while based on the Supreme Court interpretation, police are allowed to stop someone without a warrant provided ``the officer has a reasonable suspicion supported by articulable facts'' that the person may be engaged in criminal activity. Exactly what these conditions mean and whether officers in NYPD always had reasonable suspicions before stopping is a legal matter, rather than a statistical one, and you can read what federal judge Scheindlin ruled on this matter here \citep{_stop-and-frisk_????}.
+
+The second issue raised by stop-and-frisk is whether it violates the principle of equal protection under the law enshrined in the 14th amendment of the Constitution. The idea that the law and its agents should treat people of different backgrounds the same, that people can be punished for their actions, but not for who they are, is deeply rooted in American law and culture. Critics of stop-and-frisk charge that officers disproportionately stop and search people of African-American and Hispanic background and therefore violate their constitutional rights to equal protection. As part of the trial, statistical evidence was introduced about the number of stops of New Yorkers of different racial backgrounds, how many of those stops resulted in the use of force, and how many uncovered evidence of criminal activity leading to an arrest. Let us analyze the data using our tools to address whether race and somebody being ``stopped-and-frisked'' are related.
+
+The data in the summary of judge Scheindlin's decision is as follows: between 2004 to 2012, out of 4.4 million stops, 52\% of the people stopped were black, 31\% of the people stopped were Hispanic, and 10\% of the people were white. The population of New York according to the 2010 census is approximately 23\% black, 29\% Hispanic, and 33\% white. You may notice that the fractions are suggestive of a higher probability of stops of African-Americans, and lower probability of stops of white individuals, but we cannot use fractions to perform a chi-squared test, because actual counts are necessary to quantify the uncertainty in the testing. 
+
+Below I present data in the form of counts for only the calendar year 2011 \citep{_nypds_????}, in the form of a contingency table with two variables: race/ethnicity and being stopped by police without a warrant. I have used the census population of New York \url{http://factfinder2.census.gov} and its breakdown by race (white only, black only, Hispanic, other). The data are presented in table \ref{tab:stop_frisk_race}, and then are input in R and run through a chi-squared independence test.
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{lccccc} % Column formatting, @{} suppresses leading/trailing space
+         & white & black & Hispanic & other & total  \\
+      stopped & 61,805 & 350,743 & 223,740 & 49,436 & 685,724 \\
+      not stopped  &  2,665,172 & 1,527,029  & 2,119,718 & 1,201,578 & 7,513,497\\
+      Total & 2,726,977 & 1,877,772 & 2,343,458 & 1,251,014 & 8,199,221 \\
+   \end{tabular}
+   \caption{Number of New York residents subjected to stop-and-frisk and their racial identification.}
+   \label{tab:stop_frisk_race}
+\end{table}
+
+<<bio6-2, tidy=TRUE>>=
+data <- matrix(c(61805, 2665172, 350743, 1527029, 223740, 
+2119718, 49436, 1201578),ncol=4,nrow=2)
+test.output <- chisq.test(data)
+print(test.output)
+@
+The results confirm what comparing the percentages suggested: the race of a person in NYC is not independent of whether or not they get stopped and frisked, with only a tiny probability that this disparity could have happened by chance. However, this is only the beginning of the analysis that experts performed for the court trial. Drawing conclusions about motives from the data is tricky, since two variables may be related without a causal connection. Defenders of the practice have argued that the racial disparities reflect differences in criminal activity. The data, however, show that only 6\% of the stops result in arrests, and 6\% more in court summons, so the vast majority of those stopped and frisked were not engaged in criminal activity. 
+
+\section{Computational projects}
+\label{sec:proj6}
+In this section you will use two data sets: one that you collect from your class, and one from marine biology research. In both cases, you will input the data into a matrix in R and then use the chi-squared function to test for independence between two variables.
+
+\subsection{thumb-on-top preference and sex}
+Collect data in you group of students on the relationship between two random variables: sex (male or female) and thumb-on-top preference (left or right). Ask everyone to determine whether they prefer to have the right or left thumb on top when they clasp their hands with fingers interlaced (the preference is usually very strong, if you try to clasp your hands the other way, it feels uncomfortable). Those who are male and prefer to have their right thumb on top raise their hands to be counted, then female students who prefer their right thumb on top, and so on, until you have filled the 2 by 2 data table. (Students who don't identify as one of the traditional genders can pick either one.)
+
+\section*{Tasks}
+\begin{enumerate}
+\item Use the data set to construct a two-way table with handedness and thumb-on-top preferences as the two variables and assign it to an R matrix.
+\item  Use the R chi-squared function to calculate the p-value for the data set and decide whether to reject the hypothesis that sex and thumb on top preference are independent at significance levels $\alpha = 0.05, 0.01, 0.001$.
+\end{enumerate}
+
+\subsection{relationship between species and habitat}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccc} % Column formatting, @{} suppresses leading/trailing space
+      Habitat  & G. moringa &G. vicinus \\
+      grass      & 127  & 116  \\
+      sand      &  99   &  67  \\
+      border    & 264 & 161   \\      
+   \end{tabular}
+   \caption{Number of individuals of each species sighted in each habitat}
+   \label{tab:eels}
+\end{table}
+The  2-way table contains data for sighting of two moray eels species of genus \emph{Gymnothorax}, species \emph{moringa} and \emph{vicinus} in different habitats in a reef in Belize. We will test the hypothesis that the species of eel and the habitat are independent.
+\section*{Tasks}
+\begin{enumerate}
+\item Put the data set in the two-way table \ref{tab:eels} above into an R matrix.
+
+\item  Use the R chi-squared function to calculate the p-value for the data set and decide whether to reject the hypothesis that  species and habitat are independent at significance levels $\alpha = 0.05, 0.01, 0.001$.
+\end{enumerate}
+
+\subsection{independence testing of simulated data}
+In this section you will  generate random numbers to produce a simulated 2 by 2 contingency table. Suppose that you have two groups of people: one with genotype A and the other with genotype B. The question is: does this genotype predispose people to a disease? In other words, are the variables of genotype and disease linked?
+
+You will generate a data set in which the true answer is known, so you can investigate how frequently the test is right and wrong. To do this, you will use the binomial random generator we first used in section \ref{sec:comp4}. The code below generates two vectors of length sample.size containing 0s and 1s, in which 0 stands for normal and 1 indicates disease. The vector dis.genA contains the disease status of all people with genotype A, and dis.genB similarly contains the status for people with genotype B. The number of 0s and 1s in the two vectors are then tabulated using the \texttt{table()} function and are assigned to a data table.
+<<proj6-1,eval=FALSE,tidy=TRUE,tidy.opts=list(width.cutoff=50)>>=  
+sample.size <- 100 
+probA <- 0.2 # probability of disease for genotype A
+probB <- 0.3 # probability of disease for genotype B
+dis.genA <- rbinom(sample.size,1,probA)
+dis.genB <- rbinom(sample.size,1,probB)
+data.mat <- matrix(c(table(dis.genA),table(dis.genB)),nrow=2,ncol=2)
+@
+You are now ready to generate 2 by 2 tables for different scenarios and see how well the chi-squared test works for different probabilities of disease. Before doing the following tasks, think carefully: what are the variables in this test for independence? what does it mean for them to be independent?
+
+\section*{Tasks}
+\begin{enumerate}
+
+\item Generate data sets for genotype A  and genotype B of 50 patients each with 0.5 probability of disease for both data sets. Plot the histograms of both data sets and report whether they look similar. Place the counts into a data matrix and run a chi-squared test on it. Does test lead to rejection for the independence hypothesis at 0.1 significance level? How about at 0.05? Based on how you generated the data sets, is the hypothesis actually true? Did the chi-squared test get the result right?
+
+\item Repeat the code in the first task 100 times by adding a for loop around it. In each loop iteration you generate the two datasets as before (both with probability of disease of 0.5), place the counts in a data matrix and perform a chi-squared test for independence of genotype and disease. Report how many of the 100 chi-squared tests result in rejection of the null hypothesis at the 0.1 and 0.05 significance level by using \texttt{test.output\$p.value} to put the p-values in a vector (e.g.  \texttt{p.vec}) and report how many of the p-values are less than the significance level $a$ (the command \texttt{sum(p.vec<a)} will do this for you.) Since you know exactly whether the hypothesis is true, how many of the test conclusions are \textbf{wrong} for each significance level? Explain whether this agrees with the notion of p-value.
+
+\item Now let us change the two data sets so they are different, and thus the data are not independent. For the first data set (genotype A), let the probability of disease be 0.4 and for the second data set (genotype B) let disease occur with probability 0.6. Count how many of the 100 chi-squared tests result in rejecting the null hypothesis at the 0.1 and 0.05 significance level. Since you know exactly whether the hypothesis is true, how many of the test conclusions are \textbf{wrong} for each significance level? Explain whether this agrees with the notion of p-value.
+
+\item Finally, let us generate data from very different probabilities of disease. For the first data set (genotype A), let the probability of disease be 0.2 and for the second data set (genotype B) let disease occur with probability 0.8. Count how many of the 100 chi-squared tests result in rejecting the null hypothesis at the 0.1 and 0.05 significance level. Since you know exactly whether the hypothesis is true, how many of the test conclusions are \textbf{wrong} for each significance level? Explain whether this agrees with the notion of p-value.
+
+\end{enumerate}
