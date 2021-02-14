@@ -9,7 +9,7 @@ options(replace.assign=TRUE,width=90,tidy=TRUE)
 ```
 
 
-> What is there then that can be taken as true? Perhaps only this > one thing, that nothing at all is certain.
+> What is there then that can be taken as true? Perhaps only this one thing, that nothing at all is certain.
 > -- Rene Descartes
 
 Mathematical models can be divided into *deterministic* and *stochastic* models. Deterministic models assume that the future can be perfectly predicted based on complete information of the past. Stochastic models instead assume that even perfect knowledge of the past does not allow one to predict the future with certainty.
@@ -183,7 +183,7 @@ Knowledge of the expected value says nothing about how the random variable actua
 $$ E(X-\mu_X) =  \sum_i (x_i-\mu_x)P(x_i) = \sum_i x_i P(x_i) - \mu_x \sum_i P(x_i) = \mu_x - \mu_x = 0$$
 The problem is, if we add up all the differences from the mean, the positive ones end up canceling the negative ones. This is why it makes sense to square the differences and add them up:
 
-```{definition, def-var}
+```{definition, def-var-rv}
 The *variance* of a discrete random variable  $X$ with probability distribution $P(x)$ is
 $$ Var(X) = E((X-\mu_X)^2) = \sum_{i=1}^N (x_i-\mu_x)^2P(x_i)$$
 ```
@@ -300,12 +300,13 @@ In this definition I use the term independence without defining it properly, whi
 
 To find the probability distribution of the binomial random variable, we need to define the event of $k$ wins out of $n$ trials. Consider the case of 4 trials. It is easy to find the event of 4 wins, as it is comprised only of the outcome $\{WWWW\}$. Then, $P(4) = p^4$, based on the independence assumption. The event of winning 3 times consists of four strings: $\{LWWW, WLWW, WWLW, WWWL\}$ so the probability of obtaining 3 wins is the sum of the four probabilities, each equal to  $ p^3(1-p)$ from the independence assumption above, so $P(3) = 4p^3(1-p)$. The event of winning 2 times is even more cumbersome, and consists of six strings: $\{ LLWW, WLLW, WWLL, WLWL, LWLW, LWWL\}$, so $P(2) = 6p^2(1-p)^2$ by the same reasoning. 
 
-Now imagine doing this to calculate 50 wins out of 100 trials. The counting gets ugly very fast. We need a general formula to help us count the number of  ways of winning $k$ times out of $n$ trials. We denote this number $\binom{n}{k} $, also known as "$n$ choose $k$" because it corresponds to the number of ways of choosing $k$ distinct objects out of $n$ without regard to order. The connection is as follows: let us label each trial from 1 to $n$. Then to construct a string with $k$ wins, we need to specify which trials resulted in a win (the rest are of course losses). It does not matter in which order those wins are selected - it still results in the same string. Therefore the number of different strings of $n$ binary trials with $k$ successes is the same as the number of ways of selecting $k$ different objects out of $n$ different ones.
+Now imagine doing this to calculate 50 wins out of 100 trials. The counting gets ugly very fast. We need a general formula to help us count the number of  ways of winning $k$ times out of $n$ trials. We denote this number $\binom{n}{k}$, also known as "$n$ choose $k$" because it corresponds to the number of ways of choosing $k$ distinct objects out of $n$ without regard to order. The connection is as follows: let us label each trial from 1 to $n$. Then to construct a string with $k$ wins, we need to specify which trials resulted in a win (the rest are of course losses). It does not matter in which order those wins are selected - it still results in the same string. Therefore the number of different strings of $n$ binary trials with $k$ successes is the same as the number of ways of selecting $k$ different objects out of $n$ different ones.
 
 The number itself can be derived as follows: there are $n$ possibilities for choosing the number of the first win, then $n-1$ possibilities for choosing the number of the second win, etc, and finally when choosing the $k$-th win there are $n-k+1$ possibilities (note that $k \leq n$, and if $n=k$ there is only one option left  for the last choice.) Thus, the total number of such selections is: $n(n-1)...(n-k+1) = n!/(n-k)!$
 
 But note that we overcounted, because we considered different strings of wins depending on the order in which a win was selected, even if the resulting strings are the same (example: $n=4$ and $k=4$ gives us $4!$ although there is only one string of 4 wins out of 4). In order to correct for the overcounting, we need to divide by the total number of ways of selecting the same string of $k$ wins out of $n$. This is number of ways of rearranging $k$ wins, or $k!$ Thus, the number we seek is:
-$$ \binom{n}{k} = \frac{n!}{k! (n-k)!}$$
+
+$$\binom{n}{k} = \frac{n!}{k! (n-k)!}$$
 
 We can now calculate the general probability of winning $k$ times out of $n$ trials. First, each string of $k$ wins and $n-k$ losses has the probability $p^k (1-p)^{n-k}$. Since we now know that the number of such strings is $C^n_k$, the probability is:
 
@@ -322,7 +323,7 @@ E(B) = E\left[\sum_{i=1}^n X\right] = \sum_{i=1}^n E(X) = \sum_{i=1}^n p = np
 $$
 This means that the expected number of heads/successes is the product of the probability of 1 head/success and the number of trials, e.g. if the probability of success is 0.3, then the expected number of successes out of 100 is 30.
 
-Now let us calculate the variance, for which in general the same additive property is not true. But remember that in the section on variance above we showed that the variance of a sum of two random variables is the sum of their two separate variances as long as their covariance is zero. It turns out that for random variables that satisfy the product rule $P(x, y) = P(x) P(y)$ their covariance is 0:
+Now let us calculate the variance, for which in general the same additive property is not true. But remember that in the section on variance above we showed that the variance of a sum of two random variables is the sum of their two separate variances as long as their covariance is zero. It turns out that for random variables that satisfy the product rule $P(x, y) = P(x)P(y)$ their covariance is 0:
 
 $$E((X-\mu_X)(Y-\mu_Y))  =  \sum_i \sum_j (x_i-\mu_X) (y_j-\mu_Y) P(x_i, y_j) =  $$
 $$ = \sum_i(x_i-\mu_X)P(x_i) \sum_j (y_j-\mu_Y) P(y_j) $$
@@ -338,7 +339,7 @@ $$
 
 For any given number of Bernoulli trials, the variance has a quadratic dependence on probability of success $p$: if $p=1$ or $p=0$, corresponding to all successes, or all failures, respectively, then the variance is zero, since there is no spread in the outcome. For a fair coin $p=1/2$ the variance is highest. This can be seen in the plots of binomial random variables for $n=2$, $n=5$, and $n=50$, shown in figures below.
 
-```{r fig-bin-dist-1, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
+```{r fig-bin-dist-1, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.show='hold', fig.cap = 'The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
 n <- 2
 p<-0.2
 values <- 0:n
@@ -351,7 +352,7 @@ barplot(prob.dist,names.arg=values,cex.axis=1.5,cex.lab=1.5,xlab='binomial RV',y
 ```
 
 
-```{r fig-bin-dist-2, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
+```{r fig-bin-dist-2, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.show='hold',fig.cap = 'The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
 n <- 5
 p<-0.2
 values <- 0:n
@@ -364,7 +365,7 @@ barplot(prob.dist,names.arg=values,cex.axis=1.5,cex.lab=1.5,xlab='binomial RV',y
 ``` 
 
 
-```{r fig-bin-dist-2, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
+```{r fig-bin-dist-3, echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center', fig.show='hold', fig.cap = 'The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)'}
 n <- 50
 p<-0.2
 values <- 0:n
@@ -380,13 +381,13 @@ barplot(prob.dist,names.arg=values,cex.axis=1.5,cex.lab=1.5,xlab='binomial RV',y
 
 Calculate the means and variances based on the plotted distributions using the definitions \ref{def:ch4_mean} and \ref{def:ch4_var} and compare your calculations against equations \ref{eq:ch4_mean_unif} and \ref{eq:ch4_var_unif} (for uniform random variables) and equations \ref{eq:ch4_binom_mean} and \ref{eq:ch4_binom_var} (for binomial random variables)
 
-1. Calculate the mean and the variance for the two uniform distributions plotted in figure \ref{fig:ch4_unif_dist}.}
+1. Calculate the mean and the variance for the two uniform distributions plotted in figure \ref{fig:ch4_unif_dist}.
 
-2. Calculate the mean and the variance for the two binomial distributions plotted in figure \ref{fig:ch4_binomial1}.}
+2. Calculate the mean and the variance for the two binomial distributions plotted in figure \ref{fig:ch4_binomial1}.
 
-3. Calculate the mean and the variance for the two binomial distributions plotted figure \ref{fig:ch4_binomial2}.}
+3. Calculate the mean and the variance for the two binomial distributions plotted figure \ref{fig:ch4_binomial2}.
 
-4. Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure \ref{fig:ch4_binomial3}.}
+4. Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure \ref{fig:ch4_binomial3}.
 
 
 ### testing for mutants
@@ -461,7 +462,7 @@ print(dbinom(1,n,p))
 
 The script above calculates the probabilities of all of the possible values of the random variable by substituting the vector of these values (e.g. 0 to 20) instead of the number 1, generating the probability distribution vector. This vector is plotted vs. the values of the random variable using the `barplot()` function, producing an aesthetically pleasing plot of the binomial distribution. The script plots two binomial probability distributions, both with $n=20$, the first with $p=0.2$ and the second with $p=0.6$. Notice also the use of the axis labels in `barplot()` using the same options `xlab` and `ylab` as in `plot()` and use the `main` option to produce a title above each plot.
 
-```{r fig-bin-dist-2, echo=TRUE, out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'The binomial distribution for two different values of n and p produced using dbinom() function.'}
+```{r fig-bin-dist-4, echo=TRUE, fig.show='hold', out.width='50%', fig.asp=.75, fig.align='center', fig.cap = 'The binomial distribution for two different values of n and p produced using dbinom() function.'}
 values.vec <- 0:n
 prob.dist <- dbinom(values.vec,n,p)
 barplot(prob.dist,names.arg=values.vec,xlab='binomial RV',ylab='probability',
