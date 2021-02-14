@@ -246,7 +246,7 @@ $$
 So the expected value is the mean of all the values of the uniform random variable. 
 
 
-**Example.** In the special case of the uniform distribution of $n+1$ integers between 0 and $n$ ($a_i = i$, for $i=0,..., n$), each value has probability $P = 1/(n+1)$. The expected value is the average of the maximum and minimum values (using the fact that $ \sum_{i=0}^n i = n(n+1)/2$):
+**Example.** In the special case of the uniform distribution of $n+1$ integers between 0 and $n$ ($a_i = i$, for $i=0,..., n$), each value has probability $P = 1/(n+1)$. The expected value is the average of the maximum and minimum values (using the fact that $\sum_{i=0}^n i = n(n+1)/2$):
 $$ E(U) = \frac{n(n+1)}{2(n+1)} = \frac{n}{2} $$
 
 Generalizing, for a random variable on integers between $a$ and $b$, the expectation is 
