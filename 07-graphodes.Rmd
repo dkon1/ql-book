@@ -326,6 +326,8 @@ abline(1,0,lty=2,lwd=2)
 ```
 
 
+### Exercises
+
 For the following differential equations: a) plot the defining function over the indicated range (use any computational tools you wish) to determine the intervals on which the dependent variable is increasing and decreasing; b) find the equilibria c) determine the stability of each equilibrium;  d) based on your analysis in parts a-c, sketch (by hand) plots of the solutions with the specified initial values.
 
 

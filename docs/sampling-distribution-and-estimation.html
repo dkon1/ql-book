@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Sampling distribution and estimation | Quantifying Life</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Sampling distribution and estimation | Quantifying Life" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Sampling distribution and estimation | Quantifying Life" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dmitry Kondrashov" />
+
+
+<meta name="date" content="2021-02-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="random-variables-and-distributions.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Quantifying Life (Web version) </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-assignment"><i class="fa fa-check"></i><b>1.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#r-assignment-1"><i class="fa fa-check"></i><b>2.5</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
+<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
+<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
+<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
+<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#r-assignment-2"><i class="fa fa-check"></i><b>3.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
+<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
+<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
+<li class="chapter" data-level="4.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-10"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-11"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="linear-regression.html"><a href="linear-regression.html#r-assignment-3"><i class="fa fa-check"></i><b>4.5</b> R Assignment</a></li>
+</ul></li>
+<li class="part"><span><b>II Things that change over time</b></span></li>
+<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
+<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
+<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
+<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
+<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>5.2.1</b> simple linear models</a></li>
+<li class="chapter" data-level="5.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>5.2.2</b> models with a constant term</a></li>
+<li class="chapter" data-level="5.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>5.2.3</b> population growth and decline</a></li>
+<li class="chapter" data-level="5.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-12"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>5.3</b> Numerical solutions in R</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>5.3.1</b> for loops</a></li>
+<li class="chapter" data-level="5.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>5.3.2</b> using vectors with loops</a></li>
+<li class="chapter" data-level="5.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-13"><i class="fa fa-check"></i><b>5.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#r-assignment-4"><i class="fa fa-check"></i><b>5.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>6</b> Linear ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>6.1</b> Building differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>6.1.1</b> from discrete time to continuous</a></li>
+<li class="chapter" data-level="6.1.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-14"><i class="fa fa-check"></i><b>6.1.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.1.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>6.1.3</b> growth proportional to population size</a></li>
+<li class="chapter" data-level="6.1.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>6.1.4</b> chemical kinetics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations"><i class="fa fa-check"></i><b>6.2</b> Solutions of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>6.2.1</b> separate and integrate method</a></li>
+<li class="chapter" data-level="6.2.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>6.2.2</b> behavior of solutions of linear ODEs</a></li>
+<li class="chapter" data-level="6.2.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>6.2.3</b> solutions of nonhomogeneous ODEs</a></li>
+<li class="chapter" data-level="6.2.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-15"><i class="fa fa-check"></i><b>6.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>6.3</b> Numeric solutions and the Forward Euler method</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-16"><i class="fa fa-check"></i><b>6.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>6.4</b> Forward Euler method in R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>6.4.1</b> implementation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-17"><i class="fa fa-check"></i><b>6.4.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>6.4.3</b> error analysis</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-18"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>6.5</b> Applications of linear ODE models</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>6.5.1</b> model of pharmacokinetics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#discussion-questions-2"><i class="fa fa-check"></i><b>6.5.2</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#r-assignment-5"><i class="fa fa-check"></i><b>6.6</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>7</b> Graphical analysis of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>7.1</b> Building nonlinear ODEs</a></li>
+<li class="chapter" data-level="7.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>7.2</b> Qualitative analysis of ODEs</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>7.2.1</b> graphical analysis of the defining function</a></li>
+<li class="chapter" data-level="7.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>7.2.2</b> fixed points and stability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>7.2.3</b> Outline of qualitative analysis of an ODE</a></li>
+<li class="chapter" data-level="7.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-19"><i class="fa fa-check"></i><b>7.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>7.3</b> Functions in R</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>7.3.1</b> defining a function</a></li>
+<li class="chapter" data-level="7.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>7.3.2</b> calling a function</a></li>
+<li class="chapter" data-level="7.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>7.3.3</b> using a function to solve a difference equation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a></li>
+<li class="chapter" data-level="7.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#r-assignment-6"><i class="fa fa-check"></i><b>7.5</b> R Assignment</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#logistic-population-model"><i class="fa fa-check"></i><b>7.5.1</b> logistic population model</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#sis-model-of-infectious-disease"><i class="fa fa-check"></i><b>7.5.2</b> SIS model of infectious disease</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Randomness in observations</b></span></li>
+<li class="chapter" data-level="8" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>8</b> Random variables and distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>8.1</b> Random variables and distributions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>8.1.1</b> definition of probability</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>8.1.2</b> axioms of probability</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>8.1.3</b> random variables</a></li>
+<li class="chapter" data-level="8.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>8.1.4</b> expectation of random variables</a></li>
+<li class="chapter" data-level="8.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>8.1.5</b> variance of random variables</a></li>
+<li class="chapter" data-level="8.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-21"><i class="fa fa-check"></i><b>8.1.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>8.2</b> Examples of distributions</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>8.2.1</b> uniform distribution</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>8.2.2</b> binomial distribution</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-22"><i class="fa fa-check"></i><b>8.2.3</b> Exercises</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>8.2.4</b> testing for mutants</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>8.3</b> Random number generators in R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean</a></li>
+<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution</a></li>
+<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals</a></li>
+<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantifying Life</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sampling-distribution-and-estimation" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Sampling distribution and estimation</h1>
+<blockquote>
+<p>Pragmatism!? Is that all you have to offer?<br />
+– Tom Stoppard, <em>Rosencrantz and Guildenstern Are Dead</em></p>
+</blockquote>
+<p>One of the most common tasks in any experimental science is to measure the value of a quantity by performing repeated experiments. A single experiment is not sufficient because there are always random factors making any single observation imperfect: natural variation of the random variable, experimental error, etc. For example, the number of new mutations (those not present in either parent) in an offspring is a random variable, so each individual may have a different number. A set of experimental measurements is called the <em>sample</em>. In this chapter you will learn to do the following:</p>
+<ul>
+<li><p>understand the sample mean as a random variable</p></li>
+<li><p>calculate the standard error for a sample mean</p></li>
+<li><p>calculate the confidence interval for the mean</p></li>
+<li><p>understand the meaning of the parameters of the normal distribution</p></li>
+<li><p>simulate sampling of a random variable using R</p></li>
+</ul>
+<div id="law-of-large-numbers" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Law of large numbers</h2>
+<p></p>
+<div id="sample-mean" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> sample mean</h3>
+<p>The goal in this chapter is to calculate the best estimate of the true mean value of a random variable. To do this, we need to repeat the experiment several times and take the mean of the data set: if one measurement is too high while another one is too low, their average is much closer to the true value. One important consideration here is that the errors cannot be systematically <em>biased</em>. If your experiment always overestimates or underestimates the true value, then averaging the measurements will result in a biased estimate. Second consideration is that the errors cannot depend on each other. This means that if one measurement is above average, it should have no effect on the probability of other measurements being above average.</p>
+<p>In statistical parlance, a perfectly representative, unbiased sample is called a <em>simple random sample</em>. Speaking precisely, for a sample with <span class="math inline">\(n\)</span> observations (size <span class="math inline">\(n\)</span>) this requires that all subsets of the population of the same size have equal probability of being selected. In practice, this is not easy to verify. Sampling bias occurs if the way a sample is selected results in some participants being systematically overrepresented, and other underrepresented. With a biased sample, any conclusions from a study are suspect, and the mathematics is no longer applicable.</p>
+<p>In statistics, it is customary to distinguish between the <em>population</em> and the <em>sample</em>. The term population doesn’t always refer to a collection of people or other living creatures; instead it may refer to all possible outcomes of an experiment - essentially, the entire sample space that we introduced in the previous chapter. Out of this ocean of possibilities, an experimenter fishes out a subset called the sample, and uses it to describe the whole population. It should be clear that the sample needs to be representative of the whole population, if this endeavor is to have any hope of success.</p>
+<p>As mentioned in the last section, the most common estimation involves the mean. Here we need to distinguish two concepts: the <em>true mean</em> and the <em>sample mean</em>. The true mean refers to the quantity we are trying to measure (estimate) and it is considered the mean of a probability distribution of a random variable across the entire population. Thus the true mean is a <em>parameter</em> which we are trying to estimate.</p>
+<p>The sample mean <span class="math inline">\(\bar X\)</span> is the average of a sample of experimental measurements, an it is a random variable with its own probability distribution. Suppose you’ve collected a sample of size <span class="math inline">\(n\)</span> and measured its mean <span class="math inline">\(\bar X_1\)</span>. If you collect another sample of the same size, its mean <span class="math inline">\(\bar X_2\)</span> will be (most likely) a different number. Repeating this process many times will result in different values of the sample mean, all dancing around the true mean. Provided that each time the data collection was unbiased, producing simple random samples, the variation is due to a combination of variance of the random variable in the population and the <em>sampling error</em>. The different sample means result from selecting samples which may randomly contain more numbers higher than the true mean, than those lower (or the opposite).</p>
+<p>In this and the following sections we will describe the variation in the sample mean. It is a remarkable fact that we can describe this distribution, called the <em>sampling distribution of the mean</em>, in general, and connect it to the true distribution of the variable in the population. The first result describes the mean of the sampling distribution:</p>
+
+<div class="theorem">
+<span id="thm:LLN1" class="theorem"><strong>Theorem 9.1  </strong></span>(Law of Large Numbers, part 1) For a sample of <span class="math inline">\(n\)</span> independent measurements with the same distribution with mean <span class="math inline">\(\mu\)</span>, the sample mean approaches <span class="math inline">\(\mu\)</span> as <span class="math inline">\(n\)</span> becomes large. More formally, if <span class="math inline">\(X_1, X_2, ... , X_n\)</span> are independent, identically distributed random variables with mean <span class="math inline">\(\mu\)</span>, then:
+<span class="math display">\[ \lim_{n \rightarrow \infty}  \frac{X_1 + X_2 + ... + X_n} {n} =  \lim_{n \rightarrow \infty}  \bar X = \mu \]</span>
+</div>
+<p>This result is called the Law of Large Numbers and it is intuitive: as the size of an unbiased random sample increases, its sample mean approaches the true mean. If we are dealing with a finite population, then of course if the sample includes the entire population, its mean will be the true mean.</p>
+<p>One consequence of this is that the best estimator for the true mean is the sample mean; in fact it is what is called an <em>unbiased estimator</em>, provided the sampling process is unbiased. However, this is of only of limited use to someone trying to estimate a quantity, because the theorem doesn’t say how large the sample size needs to be in order for its mean to be reasonably close to the true mean. To address this practical question, let us consider the variance of the sampling distribution.</p>
+</div>
+<div id="sample-size-and-standard-error" class="section level3" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> sample size and standard error</h3>
+<p>As mentioned above, repeated samples from the same populations have varying sample means, and we would like to describe the variance. This variation depends on the sample size, as suggested by the law of large numbers, for large sample sizes the sample mean approaches the true mean. The intuitive fact is that the larger the sample size, the less variation is in the sampling distribution.</p>
+
+<div class="theorem">
+<span id="thm:LLN2" class="theorem"><strong>Theorem 9.2  </strong></span><strong>(Law of Large Numbers, part 2)</strong> For a sample of <span class="math inline">\(n\)</span> independent measurements with the same distribution with variance <span class="math inline">\(\sigma^2\)</span>, the variance of the sampling distribution for a sufficiently large <span class="math inline">\(n\)</span> approaches the variance divided by the sample size:
+<span class="math display">\[ Var(\bar X) = \frac{\sigma^2}{n}\]</span>
+</div>
+<p>In other words, for a sample of <span class="math inline">\(n\)</span> independent measurements the variance of the sample mean is inversely proportional to the sample size. Below I will sketch a calculation to justify (if not prove) the theorem. Suppose that the distribution of experimental measurements has the expected value of <span class="math inline">\(\mu\)</span> and the variance <span class="math inline">\(\sigma^2\)</span>. Then for a sample of <span class="math inline">\(n\)</span> independent measurements <span class="math inline">\(\{X_i\}\)</span>, the variance of the sample mean is the following:</p>
+<p><span class="math display">\[ Var(\bar X) = Var\left(\frac{1}{n} \sum_{i=1}^{n} X_i\right)  = 
+ \frac{1}{n^2} \sum_{i=1}^{n}Var(X_i) =  \frac{1}{n^2} n \sigma^2 = \frac{\sigma^2}{n}\]</span>
+The critical step in that calculation is the second equal sign, where the variance passes inside the sum. This is true because, as we saw in section , the variance of a sum of independent random variables is equal to the sum of the variances.</p>
+<p>It is often useful to deal with standard deviations to describe the spread of a distribution. Since the standard deviation is the square root of variance, we have the following definition:</p>
+
+<div class="definition">
+<span id="def:std-err" class="definition"><strong>Definition 9.1  </strong></span>The standard deviation of the mean of a sample of <span class="math inline">\(n\)</span> independent, identically distributed random variables with standard deviation <span class="math inline">\(\sigma\)</span> is called the <em>standard</em> error of the sample mean.
+</div>
+<p>For large sample size <span class="math inline">\(n\)</span>, according to the law of large numbers it approaches <span class="math inline">\(s= \sigma/\sqrt{n}\)</span>. The standard error represents the spread in estimation of the true mean based on the data set of size <span class="math inline">\(n\)</span>. This means that increasing the sample size by a factor of 100 will lead to a reduction in the spread of the sample mean by a factor of 10. For example, if we obtain a sample of size 1000 instead of 10, the sample mean will have much less volatility.</p>
+</div>
+</div>
+<div id="central-limit-theorem" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Central limit theorem</h2>
+<div id="normal-distribution" class="section level3" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> normal distribution</h3>
+<p>In the last section we calculated the mean and the standard deviation of sampling distributions for a large sample size. There is an even more remarkable fact about sampling distributions: they all look the same!
+Regardless of the distribution of the random variable being sampled, the plot of the distribution of sample means approaches the famous bell-shaped curve called the <em>normal distribution</em>. This is one of the most fundamental and useful results in all of mathematics, and is called the Central Limit Theorem.</p>
+<p>The theorem is much more subtle in both its statement and implications than the law of large numbers, so I need to spell out a few preliminaries. First, the sample mean for a large sample size can take on a whole range of values, so we will think of it as a continuous random variable. Say you’re sampling from the uniform distribution of integers between 1 and 10. If your sample size is 2, the mean may be either an integer (e.g. 5 if your sample is 6 and 4) or a fraction with denominator 2 (e.g. 11/2 if your sample is 1 and 10). As the sample size grows larger, the denominator of the sample mean increases, and the possible means are smeared out more densely between the values of the discrete distribution, e.g. for sample size 100, you may observe a sample mean of 3.62. As the sample sizes become larger, it is convenient to stipulate that the range of values of the sample mean is continuous, that is contains all real numbers between the maximum and the minimum values of the original distribution.</p>
+<p>This brings us to the magnificent, famous, and indispensable normal, or Gaussian distribution. More correctly, it is the <em>probability density function</em> of the normal random variable, which has the range from negative infinity to infinity, that is, any real number. Below is the mathematical form of its density function <span class="math inline">\(\rho(x)\)</span>, with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> representing the mean and the standard deviation, respectively .</p>
+<p><span class="math display">\[\rho(x) = \sqrt{\frac{1}{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}\]</span></p>
+<div class="figure">
+<img src="ch5/normal_dist_example.png" alt="" />
+<p class="caption">Plots of normal probability densities with different parameter values. The mean <span class="math inline">\(\mu\)</span> determines the center of the distribution and the standard deviation <span class="math inline">\(\sigma\)</span> controls the width.</p>
+</div>
+<p>The function of the random variable <span class="math inline">\(x\)</span> is plotted in figure , for different values of the mean and the standard deviation. The shape of the distribution is the famous bell-shaped curve, and the mean indicates the position of the peak on the <span class="math inline">\(x\)</span>-axis. The standard deviation parameter is responsible for the width of the distribution: the larger <span class="math inline">\(\sigma\)</span>, the broader and more spread out the distribution. Those are the only parameters in the normal distribution, everything else about it remains the same.</p>
+<p>This probability density function differs from the discrete distribution functions we saw in the last chapter in one key way: although you can plug in a particular value of the normal random variable, the number it returns is not the probability of that particular value. Properly speaking, the probability of any particular value of the normal random variable, like 3.2, is indistinguishable from zero, because there are infinitely many such values and if they all had nonzero probabilities, the total probability of the distribution would be infinite. In fact, the total probability of the normal random variable must be 1, as dictated by the axioms of probability seen in section .</p>
+<p>Instead, in order to extract probability from a density function, it must be integrated. The integral is the equivalent of a sum when you need to add up numbers from a continuous range. So instead of calculating the probability of one value, for continuous random variables we can calculate the probability of a range of values by taking the integral of the density function <span class="math inline">\(\rho(x)\)</span> on that range. For example, the probability of the normal random variable with <span class="math inline">\(\mu=1\)</span> and standard deviation <span class="math inline">\(\sigma=0.8\)</span> being in the range between 0 and 1 is:
+<span class="math display">\[ P(0 &lt; x &lt; 1) = \sqrt{\frac{1}{2\pi 0.8^2}} \int_{0} ^1 e^{-\frac{(x-1)^2}{2 \times 0.8^2}}dx\]</span>
+These integrals may look intimidating, and rightly so: there is no method for solving them the way you may have done in a calculus course. But although we cannot write down an algebraic formula, we can still find the answer , that is as a number. In the old days, one consulted a table in the back of the probability or statistics textbook that contained the values of these integrals. We can do this much more efficiently using R, as will be demonstrated in the computational section below.</p>
+<p>Now that we have a nodding acquaintance with the normal distribution, here is its most wonderful property: the means of samples, for large sample sizes, are distributed normally.</p>
+
+<div class="theorem">
+<p><span id="thm:CLT" class="theorem"><strong>Theorem 9.3  </strong></span><strong>(Central Limit Theorem)</strong> The distribution of the mean of a sample of <span class="math inline">\(n\)</span> independent, identically distributed random variables with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span> approaches for large <span class="math inline">\(n\)</span> the  with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>. If the above conditions are met, the probability that a sample mean will fall between values <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is given by the integral of the probability density function:</p>
+<span class="math display">\[ P(a &lt; \bar X &lt; b) = \sqrt{\frac{n}{2\pi \sigma^2}} \int_{a} ^b e^{-\frac{(x-\mu)^2}{2 \sigma^2/n}}dx\]</span>
+</div>
+<p>This theorem gifts us the ability to predict how widely the means of a sample can vary around the true mean. If you know the true mean <span class="math inline">\(\mu\)</span>, the true standard deviation <span class="math inline">\(\sigma\)</span>, and the sample size <span class="math inline">\(n\)</span> is large enough (ignoring for a second what that means exactly) then the probability of the sample mean being off by 0.1 from the true mean in either direction is:
+<span class="math display">\[ P(\mu-0.1&lt; \bar X &lt; \mu+0.1) = \sqrt{\frac{n}{2\pi \sigma^2}} \int_{\mu-0.1} ^{\mu+0.1} e^{-\frac{(x-\mu)^2}{2 \sigma^2/n}}dx\]</span></p>
+<p>To evaluate this integral (numerically) we need to know the values of the three parameters: <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, and <span class="math inline">\(n\)</span>. In practice, only the sample size <span class="math inline">\(n\)</span> is known, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are parameters of the true distribution, and can be only estimated. The next section is devoted to sorting out the statistical details.</p>
+</div>
+<div id="confidence-intervals" class="section level3" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> confidence intervals</h3>
+<p>The central limit theorem is a purely mathematical result, but it is used in a wide range of practical applications, from public opinion polling to medical risk assessments. In this section we journey from the abstract land of probability to the data-driven domain of statistics on a quest for correct estimation of means. When reporting any experimental measurement, it is mandatory to include <em>error bars</em> around the mean of a data set to indicate a range of plausible values of the estimated quantity, usually in the form of <span class="math inline">\(\bar X \pm \epsilon\)</span>. The meaning of these error bars varies: sometimes the standard deviation of the measurements (<span class="math inline">\(\sigma_X\)</span>) is used, other times the standard error, but the correct way to report uncertainty in estimation is to calculate the confidence interval .</p>
+
+<div class="definition">
+<span id="def:conf-int" class="definition"><strong>Definition 9.2  </strong></span>A <em>confidence interval</em> is a range of values calculated from a data set to estimate the true value of a quantity (e.g. mean). The associated <em>confidence level</em> <span class="math inline">\(\alpha\)</span> (between 0 and 1) is the likelihood that the confidence interval contains the true value.
+</div>
+<p>The meaning of confidence intervals is pretty subtle. This is in large part because of the word likelihood in the definition, which in everyday language is interchangeable with probability, but as mathematical terms they are not. Here is the wrong way to think about them: a confidence interval for a mean at <span class="math inline">\(\alpha\)</span> level does not mean that the true mean has probability <span class="math inline">\(\alpha\)</span> of being in that interval. The true mean is not a random variable, it is a parameter of the probability distribution that we assume exists. Instead, it means that if sampling were repeated many times, out of the resulting confidence intervals fraction <span class="math inline">\(\alpha\)</span> would contain the true mean.</p>
+<p>You can see from this definition that there is more than one confidence interval one can report from a single data set, because its size depends on the confidence level. At first glance, you might be tempted to make <span class="math inline">\(\alpha\)</span> as large as possible - after all, you’d like to have maximum confidence in your estimate. Unfortunately, it is impossible to provide a confidence interval in which the true mean is guaranteed to reside, short of making the interval infinitely wide. However, one generally wants the estimate to be precise, which means making the confidence internal as narrow as possible. This brings us to the cruel fact of the estimation business: the goal of making a useful (precise) estimate is in opposition to the goal of making a confidence interval with a large confidence level. One can always make a very precise estimate, but it will have a lower confidence level, or one may increase the confidence by making the interval larger.</p>
+<div class="figure">
+<img src="ch5/standard-deviation-tikz.png" alt="" />
+<p class="caption">Illustration of the normal probability density in terms of standard deviations from the mean.</p>
+</div>
+<p>So, given a data set, how do we construct a confidence interval? First, we need to choose the desired confidence level, for example <span class="math inline">\(\alpha=0.95\)</span>, which is commonly used. The data set has a sample mean <span class="math inline">\(\bar X\)</span>, sample standard deviation <span class="math inline">\(\sigma_X\)</span>, and sample size <span class="math inline">\(n\)</span>, which are at our disposal. The central limit theorem tells us that the distribution of sample means is normal (provided <span class="math inline">\(n\)</span> is large enough) with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(s=\sigma/\sqrt n\)</span>. One can calculate the deviation around the <span class="math inline">\(\mu\)</span> that define a confidence interval using fancy integrals or computers. Figure  shows the probability of falling within a a certain deviation from the mean for integer multiples of standard deviation <span class="math inline">\(\sigma\)</span>; for example, the probability of falling within one standard deviation of the mean for a normal random variable is approximately 68%. Luckily, these probability levels are the same for all normal distributions, so they can be used to calculate the confidence interval for any mean. For instance, the range of the normal random variable that contains 95% probability is approximately <span class="math inline">\((\mu - 1.96 s, \mu + 1.96 s)\)</span>, that is between 1.96 times the standard deviation to the left of the mean to 1.96 the standard deviation to the right of the mean. So to construct the confidence interval one needs the mean <span class="math inline">\(\mu\)</span>, the standard error <span class="math inline">\(s\)</span>, and the 95% confidence level.</p>
+<p>If you were not too bedazzled by different symbols, you might have noticed that there was a bait-and-switch in the argument above. The data set provides the sample mean <span class="math inline">\(\bar X\)</span>, but the confidence interval requires the true mean <span class="math inline">\(\mu\)</span>. The law of large numbers says that the former approaches the latter for large <span class="math inline">\(n\)</span>, but they are not the same. However, there is no choice but to use the imperfect sample mean <span class="math inline">\(\bar X\)</span> as the central point for the confidence interval - because <span class="math inline">\(\mu\)</span> is what we are trying to estimate! Further, the standard error <span class="math inline">\(s\)</span> actually depends on the true standard deviation <span class="math inline">\(\sigma\)</span>, but we have to make do with the sample standard deviation <span class="math inline">\(\sigma_X\)</span>, for the exact same reason: the true value is not available. (The topic of proper estimation of standard deviation is another kettle of fish, which I leave aside.) These approximations are not always sufficiently appreciated, but they can lead to notable discrepancies between the theoretical confidence level and the actual confidence level, which will be illustrated in the computational assignments in section .</p>
+<p>To summarize, here is the recipe for calculating a confidence interval for the true mean at a given confidence <span class="math inline">\(\alpha\)</span> based on a data set <span class="math inline">\(X\)</span> of size <span class="math inline">\(n\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Compute the sample mean <span class="math inline">\(\bar X\)</span>, which is the best estimate we have of the true mean <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>Compute the sample standard deviation <span class="math inline">\(\sigma_{X}\)</span>, which is the best estimate we have of the actual standard deviation <span class="math inline">\(\sigma\)</span></p></li>
+</ol>
+<p>3.Compute the standard error <span class="math inline">\(s = \sigma_X/\sqrt{n}\)</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Use a table or R to calculate the multiple called <span class="math inline">\(z_\alpha\)</span> for the desired confidence level <span class="math inline">\(\alpha\)</span>. For example, <span class="math inline">\(z_{0.9} \approx 1.65\)</span>, <span class="math inline">\(z_{0.95} \approx 1.96\)</span>, <span class="math inline">\(z_{0.99} \approx 2.58\)</span>.</p></li>
+<li><p>Build the confidence interval by adding and subtracting <span class="math inline">\(z_\alpha s\)</span> from the sample mean <span class="math inline">\(\bar X\)</span>. For example, the 95% confidence interval is $X z_{0.95} s= X _{X}/ $.
+\end{enumerate}</p></li>
+</ol>
+<p>There are a couple of important points about error bars that make them different in practice from their theoretical setup. The definition states that if you take a bunch of sample and compute their 95% confidence intervals, about 95% of them will contain the true mean. If you actually perform this experiment using R, you will find out that this is not the case, especially for small sample sizes. The reason for this is that the theoretical definition assumes that we use the true mean and true standard deviation to calculate the confidence interval. But the best we can do is to use the sample mean and sample stander deviation, so of course the confidence interval will be off. This is an important caution about being overly confident about confidence intervals. Another caution comes from the fact that they are based on the assumption of perfect independence between different measurements. Bear this is mind when you see a 95% confidence interval reported in a paper, especially one with a small sample size.</p>
+</div>
+<div id="estimating-relative-risk" class="section level3" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> estimating relative risk</h3>
+<p>Clinical trials to evaluate medical treatments or drugs usually proceed by dividing a group of people into two subgroups: one which receives the treatment and one which does not (control group). If this is done in an unbiased random manner, it is called a randomized controlled trial (RCT), which is typically considered the best study design (for most purposes). The two groups are then compared for the outcomes, such as mortality or morbidity (illness). The comparison is usually done in the form of <em>relative risk</em>, or the ratio between the fractions of those with an undesirable outcome in one group and the other. In an idealized case, if the relative risk is 1, there is no difference between the groups, and thus the treatment has no effect. If relative risk is not 1, then it makes a difference (either good or bad).</p>
+<p>The astute reader has likely noted that this idealization has no practical value. Relative risk is almost never exactly 1 even if the treatment does nothing, due to chance alone. The actual relative risk from a study may be 1.12 or 0.96. Is this sufficiently different from 1 to say that the treatment has an effect? If only we had a way of computing a range of values to estimate the true value of a quantity… But wait, we do! It’s called a confidence interval.</p>
+<p>The statistics necessary to compute confidence intervals for relative risk are different than what we have seen, because relative risk is not distributed normally. It turns out that its distribution is log-normal (under some assumptions). We will not delve into the details here, but the basic ideas are the same: choose the confidence level, calculate the confidence interval based on the distribution (in this case log-normal) and the statistics of the data. The main question for a clinical trial is, does this confidence interval include 1 or not? If not, then the treatment has an effect (whether positive or negative) at that confidence level.</p>
+<p>The following discussion questions are based on the paper <a href="https://jamanetwork.com/journals/jama/fullarticle/2275444">“Autism occurrence by MMR vaccine status among children with older siblings with and without autism”</a>. Read the paper and discuss with your peers or colleagues using the following questions as a starting point:</p>
+<ol style="list-style-type: decimal">
+<li><p>How are confidence intervals used in the study to conclude that there is no effect of MMR vaccination on development of autism spectrum disorders (ASD)?</p></li>
+<li><p>What are some limitations of the study? How does its design differ from a classic RCT?</p></li>
+<li><p>Does dividing children by whether or not they have a sibling with ASD make the study stronger?</p></li>
+</ol>
+</div>
+</div>
+<div id="sampling-and-confidence-intervals-in-r" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Sampling and confidence intervals in R</h2>
+<p>As we saw in section , R can be used to generate random numbers from a particular distribution, for example the uniform distribution of real numbers between 0 and 1. This distribution differs from the discrete uniform distribution discussed in section , because the values of the random variable can be any real number between 0 and 1, so it is a continuous variable. The true mean of this distribution is 0.5, but what is the mean of a sample of numbers drawn from a uniform distribution? We can perform this numerical experiment using the R function <code>runif()</code>, which generates a specified number of random numbers from the uniform distribution. If you repeat the same command, you will get a different set of values, since they are generated randomly every time. The following script produces two random samples of size 10 and prints out the means of the samples:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sampling-distribution-and-estimation.html#cb252-1" aria-hidden="true"></a>sample &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb252-2"><a href="sampling-distribution-and-estimation.html#cb252-2" aria-hidden="true"></a><span class="kw">print</span>(sample)</span></code></pre></div>
+<pre><code>##  [1] 0.49240915 0.80199500 0.22788038 0.06003781 0.88929087 0.95645231
+##  [7] 0.71959634 0.66803953 0.23229357 0.13518338</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="sampling-distribution-and-estimation.html#cb254-1" aria-hidden="true"></a><span class="kw">mean</span>(sample)</span></code></pre></div>
+<pre><code>## [1] 0.5183178</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="sampling-distribution-and-estimation.html#cb256-1" aria-hidden="true"></a>sample &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb256-2"><a href="sampling-distribution-and-estimation.html#cb256-2" aria-hidden="true"></a><span class="kw">print</span>(sample)</span></code></pre></div>
+<pre><code>##  [1] 0.07194764 0.92833155 0.65420946 0.30879086 0.47116142 0.07211446
+##  [7] 0.74815810 0.27164594 0.42046886 0.18175842</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="sampling-distribution-and-estimation.html#cb258-1" aria-hidden="true"></a><span class="kw">mean</span>(sample)</span></code></pre></div>
+<pre><code>## [1] 0.4128587</code></pre>
+<p>If you copy this script and run it yourself, you will obtain different numbers and if you run it several times you will notice that the mean of sample of 10 values is prone to considerable volatility. This leads to two related questions: 1) how large does the sample need to be in order to obtain a good estimate of the true mean? 2) given a random sample and its sample mean, what is the reasonable range of values for the estimate of the true mean? We addressed these questions theoretically in section , and here we investigate them by generating multiple random samples using R.</p>
+<p>The script used to produce figure  generates 100 random samples of size 10 (using the uniform random number generator), saves the means of the ten samples into a vector variable, and plots its histogram; then it does the same thing for 100 random samples of size 100. The histograms of sample means in figure  demonstrate the effect of sample size that we previously discussed theoretically. As a smaller sample size, the sample means vary more widely, in other words, the distribution of sample means has a larger variance for smaller sample sizes. Although the sampling process is random, and every time the script is run it produces a new set of sample means, in the figure you can see clearly that sample means for samples of size 10 are much more spread out than those for sample size 100.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="sampling-distribution-and-estimation.html#cb260-1" aria-hidden="true"></a>numsamples &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb260-2"><a href="sampling-distribution-and-estimation.html#cb260-2" aria-hidden="true"></a>samplemeans&lt;-<span class="kw">rep</span>(<span class="ot">NA</span>, numsamples)</span>
+<span id="cb260-3"><a href="sampling-distribution-and-estimation.html#cb260-3" aria-hidden="true"></a>samplesize&lt;-<span class="dv">10</span></span>
+<span id="cb260-4"><a href="sampling-distribution-and-estimation.html#cb260-4" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numsamples) {</span>
+<span id="cb260-5"><a href="sampling-distribution-and-estimation.html#cb260-5" aria-hidden="true"></a>    sample &lt;-<span class="st"> </span><span class="kw">runif</span>(samplesize)</span>
+<span id="cb260-6"><a href="sampling-distribution-and-estimation.html#cb260-6" aria-hidden="true"></a>    samplemeans[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)</span>
+<span id="cb260-7"><a href="sampling-distribution-and-estimation.html#cb260-7" aria-hidden="true"></a>}</span>
+<span id="cb260-8"><a href="sampling-distribution-and-estimation.html#cb260-8" aria-hidden="true"></a>title_text &lt;-<span class="st"> </span><span class="kw">paste</span>(numsamples, <span class="st">&quot;means of samples of size&quot;</span>, samplesize)</span>
+<span id="cb260-9"><a href="sampling-distribution-and-estimation.html#cb260-9" aria-hidden="true"></a><span class="kw">hist</span>(samplemeans, <span class="dt">main=</span>title_text,<span class="dt">cex.axis=</span><span class="fl">1.5</span>,<span class="dt">cex.lab=</span><span class="fl">1.5</span>)</span>
+<span id="cb260-10"><a href="sampling-distribution-and-estimation.html#cb260-10" aria-hidden="true"></a></span>
+<span id="cb260-11"><a href="sampling-distribution-and-estimation.html#cb260-11" aria-hidden="true"></a>samplemeans&lt;-<span class="kw">rep</span>(<span class="ot">NA</span>, numsamples)</span>
+<span id="cb260-12"><a href="sampling-distribution-and-estimation.html#cb260-12" aria-hidden="true"></a>samplesize&lt;-<span class="dv">100</span></span>
+<span id="cb260-13"><a href="sampling-distribution-and-estimation.html#cb260-13" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numsamples) {</span>
+<span id="cb260-14"><a href="sampling-distribution-and-estimation.html#cb260-14" aria-hidden="true"></a>    sample &lt;-<span class="st"> </span><span class="kw">runif</span>(samplesize)</span>
+<span id="cb260-15"><a href="sampling-distribution-and-estimation.html#cb260-15" aria-hidden="true"></a>    samplemeans[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)</span>
+<span id="cb260-16"><a href="sampling-distribution-and-estimation.html#cb260-16" aria-hidden="true"></a>}</span>
+<span id="cb260-17"><a href="sampling-distribution-and-estimation.html#cb260-17" aria-hidden="true"></a>title_text &lt;-<span class="st"> </span><span class="kw">paste</span>(numsamples, <span class="st">&quot;means of samples of size&quot;</span>, samplesize)</span>
+<span id="cb260-18"><a href="sampling-distribution-and-estimation.html#cb260-18" aria-hidden="true"></a><span class="kw">hist</span>(samplemeans, <span class="dt">main=</span>title_text,<span class="dt">cex.axis=</span><span class="fl">1.5</span>,<span class="dt">cex.lab=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:sample-dist"></span>
+<img src="QuantLife_files/figure-html/sample-dist-1.png" alt="Distribution of means of samples drawn from the uniform distribution for different sample sizes: 10 (left) and 100 (right)." width="50%" /><img src="QuantLife_files/figure-html/sample-dist-2.png" alt="Distribution of means of samples drawn from the uniform distribution for different sample sizes: 10 (left) and 100 (right)." width="50%" />
+<p class="caption">
+Figure 9.1: Distribution of means of samples drawn from the uniform distribution for different sample sizes: 10 (left) and 100 (right).
+</p>
+</div>
+<p>The central limit theorem predicts that for large sample size <span class="math inline">\(n\)</span> the distribution of sample means is close to the normal distribution. To demonstrate this, the scripts below generate 1000 samples of size 200 and 500 from the uniform random variable and plot the histograms of sample means shown in figure @(fig:sample-dist). In addition to the histograms, we also overlay plots of the normal distribution with mean <span class="math inline">\(\mu=0.5\)</span> and standard deviation <span class="math inline">\(s = \sigma/\sqrt{n}\)</span>, where <span class="math inline">\(\sigma\)</span> is the standard deviation of the continuous uniform distribution between 0 and 1, which happens to be <span class="math inline">\(1/\sqrt{12}\)</span>. Notice that for sufficiently many samples (1000), the histograms are clearly bell-shaped, as predicted, despite the random samples being generated from the uniform distribution. The normal distribution curve matches the distribution of samples of size 1000 somewhat better than those of size 100, but the difference is not dramatic. The most important difference is in the spread of the sampling distribution, which is noticeably smaller for the larger sample size. This illustrates how much more accurate an estimate of the mean from sample of size 1000 is compared to sample of size 100.</p>
+<div class="figure" style="text-align: center"><span id="fig:clt-demo"></span>
+<img src="QuantLife_files/figure-html/clt-demo-1.png" alt="Central limit theorem in action: comparison of histograms of sample means and the normal distribution: on the left is a histogram of means of samples of size 100, on the right means of samples of size 1000" width="50%" /><img src="QuantLife_files/figure-html/clt-demo-2.png" alt="Central limit theorem in action: comparison of histograms of sample means and the normal distribution: on the left is a histogram of means of samples of size 100, on the right means of samples of size 1000" width="50%" />
+<p class="caption">
+Figure 9.2: Central limit theorem in action: comparison of histograms of sample means and the normal distribution: on the left is a histogram of means of samples of size 100, on the right means of samples of size 1000
+</p>
+</div>
+<div id="computing-confidence-intervals" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> computing confidence intervals</h3>
+<p>Now let us compute a confidence interval for the mean based on a sample, following the recipe at the end of section . To do this we will use the function <code>qnorm()</code>, which is the inverse normal density function. This means that for a given probability level <span class="math inline">\(p\)</span>, the function returns the value <span class="math inline">\(x\)</span> of the standard normal random variable with mean <span class="math inline">\(\mu=0\)</span> and standard deviation <span class="math inline">\(\sigma=1\)</span>, such that the total probability of the distribution being less than <span class="math inline">\(x\)</span> is equal to <span class="math inline">\(p\)</span>. For instance, since the standard normal is a symmetric distribution with mean 0, the probability of the random variable being below 0 is 0.5, as shown by the command in the script below. The second command in the script calculates the value of the standard normal so that 95% of the probability is to its left.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="sampling-distribution-and-estimation.html#cb261-1" aria-hidden="true"></a><span class="kw">qnorm</span>(<span class="fl">0.5</span>) <span class="co"># the value that divides the density function in two</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="sampling-distribution-and-estimation.html#cb263-1" aria-hidden="true"></a><span class="kw">qnorm</span>(<span class="fl">0.95</span>) <span class="co"># the value such that 95% of density is to its left </span></span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+<p>The function <code>qnorm()</code> is necessary for computing the <span class="math inline">\(z_\alpha\)</span> values for a given confidence value <span class="math inline">\(\alpha\)</span>. The <span class="math inline">\(z_\alpha\)</span> is the value of the standard normal such that the random variable <span class="math inline">\(z\)</span> had probability <span class="math inline">\(\alpha\)</span> of being within <span class="math inline">\(z_\alpha\)</span> of the mean <span class="math inline">\(\mu=0\)</span>; in other words, it requires that the probability of being outside of the interval <span class="math inline">\((-z_\alpha, z_\alpha)\)</span> is <span class="math inline">\(1-\alpha\)</span>. The function <code>qnorm(p)</code> returns the value <span class="math inline">\(x\)</span> so that the standard normal has probability <span class="math inline">\(p\)</span> of being less than <span class="math inline">\(x\)</span>; in other words, that probability being greater than <span class="math inline">\(x\)</span> is <span class="math inline">\(1-p\)</span>. There are two ways of being outside the interval <span class="math inline">\((-z_\alpha, z_\alpha)\)</span>: less than <span class="math inline">\(-z_\alpha\)</span> (called the left tail of the distribution) and greater than <span class="math inline">\(z_\alpha\)</span> (called the right tail of the distribution). The values <span class="math inline">\(z_\alpha\)</span>, by definition, represent tails of <span class="math inline">\((1-\alpha)/2\)</span>, because there are two tails, and the normal distribution is symmetric.</p>
+<p>The script below generates a sample from the uniform distribution, computes its mean and standard deviation, and the standard error. Then it calculates the value <span class="math inline">\(z_\alpha\)</span> based on the defined <span class="math inline">\(\alpha\)</span> value, and calculates the variables right and left, the respective boundaries of the confidence interval for the true mean. The script shows confidence intervals calculated from a sample of size 10 and a sample of size 100.</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="sampling-distribution-and-estimation.html#cb265-1" aria-hidden="true"></a>size &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># sample size</span></span>
+<span id="cb265-2"><a href="sampling-distribution-and-estimation.html#cb265-2" aria-hidden="true"></a>alpha &lt;-<span class="st"> </span><span class="fl">0.95</span> <span class="co"># significance level</span></span>
+<span id="cb265-3"><a href="sampling-distribution-and-estimation.html#cb265-3" aria-hidden="true"></a>sample&lt;-<span class="kw">runif</span>(size)</span>
+<span id="cb265-4"><a href="sampling-distribution-and-estimation.html#cb265-4" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">sd</span>(sample)<span class="op">/</span><span class="kw">sqrt</span>(size) <span class="co"># standard error</span></span>
+<span id="cb265-5"><a href="sampling-distribution-and-estimation.html#cb265-5" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="kw">qnorm</span>((<span class="dv">1</span><span class="op">-</span>alpha)<span class="op">/</span><span class="dv">2</span>) <span class="co"># z-value</span></span>
+<span id="cb265-6"><a href="sampling-distribution-and-estimation.html#cb265-6" aria-hidden="true"></a>left &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)<span class="op">+</span>s<span class="op">*</span>z</span>
+<span id="cb265-7"><a href="sampling-distribution-and-estimation.html#cb265-7" aria-hidden="true"></a>right &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)<span class="op">-</span>s<span class="op">*</span>z</span>
+<span id="cb265-8"><a href="sampling-distribution-and-estimation.html#cb265-8" aria-hidden="true"></a><span class="kw">print</span>(right)</span></code></pre></div>
+<pre><code>## [1] 0.5110677</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="sampling-distribution-and-estimation.html#cb267-1" aria-hidden="true"></a><span class="kw">print</span>(left)</span></code></pre></div>
+<pre><code>## [1] 0.2615152</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="sampling-distribution-and-estimation.html#cb269-1" aria-hidden="true"></a>size &lt;-<span class="st"> </span><span class="dv">100</span> <span class="co"># sample size</span></span>
+<span id="cb269-2"><a href="sampling-distribution-and-estimation.html#cb269-2" aria-hidden="true"></a>sample&lt;-<span class="kw">runif</span>(size)</span>
+<span id="cb269-3"><a href="sampling-distribution-and-estimation.html#cb269-3" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">sd</span>(sample)<span class="op">/</span><span class="kw">sqrt</span>(size) <span class="co"># standard error</span></span>
+<span id="cb269-4"><a href="sampling-distribution-and-estimation.html#cb269-4" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="kw">qnorm</span>((<span class="dv">1</span><span class="op">-</span>alpha)<span class="op">/</span><span class="dv">2</span>) <span class="co"># z-value</span></span>
+<span id="cb269-5"><a href="sampling-distribution-and-estimation.html#cb269-5" aria-hidden="true"></a>right &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)<span class="op">+</span>s<span class="op">*</span>z</span>
+<span id="cb269-6"><a href="sampling-distribution-and-estimation.html#cb269-6" aria-hidden="true"></a>left &lt;-<span class="st"> </span><span class="kw">mean</span>(sample)<span class="op">-</span>s<span class="op">*</span>z</span>
+<span id="cb269-7"><a href="sampling-distribution-and-estimation.html#cb269-7" aria-hidden="true"></a><span class="kw">print</span>(right)</span></code></pre></div>
+<pre><code>## [1] 0.4533459</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="sampling-distribution-and-estimation.html#cb271-1" aria-hidden="true"></a><span class="kw">print</span>(left)</span></code></pre></div>
+<pre><code>## [1] 0.5679654</code></pre>
+<p>Every time you run this script, it will produce new samples and therefore different confidence intervals, but most of the time (theoretically, 95% of the time, although that is not practically true) the confidence interval will contain the true mean of 0.5. As you would expect, the confidence interval for sample size 10 is much wider than the one for sample size 100. To obtain a reliable estimate of the true mean, you must obtain a sufficient number of measurements.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="random-variables-and-distributions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["QuantLife.pdf", "QuantLife.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
