@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Quantifying Life</title>
+  <title>10 Independence | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Quantifying Life" />
+  <meta property="og:title" content="10 Independence | Quantifying Life" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Quantifying Life" />
+  <meta name="twitter:title" content="10 Independence | Quantifying Life" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="sampling-distribution-and-estimation.html"/>
 
-<link rel="next" href="arithmetic-and-variables.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -394,57 +394,214 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Quantifying Life</h1>
-<p class="author"><em>Dmitry Kondrashov</em></p>
-<p class="date"><em>2021-02-22</em></p>
-</div>
-<div id="purpose-and-purview" class="section level1 unnumbered">
-<h1>Purpose and purview</h1>
+<div id="independence" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Independence</h1>
 <blockquote>
-<p>What is a man, said Athos, who has no landscape? Nothing but mirrors and tides.<br />
-– Anne Michaels, <strong>Fugitive Pieces</strong></p>
+<p>Unconnected and free<br />
+No relationship to anything.<br />
+– They Might Be Giants, <em>Unrelated Thing</em></p>
 </blockquote>
-<p>This is an online book to help biologists and biology-adjacent folks learn quantitative skills through the practice of programming in R. These skills can be roughly sorted into four types:</p>
+<p>In the first part of the book we learned how to describe data sets and probability distributions of random variables. So far we have not discussed how two or more variables may influence each other, and the next four chapters will be devoted to relationships between two variables. Many experiments in biology result in observations that naturally fall into a few categories, for example: sick or healthy patients, presence or absence of a mutation, etc. The resulting data sets are called <em>categorical</em>. Unlike numerical data sets that we will investigate later in chapters 8 and 9, they are not usually represented by numbers. Although it is possible, for instance, to denote mutants with the number 1 and wild type with 0, such designation does not add any value. Categorical variables require different tools for analysis than numerical ones; one cannot compute a linear regression between two categorical variables, because there is no meaningful way to place categories on axes. In this chapter you will learn the following:</p>
 <ul>
-<li><p>Building models and understanding assumptions</p></li>
-<li><p>Writing code to perform computational tasks</p></li>
-<li><p>Performing mathematical analysis of models</p></li>
-<li><p>Working with data and using statistical tools</p></li>
+<li><p>notion of conditional probability</p></li>
+<li><p>definition of independence for events and random variables</p></li>
+<li><p>produce a categorical data table</p></li>
+<li><p>compute a table of expected values based on independence</p></li>
 </ul>
-<p>These skills interface, intertwine, and reinforce each other in the practice of biological research and are thus presented concurrently in this book, instead of being corralled into separate courses taught by different departments, like mathematics, statistics, and computer science. Here I combine ideas and skills from all of these disciplines into an educational narrative organized by increasing exposure to programming concepts.</p>
-<div id="a-brief-motivation-of-mathematical-modeling" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> A brief motivation of mathematical modeling</h2>
-<p>A mathematical model is a representation of some real object or phenomenon in terms of quantities (numbers). The goal of modeling is to create a description of the object in question that may be used to pose and answer questions about it, without doing hard experimental work. A good analogy for a mathematical model is a map of a geographic area: a map cannot record all of the complexity of the actual piece of land, because then the map would need to be size of the piece of land, and then it wouldn’t be very useful! Maps, and mathematical models, need to sacrifice the details and provide a birds-eye view of reality in order to guide the traveler or the scientist. The representation of reality in the model must be simple enough to be useful, yet complex enough to capture the essential features of what it is trying to represent.</p>
-<p>Mathematical modeling has long been essential in physics: for instance, it is well known that distance traveled by an object traveling at constant speed <span class="math inline">\(v\)</span> is proportional to the time traveled (called <span class="math inline">\(t\)</span>). This mathematical model can be expressed as an equation:
-%<span class="math display">\[d = vt\]</span>
-Since the time of Newton, physicists have been very successful at using mathematics to describe the behavior of matter of all sizes, ranging from subatomic particles to galaxies. However, mathematical modeling is a new arrow in a biologist’s quiver. Many biologists would argue that living systems are much more complex than either atoms or galaxies, since even a single cell is made up of a mind-boggling number of highly dynamic, interacting entities. That is true, but new advances in experimental biology are producing data that make quantitative methods indispensable for biology.</p>
-<p>The advent of  genetic sequencing in the 1970s and 80s has allowed us to determine the genomes of different species, and in the last few years  next-generation sequencing has reduced sequencing costs for an individual human genome to a few thousand dollars. The resulting deluge of quantitative data has answered many outstanding questions, and also led to entirely new ones. We now understand that knowledge of genomic sequences is not enough for understanding how living things work, so the burgeoning field of  systems biology investigates the interactions between genes, proteins, or other entities. The central question is to understand how a network of interactions between individual molecules can lead to large-scale results, such as the development of a fertilized egg into a complex organism. The human mind is not suited for making correct intuitive judgements about networks comprised of thousands of actors. Addressing questions of this complexity requires quantitative modeling.</p>
+<div id="contingency-tables-to-summarize-data" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Contingency tables to summarize data</h2>
+<p>What kind of relationship can there be between categorical variables? It cannot be expressed in algebraic form, because without numeric values we cannot talk about a variable increasing or decreasing. Instead, the question is, does one variable being in a particular category have an effect on which category the second variable falls into? Let us say you want to know whether the age of the mother has an effect on the child having trisomy 21 (a.k.a. Down’s syndrome), a genetic condition in which an embryo receives three chromosomes 21 instead of the normal two. The age of the mother is a numerical variable, but it can be classified into two categories: less than 35 and 35 or more years of age. The trisomy status of a fetus is clearly a binary, categorical variable: the fetus either has two chromosomes 21 or three.</p>
+<p>The data are presented in a two-way or <em>contingency table</em>, which is a common way of presenting a data set with two categorical variables. The rows in such tables represent different categories of one variable and the columns represent the categories of the other, and the cells contain the data measurements of their overlaps. Table  shows a contingency table for the data set on Down’s syndrome and maternal age, in which the rows represent the two categories of maternal age and the columns represent the presence or absence of the syndrome. Each internal cell (as opposed to the total counts on the margins) corresponds to the number of measurement where both variables fall into the specified category, for instance the number of fetuses with the syndrome and a mother under 35 is 28.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Maternal age</th>
+<th>No DS</th>
+<th>DS</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 35</td>
+<td>29,806</td>
+<td>28</td>
+<td>29,834</td>
+</tr>
+<tr class="even">
+<td>&gt;= 35</td>
+<td>8,135</td>
+<td>64</td>
+<td>8,199</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>37,941</td>
+<td>92</td>
+<td>38,033</td>
+</tr>
+</tbody>
+</table>
+<p>Contingency table for maternal age and incidence of Down’s syndrome. Numbers represent counts of patients belonging to both categories in the row and the column. DS = Down’s syndrome. From .</p>
+<p>Once the data are organized into a contingency table, we can address the main question stated above: does the age of the mother have an effect on whether a fetus inherits three chromosomes 21? Perhaps the first approach that suggests itself is to compare the fraction of mothers carrying a fetus with DS for the two age categories. In this case, the fraction for the under-35 category is <span class="math inline">\(28/29834 \approx 0.00094\)</span>, while for the 35-and-over category the fraction is <span class="math inline">\(64/8199 \approx 0.0078\)</span>. The two fractions are different by almost a factor of 10, which suggests a real difference between the two categories. However, all data contain an element of randomness and a pinch of error, thus there needs to be quantifiable way of deciding what constitutes a real effect. But to determine if there is a relationship, we first have to define what it means to not have one.</p>
 </div>
-<div id="purpose-of-this-book" class="section level2" number="0.2">
-<h2><span class="header-section-number">0.2</span> Purpose of this book</h2>
-<p>This textbook is intended for a college-level course for biology and pre-medicine majors, or more established scientists interested in learning the applications of mathematical methods to biology. The book brings together concepts found in mathematics, computer science, and statistics courses to provide the student a collection of skills that are commonly used in biological research. The book has two overarching goals: one is to explain the quantitative language that often is a formidable barrier to understanding and critically evaluating research results in biological and medical sciences. The second is to teach students computational skills that they can use in their future research endeavors. The main premise of this approach is that computation is critical for understanding abstract mathematical ideas.</p>
-<p>These goals are distinct from those of traditional mathematics courses that emphasize rigor and abstraction. I strongly believe that understanding of mathematical concepts is not contingent on being able to prove all of the underlying theorems. Instead, premature focus on abstraction obscures the ideas for most students; it is putting the theoretical cart before the experiential horse. I find that students can grasp deep concepts when they are allowed to experience them tangibly as numbers or pictures, and those with an abstract mindset can generalize and add rigor later. As I demonstrate in part 3 of the book, Markov chains can be explained without relying on the machinery of measure theory and stochastic processes, which require graduate level mathematical skills. The idea of a system randomly hopping between a few discrete states is far more accessible than sigma algebras and martingales. Of course, some abstraction is necessary when presenting mathematical ideas, and I provide correct definitions of terms and supply derivations when I find them to be illuminating. But I avoid rigorous proofs, and always favor understanding over mathematical precision.</p>
-<p>The book is structured to facilitate learning computational skills. Over the course of the text students accumulate programming experience, progressing from assigning values to variables in the first chapter to solving nonlinear ODEs numerically by the end of the book. Learning to program for the first time is a challenging task, and I facilitate it by providing sample scripts for students to copy and modify to perform the requisite calculations. Programming requires careful, methodical thinking, which facilitates deeper understanding of the models being simulated. In my experience of teaching this course, students consistently report that learning basic scientific programming is a rewarding experience, which opens doors for them in future research and learning.</p>
-<p>It is of course impossible to span the breadth of mathematics and computation used for modeling biological scenarios. This did not stop me from trying. The book is broad but selective, sticking to a few key concepts and examples which should provide enough of a basis for a student to go and explore a topic in more depth. For instance, I do not go through the usual menagerie of probability distributions in chapter 4, but only analyze the uniform and the binomial distributions. If one understands the concepts of distributions and their means and variances, it is not difficult to read up on the geometric or gamma distribution if one encounters it. Still, I omitted numerous topics and entire fields, some because they require greater mathematical sophistication, and others because they are too difficult for beginning programmers, e.g. sequence alignment and optimization algorithms. I hope that you do not end your quantitative journey with this book!</p>
-<p>I take an even more selective approach to the biological topics that I present in every chapter. The book is not intended to teach biology, but I do introduce biological questions I find interesting, refer the reader to current research papers, and provide discussion questions for you to wrestle with. This requires a basic explanation of terms and ideas, so most chapters contain a broad brushstrokes summary of a biological field, e.g. measuring mutation rates, epidemiology modeling, hidden Markov models for gene structure, and limitations of medical testing. I hope the experts in these fields forgive my omitting the interesting details that they spend their lives investigating, and trust that I managed to get the basic ideas across without gross distortion.</p>
+<div id="conditional-probability" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Conditional probability</h2>
+<p></p>
+<p>Let us return to the abstract description of probability introduced in section 8.1. There we used the notion of sample space and its subsets, called events, to describe collections of experimental outcomes. Suppose that you have some information about a random experiment that restricts the possible outcomes to a particular subset (event). In other words, you have ruled out some outcomes, so the only possible outcomes are those in the complementary set. This will affect the probability of other events in the sample space, because your information may have ruled out some of the outcomes in that event as well.</p>
+
+<div class="definition">
+<span id="def:def-cond-prob" class="definition"><strong>Definition 10.1  </strong></span>For two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in a sample space <span class="math inline">\(\Omega\)</span> with a probability measure <span class="math inline">\(P\)</span>, the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>, called the <em>conditional probability</em> is defined as:
+<span class="math display">\[P(A|B) = \frac{P(A\&amp; B)}{P(B)}\]</span>
 </div>
-<div id="organization-of-the-book" class="section level2" number="0.3">
-<h2><span class="header-section-number">0.3</span> Organization of the book</h2>
-<p>A course based on this textbook can be tailored to fit the quantitative needs of a biological sciences curriculum. At the University of Chicago the course I teach has replaced the last quarter of calculus as a first-year requirement for biology majors. This material could be used for a course without a calculus pre-requisite that a student takes before more rigorous statistics, mathematics, or computer science courses. It may also be taught as an upper-level elective course for students with greater maturity who may be ready to tackle the eigenvalues and differential equations chapters. My hope is that it may also prove useful for graduate students or established scientists who need an elementary but comprehensive introduction to the concepts they encounter in the literature or that they can use in their own research. Whatever path you traveled to get here, I wish you a fruitful journey through biomathematics and computation!</p>
+<p><span class="math inline">\(A \&amp; B\)</span> represents the intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, also known as <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the event that consists of all outcomes that are in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. In words, given the knowledge that an event <span class="math inline">\(B\)</span> occurs, the sample space is restricted to the subset <span class="math inline">\(B\)</span>, which is why the denominator in the definition is <span class="math inline">\(P(B)\)</span>. The num`erator is all the outcomes we are interested in, which is <span class="math inline">\(A\)</span>, but since we are now restricted to <span class="math inline">\(B\)</span>, the numerator consists of all the elements of <span class="math inline">\(A\)</span> which are also in <span class="math inline">\(B\)</span>, or <span class="math inline">\(A \&amp; B\)</span>. The definition makes sense in two extreme cases: if <span class="math inline">\(A = B\)</span> and if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive:</p>
+<ul>
+<li><span class="math inline">\(P(B|B) = P(B \&amp; B) /P(B) = P(B)/P(B) = 1\)</span> (probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(B\)</span> is 1)</li>
+<li>if <span class="math inline">\(P(A\&amp; B) =0\)</span>, then <span class="math inline">\(P(A|B) = 0/P(B) = 0\)</span> (if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, then probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is 0)</li>
+</ul>
+<div class="figure">
+<img src="ch6/cond_prob_tikz.png" alt="" />
+<p class="caption">A Venn diagram of the sample space of all people with two events: tall people (<span class="math inline">\(A\)</span>) and those who like tea (<span class="math inline">\(B\)</span>) with probabilities of <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and their intersection indicated.</p>
+</div>
+<p>There are some common misunderstandings about conditional probability, which are usually the result of discrepancies between everyday word usage and precise mathematical terminology. First, the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is not the same as probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. These concepts seem interchangeable because the statement “what are the odds of finding a tall person who likes tea?” is hard to distinguish from ‘’what are the odds that a person who is tall likes tea?’’ The difference in these concepts can be illustrated using a Venn diagram, shown in figure . Based on the probabilities indicated there, the probability of randomly selecting a person who is both tall and likes tea is <span class="math inline">\(P(A \&amp; B) = 0.1\)</span>, while the probability that a tea drinker is tall is <span class="math inline">\(P(A | B) = 0.1/0.3 = 1/3\)</span>, which are different values.</p>
+<p>A similar misconception is to be cavalier about the order of conditionality. In general, <span class="math inline">\(P(A | B) \neq P(B |A)\)</span>, except in special cases. Going back to the illustration in figure , the probability that a tea drinker is tall <span class="math inline">\(P(A | B) = 1/3\)</span> is the different than the probability that a tall person is a tea drinker <span class="math inline">\(P(B|A) = 0.1/0.5 = 0.2\)</span>. One must take care when interpreting written statements to carefully distinguish what is known  and what remains under investigation. In the statement <span class="math inline">\(P(A | B)\)</span>, <span class="math inline">\(B\)</span> represents what is known, and <span class="math inline">\(A\)</span> represents what is still to be investigated.</p>
+<p><strong>Example.</strong> Let us return to the data set in the previous section. Data table  describes a sample space with four outcomes and several different events. One can calculate the probability of a fetus having Down’s syndrome (event) based on the entire data set of 38,033 mothers, and 92 total cases of DS, so the probability is <span class="math inline">\(92/38,033 \approx 0.0024\)</span>. Similarly, we can calculate the probability of a mother being above 35 as <span class="math inline">\(8,199/ 38,033 \approx 0.256\)</span>.</p>
+<p>Now we can calculate the conditional probability of a mother over 35 having a DS fetus, but first we have to be clear about what information is known and what is not. If the age of the mother is known to be over 35 (mature age or MA), then we calculate <span class="math inline">\(P(DS | MA) = 64/8,199 \approx 0.008\)</span>. Notice that the denominator is restricted by the information that the mother is over 35, and thus only women in that category need to be considered for the calculation.</p>
+<p>On the other hand, if we have the information that the fetus has DS, we can calculate the reversed conditional probability, what is the probability that a fetus with DS has a mother above age 35? <span class="math inline">\(P(MA | DS) = 64/92 \approx 0.7\)</span>. Notice that is both calculations the numerators are the same, since they both are the intersection between the two events, but the denominators are different, because they depend on which event is given.</p>
+<div class="figure">
+<img src="ch6/mendel_flowers.png" alt="" />
+<p class="caption">Punnet square of a cross of two heterozygous pea plants showing the possible genotypes and phenotypes of offspring (figure by Madprime in public domain via Wikimedia Commons.)</p>
+</div>
+<div id="exercises-23" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Exercises</h3>
+<p>In figure  there is a table of genotypes from the classic Mendelian experiment with genetics and color of pea flowers. The parents are both heterozygous, meaning each has a copy of the dominant (purple) allele B and the recessive (white) allele b. The possible genotypes of offspring are shown inside the square, and all four outcomes have equal probabilities. Based on this information, answer the following questions.</p>
+<ol style="list-style-type: decimal">
+<li><p>What is the probability of an offspring having purple flowers? white flowers?</p></li>
+<li><p>What is the probability of an offspring having genotype <span class="math inline">\(BB\)</span>? genotype <span class="math inline">\(Bb\)</span>? genotype <span class="math inline">\(bb\)</span>?</p></li>
+<li><p>What is the probability of an offspring having genotype <span class="math inline">\(BB\)</span>, given that its flowers are purple?</p></li>
+<li><p>What is the probability of an offspring having genotype <span class="math inline">\(Bb\)</span>, given that its flowers are purple?</p></li>
+<li><p>What is the probability of an offspring having genotype <span class="math inline">\(BB\)</span>, given that its flowers are white?</p></li>
+<li><p>What is the probability of an offspring having genotype <span class="math inline">\(Bb\)</span>, given that its flowers are white?}</p></li>
+<li><p>What is the probability of an offspring having purple flowers, given that its genotype is <span class="math inline">\(BB\)</span>?</p></li>
+</ol>
+</div>
+</div>
+<div id="independence-of-events" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Independence of events</h2>
+<p>We first encountered the notion of independence in chapter 3, where two events were said to be independent if they did not affect each other. The mathematical definition uses the language of conditional probability to make this notion precise. It says that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if given the knowledge of <span class="math inline">\(A\)</span>, the probability of <span class="math inline">\(B\)</span> remains the same, and vice versa.</p>
+
+<div class="definition">
+<span id="def:def-indep-events" class="definition"><strong>Definition 10.2  </strong></span>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <em>independent</em> if <span class="math inline">\(P(A|B) = P(A)\)</span>, or equivalently if <span class="math inline">\(P(B|A) = P(B)\)</span>.
+</div>
+<p>Independence is not a straightforward concept. It may be confused with mutual exclusivity, as one might surmise that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no overlap, then they are independent. That however, is false by definition, since <span class="math inline">\(P(A|B)\)</span> is 0 for two mutually exclusive events. The confusion stems from thinking that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are non-overlapping, then they do not influence each other. But the notion of influence in this definition is about information; so of course if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, the knowledge that one of them occurs has an influence of the probability of the other one occurring.</p>
+<p>A useful way to think about independence is in terms of fractions of outcomes. The probability of <span class="math inline">\(A\)</span> is the fraction of outcomes out of the entire sample space which is in <span class="math inline">\(A\)</span>, while the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is the fraction of outcomes in <span class="math inline">\(B\)</span> which are also in <span class="math inline">\(A\)</span>. The definition of independence equates the two fractions, therefore, if <span class="math inline">\(A\)</span> occupies 1/2 of sample space, in order for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> to be independent, events in <span class="math inline">\(A\)</span> must constitute 1/2 of the event <span class="math inline">\(B\)</span>. In the illustration in figure , the fraction of tall people is 0.5 of the sample space, but the fraction of tea-drinkers who are tall is <span class="math inline">\(0.1/0.3=1/3\)</span>. Since the two fractions are different, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not independent.</p>
+<p><img src="ch6/indep_ex1.png" alt="Three examples of two events inside a sample space with different probabilities: mutually exclusive, partially overlapping, and completely overlapping" />
+(ch6/indep_ex2.png)(ch6/indep_ex3.png)</p>
+<div id="exercises-24" class="section level3" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Exercises</h3>
+<p>Consider three examples of events and their intersections in figure .</p>
+<ol style="list-style-type: decimal">
+<li><p>Based on the two non-overlapping (mutually exclusive) events, calculate the conditional probability <span class="math inline">\(P(A|B)\)</span> and compare it with <span class="math inline">\(P(A)\)</span>. Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent?</p></li>
+<li><p>Based on the two partially overlapping events, calculate the conditional probability <span class="math inline">\(P(A|B)\)</span> and compare it with <span class="math inline">\(P(A)\)</span>. Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent?</p></li>
+<li><p>Based on the two completely overlapping events, calculate the conditional probability <span class="math inline">\(P(A|B)\)</span> and compare it with <span class="math inline">\(P(A)\)</span>. Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent?</p></li>
+</ol>
+</div>
+<div id="product-rule" class="section level3" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> product rule</h3>
+<p>The definition of independence is abstract, but it has a direct consequence of great computational value. From the definition of conditional probability, <span class="math inline">\(P(A|B) = P(A\cap B)/P(B)\)</span>, and if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent then <span class="math inline">\(P(A|B)\)</span> can be replaced with <span class="math inline">\(P(A)\)</span>, leading to the expression <span class="math inline">\(P(A) = P(A\&amp; B)/P(B)\)</span>. Multiplying both sides by <span class="math inline">\(P(B\)</span>) gives us the formula called the <em>product rule</em>, which states that for two independent events the probability of both of them occuring is the product of their separate probabilities:</p>
+<p><span class="math display">\[
+P(A \&amp; B) = P(B)P(A)
+\]</span></p>
+<p>The product rule is extremely useful for computing probability distributions of complicated random variables. Recall that the binomial distribution, which we saw in section  is based on a string of <span class="math inline">\(n\)</span> Bernoulli trials which are independent of each other, which allows the calculation of the probability of a string of successes and failures, or heads/tails, etc. In practice, independence between processes is rarely true in the idealized mathematical sense. However, computing the probability of two random variables without independence is extremely difficult, so it is useful to make the independence assumption and then test it against the data. If it stands up, you have a good predictive model, and if it does not, you have learned that two processes are somehow linked, which is very useful.</p>
+</div>
+</div>
+<div id="independence-of-variables" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Independence of variables</h2>
+<p>The product rule enables us to extend the notion of independence from events to variables. The concepts of independence is the same in both contexts, since the probability of a value <span class="math inline">\(x\)</span> of a random variable <span class="math inline">\(X\)</span> corresponds to the probability of the event that gets mapped to <span class="math inline">\(x\)</span> by the variable. In order to make independence applicable to variables, the condition must hold true for all possible values of both random variables. That way, knowing the value of one variable has no effect on the probability of the other. In order to make it simpler to calculate, we will use the product rule as the equivalent condition for independence:</p>
+
+<div class="definition">
+<span id="def:def-indep-var" class="definition"><strong>Definition 10.3  </strong></span>Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>independent</em> if for all possible values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> it is true that
+<span class="math display">\[ P(X=a  \&amp; Y=b) = P(X=a)P(Y=b)\]</span>
+</div>
+<p>This allows us to address the question posed at the beginning of the chapter: how can one determine whether a data set has independent variables? The definition allows us to calculate what we would expect if the variables were independent. Given a data set in the form of a contingency table, such as table , we can first calculate the probabilities of the two variables separately, and then from that predict the probabilities of the two variables together.</p>
+<p><strong>Example.</strong> Let us calculate the expected probabilities and frequencies of Down’s syndrome in pregnant women in the two age categories. First, compute the probabilities of having Down’s syndrome (and not having it), based on all the pregnancies in the data set: <span class="math inline">\(P(DS) = 92/38033 \approx 0.002419\)</span>; the complementary probability is <span class="math inline">\(P(no \ DS) = 1 - P(DS)\)</span>. Similarly, we can calculate the probability that a pregnant woman is 35 or over, based on the entire data set (let’s denote this event <span class="math inline">\(MA\)</span> for mature age). <span class="math inline">\(P(MA) = 8199/38033 \approx 0.21558\)</span>; the complementary probability is <span class="math inline">\(P(YA) = 1 - P(MA)\)</span> (<span class="math inline">\(YA\)</span> stands for young age).</p>
+<p>These separate probabilities were calculated from the data, and now we can use them to calculate the predicted probabilities of different outcome, based on the assumption of independence. The probability of a mature-age woman having a pregnancy with Down’s syndrome, based on the product rule is <span class="math inline">\(P(MA \&amp; DS) \approx 0.0024 \times 0.216 = 0.000518\)</span>. Similarly, we can calculate the probabilities of the other three outcomes: $P(YA &amp; DS)  $; <span class="math inline">\(P(MA \&amp; no \ DS) \approx 0.2156\)</span>; <span class="math inline">\(P(YA \&amp; no \ DS) \approx 0.782\)</span>.</p>
+<p>These probabilities are the predictions based on the assumption that the two variables are independent. To compare the predictions with the data, we need to take one more step: convert the probabilities into counts, or frequencies of each occurrence. Since the probability is a fraction out of all outcomes, to generate the predicted frequency we need to multiply the probability by the total number of data points, in this case pregnant patients. The results of this calculation are seen in table  with expected frequencies shown instead of experimental observations.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Maternal age</th>
+<th>No DS</th>
+<th>DS</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 35</td>
+<td>29,761.8</td>
+<td>72.2</td>
+<td>29,834</td>
+</tr>
+<tr class="even">
+<td>&gt;= 35</td>
+<td>8,179.2</td>
+<td>19.8</td>
+<td>8,199</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>37,941</td>
+<td>92</td>
+<td>38,033</td>
+</tr>
+</tbody>
+</table>
+<p>Expected frequencies of Down’s syndrome for two different age groups of mothers, assuming that age and Down’s syndrome are independent.</p>
+<p>Notice that expected frequencies do not need to be integers, because they are the result of prediction and not a data measurement. Now that we have a prediction, we can compare it with the measurements in the data table . The numbers are substantially different, and we can see that the predicted frequency of Down’s syndrome for women under 35 is larger than the frequencies for women at or above 35, due to the larger fraction of patients in the younger age group. We can calculate the differences between the <em>observed</em> and <em>expected</em> contingency tables to measure how much reality differs from the assumption of independence:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Maternal age</th>
+<th>No DS</th>
+<th>DS</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 35</td>
+<td>44.2</td>
+<td>-44.2</td>
+<td>29,834</td>
+</tr>
+<tr class="even">
+<td>&gt;= 35</td>
+<td>-44.2</td>
+<td>44.2</td>
+<td>8,199</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>37,941</td>
+<td>92</td>
+<td>38,033</td>
+</tr>
+</tbody>
+</table>
+<p>Differences between the observed frequencies of Down’s syndrome for different maternal ages and the expected frequencies based on the assumption of independence.</p>
+<p>The table of differences shows that the observed frequency of DS in the data set are higher than expected by 44.2 for women above 35 years of age and is lower than expected by the same number for women below age 35. This demonstrates that mathematically speaking, the two variables of age and DS are not independent.</p>
+<p>However, real data is messy and subject to randomness of various provenance. First, there is sampling error that we explored in chapter 9, which means that samples from two perfectly independent variables can and will differ from expected frequencies. Second, measurement errors or environmental noise can contribute more randomness to the data. Thus, simply checking that observed frequencies are different from expected is not enough to conclude that the variables are not independent. We need a method to decide what scale of differences is enough to declare that there is an effect e.g. of maternal age on the likelihood of DS. To do this, we leave the cozy theoretical confines of probability and venture into the wild and treacherous world of statistics.</p>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
+<a href="sampling-distribution-and-estimation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="arithmetic-and-variables.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

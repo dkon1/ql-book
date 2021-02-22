@@ -45,6 +45,9 @@ thm:CLT
 def:conf-int
 fig:sample-dist
 fig:clt-demo
+def:def-cond-prob
+def:def-indep-events
+def:def-indep-var
 a-brief-motivation-of-mathematical-modeling
 purpose-of-this-book
 organization-of-the-book
@@ -198,3 +201,11 @@ confidence-intervals
 estimating-relative-risk
 sampling-and-confidence-intervals-in-r
 computing-confidence-intervals
+independence
+contingency-tables-to-summarize-data
+conditional-probability
+exercises-23
+independence-of-events
+exercises-24
+product-rule
+independence-of-variables
