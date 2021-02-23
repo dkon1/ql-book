@@ -48,6 +48,12 @@ fig:clt-demo
 def:def-cond-prob
 def:def-indep-events
 def:def-indep-var
+def:def-correct-test
+def:def-test-errors
+def:def-sens
+def:def-error-rates
+def:def-p-val
+def:def-chi-sq
 a-brief-motivation-of-mathematical-modeling
 purpose-of-this-book
 organization-of-the-book
@@ -209,3 +215,14 @@ independence-of-events
 exercises-24
 product-rule
 independence-of-variables
+hypothesis-testing
+terminology-and-quality-measures
+positives-and-negatives
+types-of-errors
+test-quality-measures
+exercises-25
+rejecting-the-null-hypothesis
+chi-squared-test
+hypothesis-testing-in-r
+example-with-data
+stop-and-frisk-and-race

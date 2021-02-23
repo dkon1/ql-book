@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Quantifying Life</title>
+  <title>11 Hypothesis testing | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Quantifying Life" />
+  <meta property="og:title" content="11 Hypothesis testing | Quantifying Life" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Quantifying Life" />
+  <meta name="twitter:title" content="11 Hypothesis testing | Quantifying Life" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="independence.html"/>
 
-<link rel="next" href="arithmetic-and-variables.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -411,57 +411,236 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Quantifying Life</h1>
-<p class="author"><em>Dmitry Kondrashov</em></p>
-<p class="date"><em>2021-02-22</em></p>
-</div>
-<div id="purpose-and-purview" class="section level1 unnumbered">
-<h1>Purpose and purview</h1>
+<div id="hypothesis-testing" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Hypothesis testing</h1>
 <blockquote>
-<p>What is a man, said Athos, who has no landscape? Nothing but mirrors and tides.<br />
-– Anne Michaels, <strong>Fugitive Pieces</strong></p>
+<p>Sometimes I’m right and I can be wrong<br />
+My own beliefs are in my song.<br />
+– Sly and the Family Stone, <em>Everyday People</em></p>
 </blockquote>
-<p>This is an online book to help biologists and biology-adjacent folks learn quantitative skills through the practice of programming in R. These skills can be roughly sorted into four types:</p>
+<p>This chapter introduces hypothesis testing and explains how to evaluate the results. This fundamentally involves two steps: stating the hypothesis and then making the binary decision whether to reject it or not. Although such a dualistic approach is necessarily reductive, there are many situations that make it necessary: deciding whether to approve a drug or start a treatment, for example. Much of the scientific method is based on hypothesis testing: scientists formulate an idea (hypothesis), then accumulate data that can challenge it, and if the data contradict the hypothesis, they discard it (the hypothesis, not the data!) No hypothesis in science is ever proven in an absolute sense, which is why it is fundamentally different from mathematics. A hypothesis that has survived many tests and was found to be consistent with all available observations becomes a theory, like the theory of gravity or of evolution. But unlike a theorem, a scientific theory is not certain, and if solid evidence were to surface that contradicts Newton’s gravitational theory, it would be falsified and thrown out (again, the theory, not the evidence.)</p>
+<p>In this chapter we will describe the framework of hypothesis testing and apply it to the specific task of deciding whether two variables are independent. After reading it you will know how to:</p>
 <ul>
-<li><p>Building models and understanding assumptions</p></li>
-<li><p>Writing code to perform computational tasks</p></li>
-<li><p>Performing mathematical analysis of models</p></li>
-<li><p>Working with data and using statistical tools</p></li>
+<li>Explain the difference between the truth of the hypothesis and a test result</li>
+<li>Describe four different outcomes of hypothesis testing</li>
+<li>Compute different hypothesis testing error rates</li>
+<li>Explain the meaning of p-value</li>
+<li>Use R to perform the chi-squared test</li>
 </ul>
-<p>These skills interface, intertwine, and reinforce each other in the practice of biological research and are thus presented concurrently in this book, instead of being corralled into separate courses taught by different departments, like mathematics, statistics, and computer science. Here I combine ideas and skills from all of these disciplines into an educational narrative organized by increasing exposure to programming concepts.</p>
-<div id="a-brief-motivation-of-mathematical-modeling" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> A brief motivation of mathematical modeling</h2>
-<p>A mathematical model is a representation of some real object or phenomenon in terms of quantities (numbers). The goal of modeling is to create a description of the object in question that may be used to pose and answer questions about it, without doing hard experimental work. A good analogy for a mathematical model is a map of a geographic area: a map cannot record all of the complexity of the actual piece of land, because then the map would need to be size of the piece of land, and then it wouldn’t be very useful! Maps, and mathematical models, need to sacrifice the details and provide a birds-eye view of reality in order to guide the traveler or the scientist. The representation of reality in the model must be simple enough to be useful, yet complex enough to capture the essential features of what it is trying to represent.</p>
-<p>Mathematical modeling has long been essential in physics: for instance, it is well known that distance traveled by an object traveling at constant speed <span class="math inline">\(v\)</span> is proportional to the time traveled (called <span class="math inline">\(t\)</span>). This mathematical model can be expressed as an equation:
-%<span class="math display">\[d = vt\]</span>
-Since the time of Newton, physicists have been very successful at using mathematics to describe the behavior of matter of all sizes, ranging from subatomic particles to galaxies. However, mathematical modeling is a new arrow in a biologist’s quiver. Many biologists would argue that living systems are much more complex than either atoms or galaxies, since even a single cell is made up of a mind-boggling number of highly dynamic, interacting entities. That is true, but new advances in experimental biology are producing data that make quantitative methods indispensable for biology.</p>
-<p>The advent of  genetic sequencing in the 1970s and 80s has allowed us to determine the genomes of different species, and in the last few years  next-generation sequencing has reduced sequencing costs for an individual human genome to a few thousand dollars. The resulting deluge of quantitative data has answered many outstanding questions, and also led to entirely new ones. We now understand that knowledge of genomic sequences is not enough for understanding how living things work, so the burgeoning field of  systems biology investigates the interactions between genes, proteins, or other entities. The central question is to understand how a network of interactions between individual molecules can lead to large-scale results, such as the development of a fertilized egg into a complex organism. The human mind is not suited for making correct intuitive judgements about networks comprised of thousands of actors. Addressing questions of this complexity requires quantitative modeling.</p>
+<div id="terminology-and-quality-measures" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Terminology and quality measures</h2>
+<div id="positives-and-negatives" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> positives and negatives</h3>
+<p>In the classic statistical framework, the hypothesis to be tested is usually called the <em>null hypothesis</em>, which helpfully rhymes with dull, because it represents the lack of anything interesting, essentially the default state of the system. In order to reject the null hypothesis, the data has to be substantially different from what is expected as default. For instance, medical tests have the null hypothesis that the patient is normal/healthy, and only if the results are substantially different from normal the patient is considered ill. Another common example is the criminal justice system: a defendant on trial undergoes a binary test where the null hypothesis is innocence. Only if the prosecutor’s evidence is strong, that is, shows guilt beyond a reasonable doubt, that the null hypothesis is rejected and the defendant found guilty.</p>
+<p>Tests are binary, in that there are only two possible decisions: to reject the hypothesis or to not reject it. We can never truly accept a hypothesis as true, due to the impossibility of perfect knowledge of the world. The decision to reject a hypothesis is called a <em>positive</em> test result, which seems backwards, but remember that the default or null hypothesis is a lack of anything unusual or interesting, so if the data are different from default, it is called a positive result. The decision to not reject the null hypothesis is called a <em>negative</em> test result. You are probably familiar with this in a medical context: if you’ve ever been tested for a disease, you know that a negative result is good news!</p>
 </div>
-<div id="purpose-of-this-book" class="section level2" number="0.2">
-<h2><span class="header-section-number">0.2</span> Purpose of this book</h2>
-<p>This textbook is intended for a college-level course for biology and pre-medicine majors, or more established scientists interested in learning the applications of mathematical methods to biology. The book brings together concepts found in mathematics, computer science, and statistics courses to provide the student a collection of skills that are commonly used in biological research. The book has two overarching goals: one is to explain the quantitative language that often is a formidable barrier to understanding and critically evaluating research results in biological and medical sciences. The second is to teach students computational skills that they can use in their future research endeavors. The main premise of this approach is that computation is critical for understanding abstract mathematical ideas.</p>
-<p>These goals are distinct from those of traditional mathematics courses that emphasize rigor and abstraction. I strongly believe that understanding of mathematical concepts is not contingent on being able to prove all of the underlying theorems. Instead, premature focus on abstraction obscures the ideas for most students; it is putting the theoretical cart before the experiential horse. I find that students can grasp deep concepts when they are allowed to experience them tangibly as numbers or pictures, and those with an abstract mindset can generalize and add rigor later. As I demonstrate in part 3 of the book, Markov chains can be explained without relying on the machinery of measure theory and stochastic processes, which require graduate level mathematical skills. The idea of a system randomly hopping between a few discrete states is far more accessible than sigma algebras and martingales. Of course, some abstraction is necessary when presenting mathematical ideas, and I provide correct definitions of terms and supply derivations when I find them to be illuminating. But I avoid rigorous proofs, and always favor understanding over mathematical precision.</p>
-<p>The book is structured to facilitate learning computational skills. Over the course of the text students accumulate programming experience, progressing from assigning values to variables in the first chapter to solving nonlinear ODEs numerically by the end of the book. Learning to program for the first time is a challenging task, and I facilitate it by providing sample scripts for students to copy and modify to perform the requisite calculations. Programming requires careful, methodical thinking, which facilitates deeper understanding of the models being simulated. In my experience of teaching this course, students consistently report that learning basic scientific programming is a rewarding experience, which opens doors for them in future research and learning.</p>
-<p>It is of course impossible to span the breadth of mathematics and computation used for modeling biological scenarios. This did not stop me from trying. The book is broad but selective, sticking to a few key concepts and examples which should provide enough of a basis for a student to go and explore a topic in more depth. For instance, I do not go through the usual menagerie of probability distributions in chapter 4, but only analyze the uniform and the binomial distributions. If one understands the concepts of distributions and their means and variances, it is not difficult to read up on the geometric or gamma distribution if one encounters it. Still, I omitted numerous topics and entire fields, some because they require greater mathematical sophistication, and others because they are too difficult for beginning programmers, e.g. sequence alignment and optimization algorithms. I hope that you do not end your quantitative journey with this book!</p>
-<p>I take an even more selective approach to the biological topics that I present in every chapter. The book is not intended to teach biology, but I do introduce biological questions I find interesting, refer the reader to current research papers, and provide discussion questions for you to wrestle with. This requires a basic explanation of terms and ideas, so most chapters contain a broad brushstrokes summary of a biological field, e.g. measuring mutation rates, epidemiology modeling, hidden Markov models for gene structure, and limitations of medical testing. I hope the experts in these fields forgive my omitting the interesting details that they spend their lives investigating, and trust that I managed to get the basic ideas across without gross distortion.</p>
+<div id="types-of-errors" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> types of errors</h3>
+<p>Hypothesis testing gives us a positive or negative result, but that does not mean that it is correct. Ideally, we want the test to reject a false null hypothesis, and not reject a true null hypothesis. These results are called, respectively, a <em>true positive</em> and a <em>true negative</em>. We can think of the hypothesis as a variable that can be either true or false, and of the test result as another variable than can be positive or negative. In the language of probability, the correct test results can be defined as follows:</p>
+
+<div class="definition">
+<span id="def:def-correct-test" class="definition"><strong>Definition 11.1  </strong></span>For a hypothesis that can be either false (F) or true (T) and a test result that can be either positive (P) or negative (N), the probabilities of a <em>true positive</em> and <em>true negative</em> are:
+<span class="math display">\[ 
+P(TP) = P(P \&amp; F); \; P(TN) = P(N \&amp; T)
+\]</span>
 </div>
-<div id="organization-of-the-book" class="section level2" number="0.3">
-<h2><span class="header-section-number">0.3</span> Organization of the book</h2>
-<p>A course based on this textbook can be tailored to fit the quantitative needs of a biological sciences curriculum. At the University of Chicago the course I teach has replaced the last quarter of calculus as a first-year requirement for biology majors. This material could be used for a course without a calculus pre-requisite that a student takes before more rigorous statistics, mathematics, or computer science courses. It may also be taught as an upper-level elective course for students with greater maturity who may be ready to tackle the eigenvalues and differential equations chapters. My hope is that it may also prove useful for graduate students or established scientists who need an elementary but comprehensive introduction to the concepts they encounter in the literature or that they can use in their own research. Whatever path you traveled to get here, I wish you a fruitful journey through biomathematics and computation!</p>
+<p>However, hypothesis tests are not infallible, and they can make mistakes of two different types. A test that rejects a true null hypothesis makes a <em>type I error</em> or a <em>false positive</em> error, while a test that fails to reject a false null hypothesis makes a <em>type II error</em> or a false negative error. We can again define the probabilities of the two error types as the overlap of the events:</p>
+
+<div class="definition">
+<span id="def:def-test-errors" class="definition"><strong>Definition 11.2  </strong></span>For a hypothesis that can be either false (F) or true (T) and a test result that can be either positive (P) or negative (N), the two types of errors are:
+<span class="math display">\[ 
+P(FP) = P(P \&amp; T); \; P(FN) = P(N \&amp; F)
+\]</span>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th>Test result</th>
+<th><span class="math inline">\(H_O = F\)</span></th>
+<th><span class="math inline">\(H_O=T\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Positive</td>
+<td>TP</td>
+<td>FP</td>
+</tr>
+<tr class="even">
+<td>Negative</td>
+<td>FN</td>
+<td>TN</td>
+</tr>
+</tbody>
+</table>
+<p>Table summarizing the four possible results of hypothesis testing, depending on the truth of null hypothesis <span class="math inline">\(H_0\)</span> and on the testing result.</p>
+</div>
+<div id="test-quality-measures" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> test quality measures</h3>
+<p>Now that we have classified the four outcomes of hypothesis testing, we can define the measures of quality of a given hypothesis test. This aims to address a practical concern: how much can you trust a test result? One may answer this question by testing on data where the hypothesis is known to be either true or false. For example, if there is a “gold standard” method for determining the presence or absence of disease, one can use that information to measure the quality of a new test. By performing enough tests, we can measure the frequencies of the four testing outcomes and then measure the following two quality metrics:</p>
+
+<div class="definition">
+<p><span id="def:def-sens" class="definition"><strong>Definition 11.3  </strong></span>
+The <em>sensitivity</em> (or power) of a test is the probability of obtaining a positive result, given a false hypothesis.
+<span class="math display">\[ Sens = P(P | F) = \frac{P(TP)}{P(TP) + P(FN)} \]</span></p>
+<p>The <em>specificity</em> of a test is the probability of obtaining the negative result, given a true hypothesis.</p>
+<span class="math display">\[ Spec = P(N | T) = \frac{P(TN)}{P(TN) + P(FP)} \]</span>
+</div>
+<p>Note that these are conditional probabilities, premised on knowing whether the hypothesis is actually true. On the other hand, there are two kinds of <em>error rates</em>:</p>
+
+<div class="definition">
+<p><span id="def:def-error-rates" class="definition"><strong>Definition 11.4  </strong></span>The <em>type I error rate</em> or <em>false positive rate</em> is the probability of obtaining the positive result, given a true hypothesis (complementary to specificity):
+<span class="math display">\[FPR = \frac{FP}{TN+FP}\]</span></p>
+The <em>type II error rate</em> or <em>false negative rate</em> is the probability of obtaining the negative result, given a false hypothesis (complementary to sensitivity).
+<span class="math display">\[FNR = \frac{FN}{TP+FN}\]</span>
+</div>
+<p>Notice that knowledge of sensitivity and specificity determine the type I and type II error rates of a test since they are complementary events. Of course, it is desirable for a test to be both very sensitive (reject false null hypotheses, detect disease, convict guilty defendants) and very specific (not reject true null hypotheses, correctly identify healthy patients, acquit innocent defendants), but that is impossible in practice. In fact, making a test highly sensitive (e.g. diagnose every patient with a disease) will make it useless because of it lack of specificity, and vice versa. In statistics, as in life, tradeoffs are required.</p>
+</div>
+<div id="exercises-25" class="section level3" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> Exercises</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Test for TB</th>
+<th>TB absent</th>
+<th>TB present</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Negative</td>
+<td>1739</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Positive</td>
+<td>51</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p>Data for TB testing using X-ray imaging</p>
+<p>Table  shows the results of using X-ray imaging as a diagnostic test for tuberculosis in patients with known TB status. Use it to answer the questions below.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the marginal probabilities of the individual random variables, i.e. the probability of positive and negative X-ray test results, and of TB being present and absent.</p></li>
+<li><p>Find the probability of positive result given that TB is absent (false positive rate) and the probability of a negative result given that TB is absent (specificity).</p></li>
+<li><p>Find the probability of negative result given that TB is present (false negative rate) and the probability of a positive result given that TB is present (sensitivity).</p></li>
+<li><p>Find the probability that a person who tests positive actually has TB (probability of TB present given a positive result).</p></li>
+<li><p>Find the probability that a person who tests negative does not have TB (probability of no TB given a negative result).</p></li>
+<li><p>Assuming the test result and the TB status are independent, calculate the expected probability of both TB being present and a positive X-ray test.}</p></li>
+<li><p>Under the same assumption, calculate the expected probability of both TB being absent and a positive X-ray test.</p></li>
+</ol>
+</div>
+<div id="rejecting-the-null-hypothesis" class="section level3" number="11.1.5">
+<h3><span class="header-section-number">11.1.5</span> rejecting the null hypothesis</h3>
+<p>Hypothesis testing is one of the most important applications of statistics. People often think of statistics as a collection of tests to be used for different hypotheses, which is too simplistic, but different tests do occupy a large fraction of statistics books. In this book we will only dip a toe into hypothesis testing, and will primarily approach it in a probabilistic (model-centered) way rather than from a statistical (data-centered) viewpoint. Probability allows us to calculate the sensitivity and specificity of a test for a given null hypothesis, provided the hypothesis is simple enough and the data are sampled correctly.</p>
+<p><strong>Example: testing whether a coin is fair.</strong> Suppose we want to know whether a coin is fair (has equal probabilities of heads and tails) based on a data set of several coin tosses. How much evidence do we need in order to reject the hypothesis of a fair coin with a small chance of making a type I error? What is the corresponding chance of making a type II error, not detecting an unfair coin?</p>
+<p>Let us first consider a data set of two coin tosses. If one is heads and one is tails, it’s obvious we have no evidence to reject the null hypothesis. But what if both times the coin landed heads? The probability of this happening for a fair coin is 1/4, which means that if you reject the null hypothesis based on the evidence, your probability of committing a type I error is 1/4. However, it is very difficult to answer the second question about making a type II error, because in order to do the calculation we need to know something about the probability of heads or tails. The hypothesis being false only means that the probability is not 1/2, but it could be anything between 0 and 1.</p>
+<p>Let us see how this test fares for a larger sample size. Suppose we toss a coin <span class="math inline">\(n\)</span> times, and if all <span class="math inline">\(n\)</span> come up heads, then we reject the hypothesis that the coin is fair. A fair coin will come up all heads with probability <span class="math inline">\(1/2^n\)</span>, so that is the rate of false positives for this test. For example, if a coin came up heads ten times in a row, there is only a 1/1024 probability that this is the result of a fair coin, so the probability of making a type I error is less than 0.1%. Is this careful enough? This question cannot be answered mathematically - it depends on your sense of acceptable risk of making a mistake. Notice that if you decide to use a very stringent criteria for rejecting a null hypothesis, you will necessarily end up not rejecting more false hypotheses. Such is the face of us mortals, dealing with imperfect information in an uncertain world.</p>
+<p>This leads us to an important new idea: the probability that a given data set is produced from the model of the null hypothesis is called the <em>p-value</em> of a test. In the example of coin tosses we just studied, the p-value was <span class="math inline">\(p=1/2^n\)</span>. However, what if the data had 9 heads out of 10 tosses? The p-value then would be the probability of obtaining 9 or 10 heads out of 10. This is because to compute the probability of making a false positive error, we consider all cases that could have produced the result that is as different from expectation, or even further from expectation (in this case, 5 heads out of 10) than the data. .</p>
+
+<div class="definition">
+<span id="def:def-p-val" class="definition"><strong>Definition 11.5  </strong></span>For a data set <span class="math inline">\(D\)</span> and a null hypothesis <span class="math inline">\(H_0\)</span>, the <em>p-value</em> is defined as the probability of obtaining a result as far from expectation or farther than the data, given the null hypothesis.
+</div>
+<p>The p-value is the most used, misused, and even abused quantity is statistics, so please think carefully about its definition. One reason this notion is frequently misused is because it is very tempting to conclude that the p-value is the probability of the null hypothesis being true, based on the data. That is not true! The definition has the opposite direction of conditionality - we assume that the null hypothesis is true, and based on that calculate the probability of obtaining the data. There is no way (according to classical frequentist statistics) of assigning a probability to the truth of a hypothesis, because it is not the result of an experiment.
+The simplest way to describe the p-value is that it is the likelihood of the hypothesis, based on the data set. This means that the smaller the p-value, the less likely the hypothesis, and one can be more certain about rejecting the hypothesis. Alternatively, the p-value represents the probability of making a type 1 error, or rejecting the correct null hypothesis for a particular data set. These two notions may seem to be in conflict, but they tell the same story: if the hypothesis is likely, the probability of making a type 1 error is high.</p>
+</div>
+</div>
+<div id="chi-squared-test" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Chi-squared test</h2>
+<p>Now we are ready to address the question raised in the previous chapter of testing the independence hypothesis based on the table of observations and the calculated table of expected counts. In order to measure the difference between what is expected for a data table with two independent variables and the actual observations, we need to gather these differences into a single number. One can devise several ways of doing this, but the accepted measure is called the chi-squared statistic and it is defined as follows:</p>
+
+<div class="definition">
+<span id="def:def-chi-sq" class="definition"><strong>Definition 11.6  </strong></span>The chi-squared value for the independence test is calculated on the basis of a two-way table with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns as the sum of the differences between the observed counts and the computed expected counts as follows:
+<span class="math display">\[\chi^2= \sum_i \frac{(Observed(i)-Expected(i))^2}{Expected(i)}\]</span>
+The number of degrees of freedom of chi-squared is <span class="math inline">\(df = (m-1)(n-1)\)</span>.
+</div>
+<p>This number describes how far away the data is from what is expected for an independent data set. Therefore, the larger the chi squared statistic, the larger the differences between observed and expected frequency, and thus the null hypothesis of independence is less likely. However, simply obtaining the <span class="math inline">\(\chi^2\)</span> is not enough to say whether the two variables are independent. We need to translate the chi-squared value into the language of probability, that is to ask, what is the probability of obtaining a data set with a particular <span class="math inline">\(\chi^2\)</span> value, if those two variables were independent.</p>
+<p>This question is answered using the <em>chi-squared probability distribution</em>, which describes the probability of the random variable <span class="math inline">\(\chi^2\)</span>. Like the normal distribution we saw in section  it is a continuous distribution, because <span class="math inline">\(\chi^2\)</span> can take any (positive) real value. In another similarity, the <span class="math inline">\(\chi^2\)</span> distribution has an even more complicated functional form than the normal distribution, so I do not present it here, because it is not enlightening. I will also not share the derivation of the mathematical form of the distribution, as it is far outside the goals of this text. In practice, nobody computes either the chi-squared statistic or its probability distribution function by hand, instead computers handle these chores. The chi-squared distribution has one key parameter, called the number of degrees of freedom, which was defined above. Depending on d.f. the distribution changes, specifically for more degrees of freedom the distribution moves to the right, that is, the chi-squared values tend to be larger.</p>
+<div class="figure">
+<img src="ch6/Chi-Squared_Distribution.png" alt="" />
+<p class="caption">The chi-squared distribution is used to compute the p-value as the total probability of obtaining a <span class="math inline">\(\chi^2\)</span> value at least as far from 0 as observed. (image by Inductiveload in public domain via Wikimedia Commons)</p>
+</div>
+<p>The chi-squared distribution is used to determine the probability of obtaining a chi-squared statistic as at least as large as observed, based on the null hypothesis of independence. Figure  shows a plot of the chi-squared distribution, as well as the total probability to the right of an observed <span class="math inline">\(\chi^2\)</span>. This allows one to use it for the <em>chi-squared test</em> for independence between random variables, by comparing the p-value obtained from the distribution (by a computer) against a number called the <em>significance</em> level, which is decided by humans. The significance value <span class="math inline">\(\alpha\)</span> is a threshold that the test has to clear in order to reject the null hypothesis: if the p-value is less than <span class="math inline">\(\alpha\)</span>, the independence hypothesis is rejected, otherwise it stands, although one can never say that the independence hypothesis is accepted.</p>
+<p>There is no mathematical or statistical method for determining the appropriate significance level, it is entirely up to the users to decide how much risk of rejecting a true null hypothesis they are willing to tolerate. If you choose 0.01, that means you want the likelihood of the hypothesis to be less than 1% percent in order to reject it. This is entirely arbitrary, and using a rigid significance level to decide whether a hypothesis is true can lead to major problems which we will discuss in the next chapter.</p>
+<p>Like all mathematical models, the chi-squared distribution relies on a set of assumptions. If the assumptions are violated, then the probability distribution does not apply and the p-value does not reflect the actual likelihood of the hypothesis. Here are the assumptions:</p>
+<ul>
+<li>the data is from a simple random sample of the population</li>
+<li>the sample size is sufficiently large</li>
+<li>expected cell counts cannot be too small</li>
+<li>the observations are independent of each other</li>
+</ul>
+</div>
+<div id="hypothesis-testing-in-r" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Hypothesis testing in R</h2>
+<p></p>
+<p>R has many functions for different tests, including the chi-squared test. To use it, one first has to input a data set in the form of a two-way table, where each row represents the values of one random variable, and each column represents the values of the second random variable. The following script shows how to manually input a 2 by 2 contingency table into a matrix. In the matrix function, <code>ncol</code> stands for number of columns, and <code>nrow</code> for number of rows. Notice the order in which the numbers are put into the matrix: down the first column, then the second, etc. Type <code>help(matrix)</code> for more details. In order to access a specific element of the matrix, just like in vectors, R uses square brackets and two indices, first one for row, and second for column. Below are examples of accessing two elements of the matrix data defined above, and how to reference a particular element of the matrix.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="hypothesis-testing.html#cb273-1" aria-hidden="true"></a>data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">442</span>,<span class="dv">514</span>,<span class="dv">38</span>,<span class="dv">6</span>),<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb273-2"><a href="hypothesis-testing.html#cb273-2" aria-hidden="true"></a><span class="kw">print</span>(data)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]  442   38
+## [2,]  514    6</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="hypothesis-testing.html#cb275-1" aria-hidden="true"></a><span class="kw">print</span>(data[<span class="dv">1</span>,<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 38</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="hypothesis-testing.html#cb277-1" aria-hidden="true"></a><span class="kw">print</span>(data[<span class="dv">2</span>,<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 514</code></pre>
+<p>Based on a given data set, how likely is the hypothesis that the two random variables are independent? It is hard to do by hand (in the old days, you looked it up in a table of chi-squared values) but R will do it all for us: 1) calculate the expected counts, 2) compute the chi-squared value for the table, and 3) use the number of degrees of freedom and the chi-squared value to calculate the p-value of the independence hypothesis based on it. Use the <code>chisq.test()</code> function, and you will see output like this:</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="hypothesis-testing.html#cb279-1" aria-hidden="true"></a>test.output &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(data)</span>
+<span id="cb279-2"><a href="hypothesis-testing.html#cb279-2" aria-hidden="true"></a><span class="kw">print</span>(test.output)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  data
+## X-squared = 25.555, df = 1, p-value = 4.3e-07</code></pre>
+<p>The results are the chi-squared values, the number of degrees of freedom (which depends on the number of rows and columns in the two-way table) and the p-value. The p-value is used to decide whether to reject the hypothesis, because it represents the likelihood of the hypothesis, given the data. In this case, the p-value is pretty small, so it seems relatively safe to reject the hypothesis of independence. To see the results of the hypothesis test, type <code>print(test.output)</code> and to access the p-value individually, use <code>test.output$p.value</code>.</p>
+<p>Finally, we need to specify the significance level <span class="math inline">\(\alpha\)</span> for the hypothesis test. This refers to the probability of rejecting a true null hypothesis, by random chance. For instance, if you reject the hypothesis at <span class="math inline">\(\alpha=0.05\)</span> significance, you’re accepting a 5% chance that you falsely rejected a correct hypothesis. Note that it says nothing about failing to reject an incorrect hypothesis (also called the rate of false negatives.)</p>
+<div id="example-with-data" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> example with data</h3>
+<p>Let us return to the data presented in section . We noted that the fraction of women in different age categories carrying fetuses with DS are different, but how certain are we that is not a fluke? To test the hypothesis of independence, we input the data into R and then run the chi-squared test:</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="hypothesis-testing.html#cb281-1" aria-hidden="true"></a>data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">29806</span>, <span class="dv">8135</span>, <span class="dv">28</span>, <span class="dv">64</span>),<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb281-2"><a href="hypothesis-testing.html#cb281-2" aria-hidden="true"></a>test.output &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(data)</span>
+<span id="cb281-3"><a href="hypothesis-testing.html#cb281-3" aria-hidden="true"></a><span class="kw">print</span>(test.output)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  data
+## X-squared = 122.86, df = 1, p-value &lt; 2.2e-16</code></pre>
+<p>This tests of independence between the two variables of maternal age and DS status. The chi-squared parameter is about 122, reflecting the differences between expected and observed frequencies. This number us to calculate the p-value, which is very small (the number is actually caused by machine error). Therefore, the hypothesis can be
+rejected with a very small risk of making an error.</p>
+</div>
+<div id="stop-and-frisk-and-race" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> stop-and-frisk and race</h3>
+<p>The practice of New York Police Department dubbed “stop-and-frisk” gave police officers to power to stop, question, and search people on the street without a warrant. Since the practice commenced in the early 2000s, it has generated controversy for several reasons. First, the 4th amendment to the U.S. Constitution limits the power of the state to detain and search citizens, by mandating that officials first obtain a warrant based on “probable cause,” while based on the Supreme Court interpretation, police are allowed to stop someone without a warrant provided “the officer has a reasonable suspicion supported by articulable facts” that the person may be engaged in criminal activity. Exactly what these conditions mean and whether officers in NYPD always had reasonable suspicions before stopping is a legal matter, rather than a statistical one, and you can read what federal judge Scheindlin ruled on this matter here .</p>
+<p>The second issue raised by stop-and-frisk is whether it violates the principle of equal protection under the law enshrined in the 14th amendment of the Constitution. The idea that the law and its agents should treat people of different backgrounds the same, that people can be punished for their actions, but not for who they are, is deeply rooted in American law and culture. Critics of stop-and-frisk charge that officers disproportionately stop and search people of African-American and Hispanic background and therefore violate their constitutional rights to equal protection. As part of the trial, statistical evidence was introduced about the number of stops of New Yorkers of different racial backgrounds, how many of those stops resulted in the use of force, and how many uncovered evidence of criminal activity leading to an arrest. Let us analyze the data using our tools to address whether race and somebody being “stopped-and-frisked” are related.</p>
+<p>The data in the summary of judge Scheindlin’s decision is as follows: between 2004 to 2012, out of 4.4 million stops, 52% of the people stopped were black, 31% of the people stopped were Hispanic, and 10% of the people were white. The population of New York according to the 2010 census is approximately 23% black, 29% Hispanic, and 33% white. You may notice that the fractions are suggestive of a higher probability of stops of African-Americans, and lower probability of stops of white individuals, but we cannot use fractions to perform a chi-squared test, because actual counts are necessary to quantify the uncertainty in the testing.</p>
+<p>Below I present data in the form of counts for only the calendar year 2011 , in the form of a contingency table with two variables: race/ethnicity and being stopped by police without a warrant. I have used the census population of New York (<a href="http://factfinder2.census.gov" class="uri">http://factfinder2.census.gov</a>) and its breakdown by race (white only, black only, Hispanic, other). The data are presented in table , and then are input in R and run through a chi-squared independence test.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="hypothesis-testing.html#cb283-1" aria-hidden="true"></a>data_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">61805</span>, <span class="dv">2665172</span>, <span class="dv">350743</span>, <span class="dv">1527029</span>, <span class="dv">223740</span>, </span>
+<span id="cb283-2"><a href="hypothesis-testing.html#cb283-2" aria-hidden="true"></a><span class="dv">2119718</span>, <span class="dv">49436</span>, <span class="dv">1201578</span>),<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb283-3"><a href="hypothesis-testing.html#cb283-3" aria-hidden="true"></a><span class="kw">rownames</span>(data_mat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;stopped&#39;</span>, <span class="st">&#39;not stopped&#39;</span>)</span>
+<span id="cb283-4"><a href="hypothesis-testing.html#cb283-4" aria-hidden="true"></a><span class="kw">colnames</span>(data_mat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;White&#39;</span>,<span class="st">&#39;Black&#39;</span>, <span class="st">&#39;Hispanic&#39;</span>, <span class="st">&#39;Other&#39;</span>)</span>
+<span id="cb283-5"><a href="hypothesis-testing.html#cb283-5" aria-hidden="true"></a><span class="kw">print</span>(data_mat)</span></code></pre></div>
+<pre><code>##               White   Black Hispanic   Other
+## stopped       61805  350743   223740   49436
+## not stopped 2665172 1527029  2119718 1201578</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="hypothesis-testing.html#cb285-1" aria-hidden="true"></a>test.output &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(data_mat)</span>
+<span id="cb285-2"><a href="hypothesis-testing.html#cb285-2" aria-hidden="true"></a><span class="kw">print</span>(test.output)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  data_mat
+## X-squared = 429039, df = 3, p-value &lt; 2.2e-16</code></pre>
+<p>The results confirm what comparing the percentages suggested: the race of a person in NYC is not independent of whether or not they get stopped and frisked, with only a tiny probability that this disparity could have happened by chance. However, this is only the beginning of the analysis that experts performed for the court trial. Drawing conclusions about motives from the data is tricky, since two variables may be related without a causal connection. Defenders of the practice have argued that the racial disparities reflect differences in criminal activity. The data, however, show that only 6% of the stops result in arrests, and 6% more in court summons, so the vast majority of those stopped and frisked were not engaged in criminal activity.</p>
 
 </div>
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="independence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="arithmetic-and-variables.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
