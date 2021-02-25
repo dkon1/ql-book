@@ -226,3 +226,12 @@ chi-squared-test
 hypothesis-testing-in-r
 example-with-data
 stop-and-frisk-and-race
+prior-knowledge-and-bayesian-thinking
+prior-knowledge
+bayes-formula
+positive-and-negative-predictive-values
+exercises-26
+applications-of-bayesian-thinking
+when-too-much-testing-is-bad
+reliability-of-scientific-studies
+discussion-questions-3

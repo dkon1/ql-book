@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Describing data sets | Quantifying Life</title>
+  <title>12 Prior knowledge and Bayesian thinking | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Describing data sets | Quantifying Life" />
+  <meta property="og:title" content="12 Prior knowledge and Bayesian thinking | Quantifying Life" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Describing data sets | Quantifying Life" />
+  <meta name="twitter:title" content="12 Prior knowledge and Bayesian thinking | Quantifying Life" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="functions-and-their-graphs.html"/>
-<link rel="next" href="linear-regression.html"/>
+<link rel="prev" href="hypothesis-testing.html"/>
+
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -426,271 +426,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="describing-data-sets" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Describing data sets</h1>
+<div id="prior-knowledge-and-bayesian-thinking" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Prior knowledge and Bayesian thinking</h1>
 <blockquote>
-<p>Get your facts first, and then you can distort them as much as you please.<br />
-– Rudyard Kipling, <em>An Interview with Mark Twain</em></p>
+<p>Man can believe the impossible, but man can never believe the improbable.<br />
+– Oscar Wilde, <em>The Decay of Lying</em></p>
 </blockquote>
-<p>Science begins with experimental measurements, which are then verified by reproducing the results. But no experimental result is perfectly reproducible because all are subject to random noise, whether it is caused by unpredictable processes or is due to measurement error. Describing collections of numbers with noise is the first step to understanding the biological systems that are being measured. In this chapter you will learn to do the following:</p>
+<p>In the last few chapters we defined the notion of independence and learned how to perform a statistical test to determine how likely a data set of two categorical variables is to have come from two independent random variables. This approach comes from the toolbox of classical “frequentist” statistics, which is taught in every statistics textbook in the world. It reduces statistical inference to a binary choice: reject or not reject the null hypothesis, based on the magic number called the p-value. However, this approach has deep problems, especially when applied mechanically and without understanding its limitations. Perhaps the most important limitation is that p-value based hypothesis testing does not incorporate any knowledge into its decision-making, aside from the given data. This may be reasonable at an early, exploratory stage of an experiment, but usually one has some prior knowledge about the likelihood of the hypothesis being tested. This knowledge cannot influence the data and the calculation of the p-value, of course, but it can have a dramatic effect on the interpretation, or inference one draws from the test. In this chapter you will learn to do the following:</p>
 <ul>
-<li><p>calculate means and medians of a data set</p></li>
-<li><p>calculate variances and standard deviations</p></li>
-<li><p>produce histograms and interpret them</p></li>
-<li><p>use R to plot and analyze data sets</p></li>
+<li>explain the effect or prior knowledge on interpretation of an experimental result</li>
+<li>calculate post-test probability based on prior probability, test result, and conditional probabilities of the test being in error</li>
+<li>use conditional statements to simulate random decisions with a given probability</li>
+<li>explain why conclusions based on binary p-value testing are frequently wrong</li>
 </ul>
-<iframe src="https://uchicago.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c33322b7-6299-4c63-93f1-ab41002ec626&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;start=0&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-</iframe>
-<div id="mutations-and-their-rates" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Mutations and their rates</h2>
+<div id="prior-knowledge" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Prior knowledge</h2>
 <p></p>
-<p>All Earth-based lifeforms receive an inheritance from their parent(s): a string of deoxyribonucleic acids ( <em>DNA</em>) called the genetic sequence, or  <em>genome</em> of an individual. The information to produce all the necessary components to build and run the organism is encoded in the sequence of the four different  <em>nucleotides</em>: adenine, thymine, guanine, and cytosine (abbreviated as A, T, G, C). Different parts of the genome play different roles; some discrete chunks called <em>genes</em> contain the instructions to build  <em>proteins</em>, the workhorses of biology. To make a protein from a gene, the information is transcribed from DNA into messenger ribonucleic acid ( <em>mRNA</em>), which is then translated into a string of  <em>amino acids</em> which constitute the protein. The genetic code determines the translation, using three nucleic acids in DNA and RNA to represent a single amino acid in a protein. Thus, a sequence of DNA results in a specific sequence of amino acids, which determine the structure and function of the protein.</p>
+<p>Suppose that a patient walks into a doctor’s office, the doctor orders a pregnancy test, and the results indicate that the patient is pregnant. The doctor consults the published sensitivity and specificity values (which were described in the last chapter) to discover, for instance, that 99% of positive pregnancy tests are correct. The doctor goes back to congratulate the patient with impending motherhood. Sound very reasonable, doesn’t it? Would it still sound reasonable if the doctor knew that the patient is a biological male?</p>
+<p>This is a slightly absurd example, of course, but it neatly illustrates the central point of this chapter: prior knowledge has an effect on the inference from a test, no matter how small or large the p-value and the power of the test. If a patient is male, his <em>prior probability</em> of being pregnant is 0, and that is not changed by a test, no matter how accurate (of course, no test is 100% accurate). In this case, the positive pregnancy test must have been a false positive, even though it’s unlikely, since the other possibility - that of a true positive - is impossible.</p>
+<p>We all consider prior knowledge before coming to a conclusion. For instance, the credibility of a statement from a person very much depends on past performance: if the person is a habitual liar, you probably wouldn’t put much stock in his or her words. On the other hand, if a person is known to be trustworthy, you might take their statement seriously even if it surprising. If your significant other has always been transparent and honest, even if you discover a suspiciously sexy message from someone else on his/her phone, you will listen to their explanation and consider alternative explanations, in other words, that this was a false positive. If they had abused your trust in the past, it’s much more likely that this sexy text is actual evidence of cheating, and it’s time to cut them loose!</p>
+<p>In the context of science, the accumulation of knowledge is the basis of building scientific theories. Nothing in science is ever proven, unlike in mathematics, instead different statements have different degrees of certainty based on past experience. A theory that has been tested for years, for instance Newton’s theory of gravity, with all experiments agreeing with its predictions (let’s forget about relativistic corrections for a moment), is considered to have a very high likelihood and even called a Law of nature. If experimental data came along that challenged Newton’s Law of gravity (as Einstein’s relativity did) scientists would rightfully treat it much more skeptically than an experiment that agrees with prior experience. Carl Sagan summarized the effect of prior knowledge of evaluating evidence with the pithy phrase “extraordinary claims require extraordinary evidence” - that is, a claim that is highly unlikely based on past knowledge must be backed up by very strong data (extremely low p-value, or high power).</p>
 <div class="figure">
-<img src="ch3/Point_mutations-en.png" alt="" />
-<p class="caption">Different types of substitution  point mutations are distinguished by their effects on the gene products; image by Jonsta247 in public domain via Wikimedia Commons.</p>
+<img src="https://imgs.xkcd.com/comics/frequentists_vs_bayesians.png" alt="" />
+<p class="caption">A cartoon about interpretation of results of an experiment with a known error rate (<a href="https://xkcd.com/1132/" class="uri">https://xkcd.com/1132/</a>)</p>
 </div>
-<p>The above processes involve copying and transferring information. As we know from experience, copying information inevitably means introducing errors. This is particularly important when passing information from parent to offspring, because then an entire organism has to develop and live based on a faulty blueprint. Changes introduced in the genome of an organism are called  <em>mutations</em>, and they can be caused either by errors in copying DNA when making a new cell (replication) or through damage to DNA through physical means (e.g. ionizing radiation) or chemical mechanisms (e.g. exogenous molecules that react with DNA). The simplest mutation involve a single nucleotide and are called  <em>point mutations</em>. A nucleotide may be deleted, an extra nucleotide inserted, or a new one substituted instead: the three different types of substitution mutations are shown in figure . Large-scale mutations may involve whole chunks of the genome that are cut out and pasted in a different location, or copied and inserted in another position, but they are typically much more rare than point mutations.</p>
-<p>Mutations can have different effects on the mutant organism, although acquisition of super-powers has not been observed. Usually, point mutations have either little observable effect or a negative effect on the health of the mutant. A classic example is  <em>sickle-cell disease</em>, in which the molecules of the protein hemoglobin, responsible for carrying oxygen in the blood from the lungs to the tissues, tends to stick together and clump, resulting in sickle-shaped red blood cells. The disease is caused by a single substitution mutation in the gene that codes for one of the two components of hemoglobin, called <span class="math inline">\(\beta\)</span>-globin. The substitution of a single nucleotide in the DNA sequence changes one amino acid in the protein from glutamate to valine, which causes the proteins to aggregate. This  <em>missense</em>}* mutation (see figure ) is carried by a fraction of the human population, and those who inherit the allele <em>allele</em> from both parents develop the painful and sometimes deadly disease. Such mutations that are present in some but not all of a population are called  <em>polymorphisms</em>, to distinguish them from mutations that occurred in evolutionary lineages and differentiate species from each other.</p>
-<p>One of the central questions of evolutionary biology is how frequently do mutations occur? Since mutations are generally undesirable, most living things have developed ways to minimize the frequency of errors in copying DNA, and to repair DNA damage. But although mutations are rare, they occur spontaneously in all organisms because molecular processes such as copying a DNA molecule are subject to random noise arising from thermal motion. So mutations are fundamentally a random process and we need to use  <em>descriptive statistics</em> to analyze data with inherent randomness.</p>
+<p>The perils of ignoring prior knowledge is illustrated in the xkcd cartoon shown in figure . In this case, the “solar detector” lies (makes an error) with probability 1/36, so when it tells you that the sun exploded, it has only 1/36 probability that it made a false positive error. However, based on our prior knowledge, the sun is extremely unlikely to blow up or disappear, so the alternative that the sun exploded and the detector is correct is even less likely. Although the cartoon portrays this as a disagreement between frequentists and Bayesians, it is more properly understood as a disagreement between mindless application of frequentist thought and everyone else.</p>
 </div>
-<div id="describing-data-sets-1" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Describing data sets</h2>
+<div id="bayes-formula" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Bayes’ formula</h2>
 <p></p>
-<div id="central-value-of-a-data-set" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> central value of a data set</h3>
-<p>A data set is a collection of measurements. These measurements can come from many kinds of sources, and can represent all sorts of quantities. One big distinction is between numerical and categorical data sets. <em>Numerical</em>  data sets contain numbers, either integers or real numbers. Some examples: number of individuals in a population, length, blood pressure, concentration. <em>Categorical</em>  data sets may contain numbers, symbols, or words, limited to a discrete, usually small, number of values. The word categorical is used because this kind of data corresponds to categories or states of the subject of the experiment. Some examples: genomic classification of an individual on the basis of one locus (e.g. wild type or mutant), the state of an ion channel (open or closed), the stage of a cell in the cell cycle.</p>
-<p>A data set contains more than one measurement, the number of them is called the size of the data set and is usually denoted by the letter <span class="math inline">\(n\)</span>. To describe a data set numerically, one can use numbers called <em>statistics</em> (not to be confused with the branch of science of the same name). The most common statistics aim to describe the central value of the data set to represent a typical measurement. If you order all of the measurements from highest to lowest and then take the the middle value, you have found the  <em>median</em> (if there is an even number of values, take the average between the middle two). Precisely half of the data values are less than the median and the other half are greater, so it represents the true ``middle’’ value of the measurement. Note that the median can be calculated either for numerical or categorical data, as long as the categories can be ordered in some fashion.</p>
-<p>The value that occurs most frequently in the data set is called its . For some data sets, particularly those which are symmetric, the mode coincides with the mean (see next paragraph) and the median, but for many others it is distinct. The mode is the most visual of the three statistics, as it can be picked out from the histogram plot of a data set (which is described in subsection 3.2.3) as the value corresponding to the maximum frequency. The mode can also be used for both categorical and numerical data.</p>
-<p>The average or  <em>mean</em> of a data set is the sum of all the values divided by the number of values. It is also called the <em>expected value</em> (particularly in the context of probability, which we will discuss later) because it allows to simply predict the sum of a large number of measurements with a given mean, by multiplying the mean by the number. The mean can be calculated only for a numerical data set, since we cannot add non-numerical values.</p>
-
-<div class="definition">
-<span id="def:def-mean" class="definition"><strong>Definition 3.1  </strong></span>The <em>mean</em> of a data set <span class="math inline">\(X\)</span>, also known as the average or the arithmetic mean is usually indicated with a bar over the variable symbol, and defined as the sum of the values divided by the number of values:
+<p>In this section we will formalize the process of incorporation of prior knowledge into probabilistic inference by going back to the notion of conditional probability in section . First, if you multiply both sides of the definition by <span class="math inline">\(P(B)\)</span>, then we obtain the probability of the intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:
+<span class="math display">\[P(A \&amp; B) = P(A|B) P(B); \;  P(A \&amp; B) = P(B|A) P(A) \]</span>
+Second, we can partition a sample space into two complementary sets, <span class="math inline">\(A\)</span> and <span class="math inline">\(-A\)</span>, and then the set of <span class="math inline">\(B\)</span> can be partitioned into two parts, that intersect with <span class="math inline">\(A\)</span> and <span class="math inline">\(-A\)</span>, respectively, so that the probability of <span class="math inline">\(B\)</span> is
+<span class="math display">\[P(B) = P(A \&amp; B) + P(-A\&amp; B)\]</span></p>
+<p>The two formulas together lead to a very important result called the <em>law of total probability</em>
+<span class="math display">\[
+P(B) =  P(B|A) P(A) + P(B|-A)P(-A)
+\]</span></p>
+<p>It may not be clear at first glance why this is useful: after all, we replaced something simple (<span class="math inline">\(P(B)\)</span>) with something much more complex on the right hand side. You will see how this formula enables us to calculate quantities that are not otherwise accessible.</p>
+<p><strong>Example: probability of a negative test result</strong>. Suppose we know that the probability of a patient having a disease is 1% (called the <em>prevalence</em> of the disease in a population), and the sensitivity and specificity of the test are both 80%. What is the probability of obtaining a negative test result for a randomly selected patient? Let us call <span class="math inline">\(P(H) = 0.99\)</span> the probability of a healthy patient and <span class="math inline">\(P(D) = 0.01\)</span> the probability of a diseased patient. Then:
+<span class="math display">\[ P(Neg) =  P(Neg | H) P(H) + P(Neg | D)P(D)  = \]</span>
+<span class="math display">\[ = 0.8 \times 0.99 + 0.2 \times 0.01 = 0.794\]</span></p>
+<p>There is still more gold in the hills of conditional probability! Take the first formula in this section, which expresses the probability <span class="math inline">\(P(A \&amp; B)\)</span> in two different ways. Since the expressions are equal, we can combine them into one equation, and by dividing both sides by <span class="math inline">\(P(B)\)</span>, we obtain what’s known as Bayes’ formula:
+<span class="math display">\[ P(A|B) = \frac{P(B|A) P(A)}{P(B) }\]</span>
+We can rewrite the denominator in Bayes’ using the Law of total probability so that it can calculated from conditional probabilities:
+<span class="math display">\[
+P(A|B) = \frac{P(B|A)P(A)}{P(B|A) P(A) + P(B|-A)P(-A)}
+\]</span></p>
+<p>Bayes’ formula gives us the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> from probabilities of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span> and given <span class="math inline">\(-A\)</span>, and the prior (baseline) probability of <span class="math inline">\(P(A)\)</span>. This is enormously useful when it is easy to calculate the conditionals one way and not the other. Among its many applications, it computes the effect of a test result with given sensitivity and specificity (conditional probabilities) on the probability of the hypothesis being true.</p>
+<div id="positive-and-negative-predictive-values" class="section level3" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> positive and negative predictive values</h3>
+<p>In reality, a doctor doesn’t have the true information about the patient’s health, but rather the information from the test and hopefully some information about the population where she is working. Let us assume we know the rate of false positives <span class="math inline">\(P(Pos | H\)</span>) and the rate of false negatives <span class="math inline">\(P(Neg | D)\)</span>, as well as the prevalence of the disease in the whole population <span class="math inline">\(P(D)\)</span>. Then we can use Bayes’ formula to answer the practical question, if the test result is positive, what is the probability the patient is actually sick? This is called the <em>positive predictive value</em> of a test. The deep Bayesian fact is that one cannot make inferences about the health of the patient after the test without some <em>prior knowledge</em>, specifically the prevalence of the disease in the population:
+<span class="math display">\[ P(D | Pos) =  \frac{P(Pos|D)P(D)}{P(Pos|D) P(D) + P(Pos | H)P(H)}\]</span></p>
+<p><strong>Example.</strong> Suppose the test has a 0.01 probability of both false positive and false negatives, and the overall prevalence of the disease in the population 0.02. You may be surprised that from an epidemiological perspective, a positive result is far from definitive:
+<span class="math display">\[ P(D | Pos)  = \frac{0.99 \times 0.02}{0.99 \times 0.02 + 0.01 \times 0.98} = 0.67 \]</span>
+This is because the disease is so rare, that even though the test is quite accurate, there are going to be a lot of false positives (about 1/3 of the time) since 98% of the patients are healthy.</p>
+<p>We can also calculate the probability of a patient who tests negative of actually being healthy, which is called the negative predictive value. In this example, it is far more definitive:
+<span class="math display">\[ P(H | Neg)  = \frac{P(Neg|H)P(H)}{P(Neg|H) P(H) + P(Neg | D)P(D)} = \]</span>
+<span class="math display">\[ = \frac{0.99 \times 0.98}{0.99 \times 0.98 + 0.01 \times 0.02} =  0.9998\]</span>
+This is again because this disease is quite rare in this population, so a negative test result is almost guaranteed to be correct. In another population, where disease is more prevalent, this may not be the case.</p>
+<p>Figure  illustrates all of the possibilities of a binary medical test: positive (P) or negative (N) for a patient who is either healthy (H) or diseased (D). The four outcomes correspond to the four outcomes of tests we saw in section : true positives are D&amp;P, false positives are H&amp;P, true negatives are H&amp;N and false negatives are D&amp;N. This allows us to calculate the positive predictive value, which is the probability that a positive result is correct. For the patient with disease prevalence of 0.1, <span class="math inline">\(PPV = TP/(TP+FP) = 0.098/(0.098+0.045) \approx 0.685\)</span>. For the patient with disease prevalence of 0.01, <span class="math inline">\(PPV = TP/(TP+FP) = 0.0098/(0.0098+0.0495) \approx 0.165\)</span>. The exact same test has a higher PPV for a patient who has a higher prior probability of having a disease.</p>
+<p>The negative predictive value can be calculated in a similar manner for the patient with disease prevalence of 0.1: <span class="math inline">\(NPV = TN/(TN+FN) = 0.855/(0.855+0.002) \approx 0.998\)</span>. For the patient with disease prevalence of 0.01, <span class="math inline">\(NPV = TN/(TN+FN) = 0.9405/(0.9405+0.0002) \approx 0.9998\)</span>. The exact same test has a higher NPV for a patient who has a lower prior probability of having a disease.</p>
+<div class="figure">
+<img src="ch7/prob_tree_tikz1.png" alt="" />
+<p class="caption">Probabilities of the four possible outcomes for patients with different disease prevalence using the same medical test with sensitivity (rate of true positives) of 0.98 and specificity (rate of true negatives) of 0.95: above for disease prevalence of 10%.</p>
 </div>
-<p><span class="math display">\[\begin{equation}
-  \bar X  = \frac{1}{n} \sum_{i=1}^n x_i 
-\label{eq:ch3_mean_def}
-\end{equation}\]</span></p>
-<p>The mean, unlike the median, is not the middle value of the data set, instead it represents the <em>center of mass</em> of the measured values . Another way of thinking of the mean is as a <strong>weighted sum of the values in the data set</strong>. The weights represent the frequency of occurrence of each numeric value in the data set, which we will further discuss in subsection 3.2.3.</p>
-<p>The mean is the most frequently used statistic, but it is not always interpreted correctly. Very commonly the mean is reported as the most representative value of a data set, but that is often misleading. Here are at least two situations in which the mean can be tricky: 1) data sets with a small number of discrete values; 2) data sets with outliers, or isolated numbers very far from the mean.</p>
-<p><strong>Examples of misleading means.</strong> Mean quantities for data sets with a few quantities are not the typical value, such as in the number of children born in a year per individual, also known as the birth rate. The birth rate per year in 2013 for both the United States and Russia is 1.3% per person, but you will have to look for a long time to find any individual who gave birth to 1.3% of a child. While this point may be obvious, it is often overlooked when interpreting mean values.</p>
-<p>Outliers are another source of trouble for means. For example, a single individual (let’s call him or her B.G.) with a wealth of $50 billion moves into a town of 1000 households with average wealth of $100,000. Although none of the original residents’ assets have changed, the mean wealth of the town improves dramatically, as you can calculate in one of the exercises at the end of the chapter. One can site the improved per capita (per individual) in the town as evidence of economic growth, but that is obviously misleading. In cases with such dramatic outliers, the median is more informative as representation of a typical value of the data set.</p>
+<div class="figure">
+<img src="ch7/prob_tree_tikz2.png" alt="" />
+<p class="caption">Probabilities of the four possible outcomes for patients with different disease prevalence using the same medical test with sensitivity (rate of true positives) of 0.98 and specificity (rate of true negatives) of 0.95: above for disease prevalence of 1%</p>
 </div>
-<div id="exercises-6" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Exercises</h3>
-<p>For the (small) data sets given below, calculate the mean and the median (by hand or using a calculator) and compare the two measures of the center.</p>
+</div>
+<div id="exercises-26" class="section level3" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Exercises</h3>
+<p>The table below shows the results of using X-ray imaging as a diagnostic test for tuberculosis in patients with known TB status. Use it to answer the questions below.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Test for TB</th>
+<th>TB absent</th>
+<th>TB present</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Negative</td>
+<td>1739</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Positive</td>
+<td>51</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p>Use this table to calculate the sensitivity and specificity of the test. Suppose that you have the knowledge that the prevalence of TB in a population is P(D) = 0.001, use the previously calculated sensitivity and specificity to answer the following questions about testing a patient from the population (not those used in the study in the table.)</p>
 <ol style="list-style-type: decimal">
-<li><p>Data set of the population of the city of Chicago (in millions) in the last 4 census years (2010, 2000, 1990, 1980): {2.7, 2.9, 2.8, 3.0}.</p></li>
-<li><p>Data set of the numbers of the fish blacknose dace (<em>Rhinichthys atratulus</em>) collected in 6 different streams in the Rock Creek watershed in Maryland: {76, 102, 12, 55, 93, 98}.</p></li>
-<li><p>Data set of tuberculosis incidence rates (per 100,000 people) in the 5 largest metropolitan areas in the US in 2012: {5.2, 6.6, 3.2, 5.5, 4.5}.</p></li>
-<li><p>Data set of ages of mothers at birth for five individuals: {19, 20, 22, 32, 39}.</p></li>
-<li><p>Data set of ages of fathers at birth for five individuals: {22, 23, 25, 36, 40}.</p></li>
-<li><p>Data set of the number of new mutations found on maternal chromosomes for five individuals: {9, 10, 11, 26, 15}.</p></li>
-<li><p>Data set of the number of new mutations found on paternal chromosomes for five individuals: {39, 43, 51, 53, 91}.</p></li>
-<li><p>Consider the hypothetical town with 1000 households with mean and median wealth of $100,000 and one person with assets for $50 billion. Calculate the mean value of the combined data set, and compare it to the new median value.</p></li>
-<li><p>Suppose you’d like to add a new observation to a data set; e.g. the 6-th largest metropolitan area (Philadelphia) to the tuberculosis incidence data set, which is 3.0. Calculate the mean of the 6-values data set, without using the 5 values in the original data set, but only using the mean of the 5-value data set and the new value. Generalize this to calculating the sample mean for any <span class="math inline">\(n\)</span>-value data set, given the mean of the <span class="math inline">\(n-1\)</span> values, plus one new value.</p></li>
+<li><p>Using the law of total probability, calculate P(Pos), the probability that a randomly chosen person from the population tests positive for the disease and P(Neg), the probability that a randomly chosen person tests negative for the disease.</p></li>
+<li><p>Using Bayes’ formula, find the probability that a patient who tested positive has the disease P(D | Pos) and the probability that a patient who tested negative is healthy P(H | Neg).</p></li>
+<li><p>If the disease prevalence were P(D) =0.5, repeat the calculations to find the new P(D | Pos) and P(H | Neg).</p></li>
 </ol>
-</div>
-<div id="spread-of-a-data-set" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> spread of a data set</h3>
-<p>The center of a data set is obviously important, but so is the spread around the center. Sometimes the spread is caused by noise or error, for example in a data set of repeated measurements of the same variable under the same conditions. Other times the variance is due to real changes in the system, or due to inherent randomness of the system, and the size of the spread, as well as the shape of the histogram are important for understanding the mechanism. The simplest way to describe the spread of a numerical data set is to look at the difference between the maximum and minimum values, called the  <em>range</em>. However, it is obviously influenced by outliers, since the extreme values are used. To describe the typical spread, we need to use all the values in the data set, and see how far each one is from the center, measured by the mean.</p>
-<p>There is a problem with the naive approach: if we just add up all the differences of data values from the mean, the positives will cancel the negatives, and we’ll get an artificially low spread. One way to correct this is to take the absolute value of the differences before adding them up. However, for somewhat deep mathematical reasons, the standard measure of spread uses not absolute values, but squares of the differences, and then divides that sum not by the number of data points <span class="math inline">\(n\)</span> but by <span class="math inline">\(n-1\)</span>.</p>
-
-<div class="definition">
-<span id="def:def-var" class="definition"><strong>Definition 3.2  </strong></span>The <em>variance</em> of a data set <span class="math inline">\(X\)</span> with <span class="math inline">\(n\)</span> values is the sum of the squared differences of each value of the variable from the mean, divided by <span class="math inline">\(n-1\)</span>:
-</div>
-<p><span class="math display">\[\begin{equation}
- Var(X) = \frac{1}{n-1} \sum_{i=1}^n (\bar X - x_i)^2
-\end{equation}\]</span></p>
-<p>The variance is a sum of square differences, so its dimension is the square of the dimensions of the measurements in <span class="math inline">\(X\)</span>. In order to obtain a measure of the spread comparable to the values of <span class="math inline">\(X\)</span>, we take the square root of variance and call it the  <em>standard deviation</em> of the data set <span class="math inline">\(X\)</span>:
-<span class="math display">\[\begin{equation}
-\sigma(X) = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (\bar X - x_i)^2}
-\end{equation}\]</span></p>
-<p>Just as the mean is a weighted average of all of the values in the data set, the variance is a weighted average of all the squared deviations of the data from the mean.</p>
-</div>
-<div id="exercises-7" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Exercises:</h3>
-<p>For the (small) data sets below, calculate the range, variance, and standard deviation (by hand or using a calculator). Compare the range and the standard deviation for each case: which one is larger? by how much?</p>
-<ol style="list-style-type: decimal">
-<li><p>Data set of the population of the city of Chicago (in millions) in the last 4 census years (2010, 2000, 1990, 1980): {2.7, 2.9, 2.8, 3.0}.</p></li>
-<li><p>Data set of the numbers of the fish blacknose dace (<em>Rhinichthys atratulus</em>) collected in 6 different streams in the Rock Creek watershed in Maryland: {76, 102, 12, 55, 93, 98}.</p></li>
-<li><p>Data set of tuberculosis incidence rates (per 100,000 people) in the 5 largest metropolitan areas in the US in 2012: {5.2, 6.6, 3.2, 5.5, 4.5}.</p></li>
-<li><p>Data set of ages of mothers at birth for five individuals: {19, 20, 22, 32, 39}.</p></li>
-<li><p>Data set of ages of fathers at birth for five individuals: {22, 23, 25, 36, 40}.</p></li>
-<li><p>Data set of the number of new mutations found on maternal chromosomes for five individuals: {9, 10, 11, 26, 15}.</p></li>
-<li><p>Data set of the number of new mutations found on paternal chromosomes for five individuals: {39, 43, 51, 53, 91}.</p></li>
-<li><p>Consider the hypothetical town with 1000 households with mean and median wealth of $100,000 and one person with assets for $50 billion. Calculate the mean value of the combined data set, and compare it to the new median value.</p></li>
-<li><p>(harder) Suppose that a data set has a fixed range (e.g. all values have to lie between 0 and 1). What is the greatest possible standard deviation for any data set within the range? Hint: think about how to place the points as far from the mean as possible. How do the data sets above relate to your prediction?}</p></li>
-</ol>
-</div>
-<div id="describing-data-sets-in-graphs" class="section level3" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> describing data sets in graphs</h3>
-<p>Data sets can be presented visually to indicate the frequency of different values. This can be done in a number of ways, depending on the kind of data set. For a data set with only a few values, e.g. a categorical data set, a good way to represent it is with a pie chart. Each category is represented by a slice of the pie with the area of the same share of the pie as the fraction of the data set in the category. There is some evidence, however, that pie charts can be misleading to the eye, so R does not recommend using them.</p>
-<p>For a numerical data set it is useful to plot the frequencies of a range of values, which is called a  <em>histogram</em>. Its independent axis has the values of the data variable, and the dependent axis has the frequency of those values. If the data set consists of real numbers that range across an interval, that interval is divided into subintervals (usually of equal size), called bins, and the number of measurements in each bin is indicated on the y-axis. In order to be visually informative, there should be a reasonable number (usually no more than a few dozen, although it varies) of bins. The most frequent measurements are represented as the highest bars or points on the histogram. Histograms can denote either the counts of measurements in each bin, or to show the fraction of the total number of measurements in each bin. The only difference between those two kinds of histogram is the scale of the y-axis, and, confusingly, both can be called frequencies.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig-ch3-bacillus"></span>
-<img src="QuantLife_files/figure-html/fig-ch3-bacillus-1.png" alt="Length of bacteria Bacillus subtilis measured under the microscope as discrete values with step of 0.5; data from citep{watkins-intro-stats}" width="50%" />
-<p class="caption">
-Figure 3.1: Length of bacteria Bacillus subtilis measured under the microscope as discrete values with step of 0.5; data from citep{watkins-intro-stats}
-</p>
-</div>
-<p>A histogram of the measured lengths of the bacterium <em>Bacillus subtilis</em> is shown in figure . The data set was measured in increments in half a micron, with numbers varying between 1.5 and 4.5 microns. The histogram shows that the most common measurement (the mode) is 2 <span class="math inline">\(\mu m\)</span>. Adding up all of the frequencies in the histogram tells us that there are approximately 200 total values in the data set. This allows us to find the median value by counting the frequencies of the first few bins until we get to 100 (the median point), which resides in the bin for 2.5 <span class="math inline">\(\mu m\)</span>. It is a little bit more difficult to estimate the mean, but it should be clear that the center of mass of the histogram is also near 2.5 (it is actually 2.49). Finally, the hardest task is estimating the spread of the data set, such as the the standard deviation, based on the histogram. The range of the data set is <span class="math inline">\(4.5-1.5 = 3\)</span>, so we know for sure that it is less than 1.5. The histogram shows that the deviations from the mean value of 2.5 range from 2 (rarely) to 0.5 (most prevalent). This should give you an idea that the weighted average of the deviations is less than 1. Indeed, the correct standard deviation is about 0.67.</p>
-<p>There are different ways of plotting data sets that have more than one variable. For instance, a data set measured over time is called a time series. If the values are plotted with the corresponding times on the x-axis, then it is called a  <em>time plot</em>. This is useful to show the changes of the values of your variable over time. If the data set doesn’t undergo any significant changes over time, it makes more sense to represent it as a pie chart or histogram. More generally, one may plot two variables measured together on a single plot, which is called a  <em>scatterplot</em>. We will explore such plots and the relationships between two measured variables in chapter 4.</p>
-</div>
-<div id="exercises-8" class="section level3" number="3.2.6">
-<h3><span class="header-section-number">3.2.6</span> Exercises</h3>
-<p>Answer the following questions, based on the histograms in figure  (mutation data) and in figure  (heart rate data).</p>
-<ol style="list-style-type: decimal">
-<li><p>How many people in the mutation data have fathers either younger than 20 or older than 40? How many have more than 80 new mutations? </p></li>
-<li><p>Estimate the median and mean of the two variables in the mutation data set.</p></li>
-<li><p>State the range of each data set, and estimate the standard deviation of the two variables in the mutation data set.</p></li>
-<li><p>How many people in the heart rate data have heart rates greater than 80 bpm? How many have body temperature less that 97 F?</p></li>
-<li><p>Estimate the median and mean of the two variables in the heart rate data set.</p></li>
-<li><p>State the range of each data set, and estimate the standard deviation of the two variables in the heart rate data set.</p></li>
-</ol>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="describing-data-sets.html#cb112-1" aria-hidden="true"></a>my_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/HR_temp.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb112-2"><a href="describing-data-sets.html#cb112-2" aria-hidden="true"></a><span class="kw">hist</span>(my_data<span class="op">$</span>HR, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Heart rate data&quot;</span>, </span>
-<span id="cb112-3"><a href="describing-data-sets.html#cb112-3" aria-hidden="true"></a>    <span class="dt">xlab =</span> <span class="st">&quot;heart rate (bpm)&quot;</span>)</span>
-<span id="cb112-4"><a href="describing-data-sets.html#cb112-4" aria-hidden="true"></a><span class="kw">hist</span>(my_data<span class="op">$</span>Temp, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Body temperature data&quot;</span>, </span>
-<span id="cb112-5"><a href="describing-data-sets.html#cb112-5" aria-hidden="true"></a>    <span class="dt">xlab =</span> <span class="st">&quot;temperature (F)&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:fig-ch3-HR"></span>
-<img src="QuantLife_files/figure-html/fig-ch3-HR-1.png" alt="Histograms of heart rates and body temperatures" width="50%" /><img src="QuantLife_files/figure-html/fig-ch3-HR-2.png" alt="Histograms of heart rates and body temperatures" width="50%" />
-<p class="caption">
-Figure 3.2: Histograms of heart rates and body temperatures
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:fig-ch3-mut"></span>
-<img src="QuantLife_files/figure-html/fig-ch3-mut-1.png" alt="Histograms of paternal ages and the number of new mutations from 73 families; data from citep{kong_rate_2012}" width="50%" /><img src="QuantLife_files/figure-html/fig-ch3-mut-2.png" alt="Histograms of paternal ages and the number of new mutations from 73 families; data from citep{kong_rate_2012}" width="50%" />
-<p class="caption">
-Figure 3.3: Histograms of paternal ages and the number of new mutations from 73 families; data from citep{kong_rate_2012}
-</p>
-</div>
-</div>
-</div>
-<div id="working-with-data-in-r" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Working with data in R</h2>
-<p></p>
-<div id="reading-in-data-into-data-frames" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> reading in data into data frames</h3>
-<p>One way to input data into R is to read in a text file, where several variables are stored in columns. For instance, the file <code>HR_temp.txt</code> contains three variables: body temperature (in Fahrenheit), sex (1 for male, 2 for female), and heart rate (in beats per minute). The values for the variables are arranged in columns, while first row of the file contains the names of the variables (Temp, Sex, and HR, respectively). Note that the data file has to be saved into the same folder as the .Rmd file week1.Rmd for this to work.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="describing-data-sets.html#cb113-1" aria-hidden="true"></a>vitals &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;data/HR_temp.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb113-2"><a href="describing-data-sets.html#cb113-2" aria-hidden="true"></a><span class="kw">plot</span>(vitals<span class="op">$</span>HR, vitals<span class="op">$</span>Temp, <span class="dt">main =</span> <span class="st">&quot;Body temp as function of heart rate&quot;</span>, </span>
-<span id="cb113-3"><a href="describing-data-sets.html#cb113-3" aria-hidden="true"></a>    <span class="dt">xlab =</span> <span class="st">&quot;heart rate (bpm)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;body temperature (F)&quot;</span>)</span>
-<span id="cb113-4"><a href="describing-data-sets.html#cb113-4" aria-hidden="true"></a>mTemp &lt;-<span class="st"> </span><span class="kw">mean</span>(vitals<span class="op">$</span>Temp)</span>
-<span id="cb113-5"><a href="describing-data-sets.html#cb113-5" aria-hidden="true"></a>sdTemp &lt;-<span class="st"> </span><span class="kw">sd</span>(vitals<span class="op">$</span>Temp)</span>
-<span id="cb113-6"><a href="describing-data-sets.html#cb113-6" aria-hidden="true"></a><span class="kw">abline</span>(mTemp, <span class="dv">0</span>)</span></code></pre></div>
-<p><img src="QuantLife_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="describing-data-sets.html#cb114-1" aria-hidden="true"></a><span class="kw">mean</span>(vitals<span class="op">$</span>HR)</span></code></pre></div>
-<pre><code>## [1] 73.76154</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="describing-data-sets.html#cb116-1" aria-hidden="true"></a><span class="kw">sd</span>(vitals<span class="op">$</span>HR)</span></code></pre></div>
-<pre><code>## [1] 7.062077</code></pre>
-<p>The R command read.table() reads this file and and puts it into a <em>data frame</em> called data. The three variables are stored inside the data frame, and can be accessed by appending the dollar sign and variable name to the data frame, so <code>data$HR</code> refers to only the heart rates, and <code>data$Temp</code> refers to the body temperatures. The plot shows the relationship of the two data variables, and the function <code>abline(98.6,0)</code> plots a line with the intercept 98.6a and slope 0 on top of the scatterplot.</p>
-<p>You can also load data from a package, e.g. <code>HistData</code>, which contains many classic data sets. Got to the Packages tab in the lower right window in R Studio, click Install and type <code>HistData</code>. We will use the data set called <code>Galton</code> that contains the heights of parents (the mean of mother’s and father’s) and their children, in variables parent and child. The script below plots the two variables, with parent as the independent (explanatory) variable and child as the dependent (response) variable.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="describing-data-sets.html#cb118-1" aria-hidden="true"></a><span class="kw">library</span>(HistData)</span>
-<span id="cb118-2"><a href="describing-data-sets.html#cb118-2" aria-hidden="true"></a><span class="kw">plot</span>(Galton<span class="op">$</span>parent, Galton<span class="op">$</span>child, <span class="dt">main =</span> <span class="st">&quot;Height of child vs average height of parents&quot;</span>, </span>
-<span id="cb118-3"><a href="describing-data-sets.html#cb118-3" aria-hidden="true"></a>    <span class="dt">xlab =</span> <span class="st">&quot;parent height (inches)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;child height (inches)&quot;</span>)</span></code></pre></div>
-<p><img src="QuantLife_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="describing-data-sets.html#cb119-1" aria-hidden="true"></a><span class="kw">summary</span>(Galton<span class="op">$</span>parent)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   64.00   67.50   68.50   68.31   69.50   73.00</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="describing-data-sets.html#cb121-1" aria-hidden="true"></a><span class="kw">summary</span>(Galton<span class="op">$</span>child)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   61.70   66.20   68.20   68.09   70.20   73.70</code></pre>
-</div>
-<div id="descriptive-statistics" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> descriptive statistics</h3>
-<p>One can also calculate basic descriptive statistics as follows:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="describing-data-sets.html#cb123-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;The mean parental height is:&quot;</span>, <span class="kw">mean</span>(Galton<span class="op">$</span>parent))</span></code></pre></div>
-<pre><code>## [1] &quot;The mean parental height is: 68.3081896551724&quot;</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="describing-data-sets.html#cb125-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;The mean child height is:&quot;</span>, <span class="kw">mean</span>(Galton<span class="op">$</span>child))</span></code></pre></div>
-<pre><code>## [1] &quot;The mean child height is: 68.0884698275862&quot;</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="describing-data-sets.html#cb127-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;The standard deviation of parental height is:&quot;</span>, <span class="kw">sd</span>(Galton<span class="op">$</span>parent))</span></code></pre></div>
-<pre><code>## [1] &quot;The standard deviation of parental height is: 1.78733340172202&quot;</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="describing-data-sets.html#cb129-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;The standard deviation of  child height is:&quot;</span>, <span class="kw">sd</span>(Galton<span class="op">$</span>child))</span></code></pre></div>
-<pre><code>## [1] &quot;The standard deviation of  child height is: 2.51794136627677&quot;</code></pre>
-<p>Why do you think the standard deviation of parental height is much smaller?</p>
-<p>R has histogram function <code>hist()</code>, which does a passable job of representing the distribution of a variable such as child height or parent height. Compare the width of the two distributions and consider why they are different.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="describing-data-sets.html#cb131-1" aria-hidden="true"></a><span class="kw">hist</span>(Galton<span class="op">$</span>child)</span>
-<span id="cb131-2"><a href="describing-data-sets.html#cb131-2" aria-hidden="true"></a><span class="kw">hist</span>(Galton<span class="op">$</span>parent)</span></code></pre></div>
-<p><img src="QuantLife_files/figure-html/unnamed-chunk-61-1.png" width="50%" style="display: block; margin: auto;" /><img src="QuantLife_files/figure-html/unnamed-chunk-61-2.png" width="50%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="exercises-9" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Exercises:</h3>
-<p>The following code chunks contain errors. Find and fix them so they work as intended.</p>
-<ol style="list-style-type: decimal">
-<li>Calculate the mean and standard deviation of the heart rates of the first 30 individuals in the data frame vitals:</li>
-</ol>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="describing-data-sets.html#cb132-1" aria-hidden="true"></a><span class="kw">mean</span>(vitals<span class="op">$</span>HR[<span class="dv">30</span>])</span></code></pre></div>
-<pre><code>## [1] 64</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="describing-data-sets.html#cb134-1" aria-hidden="true"></a><span class="kw">sd</span>(vitals<span class="op">$</span>HR[<span class="dv">30</span>])</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Calculate the mean and standard deviation of the ratio of heart rates to body temperatures for the data set vitals:</li>
-</ol>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="describing-data-sets.html#cb136-1" aria-hidden="true"></a><span class="kw">mean</span>(vitals<span class="op">$</span>HR<span class="op">/</span>Temp)</span>
-<span id="cb136-2"><a href="describing-data-sets.html#cb136-2" aria-hidden="true"></a><span class="kw">sd</span>(vitals<span class="op">$</span>HR<span class="op">/</span>Temp)</span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li>Plot a scatterplot of the child heights as the response variable and the parent heights and the explanatory variable, and overlay the line y=x on top.</li>
-</ol>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="describing-data-sets.html#cb137-1" aria-hidden="true"></a><span class="kw">plot</span>(parent, child, <span class="dt">main =</span> <span class="st">&#39;Height of child vs average height of parents&#39;</span>, <span class="dt">xlab=</span> <span class="st">&#39;child height (inches)&#39;</span>, <span class="dt">ylab=</span> <span class="st">&#39;parent height (inches)&#39;</span>)</span>
-<span id="cb137-2"><a href="describing-data-sets.html#cb137-2" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span></code></pre></div>
+<p>Dating apps allow us to look a person’s profile (or picture) and decide whether we’d like to date them (swipe right) or not (swipe left). Let us treat this like a hypothesis test, with the null hypothesis being that you don’t want to date them. Then the swipe right decision is a positive result (rejecting the null) and the swipe left decision is a negative result (not rejecting the null).</p>
+<p>Suppose you think you’re pretty good at deciding who you want to date, and you think that your sensitivity is 80% and your specificity is 66%.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Calculate the median of both parent and child heights:</li>
+<li><p>If you go through the profiles of 200 people in a population where you expect 25% of the population to be dateable, how many times can you expect to swipe right? Hint: multiply the probability by the number of people to find out the expected number of swipes.</p></li>
+<li><p>If instead the population had only 5% dateable individuals, how many times can you expect to swipe right?</p></li>
+<li><p>Suppose you swipe right on a person from the 25% dateable population and go on a date. What’s the probability that it’s a good one (this is a person you actually want to date)?</p></li>
+<li><p>Suppose you swipe right on a person from the 5% dateable population and go on a date. What’s the probability that it’s a good one (this is a person you actually want to date)?</p></li>
 </ol>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="describing-data-sets.html#cb138-1" aria-hidden="true"></a><span class="kw">median</span>(Galton)</span></code></pre></div>
-<ol start="5" style="list-style-type: decimal">
-<li>Plot the histogram of parent heights of the first half of the group:</li>
-</ol>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="describing-data-sets.html#cb139-1" aria-hidden="true"></a><span class="kw">hist</span>(Galton<span class="op">$</span>parent<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
-<ol start="6" style="list-style-type: decimal">
-<li>Plot the histogram for the ratio of parent and child heights for the entire data set and calculate its mean and variance:</li>
-</ol>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="describing-data-sets.html#cb140-1" aria-hidden="true"></a><span class="kw">hist</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span>
-<span id="cb140-2"><a href="describing-data-sets.html#cb140-2" aria-hidden="true"></a><span class="kw">mean</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span>
-<span id="cb140-3"><a href="describing-data-sets.html#cb140-3" aria-hidden="true"></a><span class="kw">sd</span>(Galton<span class="op">$</span>parent<span class="op">/</span>child)</span></code></pre></div>
 </div>
 </div>
-<div id="r-assignment-2" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> R Assignment</h2>
-<p>In this section you will read in three different data files and assign each data frame a descriptive name, e.g. Alcohol, and then plot and fit relationship between the variables within each data frame. Your task will be to choose the parameters slope and intercept that produce a plot that does a decent job of resembling the data, meaning that the line should pass through the scatterplot and capture its trend (rising or falling) fairly well.</p>
+<div id="applications-of-bayesian-thinking" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Applications of Bayesian thinking</h2>
+<p></p>
+<p>The essence of the Bayesian approach to statistics is that everything comes with a prior probability, or odds, as Bayesians like to express it. There is usually some prior knowledge one has to assess the odds that a hypothesis is true before doing an experiment, which is called the prior. If you don’t explicitly assume the prior, then you’ve assumed it implicitly. For example, the naive answer for the positive predictive value that ignores the prior prevalence for a test with 99% specificity and sensitivity is that it is also 99%. This assumes that the patient has equal prior probability of disease and health, as you can verify using Bayes’ formula. Even in the absence of any data for a particular population, this is an unlikely assumption for most diseases. So the Bayesian advice is: assign odds to everything to the best of your knowledge so you don’t get played for a sucker. An excellent summary of the misuses of p-value and the Bayesian approach to interpretation of medical data, see .</p>
+<div id="when-too-much-testing-is-bad" class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> when too much testing is bad</h3>
+<p>For many decades, doctors recommended early cancer screening in a major public health effort to help reduce the mortality rate from cancer. This makes sense because the prognosis is generally much better for cancer when it is detected early, since the tumor is small and has not yet metastasized. This approach has taken hold in the public imagination in the US, and given us pink-ribbon campaigns aimed at breast cancer awareness and celebrities advising everyone to get tested early and often.</p>
+<p>More recently, large-scale studies have shown that that preventative screenings do not necessarily improve the survival rate of cancer patients. One study from Canada  assigned almost 90,000 women randomly into two equal-size groups, by a randomization process illustrated in figure . One of the groups received yearly mammography screenings for 5 years and one did not. The women were between the ages of 40 and 59, and then study then tracked the participants for 25 years to see whether there was a difference in cancer mortality rates between the two groups.</p>
+<div class="figure">
+<img src="ch7/mammography_screening.png" alt="" />
+<p class="caption">The study design for the large randomized screening trial of effectiveness of mammography screening; figure from  used by permission</p>
+</div>
+<p>The results may be surprising: the mortality rates were very similar, and in fact, slightly more women died of breast cancer in the mammography group than in the control group (180 vs 171). At the same time, more cases of invasive breast cancers were diagnosed in the mammography group, which may mean either that early treatment did not make a difference or that many of those cases were false positives.</p>
+<p>This may seem counterintuitive: isn’t more information, however imperfect, better? Viewed from a Bayesian perspective, the results should be less than surprising. Since the prior probability of developing breast cancer in any given year is small, the positive predictive value of the test is likely low, and most of the positive results end up being false positives. A false positive result for breast cancer has a major negative impact on a person’s life: it means more invasive testing, a lot of worrying, and sometimes unnecessary treatment with serious side effects. This does not mean, of course, that cancer screening is never useful, and I am not trying to offer medical advice. For patient populations with a higher prior probability such screening tests may in fact provide a substantial benefit. But this once again underscores the importance of taking into account prior knowledge.</p>
+<div class="figure">
+<img src="ch7/m_jpg140030fa.png" alt="" />
+<p class="caption">Illustration of the different results of mammography screening on 10000 women</p>
+</div>
+</div>
+<div id="reliability-of-scientific-studies" class="section level3" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> reliability of scientific studies</h3>
+<p>In 2005 John Ioannidis published a paper entitled “Why most published research findings are wrong” . The paper, as you can see by its title, was intended to be provocative, but it is based solidly on the classic formula of Bayes. The motivation for the paper came from the observation that too often in modern science, big, splashy studies that were published could not be reproduced or verified by other researchers. What could be behind this epidemic of questionable scientific work?</p>
+<div class="figure">
+<img src="ch7/ioannidis_bayes.png" alt="" />
+<p class="caption">The dependence of post-study probability (positive predictive value) on the pre-study odds, for different power of the study, and with different levels of bias; (figure from )</p>
+</div>
+<p>The problem as described by Ioannidis and many others, in a nutshell, is that unthinking use of traditional hypothesis testing leads to a high probability of false positive results being published. The paper outlines several ways in which this can occur.</p>
+<p>First, there is the problem of prior knowledge. Too often, a hypothesis is tested and if the resultant p-value is less than some arbitrary threshold (very often 0.05, an absurdly high number), then the results are published. However, if one is testing a hypothesis with low prior probability, a positive hypothesis test result is very likely a false positive. Very often, modern biomedical research involves digging through a large amount of information, like an entire human genome, in search for associations between different genes and a phenotype, like a disease. It is <em>a priori</em> unlikely that any specific gene is linked to a given phenotype, because most genes have very specific functions, and are expressed quite selectively, only at specific times or in specific types of cells. However, publishing such studies results in splashy headlines (’’Scientists find a gene linked to autism!") and so a lot of false positive results are reported, only to be refuted later, in much less publicized studies.</p>
+<p>The second problem compounds the first one: multiple research groups studying the same phenomenon. This should be a good thing, but it can lead to a higher volume of false positive results. Suppose that 20 groups are all testing the same hypothesis, and are using the same p-value cutoff of 0.05 to decide whether their results is “significant”. Even if their null hypothesis is true, and there is no effect, 1 out 20 groups is likely to obtain a p-value less than 0.05, simply by random variation. What do you think that group will do? Yes, they should compare its results with the other groups, or try to repeat the experiment multiple times. But repeating experiments is costly and boring, and telling your competitors about your results can lead to your getting scooped. Better publish fast!</p>
+<p>The third problem is even more insidious: bias in the experimental work, either conscious or non. Some of it may be due to experimental design, like biased sampling, or defective instrumentation - no experiment is perfect. One big violation of good experimental design is known as p-value fishing: repeating the experiment, or increasing the sample size, until the p-value is below the desired threshold, and then stopping the experiment. Using such defective design dramatically lowers the likelihood that the result is a true positive. And of course there is actual fraud, or fudging of data, which contributes to some bogus results.</p>
+<p>Ioannidis performed basic calculations of the probability that a published study is true (that is, that a positive reported result is a true positive), and how it is affected by pre-study (prior) probability, number of conducted studies on the same hypothesis, and the level of bias. His prediction is that for fairly typical scenario (e.g. pre-study probability of 10%, ten groups working simultaneously, and a reasonable amount of bias) the probability that a published result is correct is less than 50%. This effect is shown in figure , taken from his paper. He then followed up with another paper  that investigated 49 top-cited medical research publications over a decade, and looked at whether follow-up studies could replicate the results, and found that a very significant fraction of their findings could not be replicated by subsequent investigations.</p>
+<p>This might leave you with a rather bleak view of scientific research. Indeed, many in the community have been sounding the alarm about the lack of replicability of published results, and have proposed some basic remedies. Perhaps the most important is the issue that only positive results are deemed worthy of publication. If all of the 20 groups in the scenario above published their results, 19 would report no effect, and 1 would report an effect, and the picture would be clear. There are some journals (e.g. PLOS One) which accept any methodologically sound submission, regardless of whether the result is positive or negative. Another remedy is to provide funding for research labs to repeat other groups’ studies to test them. These steps are being implemented, and hopefully will eventually lead to an improvement in the reliability of published data. Even more importantly, educating scientists about basic probability ideas, such as Bayes’ formula and the notion of prior knowledge, should improve the quality of inference and decrease the amount of questionable science.</p>
+</div>
+<div id="discussion-questions-3" class="section level3" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> discussion questions</h3>
+<p>The following questions refer to the paper “Why most published research findings are wrong” .</p>
 <ol style="list-style-type: decimal">
-<li>Read in the mutations data set found in the file <code>kong_mutation_data.txt</code>, using the option <code>header=TRUE</code>. It contains three variables: <code>PatAge</code> (paternal age in years), <code>MatAge</code> (maternal age in years), and <code>Mutations</code> (number of de novo mutations).</li>
+<li><p>What are some of the examples of studies with low prior odds that Ioannidis uses as examples?</p></li>
+<li><p>Due to human imperfection, there will always be some bias in conducting and reporting scientific results. What do you expect to be the typical level of bias (u in the paper)?</p></li>
+<li><p>What does Ioannidis propose to remedy the problem of lack of reproducibility of studies? Will you take them into account when reading scientific publications or doing your own research?</p></li>
 </ol>
-<ol style="list-style-type: lower-alpha">
-<li><p>Print the mean and standard deviation of each variable, and generate histograms of all three variables.</p></li>
-<li><p>Plot <code>Mutations</code> as a function <code>PatAge</code> using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for <code>Mutation</code>, and use <code>lines()</code> to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the <code>sum()</code> function) of squared differences between the vector <code>Mutation</code> and the vector of predicted values and print it out.</p></li>
-</ol>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="describing-data-sets.html#cb141-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Make a plot of <code>Mutations</code> vs <code>MatAge</code> using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for <code>Mutation</code>, and use <code>lines()</code> to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the <code>sum()</code> function) of squared differences between the vector <code>Mutation</code> and the vector of predicted values and print it out.</li>
-</ol>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="describing-data-sets.html#cb142-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Read in the data set of heart rates before and after exercis found in the file <code>HR_class.txt</code> with the option <code>header=TRUE</code>. It contains variables <code>Rest1</code> (heart rate at rest in bpm), <code>Rest2</code> (heart rate at rest in bpm), <code>Ex1</code> (heart rate after exercise in bpm), <code>Ex2</code> (heart rate after exercise in bpm).</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>Print the mean and standard deviation of each variable, and generate histograms of all four variables.</li>
-</ol>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="describing-data-sets.html#cb143-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Plot <code>Ex1</code> as a function of <code>Rest1</code> using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for <code>Ex1</code>, and use <code>lines()</code> to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the <code>sum()</code> function) of squared differences between the vector <code>Ex1</code> and the vector of predicted values and print it out.</li>
-</ol>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="describing-data-sets.html#cb144-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Plot <code>Rest2</code> as a function of <code>Rest1</code> using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for <code>Rest2</code>, and use <code>lines()</code> to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the <code>sum()</code> function) of squared differences between the vector <code>Rest2</code> and the vector of predicted values and print it out.</li>
-</ol>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="describing-data-sets.html#cb145-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li>Read in the data for the concentration of alcohol in blood plasma after administration of alcohol in the file <code>Alcohol_data.txt</code> with the option <code>header=TRUE</code>. It contains variables <code>Conc</code> (blood alcohol concentration in micrograms/mL) and the variable <code>Time</code> (in hours after consumption).</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>Plot <code>Conc</code> as a function of <code>Time</code> using circles (the default type). Assign values to slope and intercept variables, calculate a vector of predicted values for <code>Conc</code>, and use <code>lines()</code> to add a plot of the predicted values to the data plot. Try different values of the slope and intercept until you find ones that fit the data reasonably well. Calculate the sum (use the <code>sum()</code> function) of squared differences between the vector <code>Conc</code> and the vector of predicted values and print it out.</li>
-</ol>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="describing-data-sets.html#cb146-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>The variable <code>Conc</code> rises and falls, so it would be better to fit it using two separate linear functions. Assign two different variables for slopes and two different for intercepts of two linear functions, and calculate two vectors of predicted values, by splitting up the vector <code>Time</code> into the rising and falling subsets. Reminder: use a range of indices (e.g. 1:5) to create a subset of consecutive elements of a vector. Overlay a plot of two linear functions over the data plot, one to match the rise and the second the decay (they should intercept roughly at the peak of the concentration.) Calculate the sums of squared differences between the two subsets of vector <code>Conc</code> and the two vectors of predicted values and print the sum of the two sums.</li>
-</ol>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="describing-data-sets.html#cb147-1" aria-hidden="true"></a><span class="co"># THIS IS A COMMENT. YOUR CODE GOES HERE </span></span></code></pre></div>
-<p>YOUR ANSWERS GO HERE</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -698,8 +586,8 @@ Figure 3.3: Histograms of paternal ages and the number of new mutations from 73 
           </div>
         </div>
       </div>
-<a href="functions-and-their-graphs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
