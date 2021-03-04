@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2021-02-25" />
+<meta name="date" content="2021-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -406,6 +406,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.3.3</b> discussion questions</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models</a></li>
+<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices</a></li>
+<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states</a></li>
+<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors</a></li>
+<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
 
@@ -527,8 +558,12 @@ No relationship to anything.<br />
 </div>
 <p>Independence is not a straightforward concept. It may be confused with mutual exclusivity, as one might surmise that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no overlap, then they are independent. That however, is false by definition, since <span class="math inline">\(P(A|B)\)</span> is 0 for two mutually exclusive events. The confusion stems from thinking that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are non-overlapping, then they do not influence each other. But the notion of influence in this definition is about information; so of course if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, the knowledge that one of them occurs has an influence of the probability of the other one occurring.</p>
 <p>A useful way to think about independence is in terms of fractions of outcomes. The probability of <span class="math inline">\(A\)</span> is the fraction of outcomes out of the entire sample space which is in <span class="math inline">\(A\)</span>, while the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is the fraction of outcomes in <span class="math inline">\(B\)</span> which are also in <span class="math inline">\(A\)</span>. The definition of independence equates the two fractions, therefore, if <span class="math inline">\(A\)</span> occupies 1/2 of sample space, in order for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> to be independent, events in <span class="math inline">\(A\)</span> must constitute 1/2 of the event <span class="math inline">\(B\)</span>. In the illustration in figure , the fraction of tall people is 0.5 of the sample space, but the fraction of tea-drinkers who are tall is <span class="math inline">\(0.1/0.3=1/3\)</span>. Since the two fractions are different, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not independent.</p>
-<p><img src="ch6/indep_ex1.png" alt="Three examples of two events inside a sample space with different probabilities: mutually exclusive, partially overlapping, and completely overlapping" />
-(ch6/indep_ex2.png)(ch6/indep_ex3.png)</p>
+<p><img src="ch6/indep_ex1.png" alt="Example of two events inside a sample space that are mutually exclusive" />
+<img src="ch6/indep_ex2.png" alt="Example of two events inside a sample space that are partially overlapping" /></p>
+<div class="figure">
+<img src="ch6/indep_ex3.png" alt="" />
+<p class="caption">Illustration of two events inside a sample space where one is entirely contained in the other</p>
+</div>
 <div id="exercises-24" class="section level3" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Exercises</h3>
 <p>Consider three examples of events and their intersections in figure .</p>
