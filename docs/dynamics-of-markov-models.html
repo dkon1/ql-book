@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>16 Dynamics of Markov models | Quantifying Life</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="16 Dynamics of Markov models | Quantifying Life" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="16 Dynamics of Markov models | Quantifying Life" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dmitry Kondrashov" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="stationary-distributions-of-markov-chains.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Quantifying Life (Web version) </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-assignment"><i class="fa fa-check"></i><b>1.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#r-assignment-1"><i class="fa fa-check"></i><b>2.5</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
+<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
+<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
+<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
+<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#r-assignment-2"><i class="fa fa-check"></i><b>3.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
+<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
+<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
+<li class="chapter" data-level="4.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-10"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-11"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="linear-regression.html"><a href="linear-regression.html#r-assignment-3"><i class="fa fa-check"></i><b>4.5</b> R Assignment</a></li>
+</ul></li>
+<li class="part"><span><b>II Things that change over time</b></span></li>
+<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
+<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
+<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
+<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
+<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>5.2.1</b> simple linear models</a></li>
+<li class="chapter" data-level="5.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>5.2.2</b> models with a constant term</a></li>
+<li class="chapter" data-level="5.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>5.2.3</b> population growth and decline</a></li>
+<li class="chapter" data-level="5.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-12"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>5.3</b> Numerical solutions in R</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>5.3.1</b> for loops</a></li>
+<li class="chapter" data-level="5.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>5.3.2</b> using vectors with loops</a></li>
+<li class="chapter" data-level="5.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-13"><i class="fa fa-check"></i><b>5.3.3</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#r-assignment-4"><i class="fa fa-check"></i><b>5.4</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>6</b> Linear ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>6.1</b> Building differential equations</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>6.1.1</b> from discrete time to continuous</a></li>
+<li class="chapter" data-level="6.1.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-14"><i class="fa fa-check"></i><b>6.1.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.1.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>6.1.3</b> growth proportional to population size</a></li>
+<li class="chapter" data-level="6.1.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>6.1.4</b> chemical kinetics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations"><i class="fa fa-check"></i><b>6.2</b> Solutions of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>6.2.1</b> separate and integrate method</a></li>
+<li class="chapter" data-level="6.2.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>6.2.2</b> behavior of solutions of linear ODEs</a></li>
+<li class="chapter" data-level="6.2.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>6.2.3</b> solutions of nonhomogeneous ODEs</a></li>
+<li class="chapter" data-level="6.2.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-15"><i class="fa fa-check"></i><b>6.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>6.3</b> Numeric solutions and the Forward Euler method</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-16"><i class="fa fa-check"></i><b>6.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>6.4</b> Forward Euler method in R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>6.4.1</b> implementation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-17"><i class="fa fa-check"></i><b>6.4.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>6.4.3</b> error analysis</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#exercises-18"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>6.5</b> Applications of linear ODE models</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>6.5.1</b> model of pharmacokinetics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#discussion-questions-2"><i class="fa fa-check"></i><b>6.5.2</b> Discussion questions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linear-ordinary-differential-equations.html"><a href="linear-ordinary-differential-equations.html#r-assignment-5"><i class="fa fa-check"></i><b>6.6</b> R Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>7</b> Graphical analysis of ordinary differential equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>7.1</b> Building nonlinear ODEs</a></li>
+<li class="chapter" data-level="7.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>7.2</b> Qualitative analysis of ODEs</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>7.2.1</b> graphical analysis of the defining function</a></li>
+<li class="chapter" data-level="7.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>7.2.2</b> fixed points and stability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>7.2.3</b> Outline of qualitative analysis of an ODE</a></li>
+<li class="chapter" data-level="7.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-19"><i class="fa fa-check"></i><b>7.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>7.3</b> Functions in R</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>7.3.1</b> defining a function</a></li>
+<li class="chapter" data-level="7.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>7.3.2</b> calling a function</a></li>
+<li class="chapter" data-level="7.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>7.3.3</b> using a function to solve a difference equation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a></li>
+<li class="chapter" data-level="7.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#r-assignment-6"><i class="fa fa-check"></i><b>7.5</b> R Assignment</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#logistic-population-model"><i class="fa fa-check"></i><b>7.5.1</b> logistic population model</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#sis-model-of-infectious-disease"><i class="fa fa-check"></i><b>7.5.2</b> SIS model of infectious disease</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Randomness in observations</b></span></li>
+<li class="chapter" data-level="8" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>8</b> Random variables and distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>8.1</b> Random variables and distributions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>8.1.1</b> definition of probability</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>8.1.2</b> axioms of probability</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>8.1.3</b> random variables</a></li>
+<li class="chapter" data-level="8.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>8.1.4</b> expectation of random variables</a></li>
+<li class="chapter" data-level="8.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>8.1.5</b> variance of random variables</a></li>
+<li class="chapter" data-level="8.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-21"><i class="fa fa-check"></i><b>8.1.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>8.2</b> Examples of distributions</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>8.2.1</b> uniform distribution</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>8.2.2</b> binomial distribution</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-22"><i class="fa fa-check"></i><b>8.2.3</b> Exercises</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>8.2.4</b> testing for mutants</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>8.3</b> Random number generators in R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean</a></li>
+<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution</a></li>
+<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals</a></li>
+<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="independence.html"><a href="independence.html"><i class="fa fa-check"></i><b>10</b> Independence</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="independence.html"><a href="independence.html#contingency-tables-to-summarize-data"><i class="fa fa-check"></i><b>10.1</b> Contingency tables to summarize data</a></li>
+<li class="chapter" data-level="10.2" data-path="independence.html"><a href="independence.html#conditional-probability"><i class="fa fa-check"></i><b>10.2</b> Conditional probability</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="independence.html"><a href="independence.html#exercises-23"><i class="fa fa-check"></i><b>10.2.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="independence.html"><a href="independence.html#independence-of-events"><i class="fa fa-check"></i><b>10.3</b> Independence of events</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="independence.html"><a href="independence.html#exercises-24"><i class="fa fa-check"></i><b>10.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="10.3.2" data-path="independence.html"><a href="independence.html#product-rule"><i class="fa fa-check"></i><b>10.3.2</b> product rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="independence.html"><a href="independence.html#independence-of-variables"><i class="fa fa-check"></i><b>10.4</b> Independence of variables</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#terminology-and-quality-measures"><i class="fa fa-check"></i><b>11.1</b> Terminology and quality measures</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#positives-and-negatives"><i class="fa fa-check"></i><b>11.1.1</b> positives and negatives</a></li>
+<li class="chapter" data-level="11.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#types-of-errors"><i class="fa fa-check"></i><b>11.1.2</b> types of errors</a></li>
+<li class="chapter" data-level="11.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#test-quality-measures"><i class="fa fa-check"></i><b>11.1.3</b> test quality measures</a></li>
+<li class="chapter" data-level="11.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#exercises-25"><i class="fa fa-check"></i><b>11.1.4</b> Exercises</a></li>
+<li class="chapter" data-level="11.1.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rejecting-the-null-hypothesis"><i class="fa fa-check"></i><b>11.1.5</b> rejecting the null hypothesis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi-squared test</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#hypothesis-testing-in-r"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing in R</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#example-with-data"><i class="fa fa-check"></i><b>11.3.1</b> example with data</a></li>
+<li class="chapter" data-level="11.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#stop-and-frisk-and-race"><i class="fa fa-check"></i><b>11.3.2</b> stop-and-frisk and race</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html"><i class="fa fa-check"></i><b>12</b> Prior knowledge and Bayesian thinking</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#prior-knowledge"><i class="fa fa-check"></i><b>12.1</b> Prior knowledge</a></li>
+<li class="chapter" data-level="12.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#bayes-formula"><i class="fa fa-check"></i><b>12.2</b> Bayes’ formula</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#positive-and-negative-predictive-values"><i class="fa fa-check"></i><b>12.2.1</b> positive and negative predictive values</a></li>
+<li class="chapter" data-level="12.2.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#exercises-26"><i class="fa fa-check"></i><b>12.2.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#applications-of-bayesian-thinking"><i class="fa fa-check"></i><b>12.3</b> Applications of Bayesian thinking</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#when-too-much-testing-is-bad"><i class="fa fa-check"></i><b>12.3.1</b> when too much testing is bad</a></li>
+<li class="chapter" data-level="12.3.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#reliability-of-scientific-studies"><i class="fa fa-check"></i><b>12.3.2</b> reliability of scientific studies</a></li>
+<li class="chapter" data-level="12.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.3.3</b> discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models</a></li>
+<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices</a></li>
+<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states</a></li>
+<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors</a></li>
+<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>15</b> Stationary distributions of Markov chains</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#history-of-markov-chains"><i class="fa fa-check"></i><b>15.1</b> History of Markov chains</a></li>
+<li class="chapter" data-level="15.2" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i><b>15.2</b> Stationary distributions</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#exercises-30"><i class="fa fa-check"></i><b>15.2.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#bioinformatics-and-markov-models"><i class="fa fa-check"></i><b>15.3</b> Bioinformatics and Markov models</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html"><i class="fa fa-check"></i><b>16</b> Dynamics of Markov models</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-trees"><i class="fa fa-check"></i><b>16.1</b> Phylogenetic trees</a></li>
+<li class="chapter" data-level="16.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>16.2</b> Eigenvalues and eigenvectors</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#basic-linear-algebra"><i class="fa fa-check"></i><b>16.2.1</b> basic linear algebra</a></li>
+<li class="chapter" data-level="16.2.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvalues-on-paper"><i class="fa fa-check"></i><b>16.2.2</b> calculation of eigenvalues on paper</a></li>
+<li class="chapter" data-level="16.2.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvectors-on-paper"><i class="fa fa-check"></i><b>16.2.3</b> calculation of eigenvectors on paper</a></li>
+<li class="chapter" data-level="16.2.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#exercises-31"><i class="fa fa-check"></i><b>16.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvectors-in-r"><i class="fa fa-check"></i><b>16.3</b> Eigenvectors in R</a></li>
+<li class="chapter" data-level="16.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#molecular-evolution"><i class="fa fa-check"></i><b>16.4</b> Molecular evolution</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#time-since-divergence"><i class="fa fa-check"></i><b>16.4.1</b> time since divergence</a></li>
+<li class="chapter" data-level="16.4.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-distance"><i class="fa fa-check"></i><b>16.4.2</b> phylogenetic distance</a></li>
+<li class="chapter" data-level="16.4.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#kimura-model"><i class="fa fa-check"></i><b>16.4.3</b> Kimura model</a></li>
+<li class="chapter" data-level="16.4.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#divergence-of-human-and-chimp-genomes"><i class="fa fa-check"></i><b>16.4.4</b> divergence of human and chimp genomes</a></li>
+<li class="chapter" data-level="16.4.5" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#discussion-questions-6"><i class="fa fa-check"></i><b>16.4.5</b> Discussion questions</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://dkon1.github.io/ql-book/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantifying Life</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dynamics-of-markov-models" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Dynamics of Markov models</h1>
+<blockquote>
+<p>No hour is ever eternity, but it has its right to weep.<br />
+– Zora Neale Hurston, <em>Their Eyes Were Watching God</em></p>
+</blockquote>
+<p>We have learned several approaches for analyzing the behavior of Markov models. We know that many Markov models converge to a single stationary distribution over time. For many biological questions, however, the stationary distribution itself is not very interesting, but what matters is how fast the probability distribution converges. In this chapter we will encounter more advanced tools for analyzing matrices which will enable us to answer that question. This approach will be illustrated in application to determination of evolutionary distance based on sequence data. In this chapter you will learn to do the following:</p>
+<ul>
+<li>meaning of eigenvalues and eigenvectors</li>
+<li>calculate eigenvalues and eigenvectors of 2 by 2 matrices</li>
+<li>mixing times of Markov chains</li>
+<li>calculate the phylogenetic distance between two DNA sequences</li>
+</ul>
+<div id="phylogenetic-trees" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Phylogenetic trees</h2>
+<p>Over many generations, genomes of living creatures accumulate random mutations, as we previously discussed in chapters 3 and 6. Each individual genome in a population has its own polymorphisms, and thus some are more advantageous for survival in a particular environment than others. The process of natural selection is stochastic, and the notion of “survival of the fittest” is not a guarantee that the best-adapted always out-compete the rest - sometimes a more fit individual has a bad day and can’t find any food or gets eaten by a predator. However, over time the allele that are advantageous have a better chance of survival and become more common in the population, while other alleles become rare or vanish . This process never stops, because the environmental conditions change, and new mutations arise, so at any point in time the individual genomes in a species have some variations, although the vast majority of their genomes are identical.</p>
+<div class="figure">
+<img src="ch13/Phylogenetic_tree.png" alt="" />
+<p class="caption">Phylogenetic tree for life forms on Earth (by Eric Gaba (NASA Astrobiology Institute) in public domain via Wikimedia commons)</p>
+</div>
+<p>One may describe the collection of genomes in a population or a species in terms of the most common alleles; this is roughly what we call the human genome, or the elephant genome, or the rice genome. Once we have determined a consensus genome sequence for a species, it can be used to pose and answer questions about its heritage. If the genomes of two species are more similar to each other than to a third, it is likely that the similar pair diverged more recently than the third one. This information allows one to build <em>phylogenetic trees</em> that visually illustrate the evolutionary history of a collection of species, with each fork in the tree representing the splitting of lineages. Interpreting phylogenetic tress is fairly straightforward: species or clades (a collection of species that make an evolutionary unit) that are closely related are directly connected to a common ancestor, while the path between those that are more distantly related passes through multiple forks before reaching the common ancestor. Some trees also incorporate time information as branch lengths, with longer branches indicating that more time has passes from a divergence event.</p>
+<p>Figure  shows the phylogenetic tree for the lifeforms on Earth, divided into the three major kingdoms: Bacteria, Archea, ane Eukaryota, the latter includes all multicellular lifeforms, including plants, animals, and fungi. The nodes (end points) show the major groupings of life existing today, and the branches show the order of evolutionary divergence of lineages, starting with the hypothesized root of the tree at the bottom, known as LUCA (last universal common ancestor) . The order of splitting and the grouping of the nodes was determined by molecular sequence data (in particular ribosomal RNA) that has become available in the past 20 years.</p>
+<p>In the past, biologists studied observable traits of different life forms, such as anatomy, physiology, or developmental features, and determined similarity from these data. However, the wealth of molecular sequence data has offered a great amount of evidence which is the primary material of evolution. Phylogeny, particularly that of unicellular organisms, has been revolutionized by these data; we now know that prokaryotes are divided into kingdoms of Archea and Bacteria which are evolutionarily more distant than humans are from fungi. Sequence data are quantitative and they require mathematical models to interpret them and to infer phylogenies. In the last section of this chapter we will introduce mathematical tools that connect related sequences to the evolutionary divergence from their common ancestor.</p>
+</div>
+<div id="eigenvalues-and-eigenvectors" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Eigenvalues and eigenvectors</h2>
+<div id="basic-linear-algebra" class="section level3" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> basic linear algebra</h3>
+<p>In the past two chapters we have seen matrices and learned the definition of matrix multiplication, but now we are ready to go deeper into the branch of mathematics studying matrices and their generalizations, called linear algebra. It is fundamental to both pure and applied mathematics , and its tools are used in countless applications and fields. Let us define two useful numbers that help describe the properties of a matrix:</p>
+
+<div class="definition">
+<p><span id="def:def-matrix-tr" class="definition"><strong>Definition 16.1  </strong></span>The <em>trace</em> <span class="math inline">\(\tau\)</span> of a matrix <span class="math inline">\(A\)</span> is the sum of the diagonal elements: <span class="math inline">\(\tau = \sum_i A_{ii}\)</span>.</p>
+The <em>determinant</em> <span class="math inline">\(\Delta\)</span> of a 2 by 2 matrix <span class="math inline">\(A\)</span> is given by the following: <span class="math inline">\(\Delta = ad - bc\)</span>, where
+<span class="math display">\[ A = \left(\begin{array}{cc}a &amp; b \\c &amp; d\end{array}\right) \]</span>
+</div>
+<p>For larger matrices, the determinant is defined recursively in terms of 2 by 2 submatrices of the larger matrix, but we will not give the full definition here.</p>
+<p>In this section we will learn to characterize square matrices by finding special numbers and vectors associated with them. At the core of this analysis lies the concept of a matrix as an operator that transforms vectors by multiplication. To be clear, in this section we take as default that the matrices <span class="math inline">\(A\)</span> are square, and that vectors <span class="math inline">\(\vec v\)</span> are column vectors, and thus will multiply the matrix on the right: <span class="math inline">\(A \times \vec v\)</span>.</p>
+<p>A matrix multiplied by a vector produces another vector, provided the number of columns in the matrix is the same as the number of rows in the vector. This can be interpreted as the matrix transforming the vector <span class="math inline">\(\vec v\)</span> into another one: <span class="math inline">\(A \times \vec v = \vec u\)</span>. The resultant vector <span class="math inline">\(\vec u\)</span> may or may not resemble <span class="math inline">\(\vec v\)</span>, but there are special vectors for which the transformation is very simple.</p>
+<p>*<strong>Example.</strong> Let us multiply the following matrix and vector:
+<span class="math display">\[ 
+\left(\begin{array}{cc}2 &amp; 1 \\ 2&amp; 3\end{array}\right)\left(\begin{array}{c}1 \\ -1 \end{array}\right) = \left(\begin{array}{c}2 -1 \\ 2 - 3 \end{array}\right) =  \left(\begin{array}{c} 1 \\ -1 \end{array}\right) 
+\]</span>
+We see that this particular vector is unchanged when multiplied by this matrix, or we can say that the matrix multiplication is equivalent to multiplication by 1. Here is another such vector for the same matrix:
+<span class="math display">\[ 
+ \left(\begin{array}{cc}2 &amp; 1 \\ 2&amp; 3\end{array}\right)\left(\begin{array}{c}1 \\ 2 \end{array}\right) = \left(\begin{array}{c}2 +2 \\ 2 + 6 \end{array}\right) =  \left(\begin{array}{c} 4 \\ 8 \end{array}\right) 
+\]</span>
+In this case, the vector is changed, but only by multiplication by a constant (4). Thus the geometric direction of the vector remained unchanged.</p>
+<p>Generally, a square matrix has an associated set of vectors for which multiplication by the matrix is equivalent to multiplication by a constant. This can be written down as a definition:</p>
+
+<div class="definition">
+<span id="def:def-eigen" class="definition"><strong>Definition 16.2  </strong></span>An <em>eigenvector</em> of a square matrix <span class="math inline">\(A\)</span> is a vector <span class="math inline">\(\vec v\)</span> for which matrix multiplication by <span class="math inline">\(A\)</span> is equivalent to multiplication by a constant. This constant <span class="math inline">\(\lambda\)</span> is called the <em>eigenvalue</em> of <span class="math inline">\(A\)</span> corresponding the the eigenvector <span class="math inline">\(\vec v\)</span>. The relationship is summarized in the following equation:
+<span class="math display">\[
+A  \times  \vec v = \lambda \vec v
+\]</span>
+</div>
+<p>Note that this equation combines a matrix (<span class="math inline">\(A\)</span>), a vector (<span class="math inline">\(\vec v\)</span>) and a scalar <span class="math inline">\(\lambda\)</span>, and that both sides of the equation are column vectors. This definition is illustrated in figure , showing a vector (<span class="math inline">\(v\)</span>) multiplied by a matrix <span class="math inline">\(A\)</span>, and the resulting vector <span class="math inline">\(\lambda v\)</span>, which is in the same direction as <span class="math inline">\(v\)</span>, due to scalar multiplying all elements of a vector, thus either stretching it if <span class="math inline">\(\lambda&gt;1\)</span> or compressing it if <span class="math inline">\(\lambda &lt; 1\)</span>. This assumes that <span class="math inline">\(\lambda\)</span> is a real number, which is not always the case, but we will leave that complication aside for the purposes of this chapter.</p>
+<div class="figure">
+<img src="ch13/Eigenvalue_equation.png" alt="" />
+<p class="caption">Illustration of the geometry of a matrix <span class="math inline">\(A\)</span> multiplying its eigenvector <span class="math inline">\(v\)</span>, resulting in a vector in the same direction <span class="math inline">\(\lambda v\)</span> (figure by Lantonov under CC BY-SA 4.0 via Wikimedia Commons)</p>
+</div>
+<p>The definition does not specify how many such eigenvectors and eigenvalues can exist for a given matrix <span class="math inline">\(A\)</span>. There are usually as many such vectors <span class="math inline">\(\vec v\)</span> and corresponding numbers <span class="math inline">\(\lambda\)</span> as the number of rows or columns of the square matrix <span class="math inline">\(A\)</span>, so a 2 by 2 matrix has two eigenvectors and two eigenvalues, a 5x5 matrix has 5 of each, etc. One ironclad rule is that there cannot be more distinct eigenvalues than the matrix dimension. Some matrices possess fewer eigenvalues than the matrix dimension, those are said to have a degenerate set of eigenvalues, and at least two of the eigenvectors share the same eigenvalue.</p>
+<p>The situation with eigenvectors is trickier. There are some matrices for which any vector is an eigenvector, and others which have a limited set of eigenvectors. What is difficult about counting eigenvectors is that an eigenvector is still an eigenvector when multiplied by a constant. You can show that for any matrix, multiplication by a constant is commutative: <span class="math inline">\(cA = Ac\)</span>, where <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(c\)</span> is a constant. This leads us to the important result that if <span class="math inline">\(\vec v\)</span> is an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span>, then any scalar multiple <span class="math inline">\(c \vec v\)</span> is also an eigenvector with the same eigenvalue. The following demonstrates this algebraically:
+<span class="math display">\[ A  \times  (c \vec v) = c A  \times  \vec v = c \lambda \vec v =  \lambda (c \vec v) \]</span>
+This shows that when the vector <span class="math inline">\(c \vec v\)</span> is multiplied by the matrix <span class="math inline">\(A\)</span>, it results in its being multiplied by the same number <span class="math inline">\(\lambda\)</span>, so by definition it is an eigenvector.</p>
+<p>Therefore, an eigenvector <span class="math inline">\(\vec v\)</span> is not unique, as any constant multiple <span class="math inline">\(c \vec v\)</span> is also an eigenvector. It is more useful to think not of a single eigenvector <span class="math inline">\(\vec v\)</span>, but of a collection of vectors that can be interconverted by scalar multiplication that are all essentially the same eigenvector. Another way to represent this, if the eigenvector is real, is that an eigenvector as a <strong>direction that remains unchanged by multiplication by the matrix</strong>, such as direction of the vector <span class="math inline">\(v\)</span> in figure . As mentioned above, this is true only for real eigenvalues and eigenvectors, since complex eigenvectors cannot be used to define a direction in a real space.</p>
+<p>To summarize, eigenvalues and eigenvectors of a matrix are a set of numbers and a set of vectors (up to scalar multiple) that describe the action of the matrix as a multiplicative operator on vectors. “Well-behaved” square <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span> matrices have <span class="math inline">\(n\)</span> distinct eigenvalues and <span class="math inline">\(n\)</span> eigenvectors pointing in distinct directions. In a deep sense, the collection of eigenvectors and eigenvalues defines a matrix <span class="math inline">\(A\)</span>, which is why an older name for them is characteristic vectors and values.</p>
+</div>
+<div id="calculation-of-eigenvalues-on-paper" class="section level3" number="16.2.2">
+<h3><span class="header-section-number">16.2.2</span> calculation of eigenvalues on paper</h3>
+<p>Finding the eigenvalues and eigenvectors analytically, that is on paper, is quite laborious even for 3 by 3 or 4 by 4 matrices and for larger ones there is no analytical solution. In practice, the task is outsourced to a computer, and we will see how to do this using R in section . Nevertheless, it is useful to go through the process in 2 dimensions in order to gain an understanding of what is involved. From the definition  of eigenvalues and eigenvectors, the condition can be written in terms of the four elements of a 2 by 2 matrix:</p>
+<p><span class="math display">\[  \left(\begin{array}{cc}a &amp; b \\c &amp; d\end{array}\right)\left(\begin{array}{c}v_1 \\ v_2 \end{array}\right) = \left(\begin{array}{c}av_1 +b v_2\\ cv_1+ dv_2 \end{array}\right) = \lambda \left(\begin{array}{c}v_1 \\ v_2 \end{array}\right)  \]</span>
+This is now a system of two linear algebraic equations, which we can solve by substitution. First, let us solve for <span class="math inline">\(v_1\)</span> in the first row, to get
+<span class="math display">\[ v_1 = \frac{-bv_2}{a-\lambda}\]</span>
+Then we substitute this into the second equation and get:
+<span class="math display">\[\frac{-bcv_2}{a-\lambda} +(d-\lambda)v_2 = 0\]</span>
+Since <span class="math inline">\(v_2\)</span> multiplies both terms, and is not necessarily zero, we require that its multiplicative factor be zero. Doing a little algebra, we obtain the following, known as the <em>characteristic equation</em> of the matrix:
+<span class="math display">\[ -bc +(a-\lambda)(d-\lambda) = \lambda^2-(a+d)\lambda +ad-bc = 0\]</span>
+This equation can be simplified by using two quantities we defined at the beginning of the section: the sum of the diagonal elements called the trace <span class="math inline">\(\tau = a+d\)</span>, and the determinant <span class="math inline">\(\Delta = ad-bc\)</span>. The quadratic equation has two solutions, dependent solely on <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\Delta\)</span>:
+<span class="math display">\[
+\lambda = \frac{\tau \pm \sqrt{\tau^2-4\Delta}}{2}
+\]</span></p>
+<p>This is the general expression for a 2 by 2 matrix, showing there are two possible eigenvalues. Note that if <span class="math inline">\(\tau^2-4\Delta&gt;0\)</span>, the eigenvalues are real, if <span class="math inline">\(\tau^2-4\Delta&lt;0\)</span>, they are complex (have real and imaginary parts), and if <span class="math inline">\(\tau^2-4\Delta=0\)</span>, there is only one eigenvalue. This situation is known as degenerate, because two eigenvectors share the same eigenvalue.</p>
+<p><strong>Example.</strong> Let us take the same matrix we looked at in the previous subsection:
+<span class="math display">\[ A = \left(\begin{array}{cc}2 &amp; 1 \\ 2&amp; 3\end{array}\right)\]</span>
+The trace of this matrix is <span class="math inline">\(\tau = 2+3 =5\)</span> and the determinant is <span class="math inline">\(\Delta = 6 - 2 = 4\)</span>. Then by our formula, the eigenvalues are:
+<span class="math display">\[\lambda = \frac{5 \pm \sqrt{5^2-4 \times 4}}{2}  =  \frac{5 \pm 3}{2}  = 4, 1\]</span>
+These are the multiples we found in the example above, as expected.</p>
+</div>
+<div id="calculation-of-eigenvectors-on-paper" class="section level3" number="16.2.3">
+<h3><span class="header-section-number">16.2.3</span> calculation of eigenvectors on paper</h3>
+<p>The surprising fact is that, as we saw in the last subsection, the eigenvalues of a matrix can be found without knowing its eigenvectors! However, the converse is not true: to find the eigenvectors, one first needs to know the eigenvalues. Given an eigenvalue <span class="math inline">\(\lambda\)</span>, let us again write down the defining equation of the eigenvector for a generic 2 by 2 matrix:
+<span class="math display">\[  \left(\begin{array}{cc}a &amp; b \\c &amp; d\end{array}\right)\left(\begin{array}{c}v_1 \\ v_2 \end{array}\right) = \left(\begin{array}{c}av_1 +b v_2\\ cv_1+ dv_2 \end{array}\right) = \lambda \left(\begin{array}{c}v_1 \\ v_2 \end{array}\right)  \]</span>
+This vector equation is equivalent to two algebraic equations:
+<span class="math display">\[
+av_1 + b v_2 = \lambda v_1
+\]</span>
+<span class="math display">\[
+cv_1 + d v_2 = \lambda v_2 
+\]</span>
+Since we have already found <span class="math inline">\(\lambda\)</span> by solving the characteristic equation, this is two linear equations with two unknowns (<span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>). You may remember from advanced algebra that such equations may either have a single solution for each unknown, but sometimes they may have none, or infinitely many solutions. Since there are unknowns on both sides of the equation, we can make both equations be equal to zero:
+<span class="math display">\[
+(a-\lambda)v_1 + b v_2 = 0
+\]</span>
+<span class="math display">\[
+cv_1 + (d-\lambda ) v_2 =0
+\]</span>
+So the first equation yields the relationship $v_1 = -v_2 b/(a-) $ and the second equation is <span class="math inline">\(v_1 = -v_2(d-\lambda)/c\)</span>, which we already obtained in the last subsection. We know that these two equations must be the same, since the ratio of <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> is what defines the eigenvector. So we can use either expression to find the eigenvector.</p>
+<p><strong>Example.</strong> Let us return to the same matrix we looked at in the previous subsection:
+<span class="math display">\[ 
+A = \left(\begin{array}{cc}2 &amp; 1 \\ 2&amp; 3\end{array}\right)
+\]</span>
+The eigenvalues of the matrix are 1 and 4. Using our expression above, where the element <span class="math inline">\(a=2\)</span> and <span class="math inline">\(b=1\)</span>, let us find the eigenvector corresponding to the eigenvalue 1:
+<span class="math display">\[ 
+v_1 = - v_2 \times  1/(2-1) = - v_2
+\]</span>
+Therefore the eigenvector is characterized by the first and second elements being negatives of each other. We already saw in the example two subsections above that the vector <span class="math inline">\((1,-1)\)</span> is such as eigenvector, but it is also true of the vectors <span class="math inline">\((-1,1)\)</span>, <span class="math inline">\((-\pi, \pi)\)</span> and <span class="math inline">\((10^6, -10^6)\)</span>. This infinite collection of vectors, all along the same direction, can be described as the eigenvector (or eigendirection) corresponding to the eigenvalue 1.</p>
+<p>Repeating this procedure for <span class="math inline">\(\lambda = 4\)</span>, we obtain the linear relationship:
+<span class="math display">\[ v_1 = - v_2 \times  1/(2-4) = 0.5 v_2\]</span>
+Once again, the example vector we saw two subsections <span class="math inline">\((2,1)\)</span> is in agreement with our calculation. Other vectors that satisfy this relationship include <span class="math inline">\((10,5)\)</span>, <span class="math inline">\((-20,-10)\)</span>, and <span class="math inline">\((-0.4,-0.2)\)</span>. This is again a collection of vectors that are all considered the same eigenvector with eigenvalue 4 which are all pointing in the same direction, with the only difference being their length.</p>
+</div>
+<div id="exercises-31" class="section level3" number="16.2.4">
+<h3><span class="header-section-number">16.2.4</span> Exercises</h3>
+<p><img src="ch10/AB_trans_diag.png" alt="Model 1" />{width = 25%}
+<img src="ch10/CD_trans_diag.png" alt="Model 2" />{width = 25%}
+<img src="ch10/EF_trans_diag.png" alt="Model 3" />{width = 25%}
+<img src="ch10/GH_trans_diag.png" alt="Model 4" />{width = 25%}</p>
+<p>For the following two-state Markov models a) calculate the eigenvalues of the transition matrix; b) calculate the corresponding eigenvectors and explain which one corresponds to the stationary distribution; c) use R to check that each of the eigenvectors obeys the definition  with its corresponding eigenvalue.</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the model in the transition diagram in figure  (Model 1).</p></li>
+<li><p>Use the model in the transition diagram in figure  (Model 2).</p></li>
+<li><p>Use the model in the transition diagram in figure  (Model 3).</p></li>
+<li><p>Use the model in the transition diagram in figure  (Model 4).</p></li>
+<li><p>An ion channel can be in either open or closed states. If it is open, then it has probability 0.1 of closing in 1 microsecond; if closed, it has probability 0.3 of opening in 1 microsecond.</p></li>
+<li><p>An individual can be either susceptible or infected, the probability of infection for a susceptible person is 0.05 per day, and the probability an infected person becoming susceptible is 0.12 per day.</p></li>
+<li><p>The genotype of an organism can be either normal (wild type) or mutant. Each generation, a wild type individual has probability 0.03 of having a mutant offspring, and a mutant has probability 0.005 of having a wild type offspring.</p></li>
+</ol>
+<p>Consider a two-state Markov model with the transition matrix <span class="math inline">\(M\)</span>. As we know, the probability distribution vector at time <span class="math inline">\(t+1\)</span> is the matrix <span class="math inline">\(M\)</span> multiplied by the probability distribution vector at time <span class="math inline">\(t\)</span>:
+<span class="math display">\[ P(t+1) = M \times P(t) \]</span>
+Using eigenvectors and eigenvalues, the matrix multiplication (which is difficult) can be turned into multiplication by scalar numbers (which is much simpler). Suppose that the initial probability vector <span class="math inline">\(P(0)\)</span> can be written as a weighted sum (linear combination) of the two eigenvectors of the matrix <span class="math inline">\(M\)</span>, <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>: $P(0) = c_1 v_1 + c_2 v_2 $. I will explain exactly how to find the constants <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> a few paragraphs later, but for now, let’s go with this. Multiplying the matrix <span class="math inline">\(M\)</span> and this weighted sum (matrix multiplication can be distributed), we get:
+<span class="math display">\[ P(1) = M \times P(0) =  M \times (c_1 \vec v_1 + c_2 \vec v_2) = c_1 M \times \vec v_1 + c_2 M \times  \vec v_2  =  \]</span>
+<span class="math display">\[ = c_1 \lambda_1\vec v_1 + c_2 \lambda_2 \vec v_2 \]</span>
+The last step is due to definition  of eigenvectors and eigenvalues, which transformed matrix multiplication into multiplication by the corresponding eigenvalues. To see how useful this is, let us propagate the probability vector one more step:
+<span class="math display">\[ P(2) = M \times P(1) =  M \times ( c_1 \lambda_1\vec v_1 + c_2 \lambda_2 \vec v_2) =  c_1 \lambda_1^2\vec v_1 + c_2 \lambda_2^2 \vec v_2 \]</span>
+It should be clear that each matrix multiplication results in one additional multiplication of each eigenvector by its eigenvalue, so this allows us to write the general expression for the probability vector any number of time steps <span class="math inline">\(t\)</span> in the future, given the weights of the initial probability vector <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>:
+<span class="math display">\[ P(t) =c_1 \lambda_1^t \vec v_1 +c_2 \lambda_2^t \vec v_2  \]</span>
+The constants <span class="math inline">\(c_1, c_2\)</span> are determined by the initial conditions, while the constants <span class="math inline">\(\lambda_1, \lambda_2\)</span> are the eigenvalues and the vectors <span class="math inline">\(\vec v_1, \vec v_2\)</span> are the eigenvectors of the matrix <span class="math inline">\(M\)</span>. This expression is also true for Markov models of any number states, except that they have as many eigenvalues and eigenvectors as the dimensionality of the transition matrix. This is a hugely important development, because it allows us to predict how quickly the probability vectors converge to the stationary distribution. First, we need to use the following theorem:</p>
+
+<div class="theorem">
+<span id="thm:theo-frob" class="theorem"><strong>Theorem 16.1  </strong></span>(Frobenius) A Markov transition matrix <span class="math inline">\(M\)</span>, characterized by having all nonnegative elements between 0 and 1, and whose columns all sum up to 1, has eigenvalues that are no greater than 1 in absolute value, including at least one eigenvalue equal to 1.
+</div>
+<p>This theorem has an immediate important consequence for the dynamics of the probability vector. According to our formula describing the time evolution of the probability vector, the eigenvalues are raised to the power <span class="math inline">\(t\)</span>, which is the number of time steps. Therefore, for any eigenvalue which is less than 1, the number <span class="math inline">\(\lambda^t\)</span> grows smaller and approaches 0 as time goes on. Since the Frobenius theorem says that the eigenvalues cannot be greater than 1, the terms in the expression for the probability vector decay, except for the ones which are equal to 1 or to -1. The eigenvectors with eigenvalue 1 correspond to the stationary distribution that we introduced in the last chapter, and true to their name, they remain unchanged by time, since <span class="math inline">\(1^t =1\)</span> for all time. The ones with eigenvalue of -1 are a strange case, because they oscillate between positive and negative values, without decaying in absolute value.</p>
+<p>We now have the skills to answer the following question of practical importance: how quickly does the probability vector approach the stationary distribution? (There may be more than one stationary distribution vector, but that doesn’t change the analysis.) This depends on how fast the contributions of other, non-stationary eigenvectors decay. If one of them has an eigenvalue of -1, then its contribution never decays - we saw an example of that in the cyclic 2-state matrix in chapter 12. If all of the eigenvalues other than the stationary one are less than 1 in absolute value, then all of them decay to zero, but at different rates. The one that decays slowest is the largest of the eigenvalues which are less than one - the second-largest, sometimes called the subdominant eigenvalue. This is the eigenvalue which determines the rate of convergence to the stationary distribution because it is the “last person standing” of the non-stationary eigenvalues, after the others have all vanished into insignificance.</p>
+<p><strong>Example.</strong> Consider a Markov model with the following transition matrix <span class="math inline">\(M\)</span>, with eigenvectors and eigenvalues already solved by a computational assistant:
+<span class="math display">\[ M = \left(\begin{array}{ccc} 0.8 &amp; 0.1  &amp; 0.1  \\ 0.1 &amp; 0.8 &amp; 0.2 \\ 0.1 &amp; 0.1 &amp; 0.7 \end{array}\right)\]</span>
+<span class="math display">\[ \lambda_1 = 1 \; \vec v_1= \left(\begin{array}{c} 1/3     \\  5/12  \\ 1/4 \end{array}\right) \; \lambda_2 = 0.7  \;  \vec v_2= \left(\begin{array}{c} -1   \\ 1  \\ 0 \end{array}\right) \; \lambda_3 = 0.6  \;  \vec v_3= \left(\begin{array}{c} 0  \\ -1  \\ 1 \end{array}\right)\]</span>
+Let us compute, using the tools of this section, how the probability distribution vector evolves starting with <span class="math inline">\(P(0) = (7/12,5/12,0)\)</span> (I chose this particular initial probability distribution because it makes the algebra simple, but you can start with any initial vector you want.) The first step is to find what is called the decomposition of the initial probability vector into its three eigenvectors:
+<span class="math display">\[P(0)= \left(\begin{array}{c} 7/12 \\ 5/12  \\ 0 \end{array}\right) =  c_1\left(\begin{array}{c} 1/3     \\  5/12  \\ 1/4 \end{array}\right) + c_2 \left(\begin{array}{c} -1   \\ 1  \\ 0 \end{array}\right) + c_3\left(\begin{array}{c} 0  \\ -1  \\ 1 \end{array}\right)\]</span></p>
+<p>It turns out that the desired coefficients are <span class="math inline">\(c_1 = 1\)</span>, <span class="math inline">\(c_2 = -1/4\)</span>, and <span class="math inline">\(c_3 = -1/4\)</span> - you can check yourself that they add up to the initial vector we want. Therefore, after some number of time steps <span class="math inline">\(t\)</span>, the probability distribution vector can be expressed like this:
+<span class="math display">\[ P(t) = \left(\begin{array}{c} 1/3     \\  5/12  \\ 1/4 \end{array}\right) -\frac{1}{4} 0.7^t \left(\begin{array}{c} -1   \\ 1  \\ 0 \end{array}\right)  -\frac{1}{4} 0.6^t \left(\begin{array}{c} 0  \\ -1  \\ 1 \end{array}\right)\]</span>
+All three eigenvectors, multiplied by their eigenvalues to the power <span class="math inline">\(t\)</span>, are present in the expression, but the third eigenvalue (0.6) decays much faster than the second one (0.7). After 5 time steps, <span class="math inline">\(0.7^5 = 0.168\)</span>, while <span class="math inline">\(0.6^5 = 0.078\)</span>, so the contribution of the third eigenvector is about half that of the second; after 10 time steps, <span class="math inline">\(0.7^{10} = 0.028\)</span>, while <span class="math inline">\(0.6^{10} = 0.006\)</span>, so the contribution of the third eigenvector is about one-fifth that of the second; after 20 time steps, <span class="math inline">\(0.7^{20} \approx 8 \times 10^{-4}\)</span>, while <span class="math inline">\(0.6^{20} \approx 4 \times 10^{-5}\)</span>, so the contribution of the third eigenvector is about one-twentieth that of the second. The trend is clear: although 0.6 and 0.7 are not that different, raising them to higher powers makes the ratio between them get smaller, until the contribution of the smaller of the two eigenvalues is negligible, however you’d like to define that term - less than 1%? less than 0.01%? - eventually the smaller eigenvalue will reach that level of insignificance. This is illustrates why the rate of convergence to the stationary distribution <span class="math inline">\((1/3, 5/12, 1/4)\)</span> is determined by the eigenvalue 0.7, and the smaller eigenvalue can be neglected.</p>
+</div>
+</div>
+<div id="eigenvectors-in-r" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Eigenvectors in R</h2>
+<p>R has a standard set of functions to handle linear algebra computations. One of the most important of those is the calculation of eigenvectors and eigenvalues, also known as <em>diagonalization</em> of a matrix, for reasons you’ll understand if you take a proper linear algebra course, as I strongly recommend for anyone who intends to be involved in quantitative biology.</p>
+<p>The function to calculate the special numbers and vectors is <code>eigen()</code>, and the name of the matrix goes between the parentheses. The function returns a data frame as its output, with <code>$values</code> and <code>$vectors</code> storing the eigenvalues and the eigenvectors, respectively. Here is a script to define the matrix we analyzed in the examples in section  and then calculate and print out its eigenvalues and eigenvectors:</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="dynamics-of-markov-models.html#cb287-1" aria-hidden="true"></a>test.matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>,  <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>),<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb287-2"><a href="dynamics-of-markov-models.html#cb287-2" aria-hidden="true"></a><span class="kw">print</span>(test.matrix)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    2    1
+## [2,]    2    3</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="dynamics-of-markov-models.html#cb289-1" aria-hidden="true"></a>result &lt;-<span class="st"> </span><span class="kw">eigen</span>(test.matrix)</span>
+<span id="cb289-2"><a href="dynamics-of-markov-models.html#cb289-2" aria-hidden="true"></a><span class="kw">print</span>(result<span class="op">$</span>values)</span></code></pre></div>
+<pre><code>## [1] 4 1</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="dynamics-of-markov-models.html#cb291-1" aria-hidden="true"></a><span class="kw">print</span>(result<span class="op">$</span>vectors)</span></code></pre></div>
+<pre><code>##            [,1]       [,2]
+## [1,] -0.4472136 -0.7071068
+## [2,] -0.8944272  0.7071068</code></pre>
+<p>The resulting eigenvalues and 4 and 1, just as we computed above. However, the situation with eigenvectors is trickier. In the R output they are presented as column vectors, and you may notice that they have the same ratio of elements as the calculated eigenvectors, but the numbers may appear strange. As we discussed, the eigenvector for a particular eigenvalue can be multiplied by any constant and still be a valid eigenvector. R (and other computational tools) thus has a choice about which eigenvector to output, and it typically prefers to <em>normalize</em> its eigenvectors by making sure their length (Euclidean norm) is equal to 1. You may observe that if you take square the two elements of one of the eigenvectors in the output and add them up, the result will be 1. This is convenient for some purposes, but doesn’t make for clean looking vectors in terms of the elements. But since we can multiply (or divide) the eigenvector by any constant, we can choose to make it look cleaner, for instance by making sure one of its elements is equal to 1. The next script illustrates how to make that happen by dividing each eigenvector by the value of its first element, which results in the same form of eigenvectors that we wrote down in the analytic solution:</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="dynamics-of-markov-models.html#cb293-1" aria-hidden="true"></a>eigen1&lt;-result<span class="op">$</span>vectors[,<span class="dv">1</span>]<span class="op">/</span>result<span class="op">$</span>vectors[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb293-2"><a href="dynamics-of-markov-models.html#cb293-2" aria-hidden="true"></a><span class="kw">print</span>(eigen1)</span></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="dynamics-of-markov-models.html#cb295-1" aria-hidden="true"></a>eigen2&lt;-result<span class="op">$</span>vectors[,<span class="dv">2</span>]<span class="op">/</span>result<span class="op">$</span>vectors[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb295-2"><a href="dynamics-of-markov-models.html#cb295-2" aria-hidden="true"></a><span class="kw">print</span>(eigen2)</span></code></pre></div>
+<pre><code>## [1]  1 -1</code></pre>
+<p>Let us now analyze a transition matrix, for example one that we investigated in the last subsection of section . This is how I obtained the eigenvalues and eigenvectors that were used to make predictions about the evolution of the probability vector. One important issue here is how best to normalize the eigenvectors. The eigenvector corresponding the eigenvalue 1 is (a multiple of) the stationary distribution vector, but in order to make it a probability distribution vector, its elements must add up to 1. The way to ensure this property is to divide the eigenvector by the sum of its elements. The two other eigenvector are not probability vectors, in fact they both contain negative elements, so it doesn’t make sense to normalize them the same way. Any normalization of these vectors is arbitrary, so I choose to divide each by the value of one of its elements. Notice one more strange thing: the two non-stationary eigenvectors each contain a very small number on the order of <span class="math inline">\(10^{-16}\)</span>. You may remember from section  that this is the limit of precision for storing numbers in R, so these values are not real, they are errors, and instead should be replaced with zeros.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="dynamics-of-markov-models.html#cb297-1" aria-hidden="true"></a>trans.matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.7</span>),<span class="dt">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb297-2"><a href="dynamics-of-markov-models.html#cb297-2" aria-hidden="true"></a><span class="kw">print</span>(trans.matrix)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]  0.8  0.1  0.1
+## [2,]  0.1  0.8  0.2
+## [3,]  0.1  0.1  0.7</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="dynamics-of-markov-models.html#cb299-1" aria-hidden="true"></a>result &lt;-<span class="st"> </span><span class="kw">eigen</span>(trans.matrix)</span>
+<span id="cb299-2"><a href="dynamics-of-markov-models.html#cb299-2" aria-hidden="true"></a><span class="kw">print</span>(result<span class="op">$</span>values)</span></code></pre></div>
+<pre><code>## [1] 1.0 0.7 0.6</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="dynamics-of-markov-models.html#cb301-1" aria-hidden="true"></a><span class="kw">print</span>(result<span class="op">$</span>vectors)</span></code></pre></div>
+<pre><code>##           [,1]          [,2]          [,3]
+## [1,] 0.5656854 -7.071068e-01 -7.101010e-16
+## [2,] 0.7071068  7.071068e-01 -7.071068e-01
+## [3,] 0.4242641  3.330669e-16  7.071068e-01</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="dynamics-of-markov-models.html#cb303-1" aria-hidden="true"></a>eigen1&lt;-result<span class="op">$</span>vectors[,<span class="dv">1</span>]<span class="op">/</span><span class="kw">sum</span>(result<span class="op">$</span>vectors[,<span class="dv">1</span>])</span>
+<span id="cb303-2"><a href="dynamics-of-markov-models.html#cb303-2" aria-hidden="true"></a><span class="kw">print</span>(eigen1)</span></code></pre></div>
+<pre><code>## [1] 0.3333333 0.4166667 0.2500000</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="dynamics-of-markov-models.html#cb305-1" aria-hidden="true"></a>eigen2&lt;-result<span class="op">$</span>vectors[,<span class="dv">2</span>]<span class="op">/</span>result<span class="op">$</span>vectors[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb305-2"><a href="dynamics-of-markov-models.html#cb305-2" aria-hidden="true"></a><span class="kw">print</span>(eigen2)</span></code></pre></div>
+<pre><code>## [1]  1.000000e+00 -1.000000e+00 -4.710277e-16</code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="dynamics-of-markov-models.html#cb307-1" aria-hidden="true"></a>eigen3&lt;-<span class="st"> </span>result<span class="op">$</span>vectors[,<span class="dv">3</span>]<span class="op">/</span>result<span class="op">$</span>vectors[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb307-2"><a href="dynamics-of-markov-models.html#cb307-2" aria-hidden="true"></a><span class="kw">print</span>(eigen3)</span></code></pre></div>
+<pre><code>## [1]  1.004235e-15  1.000000e+00 -1.000000e+00</code></pre>
+<p>We now have the tools to calculate the eigenvalues and eigenvectors of transition matrices, and we can use them to predict two things: 1) the stationary distribution, which is the properly normalized eigenvector with eigenvalue 1, and 2) how quickly probability vectors converge to the stationary distribution, which depends on the second-largest eigenvalue. The first task was already accomplished in the script above.</p>
+<p>The second question needs clarification: what does it mean to “converge”, that is, how close does the probability distribution need to be to the stationary one, before we can say it converged? The answer is necessarily arbitrary, because a probability vector never actually reaches the stationary distribution unless the initial vector is stationary. Distances between vectors are typically measured using the standard Euclidean definition of distance (the square root of the sum of the squares of differences of the elements). The following R script propagates an initial probability vector for 30 time steps, and at each step calculates the distance of the probability vector to the stationary vector (which we calculated above).</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="dynamics-of-markov-models.html#cb309-1" aria-hidden="true"></a>nstep &lt;-<span class="st"> </span><span class="dv">30</span> <span class="co"># set number of time steps</span></span>
+<span id="cb309-2"><a href="dynamics-of-markov-models.html#cb309-2" aria-hidden="true"></a>stat.vec &lt;-<span class="st"> </span>eigen1 <span class="co"># set the stationary distribution</span></span>
+<span id="cb309-3"><a href="dynamics-of-markov-models.html#cb309-3" aria-hidden="true"></a>prob.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>) </span>
+<span id="cb309-4"><a href="dynamics-of-markov-models.html#cb309-4" aria-hidden="true"></a><span class="co"># set the initial probability vector</span></span>
+<span id="cb309-5"><a href="dynamics-of-markov-models.html#cb309-5" aria-hidden="true"></a>dist.vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,nstep) <span class="co"># initialize distance vector</span></span>
+<span id="cb309-6"><a href="dynamics-of-markov-models.html#cb309-6" aria-hidden="true"></a>dist.vec[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>((prob.vec <span class="op">-</span>stat.vec)<span class="op">^</span><span class="dv">2</span>))</span>
+<span id="cb309-7"><a href="dynamics-of-markov-models.html#cb309-7" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>nstep) { </span>
+<span id="cb309-8"><a href="dynamics-of-markov-models.html#cb309-8" aria-hidden="true"></a>  <span class="co"># propagate the probability vector</span></span>
+<span id="cb309-9"><a href="dynamics-of-markov-models.html#cb309-9" aria-hidden="true"></a>  prob.vec &lt;-<span class="st"> </span>trans.matrix <span class="op">%*%</span><span class="st"> </span>prob.vec</span>
+<span id="cb309-10"><a href="dynamics-of-markov-models.html#cb309-10" aria-hidden="true"></a>  dist.vec[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>((prob.vec <span class="op">-</span>stat.vec)<span class="op">^</span><span class="dv">2</span>))</span>
+<span id="cb309-11"><a href="dynamics-of-markov-models.html#cb309-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>The distance to the stationary vector as a function of time is plotted in figure  along with the exponential decay of the second leading eigenvalue <span class="math inline">\(0.7^t\)</span> over the same number of time steps. While initially the two are not identical, over time the contribution of the smaller eigenvalue becomes insignificant and the second-leading eigenvalue describes the approach of the probability vector to the stationary distribution. The effect of choosing a different initial probability vector is not very large, with the exception of the case when the initial vector is exactly the stationary distribution (in which case the distance is zero initially and remains zero) or exactly the eigenvector with the smaller eigenvalue, in which case the smallest eigenvalue governs the convergence.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="dynamics-of-markov-models.html#cb310-1" aria-hidden="true"></a><span class="kw">plot</span>(dist.vec,<span class="dt">xlab=</span><span class="st">&#39;time step&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;distance from stationary distribution&#39;</span>,<span class="dt">cex=</span><span class="fl">1.5</span>, <span class="dt">cex.axis=</span><span class="fl">1.5</span>,<span class="dt">cex.lab=</span><span class="fl">1.5</span>)</span>
+<span id="cb310-2"><a href="dynamics-of-markov-models.html#cb310-2" aria-hidden="true"></a>steps&lt;-<span class="dv">1</span><span class="op">:</span>nstep <span class="co"># vector of time steps </span></span>
+<span id="cb310-3"><a href="dynamics-of-markov-models.html#cb310-3" aria-hidden="true"></a><span class="co"># plot the exponential decay of the eigenvalue</span></span>
+<span id="cb310-4"><a href="dynamics-of-markov-models.html#cb310-4" aria-hidden="true"></a><span class="kw">lines</span>(steps,<span class="fl">0.7</span><span class="op">^</span>steps,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>,<span class="dt">lwd=</span><span class="dv">3</span>) </span>
+<span id="cb310-5"><a href="dynamics-of-markov-models.html#cb310-5" aria-hidden="true"></a>prob.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>) <span class="co"># set the initial probability vector</span></span>
+<span id="cb310-6"><a href="dynamics-of-markov-models.html#cb310-6" aria-hidden="true"></a>dist.vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,nstep) <span class="co"># initialize distance vector</span></span>
+<span id="cb310-7"><a href="dynamics-of-markov-models.html#cb310-7" aria-hidden="true"></a>dist.vec[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>((prob.vec <span class="op">-</span>stat.vec)<span class="op">^</span><span class="dv">2</span>))</span>
+<span id="cb310-8"><a href="dynamics-of-markov-models.html#cb310-8" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>nstep) { <span class="co"># propagate the probability vector</span></span>
+<span id="cb310-9"><a href="dynamics-of-markov-models.html#cb310-9" aria-hidden="true"></a>  prob.vec &lt;-<span class="st"> </span>trans.matrix <span class="op">%*%</span><span class="st"> </span>prob.vec</span>
+<span id="cb310-10"><a href="dynamics-of-markov-models.html#cb310-10" aria-hidden="true"></a>  dist.vec[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>((prob.vec <span class="op">-</span>stat.vec)<span class="op">^</span><span class="dv">2</span>))</span>
+<span id="cb310-11"><a href="dynamics-of-markov-models.html#cb310-11" aria-hidden="true"></a>}</span>
+<span id="cb310-12"><a href="dynamics-of-markov-models.html#cb310-12" aria-hidden="true"></a><span class="kw">plot</span>(dist.vec,<span class="dt">xlab=</span><span class="st">&#39;time step&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;distance from stationary distribution&#39;</span>, <span class="dt">cex=</span><span class="fl">1.5</span>, <span class="dt">cex.axis=</span><span class="fl">1.5</span>,<span class="dt">cex.lab=</span><span class="fl">1.5</span>)</span>
+<span id="cb310-13"><a href="dynamics-of-markov-models.html#cb310-13" aria-hidden="true"></a> <span class="co"># plot the exponential decay of the eigenvalue</span></span>
+<span id="cb310-14"><a href="dynamics-of-markov-models.html#cb310-14" aria-hidden="true"></a><span class="kw">lines</span>(steps,<span class="fl">0.7</span><span class="op">^</span>steps,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>,<span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:comp13-5"></span>
+<img src="QuantLife_files/figure-html/comp13-5-1.png" alt="Decay of the distance from the stationary distribution (circles) and the exponential decay of the second-leading eigenvalue (red lines), plotted for two different initial probability distributions." width="50%" /><img src="QuantLife_files/figure-html/comp13-5-2.png" alt="Decay of the distance from the stationary distribution (circles) and the exponential decay of the second-leading eigenvalue (red lines), plotted for two different initial probability distributions." width="50%" />
+<p class="caption">
+Figure 16.1: Decay of the distance from the stationary distribution (circles) and the exponential decay of the second-leading eigenvalue (red lines), plotted for two different initial probability distributions.
+</p>
+</div>
+</div>
+<div id="molecular-evolution" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Molecular evolution</h2>
+<p>Substitution mutations in DNA sequences can be modeled as a Markov process, where each base in the sequence mutates independently of others with a transition matrix <span class="math inline">\(M\)</span>. Let the bases A, G, C, T correspond to states 1 through 4, respectively. A classic model for base substitution from one generation to the next is based on the assumption that all substitution mutations are equally likely, and that the fraction <span class="math inline">\(a\)</span> of the sequence will be substituted each generation. This was proposed by Jukes and Cantor  to calculate the rate of divergence of DNA (or protein) sequences from their common ancestor. The model is illustrated as a transition diagram in figure , with the four letters representing the states of a particular site in a DNA sequence, and all transition probabilities equal to <span class="math inline">\(a\)</span>.</p>
+<div class="figure">
+<img src="ch13/JC_trans_diag.png" alt="" />
+<p class="caption">Transition diagram for a four-state molecular evolution model for one letter in a DNA sequence. The mutation rate <span class="math inline">\(a\)</span> is the probability that the letter is replaced by a different one over one generation. The transition probabilities between individual letters are <span class="math inline">\(a/3\)</span> (not labeled).</p>
+</div>
+<p>Then the probability of any particular transition, say from T to C is <span class="math inline">\(a/3\)</span>, while the probability of not having a substitution is equal to <span class="math inline">\(1-a\)</span>. This is known as the Jukes-Cantor model and it predicts that the fraction of letters in a sequence at generation <span class="math inline">\(t+1\)</span> depends on the distribution in generation <span class="math inline">\(t\)</span> as follows:
+<span class="math display">\[   \left(\begin{array}{c} P_A(t+1) \\ P_G(t+1) \\ P_C(t+1) \\ P_T(t+1) \end{array}\right) = \left(\begin{array}{cccc}1-a &amp; a/3 &amp; a/3 &amp; a/3 \\a/3 &amp; 1-a &amp; a/3 &amp; a/3 \\a/3 &amp; a/3 &amp; 1-a &amp; a/3 \\a/3 &amp; a/3 &amp; a/3 &amp; 1-a\end{array}\right) \left(\begin{array}{c} P_A(t) \\ P_G(t) \\ P_C(t) \\ P_T(t) \end{array}\right) \]</span>
+This model is very simple: it only considers substitutions, although other mutations are possible, e.g. insertions and deletions, although they are typically more disruptive and thus more rare, and it treats all substitutions as equally likely, which is not empirically true. The benefit is that the number <span class="math inline">\(a\)</span> is the only parameter in this model, which represents the mutation rate at each site per generation. This makes is easy to compute the eigenvectors and eigenvalues of the model in general. It turns out that the four eigenvectors do not depend on the parameter <span class="math inline">\(a\)</span>, only the eigenvalues do:
+<span class="math display">\[  \left(\begin{array}{c} 1/4 \\ 1/4 \\ 1/4 \\ 1/4 \end{array}\right) \; \lambda =1; \; \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) \lambda =1-\frac{4}{3}a \]</span>
+<span class="math display">\[ \left(\begin{array}{c} 1/4 \\ -1/4 \\ -1/4 \\ 1/4 \end{array}\right) \; \lambda =1-\frac{4}{3}a;  \; \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) \; \lambda =1-\frac{4}{3}a\]</span>
+Notice two things: first, the first eigenvector is the equilibrium distribution and has the same frequencies for all four bases. Second, the three eigenvectors with eigenvalues smaller than 1 have negative entries, so they cannot be probability distributions themselves (although as linear combinations with the first one, they may be, depending on the coefficients.)</p>
+<p>Computationally, this allows us to predict the time evolution of a distribution of bases in a DNA sequence for any given initial distribution, by using repeated matrix multiplication as above. Figure  shows the probability distribution of nucleotides based on the Jukes-Cantor model starting with the nucleotide A for two different mutation rates, propagated for different lengths of time. It is evident that for a faster substitution rate the approach to the equilibrium distribution is faster. This demonstrates how the second-largest eigenvalue of the transition matrix determines the speed of convergence to the equilibrium distribution, as we postulated in section .</p>
+<div class="figure"><span id="fig:bio14-1"></span>
+<img src="QuantLife_files/figure-html/bio14-1-1.png" alt="Evolution of probability vectors in the Jukes-Cantor model with bar graphs showing proportion of letters A, G, T, C (red, green, blue, magenta): a) 1000 generations with mutation rate a = 0.001; b) 200 generations with substitution rate a = 0.01." width="0.49\linewidth" /><img src="QuantLife_files/figure-html/bio14-1-2.png" alt="Evolution of probability vectors in the Jukes-Cantor model with bar graphs showing proportion of letters A, G, T, C (red, green, blue, magenta): a) 1000 generations with mutation rate a = 0.001; b) 200 generations with substitution rate a = 0.01." width="0.49\linewidth" />
+<p class="caption">
+Figure 16.2: Evolution of probability vectors in the Jukes-Cantor model with bar graphs showing proportion of letters A, G, T, C (red, green, blue, magenta): a) 1000 generations with mutation rate a = 0.001; b) 200 generations with substitution rate a = 0.01.
+</p>
+</div>
+<p>Thus, the Jukes-Cantor model provides a prediction of the time-dependent evolution of the probability distribution of each letter, starting with an initial distribution. In reality, we would like to answer the following question: given two DNA sequences in the present (e.g. from different species), what is the length of time they spent evolving from a common ancestor?</p>
+<div id="time-since-divergence" class="section level3" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> time since divergence</h3>
+<p>To do this, we need to some preliminary work. The first step is to compute the probability that a letter at a particular site remain unchanged after <span class="math inline">\(t\)</span> generations. Because all the nucleotides are equivalent in the Jukes-Cantor model, it’s the same as finding the probability that a nucleotide in state A remains in A after <span class="math inline">\(t\)</span> generations. As we saw in section , we can calculate the frequency distribution after <span class="math inline">\(t\)</span> time steps by using the decomposition of the initial probability vector <span class="math inline">\(\vec P(0)\)</span> into a weighted sum of the eigenvectors. We take <span class="math inline">\(\vec P_0 = (1,0,0,0)\)</span> (the initial state is A) and this can be written as a sum of the four eigenvectors of the matrix <span class="math inline">\(M\)</span>:
+<span class="math display">\[ \left(\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right) = \left(\begin{array}{c} 1/4 \\ 1/4 \\ 1/4 \\ 1/4 \end{array}\right) + \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) +  \left(\begin{array}{c} 1/4 \\ -1/4 \\ -1/4 \\ 1/4 \end{array}\right) + \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) \]</span></p>
+<p>Therefore, the transition matrix <span class="math inline">\(M\)</span> can be applied to each eigenvector separately, and each matrix multiplication is a multiplication by the appropriate eigenvalue. Thus,
+<span class="math display">\[ P(t) = M^t P(0) =  \]</span>
+<span class="math display">\[ = 1^t \left(\begin{array}{c} 1/4 \\ 1/4 \\ 1/4 \\ 1/4 \end{array}\right) + (1-\frac{4}{3}a)^t\left( \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) +  \left(\begin{array}{c} 1/4 \\ -1/4 \\ -1/4 \\ 1/4 \end{array}\right) + \left(\begin{array}{c} 1/4 \\ -1/4 \\ 1/4 \\ -1/4 \end{array}\right) \right)\]</span>
+The first element of <span class="math inline">\(P(t)\)</span> is the probability of a nucleotide remaining <span class="math inline">\(A\)</span> after <span class="math inline">\(t\)</span> generation, and it is: $ P_A (t) = 1/4 +3/4(1-a)^t $. For <span class="math inline">\(t=0\)</span>, the probability is 1, as it should be, and as $t $, <span class="math inline">\(P_A (t) \rightarrow 1/4\)</span>, since this is the equilibrium probability distribution. Note that the expression is the same for all the other letters, so we have found the expression for any nucleotide remaining the same after <span class="math inline">\(t\)</span> generations.</p>
+<p>Now let us get to the question of calculating the time that two sequences have evolved from each other. Denote by <span class="math inline">\(m\)</span> the fraction of sites in two aligned sequences with different letters, and <span class="math inline">\(q\)</span> is the probability of a nucleotide remaining the same, which is the given by the expression for <span class="math inline">\(P_A(t)\)</span>. Thus <span class="math inline">\(m = 1 - q = 3/4 - 3/4(1-\frac{4}{3}a)^t\)</span>. This can be solved for <span class="math inline">\(t\)</span>:
+<span class="math display">\[ t = \frac{\log (1 -  \frac{4}{3} m)}{\log (1 -  \frac{4}{3} a)}\]</span></p>
+</div>
+<div id="phylogenetic-distance" class="section level3" number="16.4.2">
+<h3><span class="header-section-number">16.4.2</span> phylogenetic distance</h3>
+<p>However, if we do not know the mutation rate <span class="math inline">\(a\)</span>, and until recently it was rarely known with any precision, this formula is of limited practical use. Jukes and Cantor neatly finessed the problem by calculating the <em>phylogenetic distance</em> between the two sequences, which is defined as <span class="math inline">\(d = a t\)</span>, or the mean number of substitutions that occurred per nucleotide during <span class="math inline">\(t\)</span> generations, with mutation rate <span class="math inline">\(a\)</span> (substitutions per nucleotide per generation). Note that this distance is not directly measurable from the fraction of different nucleotides in the two sequences, because it counts all substitutions, including those which reverse an earlier mutation, and cause the sequence to revert to its initial letter.</p>
+<p>Now, let us assume <span class="math inline">\(a\)</span> is small, as is usually the case; as you recall from section , for humans the rate of substitutions per generation per nucleotide is about <span class="math inline">\(10^{-8}\)</span>. By Taylor expansion of the logarithm around 1, <span class="math inline">\(\log (1 - \frac{4}{3} a) \approx - \frac{4}{3}a\)</span>. Using the formula for <span class="math inline">\(t\)</span> from above with this approximation, we find the Jukes-Cantor phylogenetic distance to be:
+<span class="math display">\[ d_{JC} = \frac{\log (1 -  \frac{4}{3} m)}{ - \frac{4}{3}a} a =  -\frac{3}{4}\log (1 -  \frac{4}{3} m)\]</span>
+This formula has the correct behavior in the two limits: when <span class="math inline">\(m = 0\)</span>, <span class="math inline">\(d_{JC} = 0\)</span> (identical sequences have zero distance), and when <span class="math inline">\(m \rightarrow 3/4\)</span>, <span class="math inline">\(d_{JC} \rightarrow \infty\)</span>, since 3/4 is the maximum possible fraction of differences under the Jukes-Cantor model. Thus, we have obtained an analytic formula for the phylogenetic distance based on the fraction of differences between two homologous sequences.</p>
+<p>A useful discussion of the details of connecting the Jukes-Cantor distance to phylogenetic distances can be found on the treethinkers blog , describing several possible adjustments that can be made to the formula. It can then be used to calculate a <em>distance matrix</em> that contains distances between all pairs from collection of sequences. There are algorithms that can generate phylogenetic trees based on a distance matrix, which minimize the total phylogenetic distance of all the branches. This is one approach that biologists use to infer evolutionary relationships from molecular sequence data, but there are many others, including maximum likelihood and parsimony models.</p>
+</div>
+<div id="kimura-model" class="section level3" number="16.4.3">
+<h3><span class="header-section-number">16.4.3</span> Kimura model</h3>
+<p>One can devise more sophisticated models of base substitution. There are two classes of nucleotide bases: purines (A,G) and pyrimidines (C,T). One may consider the difference in rates of <em>transitions</em> (substitutions within the classes) and <em>transversions</em> (substitutions of purines by pyrimidines and vice versa). This is known as the Kimura model and can be written as follows as Markov chain:
+<span class="math display">\[   \left(\begin{array}{c} P_A \\ P_G \\ P_C \\ P_T \end{array}\right)_{t+1}  = \left(\begin{array}{cccc}1-\beta-\gamma &amp; \beta &amp; \gamma/2 &amp;  \gamma/2 \\ \beta  &amp; 1-\beta-\gamma &amp; \gamma/2 &amp; \gamma/2 \\ \gamma/2 &amp; \gamma/2 &amp; 1-\beta-\gamma&amp; \beta  \\ \gamma/2 &amp;\gamma/2 &amp; \beta  &amp; 1-\beta-\gamma \end{array}\right) \left(\begin{array}{c} P_A \\ P_G \\ P_C \\ P_T \end{array}\right)_t \]</span>
+where <span class="math inline">\(\beta\)</span> is the rate of transitions and <span class="math inline">\(\gamma\)</span> is the rate of transversions per generation. This model has two different parameters, and as those two rates are empirically different (transitions occur more frequently, since the bases are more chemically similar) the model is more realistic. Whether or not it is worth the additional complexity depends on the question at hand.</p>
+</div>
+<div id="divergence-of-human-and-chimp-genomes" class="section level3" number="16.4.4">
+<h3><span class="header-section-number">16.4.4</span> divergence of human and chimp genomes</h3>
+<p>The human genome sequence was reported in 2001 and the genome of our closest living inter-species relative, the chimpanzee, was published in 2005 . Comparison between the two genomes has allowed us to peer into the evolutionary history of the two lineages. Although our genomes are quite similar, several large genome changes separate us and chimps. One particularly big difference is the number of chromosomes: human genome is organized into 23 chromosomes while chimps have 24. This suggests two options: either the common ancestor had 23 chromosomes and one of them split in the chimpanzee lineage, or the common ancestor has 24 and an two of them merged in the human lineage. Determining the complete sequences has answered that questions decisively: the human chromosome 2 is a result of a fusion of two ancestral chromosomes. This is supported by multiple observations, in particular that the two halves of human chromosome 2 can be matched to contiguous sequences in two separate chimp chromosomes, as well as the presence of telomere sequences, which form caps on the ends of chromosomes, in the middle of human chromosome 2. The entire story of great ape chromosomal is still in the process of being investigated, here is one recent study that examines the history of gorilla and orangutan chromosomal modification as well .</p>
+<p>Besides the large-scale changes, many point mutations have accumulated since the split of the two lineages. Large portions of the two genomes can be directly aligned, and the the differences measured as fractions of letters that do not match in a particular region. In the original report on the chimp genome , the authors calculated the divergence (mean fraction of different letters in an aligned sequence) to be 1.23%. The distribution of these divergences is shown in figure . This information allows us to calculate the likely time since the split of the two lineages to be about 6-7 million years. The model used to make that calculation is more sophisticated than the simple Jukes-Cantor substitution model, and uses a maximum-likelihood approach.</p>
+<p><img src="ch13/human_chimp1.png" alt="Histogram of divergence values between human and chimp gehnomes for 1 Mb long segments of the genome (blue indicates segments from autosomes, red - from the X chromosome and green - from the Y chromosome; (figure from , used by permission)" />
+<img src="ch13/human_chimp2.png" alt="Divergence values between human and chimp genomes distribution for different chromosomes (figure from , used by permission)" /></p>
+</div>
+<div id="discussion-questions-6" class="section level3" number="16.4.5">
+<h3><span class="header-section-number">16.4.5</span> Discussion questions</h3>
+<p>The following questions refer to the study <a href="https://www.nature.com/articles/nature04072">Initial sequence of the chimpanzee genome and comparison with the human genome</a></p>
+<ol style="list-style-type: decimal">
+<li><p>Name some possible challenges in comparing genomes between two different species.</p></li>
+<li><p>Speculate on the biological reasons for the disparities in the substitution rates in different chromosomes and in the distal parts (closer to the end) compared to the proximal (closer to the center).</p></li>
+<li><p>What are the differences in the transposable elements (SINES and LINES) between the two genomes? Are there any explanations offered for this observation?</p></li>
+<li><p>Explain the meaning of the <span class="math inline">\(K_A/K_S\)</span> ratio for studying the effect of natural selection.</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stationary-distributions-of-markov-chains.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["QuantLife.pdf", "QuantLife.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
