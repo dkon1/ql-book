@@ -253,7 +253,7 @@ $$x(t) =  25  + 5e^{4t}$$
 
 At this point, you might have noticed something about solutions of linear ODEs: they always involve an exponential term, with time in the exponent. Knowing this, it is possible to bypass the whole process of separate-and-integrate by using the following short-cut.
 
-**Important fact:** Any linear ODE of the form $\dot x= ax +b $ has an analytic solution of the form:
+**Important fact:** Any linear ODE of the form $\dot x= ax +b$ has an analytic solution of the form:
 $$ x(t) = Ce^{at} + D$$
 
 This can be tested by plugging the solution back into the ODE to see if it satisfies the equation. First, take the derivative of the solution to get the left-hand side of the ODE: $\frac{dx}{dt} = Ca e^{at}$; the plug in $x(t)$ into the right hand side of the ODE: $aCe^{at} + aD +b$. Setting the two sides equal, we get: 

@@ -1,0 +1,87 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: QuantLife.aux
+The style file: apalike.bst
+Database file #1: book.bib
+Database file #2: packages.bib
+Warning--I didn't find a database entry for "jungck_mathematical_2010"
+Warning--I didn't find a database entry for "cohen_mathematics_2004"
+Warning--I didn't find a database entry for "schultz_william_2002"
+Warning--I didn't find a database entry for "smith_mathematical_1968"
+Warning--I didn't find a database entry for "strogatz_nonlinear_2001"
+Warning--I didn't find a database entry for "whitlock_analysis_2008"
+Warning--I didn't find a database entry for "press_numerical_2007"
+Warning--I didn't find a database entry for "sloan_cooling_1973"
+Warning--I didn't find a database entry for "senn_francis_2011"
+Warning--I didn't find a database entry for "kong_rate_2012"
+Warning--I didn't find a database entry for "allman_mathematical_2003"
+Warning--I didn't find a database entry for "edelstein-keshet_mathematical_2005"
+Warning--I didn't find a database entry for "rosenbaum_basic_2011"
+Warning--I didn't find a database entry for "otto_biologists_2007"
+Warning--I didn't find a database entry for "brauer_mathematical_2011"
+Warning--I didn't find a database entry for "agusto_mathematical_2015"
+Warning--I didn't find a database entry for "feller_introduction_????"
+Warning--I didn't find a database entry for "malone_first-trimester_2005"
+Warning--I didn't find a database entry for "_stop-and-frisk_????"
+Warning--I didn't find a database entry for "_nypds_????"
+Warning--I didn't find a database entry for "goodman_toward_1999"
+Warning--I didn't find a database entry for "miller_twenty_2014"
+Warning--I didn't find a database entry for "ioannidis_why_2005"
+Warning--I didn't find a database entry for "ioannidis_ja_contradicted_2005"
+Warning--I didn't find a database entry for "bodine_mathematics_2014"
+Warning--I didn't find a database entry for "sonnenberg_markov_1993"
+Warning--I didn't find a database entry for "leisegang_novel_2013"
+Warning--I didn't find a database entry for "strang_linear_2005"
+Warning--I didn't find a database entry for "hayes_first_2012"
+Warning--I didn't find a database entry for "markov_extension_1906"
+Warning--I didn't find a database entry for "onegin-pushkin"
+Warning--I didn't find a database entry for "onegin-falen"
+Warning--I didn't find a database entry for "markov_example_1913"
+Warning--I didn't find a database entry for "pevsner_bioinformatics_2009"
+Warning--I didn't find a database entry for "futuyma_evolution_2009"
+Warning--I didn't find a database entry for "jukes_evolution_1969"
+Warning--I didn't find a database entry for "thomson_jukes_2013"
+Warning--I didn't find a database entry for "consortium_initial_2005"
+Warning--I didn't find a database entry for "ventura_evolution_2012"
+You've used 0 entries,
+            1935 wiz_defined-function locations,
+            511 strings with 4503 characters,
+and the built_in function-call counts, 17 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 0
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 39 warnings)

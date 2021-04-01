@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  23 MAY 2020 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.30)  16 MAR 2021 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -358,8 +358,7 @@ File: tikzlibrarypatterns.code.tex 2019/07/17 v3.1.4a (3.1.4a)
 (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
 s.code.tex
 File: pgflibrarypatterns.code.tex 2019/07/17 v3.1.4a (3.1.4a)
-))
-No file markov_table.aux.
+)) (./markov_table.aux)
 \openout1 = `markov_table.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -374,7 +373,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count101
@@ -447,8 +446,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./markov_table.aux) ) 
 Here is how much of TeX's memory you used:
- 12278 strings out of 492609
- 259294 string characters out of 6129048
+ 12280 strings out of 492609
+ 259327 string characters out of 6129048
  296123 words of memory out of 5000000
  15990 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
@@ -458,7 +457,7 @@ Here is how much of TeX's memory you used:
 sfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb>
-Output written on markov_table.pdf (1 page, 27985 bytes).
+Output written on markov_table.pdf (1 page, 27925 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream

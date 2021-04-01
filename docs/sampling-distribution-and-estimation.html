@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -314,7 +314,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>7.3.3</b> using a function to solve a difference equation</a></li>
 <li class="chapter" data-level="7.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a></li>
+<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>7.4.1</b> Discussion</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#r-assignment-6"><i class="fa fa-check"></i><b>7.5</b> R Assignment</a>
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#logistic-population-model"><i class="fa fa-check"></i><b>7.5.1</b> logistic population model</a></li>
@@ -591,7 +594,7 @@ These integrals may look intimidating, and rightly so: there is no method for so
 <p>3.Compute the standard error <span class="math inline">\(s = \sigma_X/\sqrt{n}\)</span></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Use a table or R to calculate the multiple called <span class="math inline">\(z_\alpha\)</span> for the desired confidence level <span class="math inline">\(\alpha\)</span>. For example, <span class="math inline">\(z_{0.9} \approx 1.65\)</span>, <span class="math inline">\(z_{0.95} \approx 1.96\)</span>, <span class="math inline">\(z_{0.99} \approx 2.58\)</span>.</p></li>
-<li><p>Build the confidence interval by adding and subtracting <span class="math inline">\(z_\alpha s\)</span> from the sample mean <span class="math inline">\(\bar X\)</span>. For example, the 95% confidence interval is $X z_{0.95} s= X _{X}/ $.
+<li><p>Build the confidence interval by adding and subtracting <span class="math inline">\(z_\alpha s\)</span> from the sample mean <span class="math inline">\(\bar X\)</span>. For example, the 95% confidence interval is <span class="math inline">\(\bar X \pm z_{0.95} s= \bar X \pm 1.96\sigma_{X}/\sqrt{n}\)</span>.
 \end{enumerate}</p></li>
 </ol>
 <p>There are a couple of important points about error bars that make them different in practice from their theoretical setup. The definition states that if you take a bunch of sample and compute their 95% confidence intervals, about 95% of them will contain the true mean. If you actually perform this experiment using R, you will find out that this is not the case, especially for small sample sizes. The reason for this is that the theoretical definition assumes that we use the true mean and true standard deviation to calculate the confidence interval. But the best we can do is to use the sample mean and sample stander deviation, so of course the confidence interval will be off. This is an important caution about being overly confident about confidence intervals. Another caution comes from the fact that they are based on the assumption of perfect independence between different measurements. Bear this is mind when you see a 95% confidence interval reported in a paper, especially one with a small sample size.</p>

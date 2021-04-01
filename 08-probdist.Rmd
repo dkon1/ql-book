@@ -62,10 +62,9 @@ One we have defined the probability of an outcome, one can calculate the probabi
 The probability $P(A)$ of an event $A$ in a sample space $\Omega$ is a number between 0 and 1, which obeys the following rules, called the *axioms of probability*: 
 
 * $P(\Omega) = 1$
-  
 * $P(\emptyset) = 0$
-
 * $P(A \cup B) = P(A) + P(B)  - P(A \cap B)$
+
 ```
 
 Let us define some notation for sets: $A \cup B$ is called the *union* of two sets, which contains all outcomes that belong to either $A$ or $B$, this is equivalent to the logical OR operator because it is true if either A or B is true. $A\cap B$ is called the *intersection* of two sets, which contains all outcomes that are in both $A$ and $B$, this is is equivalent to the logical AND operator because it is true if both A and B are true. The $\emptyset$ denotes the empty set. Any event $A$ has its *complement*, denoted $-A$, which contains all outcomes of $\Omega$ which are not in $A$. 

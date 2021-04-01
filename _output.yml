@@ -13,6 +13,7 @@ bookdown::gitbook:
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   extra_dependencies: ["chemarr"]
+  self_contained: no
   includes:
     in_header: preamble.tex
   latex_engine: xelatex

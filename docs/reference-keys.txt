@@ -24,6 +24,9 @@ fig:ch7-flow2
 def:def-fp
 def:def-stable
 fig:ch7-flow3
+fig:ch7-flow-sis1
+fig:ch7-flow-sis2
+fig:ch7-ebola
 def:def-sampspace
 def:def-prob-freq
 def:def-prob-bayes
@@ -195,6 +198,7 @@ calling-a-function
 using-a-function-to-solve-a-difference-equation
 exercises-20
 modeling-the-spread-of-infectious-disease-spread
+discussion
 r-assignment-6
 logistic-population-model
 sis-model-of-infectious-disease

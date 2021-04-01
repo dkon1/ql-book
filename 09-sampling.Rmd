@@ -132,9 +132,9 @@ To summarize, here is the recipe for calculating a confidence interval for the t
 
 3.Compute the standard error $s = \sigma_X/\sqrt{n}$
 
-4. Use a table or R to calculate the multiple called $z_\alpha$ for the desired confidence level $\alpha$. For example, $z_{0.9}  \approx 1.65$, $z_{0.95}  \approx 1.96$, $z_{0.99} \approx 2.58$.
+4. Use a table or R to calculate the multiple called $z_\alpha$ for the desired confidence level $\alpha$. For example, $z_{0.9}  \approx 1.65$, $z_{0.95} \approx 1.96$, $z_{0.99} \approx 2.58$.
 
-5. Build the confidence interval by adding and subtracting $z_\alpha s$ from the sample mean $\bar X$. For example, the 95\% confidence interval is $\bar X \pm z_{0.95} s= \bar X \pm 1.96\sigma_{X}/\sqrt{n} $.
+5. Build the confidence interval by adding and subtracting $z_\alpha s$ from the sample mean $\bar X$. For example, the 95% confidence interval is $\bar X \pm z_{0.95} s= \bar X \pm 1.96\sigma_{X}/\sqrt{n}$.
 \end{enumerate}
 
 There are a couple of important points about error bars that make them different in practice from their theoretical setup. The definition states that if you take a bunch of sample and compute their 95% confidence intervals, about 95% of them will contain the true mean. If you actually perform this experiment using R, you will find out that this is not the case, especially for small sample sizes. The reason for this is that the theoretical definition assumes that we use the true mean and true standard deviation to calculate the confidence interval. But the best we can do is to use the sample mean and sample stander deviation, so of course the confidence interval will be off. This is an important caution about being overly confident about confidence intervals. Another caution comes from the fact that they are based on the assumption of perfect independence between different measurements. Bear this is mind when you see a 95% confidence interval reported in a paper, especially one with a small sample size.

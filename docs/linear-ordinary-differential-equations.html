@@ -24,7 +24,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -314,7 +314,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>7.3.3</b> using a function to solve a difference equation</a></li>
 <li class="chapter" data-level="7.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a></li>
+<li class="chapter" data-level="7.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>7.4</b> Modeling the spread of infectious disease spread</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>7.4.1</b> Discussion</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#r-assignment-6"><i class="fa fa-check"></i><b>7.5</b> R Assignment</a>
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#logistic-population-model"><i class="fa fa-check"></i><b>7.5.1</b> logistic population model</a></li>
@@ -687,7 +690,7 @@ Therefore, the complete solution of the ODE with the given initial value is
 <span class="math display">\[x(t) =  25  + 5e^{4t}\]</span></p></li>
 </ol>
 <p>At this point, you might have noticed something about solutions of linear ODEs: they always involve an exponential term, with time in the exponent. Knowing this, it is possible to bypass the whole process of separate-and-integrate by using the following short-cut.</p>
-<p><strong>Important fact:</strong> Any linear ODE of the form $x= ax +b $ has an analytic solution of the form:
+<p><strong>Important fact:</strong> Any linear ODE of the form <span class="math inline">\(\dot x= ax +b\)</span> has an analytic solution of the form:
 <span class="math display">\[ x(t) = Ce^{at} + D\]</span></p>
 <p>This can be tested by plugging the solution back into the ODE to see if it satisfies the equation. First, take the derivative of the solution to get the left-hand side of the ODE: <span class="math inline">\(\frac{dx}{dt} = Ca e^{at}\)</span>; the plug in <span class="math inline">\(x(t)\)</span> into the right hand side of the ODE: <span class="math inline">\(aCe^{at} + aD +b\)</span>. Setting the two sides equal, we get:
 <span class="math display">\[Ca e^{at} = aCe^{at} + aD +b\]</span>

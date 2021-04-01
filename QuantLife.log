@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  30 AUG 2020 21:09
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  30 MAR 2021 12:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -687,47 +687,67 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count299
-) (./QuantLife.aux
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip60
+\thm@postskip=\skip61
+\thm@headsep=\skip62
+\dth@everypar=\toks28
+)
+\c@theorem=\count300
+\c@lemma=\count301
+\c@corollary=\count302
+\c@proposition=\count303
+\c@conjecture=\count304
+\c@definition=\count305
+\c@example=\count306
+\c@exercise=\count307
+(./QuantLife.aux
 
-LaTeX Warning: Label `exercises' multiply defined.
+LaTeX Warning: Label `sec:comp6' multiply defined.
 
 )
 \openout1 = `QuantLife.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 121.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 121.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 121.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 121.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 121.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 121.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 121.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 137.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -756,7 +776,7 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 121.
+(Font)              scaled to size 10.0pt on input line 137.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -794,18 +814,18 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 121.
+(Font)              scaled to size 10.0pt on input line 137.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 121.
+(Font)              `operators' in the math version `normal' on input line 137.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 121.
+ line 137.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 121.
+(Font)              `operators' in the math version `bold' on input line 137.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/bx/n on inp
-ut line 121.
+ut line 137.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -892,15 +912,15 @@ uage=DFLT;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 121.
+(Font)              `symbols' in the math version `normal' on input line 137.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 121.
+t line 137.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 121.
+(Font)              `symbols' in the math version `bold' on input line 137.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/bx/n on inp
-ut line 121.
+ut line 137.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -970,17 +990,17 @@ uage=DFLT;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-21.
+37.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 121.
+t line 137.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 121
+(Font)              `largesymbols' in the math version `bold' on input line 137
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/bx/n on inp
-ut line 121.
-LaTeX Info: Redefining \microtypecontext on input line 121.
+ut line 137.
+LaTeX Info: Redefining \microtypecontext on input line 137.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -992,47 +1012,50 @@ File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 \AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring OFF on input line 121.
+Package hyperref Info: Link coloring OFF on input line 137.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count300
+\c@section@level=\count308
 )
-LaTeX Info: Redefining \ref on input line 121.
-LaTeX Info: Redefining \pageref on input line 121.
-LaTeX Info: Redefining \nameref on input line 121.
+LaTeX Info: Redefining \ref on input line 137.
+LaTeX Info: Redefining \pageref on input line 137.
+LaTeX Info: Redefining \nameref on input line 137.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 123.
+(Font)              scaled to size 12.0pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 123.
+(Font)              scaled to size 8.0pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 123.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 123.
+(Font)              scaled to size 6.0pt on input line 139.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 139.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 123.
+(Font)              scaled to size 12.00128pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 123.
+(Font)              scaled to size 8.00085pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 123.
+(Font)              scaled to size 6.00064pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 123.
+(Font)              scaled to size 11.99872pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 123.
+(Font)              scaled to size 7.99915pt on input line 139.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 123.
-LaTeX Font Info:    Try loading font information for U+msa on input line 123.
+(Font)              scaled to size 5.99936pt on input line 139.
+LaTeX Font Info:    Try loading font information for U+msa on input line 139.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 123.
+LaTeX Font Info:    Try loading font information for U+msb on input line 139.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1059,269 +1082,921 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
-)
+[3] [4])
 \tf@toc=\write5
 \openout5 = `QuantLife.toc'.
 
-[3] [4
+[5] [6
 
-]
+] [7] [8] [9] [10] [11
+
+] [12]
 Chapter 1.
-[5] [6] [7] [8]
-Chapter 2.
 
-Package natbib Warning: Citation `jungck_mathematical_2010' on page 9 undefined
- on input line 191.
+Package natbib Warning: Citation `jungck_mathematical_2010' on page 13 undefine
+d on input line 211.
 
-[9
+[13
 
 ]
 
-Package natbib Warning: Citation `cohen_mathematics_2004' on page 10 undefined 
-on input line 195.
+Package natbib Warning: Citation `cohen_mathematics_2004' on page 14 undefined 
+on input line 215.
 
 
-LaTeX Warning: Reference `fig:circulation' on page 10 undefined on input line 2
-13.
+LaTeX Warning: Reference `fig:circulation' on page 14 undefined on input line 2
+33.
 
-
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 10 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[10]
+[14]
 File: ch1/Circulatory_System_no_tags_cropped.png Graphic file (type bmp)
 <ch1/Circulatory_System_no_tags_cropped.png>
 
-LaTeX Warning: Reference `fig:galen_blood' on page 11 undefined on input line 2
-24.
+LaTeX Warning: Reference `fig:galen_blood' on page 15 undefined on input line 2
+44.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[11]
+[15]
 File: ch1/galenheartc.png Graphic file (type bmp)
 <ch1/galenheartc.png>
-
-Overfull \hbox (21.70602pt too wide) detected at line 240
+[16]
+Overfull \hbox (21.70602pt too wide) detected at line 260
 [] [] [][] [] [] [][] [] [] [][] [] [] [][] []
  []
 
 
-Package natbib Warning: Citation `schultz_william_2002' on page 12 undefined on
- input line 243.
+Package natbib Warning: Citation `schultz_william_2002' on page 17 undefined on
+ input line 263.
 
 
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 12 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
+Underfull \vbox (badness 1122) has occurred while \output is active []
 
-[12] [13]
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 14 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[14] [15]
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 16 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[16] [17]
+[17] [18] [19] [20] [21]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 335.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 355.
+[22]
 
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 18 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
+LaTeX Warning: Reference `ex:overflow' on page 23 undefined on input line 422.
+
+
+LaTeX Warning: Reference `ex:underflow' on page 23 undefined on input line 424.
+
+
+
+LaTeX Warning: Reference `ex:mach_prec' on page 23 undefined on input line 426.
+
+
+[23] [24] [25]
+Overfull \vbox (1.7757pt too high) detected at line 644
  []
 
-[18]
-
-LaTeX Warning: Reference `ex:overflow' on page 19 undefined on input line 402.
-
-[19]
-
-LaTeX Warning: Reference `ex:underflow' on page 20 undefined on input line 404.
-
-
-
-LaTeX Warning: Reference `ex:mach_prec' on page 20 undefined on input line 406.
-
-
-
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 20 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[20] [21]
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 22 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[22] [23]
-Overfull \hbox (47.90451pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 24 \TU/lmr/m/sl/10 CHAPTER 2.  ARITHMETIC AND VARIABLES: THE LIF
-EBLOOD OF MODELING
- []
-
-[24
+[26] [27] [28]
+Chapter 2.
+[29
 
 ]
-Chapter 3.
-[25]
 
-Package natbib Warning: Citation `smith_mathematical_1968' on page 26 undefined
- on input line 687.
+Package natbib Warning: Citation `smith_mathematical_1968' on page 30 undefined
+ on input line 770.
 
 
-Package natbib Warning: Citation `strogatz_nonlinear_2001' on page 26 undefined
- on input line 700.
+Package natbib Warning: Citation `strogatz_nonlinear_2001' on page 30 undefined
+ on input line 783.
 
-[26] [27] [28] [29]
+[30] [31] [32] [33]
 File: QuantLife_files/figure-latex/ch2-funk1-1.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-funk1-1.pdf>
 File: QuantLife_files/figure-latex/ch2-funk1-2.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-funk1-2.pdf>
 
-LaTeX Warning: Reference `ch2-funk1' on page 30 undefined on input line 807.
-
-[30]
-
-LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 31 undefined on inpu
-t line 843.
-
-[31]
-
-LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 32 undefined on inpu
-t line 848.
+LaTeX Warning: Reference `ch2-funk1' on page 34 undefined on input line 894.
 
 
-LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 32 undefined on inpu
-t line 862.
+LaTeX Warning: Reference `def:ch2_linfunk' on page 34 undefined on input line 9
+03.
+
+[34]
+
+LaTeX Warning: Reference `def:ch2_expfunk' on page 35 undefined on input line 9
+05.
+
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 35 undefined on inpu
+t line 930.
+
+[35]
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 36 undefined on inpu
+t line 935.
+
+
+LaTeX Warning: Reference `fig:ch2_sigmoidal_plots' on page 36 undefined on inpu
+t line 949.
 
 File: QuantLife_files/figure-latex/ch2-funk2-1.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-funk2-1.pdf>
 File: QuantLife_files/figure-latex/ch2-funk2-2.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-funk2-2.pdf>
-[32] [33] [34] [35]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1035--1035
+[36] [37] [38] [39]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1122--1122
 []\TU/lmtt/m/n/10 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18
  19 20[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 1047--1047
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1134--1134
 []\TU/lmtt/m/n/10 ##  [1]   0  -1  -2  -3  -4  -5  -6  -7  -8  -9 -10 -11 -12 -
 13 -14 -15 -16 -17 -18[] 
  []
 
-[36]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 1125--1125
+[40]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1212--1212
 []\TU/lmtt/m/n/10 ## [1] 3.141593 3.141593 3.141593 3.141593 3.141593 3.141593 
 3.141593[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1228--1228
 []\TU/lmtt/m/n/10 ##  [1]   3.141593  45.000000 912.800000   0.000000   3.14159
 3  45.000000[] 
  []
 
-[37]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+[41]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1228--1228
 []\TU/lmtt/m/n/10 ##  [7] 912.800000   0.000000   3.141593  45.000000 912.80000
 0   0.000000[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 1141--1141
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1228--1228
 []\TU/lmtt/m/n/10 ## [13]   3.141593  45.000000 912.800000   0.000000   3.14159
 3  45.000000[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 1225--1225
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1312--1312
 []\TU/lmtt/m/n/10 ## Warning in my.vec1 + my.vec2: longer object length is not 
 a multiple of shorter[] 
  []
 
-[38]
+[42]
 Underfull \vbox (badness 1728) has occurred while \output is active []
 
-[39]
+[43]
 File: QuantLife_files/figure-latex/ch2-plot1-1.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-plot1-1.pdf>
 File: QuantLife_files/figure-latex/ch2-plot1-2.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-plot1-2.pdf>
-[40]
-File: QuantLife_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pd
+
+LaTeX Warning: Reference `fig:ch2-plot1' on page 44 undefined on input line 145
+3.
+
+[44]
+
+LaTeX Warning: Reference `fig:ch2-plot2' on page 45 undefined on input line 146
+0.
+
+File: QuantLife_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pd
 f)
-<use QuantLife_files/figure-latex/unnamed-chunk-41-1.pdf>
-[41]
-File: QuantLife_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pd
+<use QuantLife_files/figure-latex/unnamed-chunk-44-1.pdf>
+[45]
+File: QuantLife_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pd
 f)
-<use QuantLife_files/figure-latex/unnamed-chunk-42-1.pdf>
-[42]
+<use QuantLife_files/figure-latex/unnamed-chunk-45-1.pdf>
+
+LaTeX Warning: Reference `fig:ch2-plot2' on page 46 undefined on input line 151
+4.
+
+[46]
 File: QuantLife_files/figure-latex/ch2-plot2-1.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-plot2-1.pdf>
 File: QuantLife_files/figure-latex/ch2-plot2-2.pdf Graphic file (type pdf)
 <use QuantLife_files/figure-latex/ch2-plot2-2.pdf>
+[47] [48] [49] [50] [51] [52]
+Chapter 3.
+[53
 
-Underfull \vbox (badness 2027) has occurred while \output is active []
+]
+File: ch3/Point_mutations-en.png Graphic file (type bmp)
+<ch3/Point_mutations-en.png>
 
-[43] [44] [45] [46]
-Underfull \vbox (badness 3701) has occurred while \output is active []
+LaTeX Warning: Reference `fig:ch3_mutation' on page 54 undefined on input line 
+1810.
 
-[47] [48]
+
+LaTeX Warning: Reference `fig:ch3_mutation' on page 54 undefined on input line 
+1812.
+
+[54] [55]
+
+Package natbib Warning: Citation `whitlock_analysis_2008' on page 56 undefined 
+on input line 1840.
+
+[56]
+Underfull \vbox (badness 1231) has occurred while \output is active []
+
+[57] [58] [59]
+File: QuantLife_files/figure-latex/fig-ch3-bacillus-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/fig-ch3-bacillus-1.pdf>
+
+LaTeX Warning: Reference `fig:ch3_bacillus' on page 60 undefined on input line 
+1939.
+
+[60]
+
+LaTeX Warning: Reference `fig:ch3_mut' on page 61 undefined on input line 1946.
+
+
+
+LaTeX Warning: Reference `fig:ch3_HR' on page 61 undefined on input line 1946.
+
+File: QuantLife_files/figure-latex/fig-ch3-HR-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/fig-ch3-HR-1.pdf>
+File: QuantLife_files/figure-latex/fig-ch3-HR-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/fig-ch3-HR-2.pdf>
+File: QuantLife_files/figure-latex/fig-ch3-mut-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/fig-ch3-mut-1.pdf>
+File: QuantLife_files/figure-latex/fig-ch3-mut-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/fig-ch3-mut-2.pdf>
+
+Underfull \vbox (badness 5091) has occurred while \output is active []
+
+[61] [62]
+File: QuantLife_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-58-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[63]
+File: QuantLife_files/figure-latex/unnamed-chunk-59-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-59-1.pdf>
+[64]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2104--2104
+[]\TU/lmtt/m/n/10 ## [1] "The standard deviation of parental height is: 1.78733
+340172202"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2114--2114
+[]\TU/lmtt/m/n/10 ## [1] "The standard deviation of  child height is: 2.5179413
+6627677"[] 
+ []
+
+[65]
+File: QuantLife_files/figure-latex/unnamed-chunk-61-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-61-1.pdf>
+File: QuantLife_files/figure-latex/unnamed-chunk-61-2.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-61-2.pdf>
+[66] [67] [68] [69] [70
+
+]
 Chapter 4.
-[49
+[71]
 
-] [50
+LaTeX Warning: Reference `fig:HRTemp_scatterplot' on page 72 undefined on input
+ line 2394.
 
-]
+File: QuantLife_files/figure-latex/HRTemp-scatter-1.pdf Graphic file (type pdf)
+
+<use QuantLife_files/figure-latex/HRTemp-scatter-1.pdf>
+File: QuantLife_files/figure-latex/HRTemp-scatter-2.pdf Graphic file (type pdf)
+
+<use QuantLife_files/figure-latex/HRTemp-scatter-2.pdf>
+[72] [73] [74]
+
+Package natbib Warning: Citation `press_numerical_2007' on page 75 undefined on
+ input line 2459.
+
+
+Package natbib Warning: Citation `whitlock_analysis_2008' on page 75 undefined 
+on input line 2473.
+
+[75]
+
+Package natbib Warning: Citation `sloan_cooling_1973' on page 76 undefined on i
+nput line 2488.
+
+
+Package natbib Warning: Citation `sloan_cooling_1973' on page 76 undefined on i
+nput line 2488.
+
+[76]
+File: ch8/Correlation_examples.png Graphic file (type bmp)
+<ch8/Correlation_examples.png>
+[77]
+
+LaTeX Warning: Reference `sec:math4' on page 78 undefined on input line 2550.
+
+[78]
+File: ch8/penguin_HR.png Graphic file (type bmp)
+<ch8/penguin_HR.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[79] [80]
+
+LaTeX Warning: Reference `fig:linreg_HRTemp' on page 81 undefined on input line
+ 2644.
+
+File: QuantLife_files/figure-latex/linreg-HRTemp-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/linreg-HRTemp-1.pdf>
+File: QuantLife_files/figure-latex/linreg-HRTemp-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/linreg-HRTemp-2.pdf>
+[81] [82]
+
+LaTeX Warning: Reference `fig:linreg_HRTemp' on page 83 undefined on input line
+ 2669.
+
+[83]
+File: QuantLife_files/figure-latex/unnamed-chunk-78-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-78-1.pdf>
+File: QuantLife_files/figure-latex/unnamed-chunk-79-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-79-1.pdf>
+
+Underfull \vbox (badness 8113) has occurred while \output is active []
+
+[84]
+
+Package natbib Warning: Citation `senn_francis_2011' on page 85 undefined on in
+put line 2765.
+
+[85]
+File: QuantLife_files/figure-latex/linreg-Galton-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/linreg-Galton-1.pdf>
+File: QuantLife_files/figure-latex/linreg-Galton-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/linreg-Galton-2.pdf>
+[86]
+
+LaTeX Warning: Reference `fig:regression2mean' on page 87 undefined on input li
+ne 2796.
+
+
+Package natbib Warning: Citation `kong_rate_2012' on page 87 undefined on input
+ line 2801.
+
+
+Underfull \vbox (badness 2334) has occurred while \output is active []
+
+[87] [88] [89] [90
+
+] [91] [92]
 Chapter 5.
-[51] [52
+[93
 
 ]
+
+LaTeX Warning: Reference `fig:ch14_cell_div' on page 94 undefined on input line
+ 3001.
+
+[94]
+File: ch14/Ecoli_dividing.png Graphic file (type bmp)
+<ch14/Ecoli_dividing.png>
+[95]
+
+Package natbib Warning: Citation `allman_mathematical_2003' on page 96 undefine
+d on input line 3028.
+
+
+Package natbib Warning: Citation `edelstein-keshet_mathematical_2005' on page 9
+6 undefined on input line 3046.
+
+[96] [97] [98]
+File: QuantLife_files/figure-latex/ch14-sol-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch14-sol-1.pdf>
+File: QuantLife_files/figure-latex/ch14-sol-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch14-sol-2.pdf>
+
+LaTeX Warning: Reference `fig:ch14_solutions' on page 99 undefined on input lin
+e 3141.
+
+[99] [100] [101] [102] [103]
+File: QuantLife_files/figure-latex/unnamed-chunk-96-1.pdf Graphic file (type pd
+f)
+<use QuantLife_files/figure-latex/unnamed-chunk-96-1.pdf>
+[104] [105] [106]
 Chapter 6.
-[53] [54
+[107
+
+] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 6.1 on input line 3896.
+
+[120]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 6.2 on input line 3913.
+
+[121] [122]
+File: QuantLife_files/figure-latex/fig-FE-sol-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/fig-FE-sol-1.pdf>
+[123]
+File: QuantLife_files/figure-latex/unnamed-chunk-112-1.pdf Graphic file (type p
+df)
+<use QuantLife_files/figure-latex/unnamed-chunk-112-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[124]
+File: QuantLife_files/figure-latex/unnamed-chunk-113-1.pdf Graphic file (type p
+df)
+<use QuantLife_files/figure-latex/unnamed-chunk-113-1.pdf>
+[125] [126] [127]
+
+Package natbib Warning: Citation `rosenbaum_basic_2011' on page 128 undefined o
+n input line 4153.
+
+
+LaTeX Warning: Reference `fig:ch15_drug_conc' on page 128 undefined on input li
+ne 4155.
+
+
+LaTeX Warning: Reference `fig:ch15_drug_conc' on page 128 undefined on input li
+ne 4155.
+
+File: ch15/aa35graf.png Graphic file (type bmp)
+<ch15/aa35graf.png>
+File: ch15/2000px-Bupropion_bioequivalency.png Graphic file (type bmp)
+<ch15/2000px-Bupropion_bioequivalency.png>
+[128] [129] [130] [131] [132] [133] [134
 
 ]
 Chapter 7.
-File: QuantLife_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
-<use QuantLife_files/figure-latex/nice-fig-1.pdf>
-[55] (./QuantLife.bbl [56])
+[135]
 
-Package natbib Warning: There were undefined citations.
+Package natbib Warning: Citation `otto_biologists_2007' on page 136 undefined o
+n input line 4398.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1735.
-[57
+[136] [137]
+File: QuantLife_files/figure-latex/ch7-flow1-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow1-1.pdf>
+File: QuantLife_files/figure-latex/ch7-flow1-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow1-2.pdf>
+
+LaTeX Warning: Reference `fig:ch16_flow_linear' on page 138 undefined on input 
+line 4437.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_linear' on page 138 undefined on input 
+line 4437.
+
+
+Underfull \vbox (badness 1168) has occurred while \output is active []
+
+[138]
+
+LaTeX Warning: Reference `fig:ch16_flow_logistic' on page 139 undefined on inpu
+t line 4442.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_logistic' on page 139 undefined on inpu
+t line 4442.
+
+File: QuantLife_files/figure-latex/ch7-flow2-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow2-1.pdf>
+File: QuantLife_files/figure-latex/ch7-flow2-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow2-2.pdf>
+[139]
+
+LaTeX Warning: Reference `def:ch16_fixedpt' on page 140 undefined on input line
+ 4474.
+
+[140]
+
+Package natbib Warning: Citation `strogatz_nonlinear_2001' on page 141 undefine
+d on input line 4490.
+
+[141]
+
+LaTeX Warning: Reference `fig:ch16_flow_linear' on page 142 undefined on input 
+line 4524.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_logistic' on page 142 undefined on inpu
+t line 4527.
+
+[142]
+
+LaTeX Warning: Reference `fig:ch16_flow_logistic' on page 143 undefined on inpu
+t line 4539.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_semi' on page 143 undefined on input li
+ne 4544.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_semi' on page 143 undefined on input li
+ne 4556.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_semi' on page 143 undefined on input li
+ne 4559.
+
+[143]
+File: QuantLife_files/figure-latex/ch7-flow3-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow3-1.pdf>
+File: QuantLife_files/figure-latex/ch7-flow3-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow3-2.pdf>
+[144]
+Overfull \hbox (4.28851pt too wide) detected at line 4588
+[] [] [][][][][][][] [] [][][][][][][][][] [] [][] [] [] [][][][][][] [][][][][
+][]  [][][][] [] [][][]  [][][][] [] [][][][]
+ []
+
+[145] [146]
+File: QuantLife_files/figure-latex/unnamed-chunk-126-1.pdf Graphic file (type p
+df)
+<use QuantLife_files/figure-latex/unnamed-chunk-126-1.pdf>
+[147] [148]
+Missing character: There is no 𝛾 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛾 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛾 in font [lmroman10-regular]:mapping=tex-text;!
+File: QuantLife_files/figure-latex/ch7-flow-sis1-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow-sis1-1.pdf>
+File: QuantLife_files/figure-latex/ch7-flow-sis1-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow-sis1-2.pdf>
+File: QuantLife_files/figure-latex/ch7-flow-sis2-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow-sis2-1.pdf>
+File: QuantLife_files/figure-latex/ch7-flow-sis2-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-flow-sis2-2.pdf>
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛾 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛽 in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 𝛾 in font [lmroman10-regular]:mapping=tex-text;!
+
+LaTeX Warning: Reference `fig:ch16_flow_sis1' on page 149 undefined on input li
+ne 4774.
+
+
+LaTeX Warning: Reference `fig:ch16_flow_sis1' on page 149 undefined on input li
+ne 4774.
+
+[149] [150] [151]
+
+LaTeX Warning: Reference `fig:ch16_flow_sis2' on page 152 undefined on input li
+ne 4776.
+
+
+Package natbib Warning: Citation `brauer_mathematical_2011' on page 152 undefin
+ed on input line 4778.
+
+
+LaTeX Warning: Reference `fig:ch16-ebola' on page 152 undefined on input line 4
+780.
+
+
+Package natbib Warning: Citation `brauer_mathematical_2011' on page 152 undefin
+ed on input line 4780.
+
+File: QuantLife_files/figure-latex/ch7-ebola-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-ebola-1.pdf>
+File: QuantLife_files/figure-latex/ch7-ebola-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/ch7-ebola-2.pdf>
+[152] [153]
+
+Package natbib Warning: Citation `agusto_mathematical_2015' on page 154 undefin
+ed on input line 4807.
+
+File: QuantLife_files/figure-latex/unnamed-chunk-131-1.pdf Graphic file (type p
+df)
+<use QuantLife_files/figure-latex/unnamed-chunk-131-1.pdf>
+[154] [155] [156] [157] [158
+
+] [159] [160]
+Chapter 8.
+[161
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1735.
-(./QuantLife.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1735.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1735.
+File: ch4/sample_space.png Graphic file (type bmp)
+<ch4/sample_space.png>
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Reference `fig:ch4_sample_space' on page 162 undefined on input 
+line 5065.
+
+[162]
+
+Package natbib Warning: Citation `feller_introduction_????' on page 163 undefin
+ed on input line 5069.
+
+[163]
+
+LaTeX Warning: Reference `fig:ch4_sample_space' on page 164 undefined on input 
+line 5104.
+
+File: ch4/set_intersection.png Graphic file (type bmp)
+<ch4/set_intersection.png>
+File: ch4/set_union.png Graphic file (type bmp)
+<ch4/set_union.png>
+File: ch4/set_subtraction.png Graphic file (type bmp)
+<ch4/set_subtraction.png>
+
+LaTeX Warning: Reference `fig:ch4_sample_space' on page 164 undefined on input 
+line 5124.
+
+[164] [165] [166]
+
+Package natbib Warning: Citation `feller_introduction_????' on page 167 undefin
+ed on input line 5161.
+
+[167] [168] [169] [170] [171] [172]
+File: QuantLife_files/figure-latex/unif-dist-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/unif-dist-1.pdf>
+File: QuantLife_files/figure-latex/unif-dist-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/unif-dist-2.pdf>
+[173] [174] [175] [176]
+File: QuantLife_files/figure-latex/bin-dist-1-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-1-1.pdf>
+File: QuantLife_files/figure-latex/bin-dist-1-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-1-2.pdf>
+File: QuantLife_files/figure-latex/bin-dist-2-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-2-1.pdf>
+File: QuantLife_files/figure-latex/bin-dist-2-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-2-2.pdf>
+File: QuantLife_files/figure-latex/bin-dist-3-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-3-1.pdf>
+File: QuantLife_files/figure-latex/bin-dist-3-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-3-2.pdf>
+
+LaTeX Warning: Reference `def:ch4_mean' on page 177 undefined on input line 543
+3.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Reference `def:ch4_var' on page 177 undefined on input line 5433
+.
 
- ) 
+
+LaTeX Warning: Reference `eq:ch4_mean_unif' on page 177 undefined on input line
+ 5433.
+
+
+LaTeX Warning: Reference `eq:ch4_var_unif' on page 177 undefined on input line 
+5433.
+
+
+LaTeX Warning: Reference `eq:ch4_binom_mean' on page 177 undefined on input lin
+e 5433.
+
+
+LaTeX Warning: Reference `eq:ch4_binom_var' on page 177 undefined on input line
+ 5433.
+
+
+LaTeX Warning: Reference `fig:unif-dist' on page 177 undefined on input line 54
+38.
+
+
+LaTeX Warning: Reference `fig:bin-dist-1' on page 177 undefined on input line 5
+440.
+
+
+LaTeX Warning: Reference `fig:bin-dist-2' on page 177 undefined on input line 5
+442.
+
+
+LaTeX Warning: Reference `fig:bin-dist-3' on page 177 undefined on input line 5
+444.
+
+[177] [178]
+
+LaTeX Warning: Reference `eq:ch4_binom_dist' on page 179 undefined on input lin
+e 5454.
+
+[179] [180] [181]
+File: QuantLife_files/figure-latex/bin-dist-4-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-4-1.pdf>
+File: QuantLife_files/figure-latex/bin-dist-4-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/bin-dist-4-2.pdf>
+[182] [183] [184
+
+]
+Chapter 9.
+[185] [186] [187] [188]
+
+Package natbib Warning: Citation `whitlock_analysis_2008' on page 189 undefined
+ on input line 5692.
+
+File: ch5/normal_dist_example.png Graphic file (type bmp)
+<ch5/normal_dist_example.png>
+
+LaTeX Warning: Reference `fig:ch5_normal_dist' on page 189 undefined on input l
+ine 5702.
+
+[189] [190]
+
+Package natbib Warning: Citation `whitlock_analysis_2008' on page 191 undefined
+ on input line 5726.
+
+[191]
+File: ch5/standard-deviation-tikz.png Graphic file (type bmp)
+<ch5/standard-deviation-tikz.png>
+
+LaTeX Warning: Reference `fig:ch5_sigma_levels' on page 192 undefined on input 
+line 5742.
+
+[192]
+
+LaTeX Warning: Reference `sec:proj5' on page 193 undefined on input line 5744.
+
+[193]
+Underfull \vbox (badness 6396) has occurred while \output is active []
+
+[194]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5806--5806
+[]\TU/lmtt/m/n/10 ##  [1] 0.49240915 0.80199500 0.22788038 0.06003781 0.8892908
+7 0.95645231[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5828--5828
+[]\TU/lmtt/m/n/10 ##  [1] 0.07194764 0.92833155 0.65420946 0.30879086 0.4711614
+2 0.07211446[] 
+ []
+
+
+LaTeX Warning: Reference `fig:data_samplemeans' on page 195 undefined on input 
+line 5842.
+
+
+LaTeX Warning: Reference `fig:data_samplemeans' on page 195 undefined on input 
+line 5842.
+
+[195]
+File: QuantLife_files/figure-latex/sample-dist-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/sample-dist-1.pdf>
+File: QuantLife_files/figure-latex/sample-dist-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/sample-dist-2.pdf>
+
+LaTeX Warning: Reference `(' on page 196 undefined on input line 5876.
+
+File: QuantLife_files/figure-latex/clt-demo-1.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/clt-demo-1.pdf>
+File: QuantLife_files/figure-latex/clt-demo-2.pdf Graphic file (type pdf)
+<use QuantLife_files/figure-latex/clt-demo-2.pdf>
+
+LaTeX Warning: Reference `sec:math5_2' on page 196 undefined on input line 5890
+.
+
+[196] [197] [198]
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
+[199] [200]
+Chapter 10.
+[201
+
+]
+
+LaTeX Warning: Reference `tab:data_table_DS_age' on page 202 undefined on input
+ line 5998.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 10.1 on input line 6009.
+
+
+Package natbib Warning: Citation `malone_first-trimester_2005' on page 202 unde
+fined on input line 6011.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[202]
+File: ch6/cond_prob_tikz.png Graphic file (type bmp)
+<ch6/cond_prob_tikz.png>
+
+LaTeX Warning: Reference `fig:ch6_cond_prob' on page 203 undefined on input lin
+e 6043.
+
+
+LaTeX Warning: Reference `fig:ch6_cond_prob' on page 203 undefined on input lin
+e 6045.
+
+[203] [204]
+
+LaTeX Warning: Reference `tab:data_table_DS_age' on page 205 undefined on input
+ line 6047.
+
+File: ch6/mendel_flowers.png Graphic file (type bmp)
+<ch6/mendel_flowers.png>
+
+LaTeX Warning: Reference `fig:mendel_flowers' on page 205 undefined on input li
+ne 6062.
+
+[205] [206]
+
+LaTeX Warning: Reference `fig:ch6_cond_prob' on page 207 undefined on input lin
+e 6093.
+
+File: ch6/indep_ex1.png Graphic file (type bmp)
+<ch6/indep_ex1.png>
+File: ch6/indep_ex2.png Graphic file (type bmp)
+<ch6/indep_ex2.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[207]
+File: ch6/indep_ex3.png Graphic file (type bmp)
+<ch6/indep_ex3.png>
+
+LaTeX Warning: Reference `fig:ch6_indep_ex' on page 208 undefined on input line
+ 6107.
+
+[208] [209]
+
+LaTeX Warning: Reference `tab:data_table_DS_age' on page 210 undefined on input
+ line 6140.
+
+Missing character: There is no ≈ in font [lmroman10-regular]:mapping=tex-text;!
+[210]
+
+LaTeX Warning: Reference `tab:exp_table_DS_age' on page 211 undefined on input 
+line 6146.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 10.2 on input line 6157.
+
+
+LaTeX Warning: Reference `tab:data_table_DS_age' on page 211 undefined on input
+ line 6161.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 10.3 on input line 6172.
+
+[211] [212]
+Chapter 11.
+[213
+
+] [214] [215]
+
+LaTeX Warning: Reference `tab:TB_test' on page 216 undefined on input line 6292
+.
+
+[216]
+
+Package natbib Warning: Citation `whitlock_analysis_2008' on page 217 undefined
+ on input line 6323.
+
+[217] [218]
+
+LaTeX Warning: Reference `sec:math5' on page 219 undefined on input line 6345.
+
+File: ch6/Chi-Squared_Distribution.png Graphic file (type bmp)
+<ch6/Chi-Squared_Distribution.png>
+
+LaTeX Warning: Reference `fig:ch6_chisq_dist' on page 219 undefined on input li
+ne 6353.
+
+[219] [220]
+
+LaTeX Warning: Reference `sec:model6' on page 221 undefined on input line 6435.
+
+
+[221]
+
+Package natbib Warning: Citation `_stop-and-frisk_????' on page 222 undefined o
+n input line 6459.
+
+[222]
+
+Package natbib Warning: Citation `_nypds_????' on page 223 undefined on input l
+ine 6465.
+
+
+LaTeX Warning: Reference `tab:stop_frisk_race' on page 223 undefined on input l
+ine 6465.
+
+[223] [224
+
+]
+Chapter 12.
+[225]
+
+LaTeX Warning: File `https://imgs.xkcd.com/comics/frequentists_vs_bayesians.png
+' not found on input line 6537.
+
+! Unable to load picture or PDF file 'https://imgs.xkcd.com/comics/frequentists
+_vs_bayesians.png'.
+<to be read again> 
+                   }
+l.6537 ...om/comics/frequentists_vs_bayesians.png}
+                                                   
 Here is how much of TeX's memory you used:
- 28455 strings out of 492909
- 521065 string characters out of 6132923
- 745192 words of memory out of 5000000
- 32218 multiletter control sequences out of 15000+600000
- 538756 words of font info for 80 fonts, out of 8000000 for 9000
+ 29168 strings out of 492909
+ 539952 string characters out of 6132923
+ 764001 words of memory out of 5000000
+ 32851 multiletter control sequences out of 15000+600000
+ 538772 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,16n,115p,1428b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,11n,115p,1885b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on QuantLife.pdf (57 pages).
+Output written on QuantLife.pdf (225 pages).

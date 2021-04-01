@@ -220,13 +220,10 @@ $$ H(a) = \frac{b a }{c + a}$$
 5. Model of concentration of a gene product $G$ (concentration) as a function of time $t$:
  $$ G(t) = G_m (1 - e^{-\alpha t})$$
 
-6. The simplified Goldman-Hodgkin-Katz model of ionic current $I$ (current) as a function of membrane potential $V$ (voltage):
-$$ I(V) = - b V \frac{1- c e^{-\alpha V}} {1-  e^{-\alpha V}} $$
-
-7. Michaelis-Menten model \index{model!Michaelis-Menten} of enzyme kinetics, $v$ is reaction rate (1/time) and $S$ is substrate concentration:
+6. Michaelis-Menten model \index{model!Michaelis-Menten} of enzyme kinetics, $v$ is reaction rate (1/time) and $S$ is substrate concentration:
 $$ v(S) = \frac{v_{max} S}{K_m + S}$$
 
-8. Logistic model \index{logistic model}of population growth, $P$ is population size and time $t$:
+7. Logistic model \index{logistic model}of population growth, $P$ is population size and time $t$:
 $$ P(t) = \frac{A e^{kt}}{1 + B(e^{kt} -1)} $$
 
 
