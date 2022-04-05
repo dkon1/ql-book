@@ -1,8 +1,9 @@
+# (PART) Randomness in observations {-} 
+
 # Describing data sets
 
 > Get your facts first, and then you can distort them as much as you please.   
 -- Rudyard Kipling, *An Interview with Mark Twain*
-
 
 
 Science begins with experimental measurements, which are then verified by reproducing the results. But no experimental result is perfectly reproducible because all are subject to random noise, whether it is caused by unpredictable processes or is due to measurement error. Describing collections of numbers with noise is the first step to understanding the biological systems that are being measured. In this chapter you will learn to do the following:

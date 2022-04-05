@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Random variables and distributions | Quantifying Life</title>
+  <title>4 Random variables and distributions | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Random variables and distributions | Quantifying Life" />
+  <meta property="og:title" content="4 Random variables and distributions | Quantifying Life" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Random variables and distributions | Quantifying Life" />
+  <meta name="twitter:title" content="4 Random variables and distributions | Quantifying Life" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,17 +23,17 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2021-04-17" />
+<meta name="date" content="2022-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="solutions-of-ordinary-differential-equations.html"/>
-<link rel="next" href="sampling-distribution-and-estimation.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="describing-data-sets.html"/>
+<link rel="next" href="linear-regression.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,13 +49,16 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -117,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,330 +136,330 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./"> Quantifying Life (Web version) </a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<li><a href="index.html#purpose-and-purview">Purpose and purview<span></span></a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling<span></span></a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book<span></span></a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book<span></span></a></li>
 </ul></li>
-<li class="part"><span><b>I The Basics</b></span></li>
-<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<li class="part"><span><b>I The Basics<span></span></b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
-<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood<span></span></a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
-<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
-<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
-<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
-<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population<span></span></a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration<span></span></a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine<span></span></a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R<span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
-<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
-<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
-<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
-<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
-<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
-<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
-<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
-<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
-<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
-<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
-<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
-<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
-<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
-<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
-<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio<span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises<span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment<span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises<span></span></a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
-<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities<span></span></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
-<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
-<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
-<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
-<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
-<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
-<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
-<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions<span></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions<span></span></a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables<span></span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables<span></span></a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors<span></span></a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
-<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
-<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
-<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
-<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
-<li class="chapter" data-level="4.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-10"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-11"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics<span></span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics<span></span></a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics <span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II Things that change over time</b></span></li>
-<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<li class="part"><span><b>II Randomness in observations<span></span></b></span></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models</a>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
-<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
-<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
-<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
-<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:<span></span></a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs<span></span></a></li>
+<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R<span></span></a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>5.2.1</b> simple linear models</a></li>
-<li class="chapter" data-level="5.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>5.2.2</b> models with a constant term</a></li>
-<li class="chapter" data-level="5.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>5.2.3</b> population growth and decline</a></li>
-<li class="chapter" data-level="5.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-12"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>5.3</b> Numerical solutions in R</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>5.3.1</b> for loops</a></li>
-<li class="chapter" data-level="5.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>5.3.2</b> using vectors with loops</a></li>
-<li class="chapter" data-level="5.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-13"><i class="fa fa-check"></i><b>5.3.3</b> Exercises:</a></li>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>6</b> Graphical analysis of ordinary differential equations</a>
+<li class="chapter" data-level="4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>4</b> Random variables and distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>6.1</b> Building differential equations</a>
+<li class="chapter" data-level="4.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>4.1</b> Random variables and distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>6.1.1</b> from discrete time to continuous</a></li>
-<li class="chapter" data-level="6.1.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-14"><i class="fa fa-check"></i><b>6.1.2</b> Exercises</a></li>
-<li class="chapter" data-level="6.1.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>6.1.3</b> growth proportional to population size</a></li>
-<li class="chapter" data-level="6.1.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>6.1.4</b> chemical kinetics</a></li>
-<li class="chapter" data-level="6.1.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>6.1.5</b> building nonlinear ODEs</a></li>
+<li class="chapter" data-level="4.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>4.1.1</b> definition of probability<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>4.1.2</b> axioms of probability<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>4.1.3</b> random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> expectation of random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>4.1.5</b> variance of random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-10"><i class="fa fa-check"></i><b>4.1.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>6.2</b> Qualitative analysis of ODEs</a>
+<li class="chapter" data-level="4.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>4.2</b> Examples of distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>6.2.1</b> graphical analysis of the defining function</a></li>
-<li class="chapter" data-level="6.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>6.2.2</b> fixed points and stability</a></li>
-<li class="chapter" data-level="6.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>6.2.3</b> Outline of qualitative analysis of an ODE</a></li>
-<li class="chapter" data-level="6.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-15"><i class="fa fa-check"></i><b>6.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="4.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>4.2.1</b> uniform distribution<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>4.2.2</b> binomial distribution<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-11"><i class="fa fa-check"></i><b>4.2.3</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>4.2.4</b> testing for mutants<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>6.3</b> Functions in R</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>6.3.1</b> defining a function</a></li>
-<li class="chapter" data-level="6.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>6.3.2</b> calling a function</a></li>
-<li class="chapter" data-level="6.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>6.3.3</b> using a function to solve a difference equation</a></li>
-<li class="chapter" data-level="6.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-16"><i class="fa fa-check"></i><b>6.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="4.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>4.3</b> Random number generators in R<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>6.4</b> Modeling the spread of infectious disease spread</a>
+<li class="chapter" data-level="5" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>5</b> Linear regression<span></span></a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>6.4.1</b> Discussion</a></li>
+<li class="chapter" data-level="5.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>5.1</b> Linear relationship between two variables<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>5.2</b> Linear least-squares fitting<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>5.2.1</b> sum of squared errors<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>5.2.2</b> best-fit slope and intercept<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>5.2.3</b> Execises<span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>5.2.4</b> correlation and goodness of fit}<span></span></a></li>
+<li class="chapter" data-level="5.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-12"><i class="fa fa-check"></i><b>5.2.5</b> Exercises<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>5.3</b> Linear regression using R<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-13"><i class="fa fa-check"></i><b>5.3.1</b> Exercises:<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>7</b> Solutions of ordinary differential equations</a>
+<li class="chapter" data-level="5.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>5.4</b> Regression to the mean<span></span></a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations-1"><i class="fa fa-check"></i><b>7.1</b> Solutions of ordinary differential equations</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>7.1.1</b> separate and integrate method</a></li>
-<li class="chapter" data-level="7.1.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>7.1.2</b> behavior of solutions of linear ODEs</a></li>
-<li class="chapter" data-level="7.1.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>7.1.3</b> solutions of nonhomogeneous ODEs</a></li>
-<li class="chapter" data-level="7.1.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-17"><i class="fa fa-check"></i><b>7.1.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>7.2</b> Numeric solutions and the Forward Euler method</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-18"><i class="fa fa-check"></i><b>7.2.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>7.3</b> Forward Euler method in R</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>7.3.1</b> implementation</a></li>
-<li class="chapter" data-level="7.3.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-19"><i class="fa fa-check"></i><b>7.3.2</b> Exercises</a></li>
-<li class="chapter" data-level="7.3.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>7.3.3</b> error analysis</a></li>
-<li class="chapter" data-level="7.3.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>7.4</b> Applications of linear ODE models</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>7.4.1</b> model of pharmacokinetics</a></li>
-<li class="chapter" data-level="7.4.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#discussion-questions-2"><i class="fa fa-check"></i><b>7.4.2</b> Discussion questions</a></li>
+<li class="chapter" data-level="5.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>5.4.1</b> Discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Randomness in observations</b></span></li>
-<li class="chapter" data-level="8" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>8</b> Random variables and distributions</a>
+<li class="chapter" data-level="6" data-path="independence.html"><a href="independence.html"><i class="fa fa-check"></i><b>6</b> Independence<span></span></a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>8.1</b> Random variables and distributions</a>
+<li class="chapter" data-level="6.1" data-path="independence.html"><a href="independence.html#contingency-tables-to-summarize-data"><i class="fa fa-check"></i><b>6.1</b> Contingency tables to summarize data<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="independence.html"><a href="independence.html#conditional-probability"><i class="fa fa-check"></i><b>6.2</b> Conditional probability<span></span></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>8.1.1</b> definition of probability</a></li>
-<li class="chapter" data-level="8.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>8.1.2</b> axioms of probability</a></li>
-<li class="chapter" data-level="8.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>8.1.3</b> random variables</a></li>
-<li class="chapter" data-level="8.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>8.1.4</b> expectation of random variables</a></li>
-<li class="chapter" data-level="8.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>8.1.5</b> variance of random variables</a></li>
-<li class="chapter" data-level="8.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-21"><i class="fa fa-check"></i><b>8.1.6</b> Exercises</a></li>
+<li class="chapter" data-level="6.2.1" data-path="independence.html"><a href="independence.html#exercises-14"><i class="fa fa-check"></i><b>6.2.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>8.2</b> Examples of distributions</a>
+<li class="chapter" data-level="6.3" data-path="independence.html"><a href="independence.html#independence-of-events"><i class="fa fa-check"></i><b>6.3</b> Independence of events<span></span></a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>8.2.1</b> uniform distribution</a></li>
-<li class="chapter" data-level="8.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>8.2.2</b> binomial distribution</a></li>
-<li class="chapter" data-level="8.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-22"><i class="fa fa-check"></i><b>8.2.3</b> Exercises</a></li>
-<li class="chapter" data-level="8.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>8.2.4</b> testing for mutants</a></li>
+<li class="chapter" data-level="6.3.1" data-path="independence.html"><a href="independence.html#exercises-15"><i class="fa fa-check"></i><b>6.3.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="independence.html"><a href="independence.html#product-rule"><i class="fa fa-check"></i><b>6.3.2</b> product rule<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>8.3</b> Random number generators in R</a></li>
+<li class="chapter" data-level="6.4" data-path="independence.html"><a href="independence.html#independence-of-variables"><i class="fa fa-check"></i><b>6.4</b> Independence of variables<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation</a>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis testing<span></span></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers</a>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#terminology-and-quality-measures"><i class="fa fa-check"></i><b>7.1</b> Terminology and quality measures<span></span></a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean</a></li>
-<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error</a></li>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#positives-and-negatives"><i class="fa fa-check"></i><b>7.1.1</b> positives and negatives<span></span></a></li>
+<li class="chapter" data-level="7.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#types-of-errors"><i class="fa fa-check"></i><b>7.1.2</b> types of errors<span></span></a></li>
+<li class="chapter" data-level="7.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#test-quality-measures"><i class="fa fa-check"></i><b>7.1.3</b> test quality measures<span></span></a></li>
+<li class="chapter" data-level="7.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#exercises-16"><i class="fa fa-check"></i><b>7.1.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="7.1.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rejecting-the-null-hypothesis"><i class="fa fa-check"></i><b>7.1.5</b> rejecting the null hypothesis<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem</a>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#chi-squared-test"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#hypothesis-testing-in-r"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing in R<span></span></a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution</a></li>
-<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals</a></li>
-<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals</a></li>
+<li class="chapter" data-level="7.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#example-with-data"><i class="fa fa-check"></i><b>7.3.1</b> example with data<span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#stop-and-frisk-and-race"><i class="fa fa-check"></i><b>7.3.2</b> stop-and-frisk and race<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="independence.html"><a href="independence.html"><i class="fa fa-check"></i><b>10</b> Independence</a>
+<li class="chapter" data-level="8" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html"><i class="fa fa-check"></i><b>8</b> Prior knowledge and Bayesian thinking<span></span></a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="independence.html"><a href="independence.html#contingency-tables-to-summarize-data"><i class="fa fa-check"></i><b>10.1</b> Contingency tables to summarize data</a></li>
-<li class="chapter" data-level="10.2" data-path="independence.html"><a href="independence.html#conditional-probability"><i class="fa fa-check"></i><b>10.2</b> Conditional probability</a>
+<li class="chapter" data-level="8.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#prior-knowledge"><i class="fa fa-check"></i><b>8.1</b> Prior knowledge<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#bayes-formula"><i class="fa fa-check"></i><b>8.2</b> Bayes’ formula<span></span></a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="independence.html"><a href="independence.html#exercises-23"><i class="fa fa-check"></i><b>10.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.2.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#positive-and-negative-predictive-values"><i class="fa fa-check"></i><b>8.2.1</b> positive and negative predictive values<span></span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#exercises-17"><i class="fa fa-check"></i><b>8.2.2</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="independence.html"><a href="independence.html#independence-of-events"><i class="fa fa-check"></i><b>10.3</b> Independence of events</a>
+<li class="chapter" data-level="8.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#applications-of-bayesian-thinking"><i class="fa fa-check"></i><b>8.3</b> Applications of Bayesian thinking<span></span></a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="independence.html"><a href="independence.html#exercises-24"><i class="fa fa-check"></i><b>10.3.1</b> Exercises</a></li>
-<li class="chapter" data-level="10.3.2" data-path="independence.html"><a href="independence.html#product-rule"><i class="fa fa-check"></i><b>10.3.2</b> product rule</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="independence.html"><a href="independence.html#independence-of-variables"><i class="fa fa-check"></i><b>10.4</b> Independence of variables</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis testing</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#terminology-and-quality-measures"><i class="fa fa-check"></i><b>11.1</b> Terminology and quality measures</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#positives-and-negatives"><i class="fa fa-check"></i><b>11.1.1</b> positives and negatives</a></li>
-<li class="chapter" data-level="11.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#types-of-errors"><i class="fa fa-check"></i><b>11.1.2</b> types of errors</a></li>
-<li class="chapter" data-level="11.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#test-quality-measures"><i class="fa fa-check"></i><b>11.1.3</b> test quality measures</a></li>
-<li class="chapter" data-level="11.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#exercises-25"><i class="fa fa-check"></i><b>11.1.4</b> Exercises</a></li>
-<li class="chapter" data-level="11.1.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rejecting-the-null-hypothesis"><i class="fa fa-check"></i><b>11.1.5</b> rejecting the null hypothesis</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi-squared test</a></li>
-<li class="chapter" data-level="11.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#hypothesis-testing-in-r"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing in R</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#example-with-data"><i class="fa fa-check"></i><b>11.3.1</b> example with data</a></li>
-<li class="chapter" data-level="11.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#stop-and-frisk-and-race"><i class="fa fa-check"></i><b>11.3.2</b> stop-and-frisk and race</a></li>
+<li class="chapter" data-level="8.3.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#when-too-much-testing-is-bad"><i class="fa fa-check"></i><b>8.3.1</b> when too much testing is bad<span></span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#reliability-of-scientific-studies"><i class="fa fa-check"></i><b>8.3.2</b> reliability of scientific studies<span></span></a></li>
+<li class="chapter" data-level="8.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-2"><i class="fa fa-check"></i><b>8.3.3</b> discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html"><i class="fa fa-check"></i><b>12</b> Prior knowledge and Bayesian thinking</a>
+<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation<span></span></a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#prior-knowledge"><i class="fa fa-check"></i><b>12.1</b> Prior knowledge</a></li>
-<li class="chapter" data-level="12.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#bayes-formula"><i class="fa fa-check"></i><b>12.2</b> Bayes’ formula</a>
+<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers<span></span></a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#positive-and-negative-predictive-values"><i class="fa fa-check"></i><b>12.2.1</b> positive and negative predictive values</a></li>
-<li class="chapter" data-level="12.2.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#exercises-26"><i class="fa fa-check"></i><b>12.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean<span></span></a></li>
+<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#applications-of-bayesian-thinking"><i class="fa fa-check"></i><b>12.3</b> Applications of Bayesian thinking</a>
+<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem<span></span></a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#when-too-much-testing-is-bad"><i class="fa fa-check"></i><b>12.3.1</b> when too much testing is bad</a></li>
-<li class="chapter" data-level="12.3.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#reliability-of-scientific-studies"><i class="fa fa-check"></i><b>12.3.2</b> reliability of scientific studies</a></li>
-<li class="chapter" data-level="12.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.3.3</b> discussion questions</a></li>
+<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution<span></span></a></li>
+<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals<span></span></a></li>
+<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk<span></span></a></li>
 </ul></li>
-</ul></li>
-<li class="part"><span><b>IV Random models that change with time</b></span></li>
-<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states</a>
+<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R<span></span></a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models</a></li>
-<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices</a></li>
-<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states</a></li>
-<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment</a>
-<ul>
-<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains</a>
+<li class="part"><span><b>III Things that change over time<span></span></b></span></li>
+<li class="chapter" data-level="10" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>10</b> Linear difference equations<span></span></a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors</a>
+<li class="chapter" data-level="10.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>10.1</b> Discrete time population models<span></span></a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains</a></li>
+<li class="chapter" data-level="10.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>10.1.1</b> static population<span></span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>10.1.2</b> exponential population growth<span></span></a></li>
+<li class="chapter" data-level="10.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>10.1.3</b> population with births and deaths<span></span></a></li>
+<li class="chapter" data-level="10.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>10.1.4</b> dimensions of birth and death rates<span></span></a></li>
+<li class="chapter" data-level="10.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>10.1.5</b> linear demographic models<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication</a>
+<li class="chapter" data-level="10.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>10.2</b> Solutions of linear difference models<span></span></a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises</a></li>
-<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors</a></li>
-<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises</a></li>
+<li class="chapter" data-level="10.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>10.2.1</b> simple linear models<span></span></a></li>
+<li class="chapter" data-level="10.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>10.2.2</b> models with a constant term<span></span></a></li>
+<li class="chapter" data-level="10.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>10.2.3</b> population growth and decline<span></span></a></li>
+<li class="chapter" data-level="10.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-18"><i class="fa fa-check"></i><b>10.2.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution</a>
+<li class="chapter" data-level="10.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>10.3</b> Numerical solutions in R<span></span></a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="10.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>10.3.1</b> for loops<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>10.3.2</b> using vectors with loops<span></span></a></li>
+<li class="chapter" data-level="10.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-19"><i class="fa fa-check"></i><b>10.3.3</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>15</b> Stationary distributions of Markov chains</a>
+<li class="chapter" data-level="11" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>11</b> Graphical analysis of ordinary differential equations<span></span></a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#history-of-markov-chains"><i class="fa fa-check"></i><b>15.1</b> History of Markov chains</a></li>
-<li class="chapter" data-level="15.2" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i><b>15.2</b> Stationary distributions</a>
+<li class="chapter" data-level="11.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>11.1</b> Building differential equations<span></span></a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#exercises-30"><i class="fa fa-check"></i><b>15.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="11.1.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>11.1.1</b> from discrete time to continuous<span></span></a></li>
+<li class="chapter" data-level="11.1.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>11.1.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="11.1.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>11.1.3</b> growth proportional to population size<span></span></a></li>
+<li class="chapter" data-level="11.1.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>11.1.4</b> chemical kinetics<span></span></a></li>
+<li class="chapter" data-level="11.1.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>11.1.5</b> building nonlinear ODEs<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#bioinformatics-and-markov-models"><i class="fa fa-check"></i><b>15.3</b> Bioinformatics and Markov models</a></li>
+<li class="chapter" data-level="11.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>11.2</b> Qualitative analysis of ODEs<span></span></a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>11.2.1</b> graphical analysis of the defining function<span></span></a></li>
+<li class="chapter" data-level="11.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>11.2.2</b> fixed points and stability<span></span></a></li>
+<li class="chapter" data-level="11.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>11.2.3</b> Outline of qualitative analysis of an ODE<span></span></a></li>
+<li class="chapter" data-level="11.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-21"><i class="fa fa-check"></i><b>11.2.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html"><i class="fa fa-check"></i><b>16</b> Dynamics of Markov models</a>
+<li class="chapter" data-level="11.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>11.3</b> Functions in R<span></span></a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-trees"><i class="fa fa-check"></i><b>16.1</b> Phylogenetic trees</a></li>
-<li class="chapter" data-level="16.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>16.2</b> Eigenvalues and eigenvectors</a>
-<ul>
-<li class="chapter" data-level="16.2.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#basic-linear-algebra"><i class="fa fa-check"></i><b>16.2.1</b> basic linear algebra</a></li>
-<li class="chapter" data-level="16.2.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvalues-on-paper"><i class="fa fa-check"></i><b>16.2.2</b> calculation of eigenvalues on paper</a></li>
-<li class="chapter" data-level="16.2.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvectors-on-paper"><i class="fa fa-check"></i><b>16.2.3</b> calculation of eigenvectors on paper</a></li>
-<li class="chapter" data-level="16.2.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#exercises-31"><i class="fa fa-check"></i><b>16.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="11.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>11.3.1</b> defining a function<span></span></a></li>
+<li class="chapter" data-level="11.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>11.3.2</b> calling a function<span></span></a></li>
+<li class="chapter" data-level="11.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>11.3.3</b> using a function to solve a difference equation<span></span></a></li>
+<li class="chapter" data-level="11.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-22"><i class="fa fa-check"></i><b>11.3.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvectors-in-r"><i class="fa fa-check"></i><b>16.3</b> Eigenvectors in R</a></li>
-<li class="chapter" data-level="16.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#molecular-evolution"><i class="fa fa-check"></i><b>16.4</b> Molecular evolution</a>
+<li class="chapter" data-level="11.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>11.4</b> Modeling the spread of infectious disease spread<span></span></a>
 <ul>
-<li class="chapter" data-level="16.4.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#time-since-divergence"><i class="fa fa-check"></i><b>16.4.1</b> time since divergence</a></li>
-<li class="chapter" data-level="16.4.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-distance"><i class="fa fa-check"></i><b>16.4.2</b> phylogenetic distance</a></li>
-<li class="chapter" data-level="16.4.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#kimura-model"><i class="fa fa-check"></i><b>16.4.3</b> Kimura model</a></li>
-<li class="chapter" data-level="16.4.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#divergence-of-human-and-chimp-genomes"><i class="fa fa-check"></i><b>16.4.4</b> divergence of human and chimp genomes</a></li>
-<li class="chapter" data-level="16.4.5" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#discussion-questions-6"><i class="fa fa-check"></i><b>16.4.5</b> Discussion questions</a></li>
+<li class="chapter" data-level="11.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>11.4.1</b> Discussion<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>12</b> Solutions of ordinary differential equations<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations-1"><i class="fa fa-check"></i><b>12.1</b> Solutions of ordinary differential equations<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>12.1.1</b> separate and integrate method<span></span></a></li>
+<li class="chapter" data-level="12.1.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>12.1.2</b> behavior of solutions of linear ODEs<span></span></a></li>
+<li class="chapter" data-level="12.1.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>12.1.3</b> solutions of nonhomogeneous ODEs<span></span></a></li>
+<li class="chapter" data-level="12.1.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-23"><i class="fa fa-check"></i><b>12.1.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>12.2</b> Numeric solutions and the Forward Euler method<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-24"><i class="fa fa-check"></i><b>12.2.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>12.3</b> Forward Euler method in R<span></span></a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>12.3.1</b> implementation<span></span></a></li>
+<li class="chapter" data-level="12.3.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-25"><i class="fa fa-check"></i><b>12.3.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="12.3.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>12.3.3</b> error analysis<span></span></a></li>
+<li class="chapter" data-level="12.3.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-26"><i class="fa fa-check"></i><b>12.3.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>12.4</b> Applications of linear ODE models<span></span></a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>12.4.1</b> model of pharmacokinetics<span></span></a></li>
+<li class="chapter" data-level="12.4.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.4.2</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Random models that change with time<span></span></b></span></li>
+<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property<span></span></a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices<span></span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states<span></span></a></li>
+<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment<span></span></a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication<span></span></a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors<span></span></a></li>
+<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution<span></span></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>15</b> Stationary distributions of Markov chains<span></span></a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#history-of-markov-chains"><i class="fa fa-check"></i><b>15.1</b> History of Markov chains<span></span></a></li>
+<li class="chapter" data-level="15.2" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i><b>15.2</b> Stationary distributions<span></span></a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#exercises-30"><i class="fa fa-check"></i><b>15.2.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#bioinformatics-and-markov-models"><i class="fa fa-check"></i><b>15.3</b> Bioinformatics and Markov models<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html"><i class="fa fa-check"></i><b>16</b> Dynamics of Markov models<span></span></a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-trees"><i class="fa fa-check"></i><b>16.1</b> Phylogenetic trees<span></span></a></li>
+<li class="chapter" data-level="16.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>16.2</b> Eigenvalues and eigenvectors<span></span></a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#basic-linear-algebra"><i class="fa fa-check"></i><b>16.2.1</b> basic linear algebra<span></span></a></li>
+<li class="chapter" data-level="16.2.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvalues-on-paper"><i class="fa fa-check"></i><b>16.2.2</b> calculation of eigenvalues on paper<span></span></a></li>
+<li class="chapter" data-level="16.2.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvectors-on-paper"><i class="fa fa-check"></i><b>16.2.3</b> calculation of eigenvectors on paper<span></span></a></li>
+<li class="chapter" data-level="16.2.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#exercises-31"><i class="fa fa-check"></i><b>16.2.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvectors-in-r"><i class="fa fa-check"></i><b>16.3</b> Eigenvectors in R<span></span></a></li>
+<li class="chapter" data-level="16.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#molecular-evolution"><i class="fa fa-check"></i><b>16.4</b> Molecular evolution<span></span></a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#time-since-divergence"><i class="fa fa-check"></i><b>16.4.1</b> time since divergence<span></span></a></li>
+<li class="chapter" data-level="16.4.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-distance"><i class="fa fa-check"></i><b>16.4.2</b> phylogenetic distance<span></span></a></li>
+<li class="chapter" data-level="16.4.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#kimura-model"><i class="fa fa-check"></i><b>16.4.3</b> Kimura model<span></span></a></li>
+<li class="chapter" data-level="16.4.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#divergence-of-human-and-chimp-genomes"><i class="fa fa-check"></i><b>16.4.4</b> divergence of human and chimp genomes<span></span></a></li>
+<li class="chapter" data-level="16.4.5" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#discussion-questions-6"><i class="fa fa-check"></i><b>16.4.5</b> Discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -479,8 +482,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="random-variables-and-distributions" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Random variables and distributions</h1>
+<div id="random-variables-and-distributions" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Random variables and distributions<a href="random-variables-and-distributions.html#random-variables-and-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>What is there then that can be taken as true? Perhaps only this one thing, that nothing at all is certain.
 – Rene Descartes</p>
@@ -494,15 +497,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>use the binomial distribution to model strings of binary trials</p></li>
 <li><p>generate random numbers in R</p></li>
 </ul>
-<div id="random-variables-and-distributions-1" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Random variables and distributions</h2>
+<div id="random-variables-and-distributions-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Random variables and distributions<a href="random-variables-and-distributions.html#random-variables-and-distributions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
-<div id="definition-of-probability" class="section level3" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> definition of probability</h3>
+<div id="definition-of-probability" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> definition of probability<a href="random-variables-and-distributions.html#definition-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this section we will develop the terminology used in the mathematical study of randomness called probability. This begins with a <em>random experiment</em> which is a very broad term that can describe any natural or theoretical process whose outcome cannot be predicted with certainty. If the outcomes are numeric, they may be <em>discrete</em> (can be counted by integers) or <em>continuous</em> (corresponding to real numbers); they may also be <em>categorical</em>, meaning that they do not have a numeric meaning, like eye color. We will stick to experiments that have discrete outcomes in this chapter, but many important experiments produce continuous outcomes. The first step for studying a random process is to describe all of the outcomes it can produce:</p>
-
 <div class="definition">
-<span id="def:def-sampspace" class="definition"><strong>Definition 8.1  </strong></span>The collection of all possible outcomes of an experiment is called its <em>sample space</em> <span class="math inline">\(\Omega\)</span>. An <em>event</em> is a subset of the sample space, which means an event may contain one or more experimental outcomes.
+<p><span id="def:def-sampspace" class="definition"><strong>Definition 4.1  </strong></span>The collection of all possible outcomes of an experiment is called its <em>sample space</em> <span class="math inline">\(\Omega\)</span>. An <em>event</em> is a subset of the sample space, which means an event may contain one or more experimental outcomes.</p>
 </div>
 <div class="figure">
 <img src="ch4/sample_space.png" alt="" />
@@ -511,23 +513,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Example.</strong> You can ask a person two questions: how tall are you (and classify them either as short or tall) and do you like tea (yes or no), and you’ve performed a random experiment. The randomness comes not from the answers (assuming the person doesn’t randomly lie) but from the selection of the respondent. We will discuss randomly selecting a sample from a population in the next chapter. This random experiment has four outcomes: tall person who likes tea, tall person who does not like tea, short person who likes tea, and short person who does not like tea. This sample space and events is illustrated in figure  with a Venn diagram, which uses geometric shapes as representations of events as subsets of the entire sample space. These outcomes can be grouped into events by one of the responses: e.g. tall person (<span class="math inline">\(A\)</span>) or person who doesn’t like tea (<span class="math inline">\(-B\)</span>).</p>
 <p><strong>Example.</strong> A random experiment with two outcomes, called a <em>Bernoulli trial</em> (after the famous Swiss mathematician), can describe a variety of situations: a coin toss (heads or tails), a competition with two outcomes (win or loss), the allele of a gene (normal or mutant). The sample space for a single Bernoulli trial consists of just two outcomes: <span class="math inline">\(\{H,T\}\)</span> (for a coin toss). If the experiment is performed repeatedly, the sample space gets more complicated. For two Bernoulli trials there are four different outcomes <span class="math inline">\(\{HH, HT, TH, TT \}\)</span>. One can define different events for this sample space: the event of getting two heads in two tosses contains one outcome: <span class="math inline">\(\{HH\}\)</span>, the event of getting a single head contains two: <span class="math inline">\(\{TH, HT\}\)</span>.</p>
 <p>In order to to describe the composition of a sample space, we need to define the word <em>probability</em> . While it is familiar to everyone from everyday usage, it is difficult to define without using other similar words, such as likelihood or plausibility, which are also in need of definition. It is accepted that something with a high probability happens often, while something with a low frequency is seldom observed. The other notion is that probability can range between 0 (meaning something that never occurs) and 1 (something that occurs every time). These notions lead to the commonly accepted definition:</p>
-
 <div class="definition">
-<span id="def:def-prob-freq" class="definition"><strong>Definition 8.2  </strong></span>The <em>probability</em> of an outcome or event in the sample space of a random experiment is the fraction of experiments with this outcome out of many repeated experiments.
+<p><span id="def:def-prob-freq" class="definition"><strong>Definition 4.2  </strong></span>The <em>probability</em> of an outcome or event in the sample space of a random experiment is the fraction of experiments with this outcome out of many repeated experiments.</p>
 </div>
 <p>This definition is at the heart of the <em>frequentist</em> view of probability, due to the underlying assumption that the experiment can be repeated as many times as necessary to observe the frequency of outcomes. There is an alternative view that focuses on what is previously known about the experiment (or about systems that produce that kind of experiment) that is called the <em>Bayesian</em> view:</p>
-
 <div class="definition">
-<span id="def:def-prob-bayes" class="definition"><strong>Definition 8.3  </strong></span>The <em>probability</em> of an outcome or event in the sample space of a random experiment is the degree of <em>certainty</em> or <em>belief</em> that this outcome will occur based on prior experience.
+<p><span id="def:def-prob-bayes" class="definition"><strong>Definition 4.3  </strong></span>The <em>probability</em> of an outcome or event in the sample space of a random experiment is the degree of <em>certainty</em> or <em>belief</em> that this outcome will occur based on prior experience.</p>
 </div>
 <p>We will investigate the Bayesian approach in chapter 12. Most of traditional probability and classical statistics is based on the frequentist view, as it grew out of attempts to understand games of chance, like cards and dice, which can be easily repeated, or simple experiments like those in agriculture, where many plots can be planted and observed. These easily repeatable simple experiments can be described with mathematical distributions that we will describe in this chapter. However, many contemporary research problems are not so easily repeated, and often require a Bayesian approach that does not yield to neat mathematical description and can be addressed using computation.</p>
 </div>
-<div id="axioms-of-probability" class="section level3" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> axioms of probability</h3>
+<div id="axioms-of-probability" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> axioms of probability<a href="random-variables-and-distributions.html#axioms-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One we have defined the probability of an outcome, one can calculate the probability of a collection of outcomes according to rules that ensure the results are self-consistent. These rules are called the axioms of probability:</p>
-
 <div class="definition">
-<p><span id="def:def-prob-axioms" class="definition"><strong>Definition 8.4  </strong></span>The probability <span class="math inline">\(P(A)\)</span> of an event <span class="math inline">\(A\)</span> in a sample space <span class="math inline">\(\Omega\)</span> is a number between 0 and 1, which obeys the following rules, called the <em>axioms of probability</em>:</p>
+<p><span id="def:def-prob-axioms" class="definition"><strong>Definition 4.4  </strong></span>The probability <span class="math inline">\(P(A)\)</span> of an event <span class="math inline">\(A\)</span> in a sample space <span class="math inline">\(\Omega\)</span> is a number between 0 and 1, which obeys the following rules, called the <em>axioms of probability</em>:</p>
 <ul>
 <li><span class="math inline">\(P(\Omega) = 1\)</span></li>
 <li><span class="math inline">\(P(\emptyset) = 0\)</span></li>
@@ -568,19 +567,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Example</strong> (from Danny and Gaines Sarcastic fringeheads are a tropical ocea fish that engage in aggressive mouth-wrestling matches for their rocky residences. Let us treat each match as a stochastic experiment with two outcomes: win or loss. Then the sample space is equivalent to our coin-tossing experiment, e.g. for two matches the sample space is <span class="math inline">\(\{ WW, WL, LW, LL \}\)</span>. However, the probability distribution may different, for example if a particular fringehead wins 3/4 of its matches, then the probability distribution would be: <span class="math inline">\(P(\{ WW \}) = 9/16\)</span>, <span class="math inline">\(P(\{ LW \}) = P(\{ WL \}) = 3/16\)</span>, and $ P({ LL }) = 1/16$. Thus, the same sample space may have different probability distributions defined on it.</p>
 </div>
-<div id="random-variables" class="section level3" number="8.1.3">
-<h3><span class="header-section-number">8.1.3</span> random variables</h3>
+<div id="random-variables" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> random variables<a href="random-variables-and-distributions.html#random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The outcomes of experiments may be expressed in numbers or words, but we generally need numbers in order to report and analyze results. One can describe this mathematically as a function (recall its definition form section ) that assigns numbers to random outcomes . In practice, a random variable describes the measurement that one makes to describe the outcomes of a random experiment.</p>
-
 <div class="definition">
-<span id="def:def-rand-var" class="definition"><strong>Definition 8.5  </strong></span>A <em>random variable</em> is a number or category associated to each outcome in a sample space <span class="math inline">\(\Omega\)</span>. This association has to follow the rules of a function as defined in chapter 2.
+<p><span id="def:def-rand-var" class="definition"><strong>Definition 4.5  </strong></span>A <em>random variable</em> is a number or category associated to each outcome in a sample space <span class="math inline">\(\Omega\)</span>. This association has to follow the rules of a function as defined in chapter 2.</p>
 </div>
 <p><strong>Example.</strong> Define the random variable to be the number of heads out of two coin tosses. This random variable will return numbers 0, 1, or 2, corresponding to different events. The random variable of the number of mutants out of two people (assuming there are only two outcomes, mutant and normal) has the same set of values. This random variable is a function on the sample space because it returns a unique value for each outcome.</p>
 <p><strong>Example.</strong> (Danny and Gaines) Suppose that our sarcastic fringehead, upon losing a wrestling match, has to search for another home for three hours. Then we can define the random variable of time wasted over two wrestling matches, which can be either 0, 3, or 6 hours, depending on the events defined above. Once again, this is a function because there is an unambiguous number associated with each outcome.</p>
 <p>A random variable has a set of possible values, and each of those values may come up more or less frequently in an random experiment. The frequency of each measurement corresponds to the probability of the outcomes in the sample space that produce that particular value of the random variable. One can describe the behavior of the random variable in terms of the collection of the probabilities of its outcomes.</p>
-
 <div class="definition">
-<span id="def:def-prb-dist" class="definition"><strong>Definition 8.6  </strong></span>The probability of a random variable <span class="math inline">\(X\)</span> taking some value <span class="math inline">\(a\)</span>, written as <span class="math inline">\(P(X=a)\)</span>, but usually simplified to <span class="math inline">\(P(a)\)</span> is the probability of the event corresponding to the value <span class="math inline">\(a\)</span> of the random variable. This function <span class="math inline">\(P(a)\)</span> is called the <em>probability distribution</em> of the random variable <span class="math inline">\(X\)</span>.
+<p><span id="def:def-prb-dist" class="definition"><strong>Definition 4.6  </strong></span>The probability of a random variable <span class="math inline">\(X\)</span> taking some value <span class="math inline">\(a\)</span>, written as <span class="math inline">\(P(X=a)\)</span>, but usually simplified to <span class="math inline">\(P(a)\)</span> is the probability of the event corresponding to the value <span class="math inline">\(a\)</span> of the random variable. This function <span class="math inline">\(P(a)\)</span> is called the <em>probability distribution</em> of the random variable <span class="math inline">\(X\)</span>.</p>
 </div>
 <p>One important property of probability distribution functions for a discrete random variable is that all of its values have to add up to 1:</p>
 <p><span class="math display">\[\sum_{i=1}^N P(a_i) =1\]</span>
@@ -589,12 +586,11 @@ The graph of a probability distribution function lies above zero because all pro
 <p><strong>Example.</strong> For the random variable of the number of mutants out of two people, for mutation prevalence of 0.2, the probability distribution function is <span class="math inline">\(P(0) = 0.64; \; P(1) = 0.32; \; P(2) = 0.04\)</span> (as we computed in the example in the previous section). Note that the probabilities add up to 1, as they should.</p>
 <p><strong>Example.</strong> For the time wasted by a fringehead, the distribution is <span class="math inline">\(P(0)= 9/16; \; P(3) = 3/16; \; P(6) = 1/16\)</span>. Note that other values of the random variable have probability 0, because they correspond to the empty set in sample space.</p>
 </div>
-<div id="expectation-of-random-variables" class="section level3" number="8.1.4">
-<h3><span class="header-section-number">8.1.4</span> expectation of random variables</h3>
-
+<div id="expectation-of-random-variables" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> expectation of random variables<a href="random-variables-and-distributions.html#expectation-of-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<span id="def:def-exp-val" class="definition"><strong>Definition 8.7  </strong></span>The <em>expected value</em> (or mean) of a discrete random variable <span class="math inline">\(X\)</span> with probability distribution <span class="math inline">\(P(X)\)</span> is defined as:
-<span class="math display">\[ E(X) = \mu_X = \sum_{i=1}^N  a_i P(a_i)\]</span>
+<p><span id="def:def-exp-val" class="definition"><strong>Definition 4.7  </strong></span>The <em>expected value</em> (or mean) of a discrete random variable <span class="math inline">\(X\)</span> with probability distribution <span class="math inline">\(P(X)\)</span> is defined as:
+<span class="math display">\[ E(X) = \mu_X = \sum_{i=1}^N  a_i P(a_i)\]</span></p>
 </div>
 <p>This sum is over all values <span class="math inline">\(\{a_i\}\)</span> that the random variable <span class="math inline">\(X\)</span> can take, multiplied by the probability of the random variable taking that value (meaning the probability of the event in sample space that corresponds to that value). This corresponds to the definition of the mean of a data set given in section , if you consider <span class="math inline">\(P(a_i)\)</span> to be the number of times <span class="math inline">\(a_i\)</span> occurs divided by the number of total measurements <span class="math inline">\(N\)</span>. As in the case of the histogram and the distribution function, the mean of a sample for a large sample size <span class="math inline">\(N\)</span> approaches the mean of the random variable, which we will discuss in more detail in the next chapter. Sometimes we will use the more concise <span class="math inline">\(\mu_X = E(X)\)</span> to represent the mean (expected) value. Here are some mathematical properties of the expectation:</p>
 <ul>
@@ -620,15 +616,14 @@ The expected number of mutants in a sample of two people is 0.4, which may seem 
 <p><strong>Example.</strong> Find the expected value of the number of wins out of two matches for a fringehead which has the probability of winning of 3/4.</p>
 <p><span class="math display">\[E(X) = 0 \times 1/16 + 1 \times 6/16 + 2 \times 9/16 = 24/16 = 3/2\]</span></p>
 </div>
-<div id="variance-of-random-variables" class="section level3" number="8.1.5">
-<h3><span class="header-section-number">8.1.5</span> variance of random variables</h3>
+<div id="variance-of-random-variables" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> variance of random variables<a href="random-variables-and-distributions.html#variance-of-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Knowledge of the expected value says nothing about how the random variable actually varies: expectation does not distinguish between a random variable which is constant and one which can deviate far from the mean. In order to quantify this variation, one might be tempted to compute the mean differences from the mean value, but it does not work:</p>
 <p><span class="math display">\[ E(X-\mu_X) =  \sum_i (x_i-\mu_x)P(x_i) = \sum_i x_i P(x_i) - \mu_x \sum_i P(x_i) = \mu_x - \mu_x = 0\]</span>
 The problem is, if we add up all the differences from the mean, the positive ones end up canceling the negative ones and the expected value of those deviations is exactly zero. This is why it makes sense to square the differences and add them up:</p>
-
 <div class="definition">
-<span id="def:def-var-rv" class="definition"><strong>Definition 8.8  </strong></span>The <em>variance</em> of a discrete random variable <span class="math inline">\(X\)</span> with probability distribution <span class="math inline">\(P(x)\)</span> is
-<span class="math display">\[ Var(X) = E((X-\mu_X)^2) = \sum_{i=1}^N (x_i-\mu_x)^2P(x_i)\]</span>
+<p><span id="def:def-var-rv" class="definition"><strong>Definition 4.8  </strong></span>The <em>variance</em> of a discrete random variable <span class="math inline">\(X\)</span> with probability distribution <span class="math inline">\(P(x)\)</span> is
+<span class="math display">\[ Var(X) = E((X-\mu_X)^2) = \sum_{i=1}^N (x_i-\mu_x)^2P(x_i)\]</span></p>
 </div>
 <p>One useful property of the variance is:
 <span class="math display">\[ Var(X) = \sum_i (x_i^2 - 2x_i\mu_x + \mu_x^2)P(x_i) =\]</span>
@@ -654,8 +649,8 @@ Then the variance is:
 <span class="math display">\[ Var(X) = E(X^2)  - E(X)^2 = 42/12 - 9/4 = (42-27)/16 = 15/16\]</span>
 and the standard deviation is <span class="math inline">\(\sigma = \sqrt{15}/4\)</span> or just under 1.</p>
 </div>
-<div id="exercises-21" class="section level3" number="8.1.6">
-<h3><span class="header-section-number">8.1.6</span> Exercises</h3>
+<div id="exercises-10" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Exercises<a href="random-variables-and-distributions.html#exercises-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculate the expected values and variances of the following probability distributions, where the possible values of the random variable are in curly brackets, and the probability of each value is indicated as <span class="math inline">\(P(x)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(X=\{0, 1\}\)</span> and <span class="math inline">\(P(0) = 0.1, P(1) = 0.9\)</span>.</p></li>
@@ -666,11 +661,11 @@ and the standard deviation is <span class="math inline">\(\sigma = \sqrt{15}/4\)
 </ol>
 </div>
 </div>
-<div id="examples-of-distributions" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Examples of distributions</h2>
+<div id="examples-of-distributions" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Examples of distributions<a href="random-variables-and-distributions.html#examples-of-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
-<div id="uniform-distribution" class="section level3" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> uniform distribution</h3>
+<div id="uniform-distribution" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> uniform distribution<a href="random-variables-and-distributions.html#uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Perhaps the simplest random variable (besides a constant, which is not really random) is the <em>uniform random variable</em>, for which every outcome has equal probability. The distribution of a fair coin is uniform with two values, <span class="math inline">\(H\)</span> or <span class="math inline">\(T\)</span>, or 0 and 1, each with probability 1/2. More generally, a discrete uniform random variable has <span class="math inline">\(N\)</span> outcomes and each one has probability <span class="math inline">\(1/N\)</span>. This is what people often mean when they use the word random - an experiment where each outcome is equally likely.</p>
 <p>We can calculate the expectation and variance of a uniform random variable <span class="math inline">\(U\)</span>:</p>
 <p><span class="math display">\[
@@ -690,25 +685,24 @@ So the expected value is the mean of all the values of the uniform random variab
 <p>This can be generalize to a uniform random variable on integers between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (omitting the algebraic details) so the variance for that uniform random variable is:</p>
 <p><span class="math display">\[ Var(U) = \frac{(b-a+1)^2 - 1}{12} = \frac{(b-a)^2 + 2(b-a)}{12}
 \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unif-dist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unif-dist"></span>
 <img src="QuantLife_files/figure-html/unif-dist-1.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" /><img src="QuantLife_files/figure-html/unif-dist-2.png" alt="Two uniform random distributions with integer values with different ranges." width="50%" />
 <p class="caption">
-Figure 8.1: Two uniform random distributions with integer values with different ranges.
+Figure 4.1: Two uniform random distributions with integer values with different ranges.
 </p>
 </div>
 </div>
-<div id="binomial-distribution" class="section level3" number="8.2.2">
-<h3><span class="header-section-number">8.2.2</span> binomial distribution</h3>
+<div id="binomial-distribution" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> binomial distribution<a href="random-variables-and-distributions.html#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have introduced binary or Bernoulli trials in section . Assume that the two values of the random variable <span class="math inline">\(X\)</span> are 0 and 1, with probability <span class="math inline">\(1-p\)</span> and <span class="math inline">\(p\)</span>, respectively. Then we can calculate the expectation and variance of a single Bernoulli trial:</p>
 <p><span class="math display">\[E(X) = 0 \times (1-p) + 1 \times p = p\]</span>
 <span class="math display">\[ Var(X) = E(X^2) - E(X)^2 = 0^2 \times (1-p) + 1^2 \times p - p^2= p(1-p)\]</span>
 The first result is likely intuitive, but the second deserves a comment. Note that depending on the probability of 1, the variance, or the spread in outcomes of a Bernoulli trial is different. The highest variance occurs when <span class="math inline">\(p=1/2\)</span>, or equal probability of 0 or 1, but when <span class="math inline">\(p\)</span> approaches 0 or 1, the variance approaches 0. Thus, as the probability approaches zero or one the random variable approaches a constant (either always 1 or 0); hence, no variance.</p>
 <p>One can extend this scenario and ask what happens in a string of Bernoulli trials, for instance, in a string of 10 coin tosses, or in testing 20 randomly selected people for a mutation. The mathematical problem is to calculate the probability distribution of the number of success out of many trials. This is known as the binomial random variable, which is defined as the sum of <span class="math inline">\(n\)</span> independent, identical Bernoulli random variables.</p>
-
 <div class="definition">
-<span id="def:def-binom" class="definition"><strong>Definition 8.9  </strong></span>Given <span class="math inline">\(n\)</span> independent Bernoulli trials <span class="math inline">\(X\)</span> with the same probability of success <span class="math inline">\(p\)</span>, the <em>binomial random variable</em> is defined as:
+<p><span id="def:def-binom" class="definition"><strong>Definition 4.9  </strong></span>Given <span class="math inline">\(n\)</span> independent Bernoulli trials <span class="math inline">\(X\)</span> with the same probability of success <span class="math inline">\(p\)</span>, the <em>binomial random variable</em> is defined as:
 <span class="math display">\[B = \sum_{i=1}^n X_i\]</span>
-where <span class="math inline">\(X_i\)</span> is the random variable from the i-th Bernoulli trial, which takes values of 1 and 0.
+where <span class="math inline">\(X_i\)</span> is the random variable from the i-th Bernoulli trial, which takes values of 1 and 0.</p>
 </div>
 <p>In this definition I use the term independence without defining it properly, which will be done in chapter 10. Intuitively, independence between two Bernoulli trials (e.g. coin tosses) means that the outcome of one trial does not change the probability of the outcomes of any other trials. This amounts to the assumption that the probability of an outcome followed by another one is the product of the separate probabilities of the two outcomes. For example, if the two outcomes are wins and losses, then <span class="math inline">\(P(\{WL\}) = P(W)P(L)\)</span>. This will be used below in the calculation of the variance of the binomial random variable.</p>
 <p>To find the probability distribution of the binomial random variable, we need to define the event of <span class="math inline">\(k\)</span> wins out of <span class="math inline">\(n\)</span> trials. Consider the case of 4 trials. It is easy to find the event of 4 wins, as it is comprised only of the outcome <span class="math inline">\(\{WWWW\}\)</span>. Then, <span class="math inline">\(P(4) = p^4\)</span>, based on the independence assumption. The event of winning 3 times consists of four strings: <span class="math inline">\(\{LWWW, WLWW, WWLW, WWWL\}\)</span> so the probability of obtaining 3 wins is the sum of the four probabilities, each equal to $ p^3(1-p)$ from the independence assumption above, so <span class="math inline">\(P(3) = 4p^3(1-p)\)</span>. The event of winning 2 times is even more cumbersome, and consists of six strings: <span class="math inline">\(\{ LLWW, WLLW, WWLL, WLWL, LWLW, LWWL\}\)</span>, so <span class="math inline">\(P(2) = 6p^2(1-p)^2\)</span> by the same reasoning.</p>
@@ -736,37 +730,37 @@ We saw in section on variance above that the expected value of deviations from t
 Var(B) = Var\left[\sum_{i=1}^n X\right]  = \sum_{i=1}^n Var(X) =\sum_{i=1}^n p(1-p) = np(1-p)
 \]</span></p>
 <p>For any given number of Bernoulli trials, the variance has a quadratic dependence on probability of success <span class="math inline">\(p\)</span>: if <span class="math inline">\(p=1\)</span> or <span class="math inline">\(p=0\)</span>, corresponding to all successes, or all failures, respectively, then the variance is zero, since there is no spread in the outcome. For a fair coin <span class="math inline">\(p=1/2\)</span> the variance is highest. This can be seen in the plots of binomial random variables for <span class="math inline">\(n=2\)</span>, <span class="math inline">\(n=5\)</span>, and <span class="math inline">\(n=50\)</span>, shown in figures below.</p>
-<div class="figure" style="text-align: center"><span id="fig:bin-dist-1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bin-dist-1"></span>
 <img src="QuantLife_files/figure-html/bin-dist-1-1.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-1-2.png" alt="The binomial distribution for $n=2$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.2: The binomial distribution for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 4.2: The binomial distribution for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:bin-dist-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bin-dist-2"></span>
 <img src="QuantLife_files/figure-html/bin-dist-2-1.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-2-2.png" alt="The binomial distribution for $n=5$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.3: The binomial distribution for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 4.3: The binomial distribution for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:bin-dist-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bin-dist-3"></span>
 <img src="QuantLife_files/figure-html/bin-dist-3-1.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" /><img src="QuantLife_files/figure-html/bin-dist-3-2.png" alt="The binomial distribution for $n=50$ and $p=0.2$ and $p=0.5$ (you should be able to tell which one is which!)" width="50%" />
 <p class="caption">
-Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
+Figure 4.4: The binomial distribution for <span class="math inline">\(n=50\)</span> and <span class="math inline">\(p=0.2\)</span> and <span class="math inline">\(p=0.5\)</span> (you should be able to tell which one is which!)
 </p>
 </div>
 </div>
-<div id="exercises-22" class="section level3" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> Exercises</h3>
+<div id="exercises-11" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Exercises<a href="random-variables-and-distributions.html#exercises-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculate the means and variances based on the plotted distributions using the definitions  and  and compare your calculations against equations  and  (for uniform random variables) and equations  and  (for binomial random variables)</p>
 <ol style="list-style-type: decimal">
-<li><p>Calculate the mean and the variance for the two uniform distributions plotted in figure <a href="random-variables-and-distributions.html#fig:unif-dist">8.1</a>.</p></li>
-<li><p>Calculate the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-1">8.2</a>.</p></li>
-<li><p>Calculate the mean and the variance for the two binomial distributions plotted figure <a href="random-variables-and-distributions.html#fig:bin-dist-2">8.3</a>.</p></li>
-<li><p>Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-3">8.4</a>.</p></li>
+<li><p>Calculate the mean and the variance for the two uniform distributions plotted in figure <a href="random-variables-and-distributions.html#fig:unif-dist">4.1</a>.</p></li>
+<li><p>Calculate the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-1">4.2</a>.</p></li>
+<li><p>Calculate the mean and the variance for the two binomial distributions plotted figure <a href="random-variables-and-distributions.html#fig:bin-dist-2">4.3</a>.</p></li>
+<li><p>Estimate (approximately) the mean and the variance for the two binomial distributions plotted in figure <a href="random-variables-and-distributions.html#fig:bin-dist-3">4.4</a>.</p></li>
 </ol>
 </div>
-<div id="testing-for-mutants" class="section level3" number="8.2.4">
-<h3><span class="header-section-number">8.2.4</span> testing for mutants</h3>
+<div id="testing-for-mutants" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> testing for mutants<a href="random-variables-and-distributions.html#testing-for-mutants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose that you’re screening people for a particular genetic abnormality. It is known from prior experience that about 5% of this population carry this mutation. You run your tests on a group of 20 people, and the results indicate that 3 of them are carriers. Clearly, this is higher than you expected - 3/20 is 15%, or 3 times higher than the estimate. One of your colleagues exclaims, What are the odds of this?</p>
 <p>To answer this question, one must start by stating your assumptions. First, the people tested must be chosen from the same population, so we can assume a priori each had probability 5% of being a carrier. Second, the people must be selected without bias, that is, selection of one must be unlinked or independent of others. As a counter-example, if your selection included an entire biological family, that would be a biased selection - it may be that the whole family has the mutation, or maybe they don’t, but either way probability is no longer determined on a person-by-person basis. If these assumptions are made, then one can calculate the probability of making a selection of 20 people that includes 3 carriers of the mutation, using the binomial distribution.</p>
 <p>The formula for the binomial distribution in equation  provides the answer for any given number of mutants. For example, the probability of 3 people out of 20 being carriers for the mutation is:
@@ -779,56 +773,56 @@ Figure 8.4: The binomial distribution for <span class="math inline">\(n=50\)</sp
 The answer to the original question is found by taking the complementary probability <span class="math inline">\(1-0.925=0.075\)</span>. Thus the probability of finding at least 3 mutants in a sample of 20 with individual probability 0.0015 is approximately 0.075. The answer is close to the probability of having exactly 3 mutants because the probability of finding more than 3 mutants is very low.</p>
 </div>
 </div>
-<div id="random-number-generators-in-r" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Random number generators in R</h2>
+<div id="random-number-generators-in-r" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Random number generators in R<a href="random-variables-and-distributions.html#random-number-generators-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
 <p>Simulating randomness with a computer is not a simple task. Randomness is contrary to the nature of a computer, which is designed to perform operations exactly. However, there are algorithms that produce a string of numbers that are for all intents and purposes random: there is no obvious connection between one number and the next, and the values don’t form any pattern. Such algorithms are called <em>random number generators</em>, although to be more precise they produce pseudo-random numbers. The reason is that they actually produce a perfectly predictable string of numbers, which eventually repeats itself, but with a humongous period. One can even produce the same random number, or the same string of random numbers, by specifying the seed for the random number generator. This is very useful if one wants to reproduce the results of a code that uses random numbers.</p>
 <p>Of course, random variable are not all the same - they have different distributions. R has a number of functions for producing random numbers from different distributions. For example, to produce random numbers from a set of values with a uniform probability distribution, use the function <code>sample()</code>. For instance, the following command produces a random integer between 1 and 20. Repeating the same command produces a new random number, which (most likely) is not the same as the first. The first input argument (<code>1:20</code>) is the vector of values from which to draw the random number, and the second is the size of the sample:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="random-variables-and-distributions.html#cb188-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dv">1</span>)</span>
-<span id="cb188-2"><a href="random-variables-and-distributions.html#cb188-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dv">1</span>)</span>
-<span id="cb188-3"><a href="random-variables-and-distributions.html#cb188-3" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="random-variables-and-distributions.html#cb132-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span>)</span>
+<span id="cb132-2"><a href="random-variables-and-distributions.html#cb132-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span>)</span>
+<span id="cb132-3"><a href="random-variables-and-distributions.html#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="random-variables-and-distributions.html#cb190-1" aria-hidden="true"></a><span class="kw">print</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="random-variables-and-distributions.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
 <pre><code>## [1] 18</code></pre>
 <p>To generate 10 randomly chosen integers between 1 and 20, see the following two commands, which differ in setting the value of the option <code>replace</code>. The first command doesn’t specify the value for replace, and by default it is set to FALSE, so the command draws numbers without replacing them (meaning that all the numbers in the sample are unique). In the second command <code>replace</code> is set to TRUE, so the numbers that were selected can be chosen again. In both cases, repeatedly running the command results in a different set of randomly chosen numbers, which you should investigate by copying the commands into R and running them yourself.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="random-variables-and-distributions.html#cb192-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dv">10</span>)</span>
-<span id="cb192-2"><a href="random-variables-and-distributions.html#cb192-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="random-variables-and-distributions.html#cb136-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">10</span>)</span>
+<span id="cb136-2"><a href="random-variables-and-distributions.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>##  [1] 16 14 11 17 20  6  4 10 15 13</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="random-variables-and-distributions.html#cb194-1" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
-<span id="cb194-2"><a href="random-variables-and-distributions.html#cb194-2" aria-hidden="true"></a><span class="kw">print</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="random-variables-and-distributions.html#cb138-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">10</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb138-2"><a href="random-variables-and-distributions.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
 <pre><code>##  [1] 14 11  1 20 17  6 19  5  8 13</code></pre>
 <p>If you need to generate a random number from the binomial distribution, R has you covered. The command is <code>rbinom(s, n, p)</code> and it requires three input values: s is the number of observations (sample size), n is the number of binary trials in one observation, and p is the probability of success in one binary trial. The following two commands generate a single random number, the number of successes out of 20 trials with probability of success 0.2 and 0.6:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="random-variables-and-distributions.html#cb196-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="fl">0.2</span>)</span>
-<span id="cb196-2"><a href="random-variables-and-distributions.html#cb196-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="random-variables-and-distributions.html#cb140-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="fl">0.2</span>)</span>
+<span id="cb140-2"><a href="random-variables-and-distributions.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="random-variables-and-distributions.html#cb198-1" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="fl">0.6</span>)</span>
-<span id="cb198-2"><a href="random-variables-and-distributions.html#cb198-2" aria-hidden="true"></a><span class="kw">print</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="random-variables-and-distributions.html#cb142-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="fl">0.6</span>)</span>
+<span id="cb142-2"><a href="random-variables-and-distributions.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
 <pre><code>## [1] 14</code></pre>
 <p>To generate an entire sample of random numbers, change the first input parameter to 10. As you’d expect, the samples of 10 observations are (most likely) noticeably different: when the probability p is 0.2, the number of successes tend to be less than 6, while for probability 0.6, the numbers are usually greater than 10.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="random-variables-and-distributions.html#cb200-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.2</span>)</span>
-<span id="cb200-2"><a href="random-variables-and-distributions.html#cb200-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="random-variables-and-distributions.html#cb144-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.2</span>)</span>
+<span id="cb144-2"><a href="random-variables-and-distributions.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>##  [1] 4 7 5 3 3 6 3 1 4 4</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="random-variables-and-distributions.html#cb202-1" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.6</span>)</span>
-<span id="cb202-2"><a href="random-variables-and-distributions.html#cb202-2" aria-hidden="true"></a><span class="kw">print</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="random-variables-and-distributions.html#cb146-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.6</span>)</span>
+<span id="cb146-2"><a href="random-variables-and-distributions.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
 <pre><code>##  [1] 12 13  8 12 12 17 12 12  9 12</code></pre>
 <p>Notice that the range of possible values of this random variable is between 0 and 20, but unlike the uniform random numbers produced with the <code>sample()</code> function, the probability of obtaining different numbers are different, and depend on the parameter p. Calculation and plotting of the binomial distribution function can be accomplished with the command <code>dbinom(x,n,p)</code>, where <span class="math inline">\(x\)</span> is the value of the random variable (between 0 and n), <span class="math inline">\(n\)</span> is the number of trials, and p is the probability of success. For instance, the following script calculate the probability of obtaining 1 success out of 20 with probability <span class="math inline">\(p=0.2\)</span>:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="random-variables-and-distributions.html#cb204-1" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">20</span></span>
-<span id="cb204-2"><a href="random-variables-and-distributions.html#cb204-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
-<span id="cb204-3"><a href="random-variables-and-distributions.html#cb204-3" aria-hidden="true"></a><span class="kw">print</span>(<span class="kw">dbinom</span>(<span class="dv">1</span>,n,p))</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="random-variables-and-distributions.html#cb148-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb148-2"><a href="random-variables-and-distributions.html#cb148-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb148-3"><a href="random-variables-and-distributions.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">dbinom</span>(<span class="dv">1</span>,n,p))</span></code></pre></div>
 <pre><code>## [1] 0.05764608</code></pre>
 <p>The script above calculates the probabilities of all of the possible values of the random variable by substituting the vector of these values (e.g. 0 to 20) instead of the number 1, generating the probability distribution vector. This vector is plotted vs. the values of the random variable using the <code>barplot()</code> function, producing an aesthetically pleasing plot of the binomial distribution. The script plots two binomial probability distributions, both with <span class="math inline">\(n=20\)</span>, the first with <span class="math inline">\(p=0.2\)</span> and the second with <span class="math inline">\(p=0.6\)</span>. Notice also the use of the axis labels in <code>barplot()</code> using the same options <code>xlab</code> and <code>ylab</code> as in <code>plot()</code> and use the <code>main</code> option to produce a title above each plot.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="random-variables-and-distributions.html#cb206-1" aria-hidden="true"></a>values.vec &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span>n</span>
-<span id="cb206-2"><a href="random-variables-and-distributions.html#cb206-2" aria-hidden="true"></a>prob.dist &lt;-<span class="st"> </span><span class="kw">dbinom</span>(values.vec,n,p)</span>
-<span id="cb206-3"><a href="random-variables-and-distributions.html#cb206-3" aria-hidden="true"></a><span class="kw">barplot</span>(prob.dist,<span class="dt">names.arg=</span>values.vec,<span class="dt">xlab=</span><span class="st">&#39;binomial RV&#39;</span>,<span class="dt">ylab=</span><span class="st">&#39;probability&#39;</span>,</span>
-<span id="cb206-4"><a href="random-variables-and-distributions.html#cb206-4" aria-hidden="true"></a><span class="dt">main=</span><span class="st">&#39;binom dist with n=20 and p=0.2&#39;</span>)</span>
-<span id="cb206-5"><a href="random-variables-and-distributions.html#cb206-5" aria-hidden="true"></a>p&lt;-<span class="fl">0.6</span></span>
-<span id="cb206-6"><a href="random-variables-and-distributions.html#cb206-6" aria-hidden="true"></a>prob.dist &lt;-<span class="st"> </span><span class="kw">dbinom</span>(values.vec,n,p)</span>
-<span id="cb206-7"><a href="random-variables-and-distributions.html#cb206-7" aria-hidden="true"></a><span class="kw">barplot</span>(prob.dist,<span class="dt">names.arg=</span>values.vec,<span class="dt">xlab=</span><span class="st">&#39;binomial RV&#39;</span>,<span class="dt">ylab=</span><span class="st">&#39;probability&#39;</span>,</span>
-<span id="cb206-8"><a href="random-variables-and-distributions.html#cb206-8" aria-hidden="true"></a><span class="dt">main=</span><span class="st">&#39;binom dist with n=20 and p=0.6&#39;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:bin-dist-4"></span>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="random-variables-and-distributions.html#cb150-1" aria-hidden="true" tabindex="-1"></a>values.vec <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n</span>
+<span id="cb150-2"><a href="random-variables-and-distributions.html#cb150-2" aria-hidden="true" tabindex="-1"></a>prob.dist <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(values.vec,n,p)</span>
+<span id="cb150-3"><a href="random-variables-and-distributions.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(prob.dist,<span class="at">names.arg=</span>values.vec,<span class="at">xlab=</span><span class="st">&#39;binomial RV&#39;</span>,<span class="at">ylab=</span><span class="st">&#39;probability&#39;</span>,</span>
+<span id="cb150-4"><a href="random-variables-and-distributions.html#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="at">main=</span><span class="st">&#39;binom dist with n=20 and p=0.2&#39;</span>)</span>
+<span id="cb150-5"><a href="random-variables-and-distributions.html#cb150-5" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fl">0.6</span></span>
+<span id="cb150-6"><a href="random-variables-and-distributions.html#cb150-6" aria-hidden="true" tabindex="-1"></a>prob.dist <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(values.vec,n,p)</span>
+<span id="cb150-7"><a href="random-variables-and-distributions.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(prob.dist,<span class="at">names.arg=</span>values.vec,<span class="at">xlab=</span><span class="st">&#39;binomial RV&#39;</span>,<span class="at">ylab=</span><span class="st">&#39;probability&#39;</span>,</span>
+<span id="cb150-8"><a href="random-variables-and-distributions.html#cb150-8" aria-hidden="true" tabindex="-1"></a><span class="at">main=</span><span class="st">&#39;binom dist with n=20 and p=0.6&#39;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bin-dist-4"></span>
 <img src="QuantLife_files/figure-html/bin-dist-4-1.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" /><img src="QuantLife_files/figure-html/bin-dist-4-2.png" alt="The binomial distribution for two different values of n and p produced using dbinom() function." width="50%" />
 <p class="caption">
-Figure 8.5: The binomial distribution for two different values of n and p produced using dbinom() function.
+Figure 4.5: The binomial distribution for two different values of n and p produced using dbinom() function.
 </p>
 </div>
 
@@ -839,12 +833,11 @@ Figure 8.5: The binomial distribution for two different values of n and p produc
           </div>
         </div>
       </div>
-<a href="solutions-of-ordinary-differential-equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sampling-distribution-and-estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="describing-data-sets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -863,6 +856,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -883,6 +877,10 @@ gitbook.start({
 "text": null
 },
 "download": ["QuantLife.pdf", "QuantLife.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

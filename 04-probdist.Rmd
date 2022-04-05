@@ -1,5 +1,3 @@
-# (PART) Randomness in observations {-} 
-
 # Random variables and distributions
 
 > What is there then that can be taken as true? Perhaps only this one thing, that nothing at all is certain.

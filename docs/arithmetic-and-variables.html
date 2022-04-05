@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Arithmetic and variables | Quantifying Life</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Arithmetic and variables | Quantifying Life" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Dmitry Kondrashov" />
 
 
-<meta name="date" content="2021-04-17" />
+<meta name="date" content="2022-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="functions-and-their-graphs.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,13 +49,16 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -117,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,330 +136,330 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./"> Quantifying Life (Web version) </a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Purpose and purview</a>
+<li><a href="index.html#purpose-and-purview">Purpose and purview<span></span></a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#a-brief-motivation-of-mathematical-modeling"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>0.1</b> A brief motivation of mathematical modeling<span></span></a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#purpose-of-this-book"><i class="fa fa-check"></i><b>0.2</b> Purpose of this book<span></span></a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#organization-of-the-book"><i class="fa fa-check"></i><b>0.3</b> Organization of the book<span></span></a></li>
 </ul></li>
-<li class="part"><span><b>I The Basics</b></span></li>
-<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables</a>
+<li class="part"><span><b>I The Basics<span></span></b></span></li>
+<li class="chapter" data-level="1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html"><i class="fa fa-check"></i><b>1</b> Arithmetic and variables<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling</a>
+<li class="chapter" data-level="1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:bio1"><i class="fa fa-check"></i><b>1.1</b> Blood circulation and mathematical modeling<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood</a></li>
-<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory</a></li>
+<li class="chapter" data-level="1.1.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#galens-theory-of-blood"><i class="fa fa-check"></i><b>1.1.1</b> Galen’s theory of blood<span></span></a></li>
+<li class="chapter" data-level="1.1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory"><i class="fa fa-check"></i><b>1.1.2</b> Mathematical testing of the theory<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models</a>
+<li class="chapter" data-level="1.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#sec:math1"><i class="fa fa-check"></i><b>1.2</b> Parameters and variables in models<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics</a></li>
-<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population</a></li>
-<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration</a></li>
-<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine</a></li>
-<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions</a></li>
+<li class="chapter" data-level="1.2.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-genetics"><i class="fa fa-check"></i><b>1.2.1</b> discrete state variables: genetics<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discrete-state-variables-population"><i class="fa fa-check"></i><b>1.2.2</b> discrete state variables: population<span></span></a></li>
+<li class="chapter" data-level="1.2.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#continuous-state-variables-concentration"><i class="fa fa-check"></i><b>1.2.3</b> continuous state variables: concentration<span></span></a></li>
+<li class="chapter" data-level="1.2.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#multiple-variables-in-medicine"><i class="fa fa-check"></i><b>1.2.4</b> multiple variables in medicine<span></span></a></li>
+<li class="chapter" data-level="1.2.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#discussion-questions"><i class="fa fa-check"></i><b>1.2.5</b> Discussion questions<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R</a>
+<li class="chapter" data-level="1.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#first-steps-in-r"><i class="fa fa-check"></i><b>1.3</b> First steps in R<span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio</a></li>
-<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations</a></li>
-<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises</a></li>
-<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment</a></li>
-<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises</a></li>
-<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions</a></li>
-<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises</a></li>
-<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions</a></li>
-<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions</a></li>
-<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables</a></li>
-<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables</a></li>
-<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises</a></li>
-<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors</a></li>
-<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics</a></li>
-<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics</a></li>
-<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics </a></li>
+<li class="chapter" data-level="1.3.1" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-markdown-and-r-studio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and R Studio<span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations"><i class="fa fa-check"></i><b>1.3.2</b> numbers and arithmetic operations<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises"><i class="fa fa-check"></i><b>1.3.3</b> R Coding Exercises<span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#variable-assignment"><i class="fa fa-check"></i><b>1.3.4</b> variable assignment<span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#r-coding-exercises-1"><i class="fa fa-check"></i><b>1.3.5</b> R Coding Exercises<span></span></a></li>
+<li class="chapter" data-level="1.3.6" data-path="arithmetic-and-variables.html"><a href="arithmetic-and-variables.html#exercises"><i class="fa fa-check"></i><b>1.3.6</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets</a>
+<li class="chapter" data-level="2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html"><i class="fa fa-check"></i><b>2</b> Functions and their graphs<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates</a></li>
-<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets</a>
+<li class="chapter" data-level="2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:model2"><i class="fa fa-check"></i><b>2.1</b> Dimensions of quantities<span></span></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set</a></li>
-<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
-<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set</a></li>
-<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:</a></li>
-<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs</a></li>
-<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises</a></li>
+<li class="chapter" data-level="2.1.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-1"><i class="fa fa-check"></i><b>2.1.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R</a>
+<li class="chapter" data-level="2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#sec:math2"><i class="fa fa-check"></i><b>2.2</b> Functions and their graphs<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames</a></li>
-<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics</a></li>
-<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:</a></li>
+<li class="chapter" data-level="2.2.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#linear-and-exponential-functions"><i class="fa fa-check"></i><b>2.2.1</b> linear and exponential functions<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-2"><i class="fa fa-check"></i><b>2.2.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rational-and-logistic-functions"><i class="fa fa-check"></i><b>2.2.3</b> rational and logistic functions<span></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-3"><i class="fa fa-check"></i><b>2.2.4</b> Exercises:<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vectors-and-plotting-in-r"><i class="fa fa-check"></i><b>2.3</b> Vectors and plotting in R<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#writing-scripts-and-calling-functions"><i class="fa fa-check"></i><b>2.3.1</b> writing scripts and calling functions<span></span></a></li>
+<li class="chapter" data-level="2.3.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#vector-variables"><i class="fa fa-check"></i><b>2.3.2</b> vector variables<span></span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#calculations-with-vector-variables"><i class="fa fa-check"></i><b>2.3.3</b> calculations with vector variables<span></span></a></li>
+<li class="chapter" data-level="2.3.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-4"><i class="fa fa-check"></i><b>2.3.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="2.3.5" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#plotting-with-vectors"><i class="fa fa-check"></i><b>2.3.5</b> Plotting with vectors<span></span></a></li>
+<li class="chapter" data-level="2.3.6" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#exercises-5"><i class="fa fa-check"></i><b>2.3.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear regression</a>
+<li class="chapter" data-level="2.4" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#rates-of-biochemical-reactions"><i class="fa fa-check"></i><b>2.4</b> Rates of biochemical reactions<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>4.1</b> Linear relationship between two variables</a></li>
-<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>4.2</b> Linear least-squares fitting</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>4.2.1</b> sum of squared errors</a></li>
-<li class="chapter" data-level="4.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>4.2.2</b> best-fit slope and intercept</a></li>
-<li class="chapter" data-level="4.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>4.2.3</b> Execises</a></li>
-<li class="chapter" data-level="4.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>4.2.4</b> correlation and goodness of fit}</a></li>
-<li class="chapter" data-level="4.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-10"><i class="fa fa-check"></i><b>4.2.5</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>4.3</b> Linear regression using R</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-11"><i class="fa fa-check"></i><b>4.3.1</b> Exercises:</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>4.4</b> Regression to the mean</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>4.4.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="2.4.1" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#constant-zeroth-order-kinetics"><i class="fa fa-check"></i><b>2.4.1</b> Constant (zeroth-order) kinetics<span></span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#first-order-kinetics"><i class="fa fa-check"></i><b>2.4.2</b> First-order kinetics<span></span></a></li>
+<li class="chapter" data-level="2.4.3" data-path="functions-and-their-graphs.html"><a href="functions-and-their-graphs.html#michaelis-menten-model-of-enzyme-kinetics"><i class="fa fa-check"></i><b>2.4.3</b> Michaelis-Menten model of enzyme kinetics <span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II Things that change over time</b></span></li>
-<li class="chapter" data-level="5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>5</b> Linear difference equations</a>
+<li class="part"><span><b>II Randomness in observations<span></span></b></span></li>
+<li class="chapter" data-level="3" data-path="describing-data-sets.html"><a href="describing-data-sets.html"><i class="fa fa-check"></i><b>3</b> Describing data sets<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>5.1</b> Discrete time population models</a>
+<li class="chapter" data-level="3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#mutations-and-their-rates"><i class="fa fa-check"></i><b>3.1</b> Mutations and their rates<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-1"><i class="fa fa-check"></i><b>3.2</b> Describing data sets<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>5.1.1</b> static population</a></li>
-<li class="chapter" data-level="5.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>5.1.2</b> exponential population growth</a></li>
-<li class="chapter" data-level="5.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>5.1.3</b> population with births and deaths</a></li>
-<li class="chapter" data-level="5.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>5.1.4</b> dimensions of birth and death rates</a></li>
-<li class="chapter" data-level="5.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>5.1.5</b> linear demographic models</a></li>
+<li class="chapter" data-level="3.2.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#central-value-of-a-data-set"><i class="fa fa-check"></i><b>3.2.1</b> central value of a data set<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-6"><i class="fa fa-check"></i><b>3.2.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#spread-of-a-data-set"><i class="fa fa-check"></i><b>3.2.3</b> spread of a data set<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-7"><i class="fa fa-check"></i><b>3.2.4</b> Exercises:<span></span></a></li>
+<li class="chapter" data-level="3.2.5" data-path="describing-data-sets.html"><a href="describing-data-sets.html#describing-data-sets-in-graphs"><i class="fa fa-check"></i><b>3.2.5</b> describing data sets in graphs<span></span></a></li>
+<li class="chapter" data-level="3.2.6" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-8"><i class="fa fa-check"></i><b>3.2.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>5.2</b> Solutions of linear difference models</a>
+<li class="chapter" data-level="3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#working-with-data-in-r"><i class="fa fa-check"></i><b>3.3</b> Working with data in R<span></span></a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>5.2.1</b> simple linear models</a></li>
-<li class="chapter" data-level="5.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>5.2.2</b> models with a constant term</a></li>
-<li class="chapter" data-level="5.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>5.2.3</b> population growth and decline</a></li>
-<li class="chapter" data-level="5.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-12"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>5.3</b> Numerical solutions in R</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>5.3.1</b> for loops</a></li>
-<li class="chapter" data-level="5.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>5.3.2</b> using vectors with loops</a></li>
-<li class="chapter" data-level="5.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-13"><i class="fa fa-check"></i><b>5.3.3</b> Exercises:</a></li>
+<li class="chapter" data-level="3.3.1" data-path="describing-data-sets.html"><a href="describing-data-sets.html#reading-in-data-into-data-frames"><i class="fa fa-check"></i><b>3.3.1</b> reading in data into data frames<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="describing-data-sets.html"><a href="describing-data-sets.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3.2</b> descriptive statistics<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="describing-data-sets.html"><a href="describing-data-sets.html#exercises-9"><i class="fa fa-check"></i><b>3.3.3</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>6</b> Graphical analysis of ordinary differential equations</a>
+<li class="chapter" data-level="4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>4</b> Random variables and distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>6.1</b> Building differential equations</a>
+<li class="chapter" data-level="4.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>4.1</b> Random variables and distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>6.1.1</b> from discrete time to continuous</a></li>
-<li class="chapter" data-level="6.1.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-14"><i class="fa fa-check"></i><b>6.1.2</b> Exercises</a></li>
-<li class="chapter" data-level="6.1.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>6.1.3</b> growth proportional to population size</a></li>
-<li class="chapter" data-level="6.1.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>6.1.4</b> chemical kinetics</a></li>
-<li class="chapter" data-level="6.1.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>6.1.5</b> building nonlinear ODEs</a></li>
+<li class="chapter" data-level="4.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>4.1.1</b> definition of probability<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>4.1.2</b> axioms of probability<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>4.1.3</b> random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> expectation of random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>4.1.5</b> variance of random variables<span></span></a></li>
+<li class="chapter" data-level="4.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-10"><i class="fa fa-check"></i><b>4.1.6</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>6.2</b> Qualitative analysis of ODEs</a>
+<li class="chapter" data-level="4.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>4.2</b> Examples of distributions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>6.2.1</b> graphical analysis of the defining function</a></li>
-<li class="chapter" data-level="6.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>6.2.2</b> fixed points and stability</a></li>
-<li class="chapter" data-level="6.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>6.2.3</b> Outline of qualitative analysis of an ODE</a></li>
-<li class="chapter" data-level="6.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-15"><i class="fa fa-check"></i><b>6.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="4.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>4.2.1</b> uniform distribution<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>4.2.2</b> binomial distribution<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-11"><i class="fa fa-check"></i><b>4.2.3</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>4.2.4</b> testing for mutants<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>6.3</b> Functions in R</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>6.3.1</b> defining a function</a></li>
-<li class="chapter" data-level="6.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>6.3.2</b> calling a function</a></li>
-<li class="chapter" data-level="6.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>6.3.3</b> using a function to solve a difference equation</a></li>
-<li class="chapter" data-level="6.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-16"><i class="fa fa-check"></i><b>6.3.4</b> Exercises</a></li>
+<li class="chapter" data-level="4.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>4.3</b> Random number generators in R<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>6.4</b> Modeling the spread of infectious disease spread</a>
+<li class="chapter" data-level="5" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>5</b> Linear regression<span></span></a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>6.4.1</b> Discussion</a></li>
+<li class="chapter" data-level="5.1" data-path="linear-regression.html"><a href="linear-regression.html#linear-relationship-between-two-variables"><i class="fa fa-check"></i><b>5.1</b> Linear relationship between two variables<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-least-squares-fitting"><i class="fa fa-check"></i><b>5.2</b> Linear least-squares fitting<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="linear-regression.html"><a href="linear-regression.html#sum-of-squared-errors"><i class="fa fa-check"></i><b>5.2.1</b> sum of squared errors<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="linear-regression.html"><a href="linear-regression.html#best-fit-slope-and-intercept"><i class="fa fa-check"></i><b>5.2.2</b> best-fit slope and intercept<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="linear-regression.html"><a href="linear-regression.html#execises"><i class="fa fa-check"></i><b>5.2.3</b> Execises<span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="linear-regression.html"><a href="linear-regression.html#correlation-and-goodness-of-fit"><i class="fa fa-check"></i><b>5.2.4</b> correlation and goodness of fit}<span></span></a></li>
+<li class="chapter" data-level="5.2.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-12"><i class="fa fa-check"></i><b>5.2.5</b> Exercises<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-using-r"><i class="fa fa-check"></i><b>5.3</b> Linear regression using R<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="linear-regression.html"><a href="linear-regression.html#exercises-13"><i class="fa fa-check"></i><b>5.3.1</b> Exercises:<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>7</b> Solutions of ordinary differential equations</a>
+<li class="chapter" data-level="5.4" data-path="linear-regression.html"><a href="linear-regression.html#regression-to-the-mean"><i class="fa fa-check"></i><b>5.4</b> Regression to the mean<span></span></a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations-1"><i class="fa fa-check"></i><b>7.1</b> Solutions of ordinary differential equations</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>7.1.1</b> separate and integrate method</a></li>
-<li class="chapter" data-level="7.1.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>7.1.2</b> behavior of solutions of linear ODEs</a></li>
-<li class="chapter" data-level="7.1.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>7.1.3</b> solutions of nonhomogeneous ODEs</a></li>
-<li class="chapter" data-level="7.1.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-17"><i class="fa fa-check"></i><b>7.1.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>7.2</b> Numeric solutions and the Forward Euler method</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-18"><i class="fa fa-check"></i><b>7.2.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>7.3</b> Forward Euler method in R</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>7.3.1</b> implementation</a></li>
-<li class="chapter" data-level="7.3.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-19"><i class="fa fa-check"></i><b>7.3.2</b> Exercises</a></li>
-<li class="chapter" data-level="7.3.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>7.3.3</b> error analysis</a></li>
-<li class="chapter" data-level="7.3.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>7.3.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>7.4</b> Applications of linear ODE models</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>7.4.1</b> model of pharmacokinetics</a></li>
-<li class="chapter" data-level="7.4.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#discussion-questions-2"><i class="fa fa-check"></i><b>7.4.2</b> Discussion questions</a></li>
+<li class="chapter" data-level="5.4.1" data-path="linear-regression.html"><a href="linear-regression.html#discussion-questions-1"><i class="fa fa-check"></i><b>5.4.1</b> Discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Randomness in observations</b></span></li>
-<li class="chapter" data-level="8" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>8</b> Random variables and distributions</a>
+<li class="chapter" data-level="6" data-path="independence.html"><a href="independence.html"><i class="fa fa-check"></i><b>6</b> Independence<span></span></a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables-and-distributions-1"><i class="fa fa-check"></i><b>8.1</b> Random variables and distributions</a>
+<li class="chapter" data-level="6.1" data-path="independence.html"><a href="independence.html#contingency-tables-to-summarize-data"><i class="fa fa-check"></i><b>6.1</b> Contingency tables to summarize data<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="independence.html"><a href="independence.html#conditional-probability"><i class="fa fa-check"></i><b>6.2</b> Conditional probability<span></span></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#definition-of-probability"><i class="fa fa-check"></i><b>8.1.1</b> definition of probability</a></li>
-<li class="chapter" data-level="8.1.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#axioms-of-probability"><i class="fa fa-check"></i><b>8.1.2</b> axioms of probability</a></li>
-<li class="chapter" data-level="8.1.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-variables"><i class="fa fa-check"></i><b>8.1.3</b> random variables</a></li>
-<li class="chapter" data-level="8.1.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#expectation-of-random-variables"><i class="fa fa-check"></i><b>8.1.4</b> expectation of random variables</a></li>
-<li class="chapter" data-level="8.1.5" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#variance-of-random-variables"><i class="fa fa-check"></i><b>8.1.5</b> variance of random variables</a></li>
-<li class="chapter" data-level="8.1.6" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-21"><i class="fa fa-check"></i><b>8.1.6</b> Exercises</a></li>
+<li class="chapter" data-level="6.2.1" data-path="independence.html"><a href="independence.html#exercises-14"><i class="fa fa-check"></i><b>6.2.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#examples-of-distributions"><i class="fa fa-check"></i><b>8.2</b> Examples of distributions</a>
+<li class="chapter" data-level="6.3" data-path="independence.html"><a href="independence.html#independence-of-events"><i class="fa fa-check"></i><b>6.3</b> Independence of events<span></span></a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>8.2.1</b> uniform distribution</a></li>
-<li class="chapter" data-level="8.2.2" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>8.2.2</b> binomial distribution</a></li>
-<li class="chapter" data-level="8.2.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#exercises-22"><i class="fa fa-check"></i><b>8.2.3</b> Exercises</a></li>
-<li class="chapter" data-level="8.2.4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#testing-for-mutants"><i class="fa fa-check"></i><b>8.2.4</b> testing for mutants</a></li>
+<li class="chapter" data-level="6.3.1" data-path="independence.html"><a href="independence.html#exercises-15"><i class="fa fa-check"></i><b>6.3.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="independence.html"><a href="independence.html#product-rule"><i class="fa fa-check"></i><b>6.3.2</b> product rule<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html#random-number-generators-in-r"><i class="fa fa-check"></i><b>8.3</b> Random number generators in R</a></li>
+<li class="chapter" data-level="6.4" data-path="independence.html"><a href="independence.html#independence-of-variables"><i class="fa fa-check"></i><b>6.4</b> Independence of variables<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation</a>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis testing<span></span></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers</a>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#terminology-and-quality-measures"><i class="fa fa-check"></i><b>7.1</b> Terminology and quality measures<span></span></a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean</a></li>
-<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error</a></li>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#positives-and-negatives"><i class="fa fa-check"></i><b>7.1.1</b> positives and negatives<span></span></a></li>
+<li class="chapter" data-level="7.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#types-of-errors"><i class="fa fa-check"></i><b>7.1.2</b> types of errors<span></span></a></li>
+<li class="chapter" data-level="7.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#test-quality-measures"><i class="fa fa-check"></i><b>7.1.3</b> test quality measures<span></span></a></li>
+<li class="chapter" data-level="7.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#exercises-16"><i class="fa fa-check"></i><b>7.1.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="7.1.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rejecting-the-null-hypothesis"><i class="fa fa-check"></i><b>7.1.5</b> rejecting the null hypothesis<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem</a>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#chi-squared-test"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#hypothesis-testing-in-r"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing in R<span></span></a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution</a></li>
-<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals</a></li>
-<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals</a></li>
+<li class="chapter" data-level="7.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#example-with-data"><i class="fa fa-check"></i><b>7.3.1</b> example with data<span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#stop-and-frisk-and-race"><i class="fa fa-check"></i><b>7.3.2</b> stop-and-frisk and race<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="independence.html"><a href="independence.html"><i class="fa fa-check"></i><b>10</b> Independence</a>
+<li class="chapter" data-level="8" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html"><i class="fa fa-check"></i><b>8</b> Prior knowledge and Bayesian thinking<span></span></a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="independence.html"><a href="independence.html#contingency-tables-to-summarize-data"><i class="fa fa-check"></i><b>10.1</b> Contingency tables to summarize data</a></li>
-<li class="chapter" data-level="10.2" data-path="independence.html"><a href="independence.html#conditional-probability"><i class="fa fa-check"></i><b>10.2</b> Conditional probability</a>
+<li class="chapter" data-level="8.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#prior-knowledge"><i class="fa fa-check"></i><b>8.1</b> Prior knowledge<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#bayes-formula"><i class="fa fa-check"></i><b>8.2</b> Bayes’ formula<span></span></a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="independence.html"><a href="independence.html#exercises-23"><i class="fa fa-check"></i><b>10.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.2.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#positive-and-negative-predictive-values"><i class="fa fa-check"></i><b>8.2.1</b> positive and negative predictive values<span></span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#exercises-17"><i class="fa fa-check"></i><b>8.2.2</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="independence.html"><a href="independence.html#independence-of-events"><i class="fa fa-check"></i><b>10.3</b> Independence of events</a>
+<li class="chapter" data-level="8.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#applications-of-bayesian-thinking"><i class="fa fa-check"></i><b>8.3</b> Applications of Bayesian thinking<span></span></a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="independence.html"><a href="independence.html#exercises-24"><i class="fa fa-check"></i><b>10.3.1</b> Exercises</a></li>
-<li class="chapter" data-level="10.3.2" data-path="independence.html"><a href="independence.html#product-rule"><i class="fa fa-check"></i><b>10.3.2</b> product rule</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="independence.html"><a href="independence.html#independence-of-variables"><i class="fa fa-check"></i><b>10.4</b> Independence of variables</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis testing</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#terminology-and-quality-measures"><i class="fa fa-check"></i><b>11.1</b> Terminology and quality measures</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#positives-and-negatives"><i class="fa fa-check"></i><b>11.1.1</b> positives and negatives</a></li>
-<li class="chapter" data-level="11.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#types-of-errors"><i class="fa fa-check"></i><b>11.1.2</b> types of errors</a></li>
-<li class="chapter" data-level="11.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#test-quality-measures"><i class="fa fa-check"></i><b>11.1.3</b> test quality measures</a></li>
-<li class="chapter" data-level="11.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#exercises-25"><i class="fa fa-check"></i><b>11.1.4</b> Exercises</a></li>
-<li class="chapter" data-level="11.1.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rejecting-the-null-hypothesis"><i class="fa fa-check"></i><b>11.1.5</b> rejecting the null hypothesis</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi-squared test</a></li>
-<li class="chapter" data-level="11.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#hypothesis-testing-in-r"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing in R</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#example-with-data"><i class="fa fa-check"></i><b>11.3.1</b> example with data</a></li>
-<li class="chapter" data-level="11.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#stop-and-frisk-and-race"><i class="fa fa-check"></i><b>11.3.2</b> stop-and-frisk and race</a></li>
+<li class="chapter" data-level="8.3.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#when-too-much-testing-is-bad"><i class="fa fa-check"></i><b>8.3.1</b> when too much testing is bad<span></span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#reliability-of-scientific-studies"><i class="fa fa-check"></i><b>8.3.2</b> reliability of scientific studies<span></span></a></li>
+<li class="chapter" data-level="8.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-2"><i class="fa fa-check"></i><b>8.3.3</b> discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html"><i class="fa fa-check"></i><b>12</b> Prior knowledge and Bayesian thinking</a>
+<li class="chapter" data-level="9" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling distribution and estimation<span></span></a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#prior-knowledge"><i class="fa fa-check"></i><b>12.1</b> Prior knowledge</a></li>
-<li class="chapter" data-level="12.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#bayes-formula"><i class="fa fa-check"></i><b>12.2</b> Bayes’ formula</a>
+<li class="chapter" data-level="9.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#law-of-large-numbers"><i class="fa fa-check"></i><b>9.1</b> Law of large numbers<span></span></a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#positive-and-negative-predictive-values"><i class="fa fa-check"></i><b>12.2.1</b> positive and negative predictive values</a></li>
-<li class="chapter" data-level="12.2.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#exercises-26"><i class="fa fa-check"></i><b>12.2.2</b> Exercises</a></li>
+<li class="chapter" data-level="9.1.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-mean"><i class="fa fa-check"></i><b>9.1.1</b> sample mean<span></span></a></li>
+<li class="chapter" data-level="9.1.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sample-size-and-standard-error"><i class="fa fa-check"></i><b>9.1.2</b> sample size and standard error<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#applications-of-bayesian-thinking"><i class="fa fa-check"></i><b>12.3</b> Applications of Bayesian thinking</a>
+<li class="chapter" data-level="9.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#central-limit-theorem"><i class="fa fa-check"></i><b>9.2</b> Central limit theorem<span></span></a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#when-too-much-testing-is-bad"><i class="fa fa-check"></i><b>12.3.1</b> when too much testing is bad</a></li>
-<li class="chapter" data-level="12.3.2" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#reliability-of-scientific-studies"><i class="fa fa-check"></i><b>12.3.2</b> reliability of scientific studies</a></li>
-<li class="chapter" data-level="12.3.3" data-path="prior-knowledge-and-bayesian-thinking.html"><a href="prior-knowledge-and-bayesian-thinking.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.3.3</b> discussion questions</a></li>
+<li class="chapter" data-level="9.2.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#normal-distribution"><i class="fa fa-check"></i><b>9.2.1</b> normal distribution<span></span></a></li>
+<li class="chapter" data-level="9.2.2" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#confidence-intervals"><i class="fa fa-check"></i><b>9.2.2</b> confidence intervals<span></span></a></li>
+<li class="chapter" data-level="9.2.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#estimating-relative-risk"><i class="fa fa-check"></i><b>9.2.3</b> estimating relative risk<span></span></a></li>
 </ul></li>
-</ul></li>
-<li class="part"><span><b>IV Random models that change with time</b></span></li>
-<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states</a>
+<li class="chapter" data-level="9.3" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#sampling-and-confidence-intervals-in-r"><i class="fa fa-check"></i><b>9.3</b> Sampling and confidence intervals in R<span></span></a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models</a></li>
-<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices</a></li>
-<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states</a></li>
-<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment</a>
-<ul>
-<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sampling-distribution-and-estimation.html"><a href="sampling-distribution-and-estimation.html#computing-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> computing confidence intervals<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains</a>
+<li class="part"><span><b>III Things that change over time<span></span></b></span></li>
+<li class="chapter" data-level="10" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html"><i class="fa fa-check"></i><b>10</b> Linear difference equations<span></span></a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors</a>
+<li class="chapter" data-level="10.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#discrete-time-population-models"><i class="fa fa-check"></i><b>10.1</b> Discrete time population models<span></span></a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains</a></li>
+<li class="chapter" data-level="10.1.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#static-population"><i class="fa fa-check"></i><b>10.1.1</b> static population<span></span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exponential-population-growth"><i class="fa fa-check"></i><b>10.1.2</b> exponential population growth<span></span></a></li>
+<li class="chapter" data-level="10.1.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-with-births-and-deaths"><i class="fa fa-check"></i><b>10.1.3</b> population with births and deaths<span></span></a></li>
+<li class="chapter" data-level="10.1.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#dimensions-of-birth-and-death-rates"><i class="fa fa-check"></i><b>10.1.4</b> dimensions of birth and death rates<span></span></a></li>
+<li class="chapter" data-level="10.1.5" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#linear-demographic-models"><i class="fa fa-check"></i><b>10.1.5</b> linear demographic models<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication</a>
+<li class="chapter" data-level="10.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#solutions-of-linear-difference-models"><i class="fa fa-check"></i><b>10.2</b> Solutions of linear difference models<span></span></a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises</a></li>
-<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors</a></li>
-<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises</a></li>
+<li class="chapter" data-level="10.2.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#simple-linear-models"><i class="fa fa-check"></i><b>10.2.1</b> simple linear models<span></span></a></li>
+<li class="chapter" data-level="10.2.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#models-with-a-constant-term"><i class="fa fa-check"></i><b>10.2.2</b> models with a constant term<span></span></a></li>
+<li class="chapter" data-level="10.2.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#population-growth-and-decline"><i class="fa fa-check"></i><b>10.2.3</b> population growth and decline<span></span></a></li>
+<li class="chapter" data-level="10.2.4" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-18"><i class="fa fa-check"></i><b>10.2.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution</a>
+<li class="chapter" data-level="10.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#numerical-solutions-in-r"><i class="fa fa-check"></i><b>10.3</b> Numerical solutions in R<span></span></a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions</a></li>
+<li class="chapter" data-level="10.3.1" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#for-loops"><i class="fa fa-check"></i><b>10.3.1</b> for loops<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#using-vectors-with-loops"><i class="fa fa-check"></i><b>10.3.2</b> using vectors with loops<span></span></a></li>
+<li class="chapter" data-level="10.3.3" data-path="linear-difference-equations.html"><a href="linear-difference-equations.html#exercises-19"><i class="fa fa-check"></i><b>10.3.3</b> Exercises:<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>15</b> Stationary distributions of Markov chains</a>
+<li class="chapter" data-level="11" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>11</b> Graphical analysis of ordinary differential equations<span></span></a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#history-of-markov-chains"><i class="fa fa-check"></i><b>15.1</b> History of Markov chains</a></li>
-<li class="chapter" data-level="15.2" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i><b>15.2</b> Stationary distributions</a>
+<li class="chapter" data-level="11.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-differential-equations"><i class="fa fa-check"></i><b>11.1</b> Building differential equations<span></span></a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#exercises-30"><i class="fa fa-check"></i><b>15.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="11.1.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#from-discrete-time-to-continuous"><i class="fa fa-check"></i><b>11.1.1</b> from discrete time to continuous<span></span></a></li>
+<li class="chapter" data-level="11.1.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-20"><i class="fa fa-check"></i><b>11.1.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="11.1.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#growth-proportional-to-population-size"><i class="fa fa-check"></i><b>11.1.3</b> growth proportional to population size<span></span></a></li>
+<li class="chapter" data-level="11.1.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#chemical-kinetics"><i class="fa fa-check"></i><b>11.1.4</b> chemical kinetics<span></span></a></li>
+<li class="chapter" data-level="11.1.5" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#building-nonlinear-odes"><i class="fa fa-check"></i><b>11.1.5</b> building nonlinear ODEs<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#bioinformatics-and-markov-models"><i class="fa fa-check"></i><b>15.3</b> Bioinformatics and Markov models</a></li>
+<li class="chapter" data-level="11.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#qualitative-analysis-of-odes"><i class="fa fa-check"></i><b>11.2</b> Qualitative analysis of ODEs<span></span></a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#graphical-analysis-of-the-defining-function"><i class="fa fa-check"></i><b>11.2.1</b> graphical analysis of the defining function<span></span></a></li>
+<li class="chapter" data-level="11.2.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#fixed-points-and-stability"><i class="fa fa-check"></i><b>11.2.2</b> fixed points and stability<span></span></a></li>
+<li class="chapter" data-level="11.2.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#outline-of-qualitative-analysis-of-an-ode"><i class="fa fa-check"></i><b>11.2.3</b> Outline of qualitative analysis of an ODE<span></span></a></li>
+<li class="chapter" data-level="11.2.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-21"><i class="fa fa-check"></i><b>11.2.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html"><i class="fa fa-check"></i><b>16</b> Dynamics of Markov models</a>
+<li class="chapter" data-level="11.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#functions-in-r"><i class="fa fa-check"></i><b>11.3</b> Functions in R<span></span></a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-trees"><i class="fa fa-check"></i><b>16.1</b> Phylogenetic trees</a></li>
-<li class="chapter" data-level="16.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>16.2</b> Eigenvalues and eigenvectors</a>
-<ul>
-<li class="chapter" data-level="16.2.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#basic-linear-algebra"><i class="fa fa-check"></i><b>16.2.1</b> basic linear algebra</a></li>
-<li class="chapter" data-level="16.2.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvalues-on-paper"><i class="fa fa-check"></i><b>16.2.2</b> calculation of eigenvalues on paper</a></li>
-<li class="chapter" data-level="16.2.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvectors-on-paper"><i class="fa fa-check"></i><b>16.2.3</b> calculation of eigenvectors on paper</a></li>
-<li class="chapter" data-level="16.2.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#exercises-31"><i class="fa fa-check"></i><b>16.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="11.3.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#defining-a-function"><i class="fa fa-check"></i><b>11.3.1</b> defining a function<span></span></a></li>
+<li class="chapter" data-level="11.3.2" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#calling-a-function"><i class="fa fa-check"></i><b>11.3.2</b> calling a function<span></span></a></li>
+<li class="chapter" data-level="11.3.3" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#using-a-function-to-solve-a-difference-equation"><i class="fa fa-check"></i><b>11.3.3</b> using a function to solve a difference equation<span></span></a></li>
+<li class="chapter" data-level="11.3.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#exercises-22"><i class="fa fa-check"></i><b>11.3.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvectors-in-r"><i class="fa fa-check"></i><b>16.3</b> Eigenvectors in R</a></li>
-<li class="chapter" data-level="16.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#molecular-evolution"><i class="fa fa-check"></i><b>16.4</b> Molecular evolution</a>
+<li class="chapter" data-level="11.4" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#modeling-the-spread-of-infectious-disease-spread"><i class="fa fa-check"></i><b>11.4</b> Modeling the spread of infectious disease spread<span></span></a>
 <ul>
-<li class="chapter" data-level="16.4.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#time-since-divergence"><i class="fa fa-check"></i><b>16.4.1</b> time since divergence</a></li>
-<li class="chapter" data-level="16.4.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-distance"><i class="fa fa-check"></i><b>16.4.2</b> phylogenetic distance</a></li>
-<li class="chapter" data-level="16.4.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#kimura-model"><i class="fa fa-check"></i><b>16.4.3</b> Kimura model</a></li>
-<li class="chapter" data-level="16.4.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#divergence-of-human-and-chimp-genomes"><i class="fa fa-check"></i><b>16.4.4</b> divergence of human and chimp genomes</a></li>
-<li class="chapter" data-level="16.4.5" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#discussion-questions-6"><i class="fa fa-check"></i><b>16.4.5</b> Discussion questions</a></li>
+<li class="chapter" data-level="11.4.1" data-path="graphical-analysis-of-ordinary-differential-equations.html"><a href="graphical-analysis-of-ordinary-differential-equations.html#discussion"><i class="fa fa-check"></i><b>11.4.1</b> Discussion<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html"><i class="fa fa-check"></i><b>12</b> Solutions of ordinary differential equations<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-ordinary-differential-equations-1"><i class="fa fa-check"></i><b>12.1</b> Solutions of ordinary differential equations<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#separate-and-integrate-method"><i class="fa fa-check"></i><b>12.1.1</b> separate and integrate method<span></span></a></li>
+<li class="chapter" data-level="12.1.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#behavior-of-solutions-of-linear-odes"><i class="fa fa-check"></i><b>12.1.2</b> behavior of solutions of linear ODEs<span></span></a></li>
+<li class="chapter" data-level="12.1.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#solutions-of-nonhomogeneous-odes"><i class="fa fa-check"></i><b>12.1.3</b> solutions of nonhomogeneous ODEs<span></span></a></li>
+<li class="chapter" data-level="12.1.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-23"><i class="fa fa-check"></i><b>12.1.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#numeric-solutions-and-the-forward-euler-method"><i class="fa fa-check"></i><b>12.2</b> Numeric solutions and the Forward Euler method<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-24"><i class="fa fa-check"></i><b>12.2.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#forward-euler-method-in-r"><i class="fa fa-check"></i><b>12.3</b> Forward Euler method in R<span></span></a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#implementation"><i class="fa fa-check"></i><b>12.3.1</b> implementation<span></span></a></li>
+<li class="chapter" data-level="12.3.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-25"><i class="fa fa-check"></i><b>12.3.2</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="12.3.3" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#error-analysis"><i class="fa fa-check"></i><b>12.3.3</b> error analysis<span></span></a></li>
+<li class="chapter" data-level="12.3.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#exercises-26"><i class="fa fa-check"></i><b>12.3.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#applications-of-linear-ode-models"><i class="fa fa-check"></i><b>12.4</b> Applications of linear ODE models<span></span></a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#model-of-pharmacokinetics"><i class="fa fa-check"></i><b>12.4.1</b> model of pharmacokinetics<span></span></a></li>
+<li class="chapter" data-level="12.4.2" data-path="solutions-of-ordinary-differential-equations.html"><a href="solutions-of-ordinary-differential-equations.html#discussion-questions-3"><i class="fa fa-check"></i><b>12.4.2</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Random models that change with time<span></span></b></span></li>
+<li class="chapter" data-level="13" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html"><i class="fa fa-check"></i><b>13</b> Markov models with discrete states<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#building-markov-models"><i class="fa fa-check"></i><b>13.1</b> Building Markov models<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-property"><i class="fa fa-check"></i><b>13.2</b> Markov property<span></span></a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#transition-matrices"><i class="fa fa-check"></i><b>13.2.1</b> transition matrices<span></span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#probability-of-a-string-of-states"><i class="fa fa-check"></i><b>13.2.2</b> probability of a string of states<span></span></a></li>
+<li class="chapter" data-level="13.2.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#exercises-27"><i class="fa fa-check"></i><b>13.2.3</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#markov-models-of-medical-treatment"><i class="fa fa-check"></i><b>13.3</b> Markov models of medical treatment<span></span></a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="markov-models-with-discrete-states.html"><a href="markov-models-with-discrete-states.html#discussion-questions-4"><i class="fa fa-check"></i><b>13.3.1</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>14</b> Probability distributions of Markov chains<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#probability-distribution-vectors"><i class="fa fa-check"></i><b>14.1</b> Probability distribution vectors<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#markov-chains"><i class="fa fa-check"></i><b>14.1.1</b> Markov chains<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#matrix-multiplication"><i class="fa fa-check"></i><b>14.2</b> matrix multiplication<span></span></a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-28"><i class="fa fa-check"></i><b>14.2.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="14.2.2" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#propagation-of-probability-vectors"><i class="fa fa-check"></i><b>14.2.2</b> propagation of probability vectors<span></span></a></li>
+<li class="chapter" data-level="14.2.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#exercises-29"><i class="fa fa-check"></i><b>14.2.3</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#mutations-and-molecular-evolution"><i class="fa fa-check"></i><b>14.3</b> Mutations and molecular evolution<span></span></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="probability-distributions-of-markov-chains.html"><a href="probability-distributions-of-markov-chains.html#discussion-questions-5"><i class="fa fa-check"></i><b>14.3.1</b> Discussion questions<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html"><i class="fa fa-check"></i><b>15</b> Stationary distributions of Markov chains<span></span></a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#history-of-markov-chains"><i class="fa fa-check"></i><b>15.1</b> History of Markov chains<span></span></a></li>
+<li class="chapter" data-level="15.2" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i><b>15.2</b> Stationary distributions<span></span></a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#exercises-30"><i class="fa fa-check"></i><b>15.2.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="stationary-distributions-of-markov-chains.html"><a href="stationary-distributions-of-markov-chains.html#bioinformatics-and-markov-models"><i class="fa fa-check"></i><b>15.3</b> Bioinformatics and Markov models<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html"><i class="fa fa-check"></i><b>16</b> Dynamics of Markov models<span></span></a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-trees"><i class="fa fa-check"></i><b>16.1</b> Phylogenetic trees<span></span></a></li>
+<li class="chapter" data-level="16.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>16.2</b> Eigenvalues and eigenvectors<span></span></a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#basic-linear-algebra"><i class="fa fa-check"></i><b>16.2.1</b> basic linear algebra<span></span></a></li>
+<li class="chapter" data-level="16.2.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvalues-on-paper"><i class="fa fa-check"></i><b>16.2.2</b> calculation of eigenvalues on paper<span></span></a></li>
+<li class="chapter" data-level="16.2.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#calculation-of-eigenvectors-on-paper"><i class="fa fa-check"></i><b>16.2.3</b> calculation of eigenvectors on paper<span></span></a></li>
+<li class="chapter" data-level="16.2.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#exercises-31"><i class="fa fa-check"></i><b>16.2.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#eigenvectors-in-r"><i class="fa fa-check"></i><b>16.3</b> Eigenvectors in R<span></span></a></li>
+<li class="chapter" data-level="16.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#molecular-evolution"><i class="fa fa-check"></i><b>16.4</b> Molecular evolution<span></span></a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#time-since-divergence"><i class="fa fa-check"></i><b>16.4.1</b> time since divergence<span></span></a></li>
+<li class="chapter" data-level="16.4.2" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#phylogenetic-distance"><i class="fa fa-check"></i><b>16.4.2</b> phylogenetic distance<span></span></a></li>
+<li class="chapter" data-level="16.4.3" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#kimura-model"><i class="fa fa-check"></i><b>16.4.3</b> Kimura model<span></span></a></li>
+<li class="chapter" data-level="16.4.4" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#divergence-of-human-and-chimp-genomes"><i class="fa fa-check"></i><b>16.4.4</b> divergence of human and chimp genomes<span></span></a></li>
+<li class="chapter" data-level="16.4.5" data-path="dynamics-of-markov-models.html"><a href="dynamics-of-markov-models.html#discussion-questions-6"><i class="fa fa-check"></i><b>16.4.5</b> Discussion questions<span></span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -479,8 +482,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arithmetic-and-variables" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Arithmetic and variables</h1>
+<div id="arithmetic-and-variables" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Arithmetic and variables<a href="arithmetic-and-variables.html#arithmetic-and-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>You can add up the parts, but you won’t have the sum;<br />
 You can strike up the march, there is no drum.<br />
@@ -497,16 +500,16 @@ But like a refugee.<br />
 <li><p>perform arithmetic operations in R</p></li>
 <li><p>assign variables in R</p></li>
 </ul>
-<div id="sec:bio1" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Blood circulation and mathematical modeling</h2>
+<div id="sec:bio1" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Blood circulation and mathematical modeling<a href="arithmetic-and-variables.html#sec:bio1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Galen  was one of the great physicians of antiquity. He studied how the body works by performing experiments on humans and animals. Among other things, he was famous for a careful study of the heart and how blood traveled through the body. Galen observed that there were different types of blood: arterial blood that flowed out of the heart, which was bright red, and venous blood that flowed in the opposite direction, which was a darker color. This naturally led to questions: what is the difference between venous and arterial blood? where does each one come from and where does it go?</p>
 <p>You, a reader of the 21st century, likely already know the answer: blood <em>circulates</em> through the body, bringing oxygen and nutrients to the tissues through the arteries, and returns back through the veins carrying carbon dioxide and waste products, as shown in figure . Arterial blood contains a lot of oxygen while venous blood carries more carbon dioxide, but otherwise they are the same fluid. The heart does the physical work of pushing arterial blood out of the heart, to the tissues and organs, as well as pushing venous blood through the second circulatory loop that goes through the lungs, where it picks up oxygen and releases carbon dioxide, becoming arterial blood again. This may seem like a very natural picture to you, but it is far from easy to deduce by simple observation.</p>
 <div class="figure">
 <img src="ch1/Circulatory_System_no_tags_cropped.png" alt="" />
 <p class="caption">Human blood circulates throughout the body and returns to the heart, veins shown in blue and arteries in red. <em>Circulatory System en</em> by LadyofHats in public domain via Wikimedia Commons.</p>
 </div>
-<div id="galens-theory-of-blood" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Galen’s theory of blood</h3>
+<div id="galens-theory-of-blood" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Galen’s theory of blood<a href="arithmetic-and-variables.html#galens-theory-of-blood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Galen came up with a different explanation based on the notion of <em>humors</em>, or fluids, that was fundamental to the Greek conception of the body. He proposed that the venous and arterial blood were different humors: venous blood, or <em>natural spirits</em>, was produced by the liver, while arterial blood, or <em>vital spirits</em>, was produced by the heart and carried by the arteries, as shown in figure . The heart consisted of two halves, and it warmed the blood and pushed both the natural and vital spirits out to the organs; the two spirits could mix through pores in the septum separating its right and left halves. The vital and natural spirits were both consumed by the organs, and regenerated by the liver and the heart. The purpose of the lungs was to serve as bellows, cooling the blood after it was heated by the heart.</p>
 <div class="figure">
 <img src="ch1/galenheartc.png" alt="" />
@@ -514,8 +517,8 @@ But like a refugee.<br />
 </div>
 <p>Is this a good theory of how the heart, lungs, and blood work? Doctors in Europe thought so for over one thousand years! Galen’s textbook on physiology was the standard for medical students through the 17th century. The theory seemed to make sense, and explain what was observable. Many great scientists and physicians, including Leonardo DaVinci and Avicenna, did not challenge the inaccuracies such as the porous septum in the heart, even though they could not see the pores themselves. It took both better observations and a quantitative testing of the hypothesis to challenge the orthodoxy.</p>
 </div>
-<div id="mathematical-testing-of-the-theory" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Mathematical testing of the theory</h3>
+<div id="mathematical-testing-of-the-theory" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Mathematical testing of the theory<a href="arithmetic-and-variables.html#mathematical-testing-of-the-theory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>William Harvey  was born in England and studied medicine in Padua under the great physician Hieronymus Fabricius. He became famous, and would perform public demonstrations of physiology, using live animals for experiments that would not be approved today. He also studied the heart and the blood vessels, and measured the volume of the blood that can be contained in the human heart. He was quite accurate in estimating the correct volume, which we now know to be about 70 ml (1.5 oz). What is even more impressive is that he used this quantitative information to test Galen’s theory.</p>
 <p>Let us assume that all of the blood that is pumped out by the heart is consumed by the tissues, as Galen proposed; let us further assume that the heart beats at constant rate of 60 beats per minute, with a constant ejection volume of 70 ml. Then over the course of a day, the human body would consume about
 <span class="math display">\[\mathrm{Volume} = 70 \ \mathrm {mL} \times 60 \ \mathrm {(beats \ per \ minute)} \times 60 \ \mathrm {(minutes \ per \ hour)}  \times 24 \ \mathrm {(hours \ per \ day)}\]</span>
@@ -523,8 +526,8 @@ or over 6,000 liters of blood! You may quibble over the exact numbers (some hear
 <p>This led Harvey to propose the model that we know today: that blood is not consumed by the tissues, but instead returns to the heart and is re-used again . This is why we call the heart and blood vessels part of the circulatory system of the body. This model was controversial at the time - some people proclaimed they would ``rather be wrong with Galen, than right with Harvey’’ - but eventually became accepted as the standard model. What is remarkable is that Harvey’s argument, despite being grounded in empirical data, was strictly mathematical. He adopted the assumptions of Galen, made the calculations, and got a result which was inconsistent with reality. This is an excellent example of how mathematical modeling can be useful, because it can provide clear evidence against a wrong hypothesis.</p>
 </div>
 </div>
-<div id="sec:math1" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Parameters and variables in models</h2>
+<div id="sec:math1" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Parameters and variables in models<a href="arithmetic-and-variables.html#sec:math1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Many biologists remain skeptical of mathematical modeling. The criticism can be summarized like this: a theoretical model either agrees with experiment, or it does not. In the former case, it is useless, because the data are already known; in the latter case, it is wrong! As I indicated above, the goal of mathematical modeling is not to reproduce experimental data; otherwise, indeed, it would only be of interest to theoreticians. The correct question to ask is, does a theoretical model help us understand the real thing? There are at least three ways in which a model can be useful:</p>
 <ul>
 <li><p>A model can help a scientist make sense of complex data, by testing whether a particular mechanism explains the observations. Thus, a model can help clarify our understanding by throwing away the non-essential features and focusing on the most important ones.</p></li>
@@ -536,27 +539,27 @@ or over 6,000 liters of blood! You may quibble over the exact numbers (some hear
 <p>As you can see from this definition, the same quantity can be a variable or a parameter depending on the scope of the model. Let’s go back to our example of modeling a protein: usually the activity (and the structure) of a protein is influenced by external conditions such as pH and temperature; these would be natural parameters for a model of the molecule. However, if we model an entire organism, the pH (e.g. of the blood plasma) and temperature are controlled by physiological processes within the organism, and thus these quantities will now be considered variables.</p>
 <p>Perhaps the clearest way to differentiate between variables and parameters is to think about how you would present a data set visually. We will discuss plotting graphs of functions in chapter 2, and plotting data sets in chapter 3, but the reader has likely seen many such plots before. Consider which of the quantities you would to plot to describe the system you are modeling. If the quantity belongs on either axis, it is a variable, since it is important to describe how it changes. The rest of the quantities can be called parameters. Of course, depending on the question you ask, the same quantity may be plotted on an axis or not, which is why this classification is not absolute.</p>
 <p>After we have specified the essential variables for your model, we can describe a complex and evolving biological system in terms of its <em>state</em>. This is a very general term, but it usually means the values of all the variables that you have chosen for the model, which are often called  <em>state variables</em>. For instance, an ion channel can be described with the state variable of conformation, which may be in a open state or in a closed state. The range, or collection of all different states of the system is called the  <em>state space</em> of the model. Below you will find examples of models of biological systems with diverse state spaces.</p>
-<div id="discrete-state-variables-genetics" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> discrete state variables: genetics</h3>
+<div id="discrete-state-variables-genetics" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> discrete state variables: genetics<a href="arithmetic-and-variables.html#discrete-state-variables-genetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are genes which are present in a population as two different versions, called *alleles} - let us use letters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> to label them. One may describe the genetic state of an individual based on which allele it carries. If this individual is haploid, e.g. a bacterium, then it only carries a single copy of the genome, and its state can be described by a single variable with the state space of <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>.</p>
 <p>A diploid organism, like a human, possesses two copies of each gene (unless it is on one of the sex chromosomes, X or Y); each copy may be in either state <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>. This may seem to suggest that there are four different values in the genetic state space, but if the order of the copies does not matter (which is usually the case), then <span class="math inline">\(AB\)</span> and <span class="math inline">\(BA\)</span> are effectively the same, so the state space consists of three values: <span class="math inline">\(AA\)</span>, <span class="math inline">\(BB\)</span>, and <span class="math inline">\(AB\)</span>.</p>
 </div>
-<div id="discrete-state-variables-population" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> discrete state variables: population</h3>
+<div id="discrete-state-variables-population" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> discrete state variables: population<a href="arithmetic-and-variables.html#discrete-state-variables-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Consider the model of a population of individuals, with the variable of number of individuals (populations size) and parameters being the birth and death rates. The state space of this model is <strong>all integers between 0 and infinity.</strong></p>
 <p>Consider the model of a population of individuals who may get infected. Assume that the total number of individuals does not change (that is, there are no births and deaths) and that these individuals can be in one of two states: healthy or sick (in epidemiology these are called <em>susceptible</em> or <em>infectious</em>). There are typically two parameters in such models: the probability of infection and the probability of recovery. Since the total population is fixed at some number <span class="math inline">\(N\)</span>, the space space of the model is all pairs of integers between 0 and <span class="math inline">\(N\)</span> that add up to <span class="math inline">\(N\)</span>.</p>
 </div>
-<div id="continuous-state-variables-concentration" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> continuous state variables: concentration</h3>
+<div id="continuous-state-variables-concentration" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> continuous state variables: concentration<a href="arithmetic-and-variables.html#continuous-state-variables-concentration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose that a biological molecule is produced with a certain rate and degraded with a different rate, and we would like to describe the quantity of the molecule, usually expressed as concentration. The relevant variables here are concentration and time, and you will see those variables on the axes of many plots in biochemistry. Concentration is a ratio of the number of molecules and the volume, so the state space can be any positive real number (although practically there is a limit as to how many molecules can fit inside a given volume, but for simplicity we can ignore this).</p>
 <p>Going even further, let us consider an entire cell, which contains a large number of different molecules. We can describe the state of a cell as the collection of all the molecular concentrations, with the parameters being the rates of all the reactions going on between those molecules. The state space for this model with <span class="math inline">\(N\)</span> different molecules is <span class="math inline">\(N\)</span> positive real numbers.</p>
 </div>
-<div id="multiple-variables-in-medicine" class="section level3" number="1.2.4">
-<h3><span class="header-section-number">1.2.4</span> multiple variables in medicine</h3>
+<div id="multiple-variables-in-medicine" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> multiple variables in medicine<a href="arithmetic-and-variables.html#multiple-variables-in-medicine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Doctors take medical history from patients and measure vital signs to get a picture of a patient’s health. These can be all be thought of as variables in a model of a person that physicians construct. Some of these variables are discrete, for instance whether there is family history of hypertension, which has only two values: yes or no. Other variables are numbers with a range, such as weight and blood pressure. The state space of this model is a combination of <em>categorical</em> values (such as yes/no) and <em>numerical</em> values (within a reasonable range).</p>
 </div>
-<div id="discussion-questions" class="section level3" number="1.2.5">
-<h3><span class="header-section-number">1.2.5</span> Discussion questions</h3>
+<div id="discussion-questions" class="section level3 hasAnchor" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Discussion questions<a href="arithmetic-and-variables.html#discussion-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Several biological models are indicated below. Based on what you know, divide the quantities into variables and parameters and describe the state space of the model. Note that there may be more than one correct interpretation</p>
 <ol style="list-style-type: decimal">
 <li><p>The volume of blood pumped by the heart over a certain amount of time, depending on the heart rate and the ejection volume.</p></li>
@@ -568,34 +571,34 @@ or over 6,000 liters of blood! You may quibble over the exact numbers (some hear
 </ol>
 </div>
 </div>
-<div id="first-steps-in-r" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> First steps in R</h2>
+<div id="first-steps-in-r" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> First steps in R<a href="arithmetic-and-variables.html#first-steps-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
 A central goal of this book is to help you, the reader, gain experience with computation, which requires learning some programming (cool kids call it “coding”). Programming is a way of interacting with computers through a symbolic language, unlike the graphic user interfaces that we’re all familiar with. Basically, programming allows you to make a computer do exactly what you want it to do.</p>
 <p>There is a vast number of computer languages with distinct functionalities and personalities. Some are made to talk directly to the computer’s “brain” (CPU and memory), e.g. Assembly, while others are better suited for human comprehension, e.g. python or Java. Programming in any language involves two parts: 1) writing a program (code) using the commands and the syntax for the language; 2) running the code by using a compiler or interpreter to translate the commands into machine language and then making the computer execute the actions. If your code has a mistake in it, the compiler or interpreter should catch it, and return an <em>error message</em> to you instead of executing the code. Sometimes, though, the code may pass muster with the interpreter/compiler, but it may still have a mistake (bug). This can be manifested in two different ways: either the code execution does not produce the result that you intended, or it hangs up or crashes the computer (the latter is hard to do with the kind of programming we will be doing). We will discuss errors and how to prevent and catch these bugs as you develop your programming skills.</p>
 <p>In this course, our goal is to compute mathematical models and to analyze data, so we choose a language that is designed specially for these tasks, which is called R. To proceed, you’ll need to download and install R, which is freely available <a href="cran.r-project.org/">here</a>. In addition to downloading the language (which includes the interpreter that allows you to run R code on your computer) you will need to download a graphic interface for writing, editing, and running R code, called R Studio (coders call this an IDE, or an Integrated Developer Environment), which is also free and available <a href="www.rstudio.com/products/rstudio/download/">here</a>.</p>
-<div id="r-markdown-and-r-studio" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> R Markdown and R Studio</h3>
+<div id="r-markdown-and-r-studio" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> R Markdown and R Studio<a href="arithmetic-and-variables.html#r-markdown-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this course you will use R using R Studio and R Markdown documents, which are text files with the extension <code>.Rmd</code>. Markdown is a simple formatting syntax for creating reports in HTML, PDF, or Word format by incorporating text with code and its output. More details on using R Markdown are <a href="rmarkdown.rstudio.com">here</a>. In fact, this whole book is written in R Markdown files and then compiled to produce the beautiful (I hope you agree) web book that you are reading.</p>
 <p>If you open an Rmd file in R Studio, you will see a <strong>Knit</strong> button on top of the Editor window. Clicking it initiates the processing of the file into an output document (in HTML, PDF, or Word format) that includes the text as well as the output of any embedded R code chunks within the document. You can embed an R <em>code chunk</em> like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="arithmetic-and-variables.html#cb1-1" aria-hidden="true"></a><span class="kw">print</span>(<span class="st">&quot;Hello there!&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="arithmetic-and-variables.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello there!&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;Hello there!&quot;</code></pre>
-<p>To run the code inside a single R code chunk, click the green arrow in the top right of the chunk. This will produce an output, in this case the text “Hello there!”. Inside the generated output file, for example the web book you may be reading, the output of code chunks is shown below the box with the R code and indicated by two hashtags.</p>
+<p>To run the code inside a single R code chunk, click the green arrow in the top right of the chunk. This will produce an output, in this case the text “Hello there!” Inside the generated output file, for example the web book you may be reading, the output of code chunks is shown below the box with the R code and indicated by two hashtags.</p>
 <p>You can make text <strong>bold</strong> or <em>italic</em> like so. You can also use mathematical notation called LaTeX, which you’ll see used below to generate nice-looking equations. LaTeX commands are surrounded by dollar signs, for example $e^x$ generates <span class="math inline">\(e^x\)</span>. Mathematical types love LaTeX, but you can use R Markdown without it.</p>
 </div>
-<div id="numbers-and-arithmetic-operations" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> numbers and arithmetic operations</h3>
+<div id="numbers-and-arithmetic-operations" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> numbers and arithmetic operations<a href="arithmetic-and-variables.html#numbers-and-arithmetic-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When you get down to the brass tacks, all computation rests on performing  <em>arithmetic operations</em>: addition, subtraction, multiplication, division, exponentiation, etc. The symbols used for arithmetic operations are what you’d expect: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> are the four standard operations, and <code>^</code> is the symbol for exponentiation. For example, type <code>2^3</code> in any R code chunk and execute it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="arithmetic-and-variables.html#cb3-1" aria-hidden="true"></a><span class="dv">2</span><span class="op">^</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="arithmetic-and-variables.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>You see that R returns the result by printing it out on the screen. The number in square brackets [1] is not important for now; it is useful when the answer contains many numbers and has to be printed out on many rows. The second number is the result of the calculation.</p>
 <p>For numbers that are either very large or very small, it’s too cumbersome to write out all the digits, so R, like most computational platforms, uses the <em>scientific notation</em>. For instance, if you want to represent 1.4 billion, you type in the following command; note that 10 to the ninth power is represented as <code>e+09</code> and the prefix 1.4 is written without any multiplication sign:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="arithmetic-and-variables.html#cb5-1" aria-hidden="true"></a><span class="fl">1.4</span><span class="op">*</span><span class="dv">10</span><span class="op">^</span><span class="dv">9</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="arithmetic-and-variables.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.4</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span><span class="dv">9</span></span></code></pre></div>
 <pre><code>## [1] 1.4e+09</code></pre>
 <p>There are also certain numbers built into the R language, most notably <span class="math inline">\(\pi\)</span> and <span class="math inline">\(e\)</span>, which can be accessed as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="arithmetic-and-variables.html#cb7-1" aria-hidden="true"></a>pi</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="arithmetic-and-variables.html#cb7-1" aria-hidden="true" tabindex="-1"></a>pi</span></code></pre></div>
 <pre><code>## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="arithmetic-and-variables.html#cb9-1" aria-hidden="true"></a><span class="kw">exp</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="arithmetic-and-variables.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
 <p>The expression <code>exp()</code> is an example of a function, which we will discuss in section ; it returns the value of <span class="math inline">\(e\)</span> raised to the power of the number in parenthesis, hence <code>exp(1)</code> returns <span class="math inline">\(e\)</span>. Notice that although both numbers are irrational, and thus have infinitely many decimal digits, R only prints out a few of them. This doesn’t mean that it doesn’t have more digits in memory, but it only displays a limited number to avoid clutter. The number of digits to be displayed can be changed, for example to display 10 digits, type in <code>options(digits=10)</code>.</p>
 <p>Computers are very good at computation, as their name suggests, but they have limitations. In order to manipulate numbers, they must be stored in computer memory, but computer memory is finite. There is a limit to the length of the number that is feasible to store on a computer. This has implications for both very large numbers and to very small numbers, which are close to zero, because both require many digits for storage.</p>
@@ -603,8 +606,8 @@ A central goal of this book is to help you, the reader, gain experience with com
 <p>On the other hand, very small numbers present their own challenges. As with very large numbers, a computer cannot store an arbitrary number of digits after the decimal (or binary) point. Therefore, there is also the smallest number that a programming language will accept and use, and storing a smaller number produces an <em>underflow</em> error. This will either cause the program execution to stop, or to return the value 0 instead of the correct answer. Do exercise  to investigate the limitations of R for small numbers.</p>
 <p>This last fact demonstrates that all computer operations are imprecise, as they are limited by what’s called the  <em>machine precision</em>, which is illustrated in exercise . For instance, two similar numbers, if they are within the machine precision of one another, will be considered the same by the computer. Modern computers have large memories, and their machine precision is very good, but sometimes this error presents a problem, e.g. when subtracting two numbers. A detailed discussion of machine error is beyond the scope of this text, but anyone performing computations must be aware of its inherent limitations.</p>
 </div>
-<div id="r-coding-exercises" class="section level3" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> R Coding Exercises</h3>
+<div id="r-coding-exercises" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> R Coding Exercises<a href="arithmetic-and-variables.html#r-coding-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>Calculate the value of <span class="math inline">\(\pi\)</span> raised to the 10th power.</p></li>
 <li><p>Use the scientific notation to multiply four billion by <span class="math inline">\(\pi\)</span>.</p></li>
@@ -613,87 +616,87 @@ A central goal of this book is to help you, the reader, gain experience with com
 <li><p>How close can two numbers be before R thinks they are the same? Subtract two numbers which are close to each other, like 24 and 24.001, and keep making them closer to each other, until R returns a difference of zero. Report at what value of the actual difference this happens.</p></li>
 </ol>
 </div>
-<div id="variable-assignment" class="section level3" number="1.3.4">
-<h3><span class="header-section-number">1.3.4</span> variable assignment</h3>
+<div id="variable-assignment" class="section level3 hasAnchor" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> variable assignment<a href="arithmetic-and-variables.html#variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Variables in programming languages are used to store and access numerical or other information. After <em>assigning</em>} it a value for the first time (<em>initializing</em>), a variable name can be used to represent the value we assigned to it. Invoking the name of variable recalls the stored value from computer’s memory. There are a few rules about naming variables: a name cannot be a number or an arithmetic operator like <code>+</code>, in fact it cannot contain symbols for operators or spaces inside the name, or else confusion would reign. Variable names may contain numbers, but not as the first character. When writing code it is good practice to give variables informative names, like <em>height</em> or <em>city_pop</em>. </p>
 <p>The symbol ‘=’ is used to assign a value to a variable in most programming languages, and can be used in R too. However, it is customary for R to use the symbols <code>&lt;-</code> together to indicate assignment, like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="arithmetic-and-variables.html#cb11-1" aria-hidden="true"></a>var1 &lt;-<span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="arithmetic-and-variables.html#cb11-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
 <p>After this command the variable <code>var1</code> has the value 5, which you can see in the upper right frame in R Studio called <em>Environment</em>. In order to display the value of the variable as an output on the screen, use the special command <code>print()</code> (it’s actually a function, which we will discuss in the next chapter). The following two commands show that the value of a variable can be changed after it has been initialized:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="arithmetic-and-variables.html#cb12-1" aria-hidden="true"></a>var1 &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb12-2"><a href="arithmetic-and-variables.html#cb12-2" aria-hidden="true"></a>var1 &lt;-<span class="st"> </span><span class="dv">6</span></span>
-<span id="cb12-3"><a href="arithmetic-and-variables.html#cb12-3" aria-hidden="true"></a><span class="kw">print</span>(var1)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="arithmetic-and-variables.html#cb12-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb12-2"><a href="arithmetic-and-variables.html#cb12-2" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb12-3"><a href="arithmetic-and-variables.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var1)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>While seemingly contradictory, the commands are perfectly clear to the computer: first <code>var1</code> is assigned the value 5 and then it is assigned 6. After the second command, the first value is forgotten, so any operations that use the variable <code>var1</code> will be using the value of 6.</p>
 <p>Entire expressions can be placed on the right hand side of an assignment command: they could be arithmetic or logical operations as well as functions, which we will discuss later on. For example, the following commands result in the value 6 being assigned to the variable <code>var2</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="arithmetic-and-variables.html#cb14-1" aria-hidden="true"></a>var1 &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb14-2"><a href="arithmetic-and-variables.html#cb14-2" aria-hidden="true"></a>var2 &lt;-<span class="st"> </span>var1<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb14-3"><a href="arithmetic-and-variables.html#cb14-3" aria-hidden="true"></a><span class="kw">print</span>(var2)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="arithmetic-and-variables.html#cb14-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb14-2"><a href="arithmetic-and-variables.html#cb14-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> var1<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb14-3"><a href="arithmetic-and-variables.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var2)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>Even more mind-blowing is that the same variable can be used on both sides of an assignment operator! The R interpreter first looks on the right hand side to evaluate the expression and then assigns the result to the variable name on the left hand side. So for instance, the following commands increase the value of <code>var1</code> by 1, and then assign the product of <code>var1</code> and <code>var2</code> to the variable <code>var2</code>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="arithmetic-and-variables.html#cb16-1" aria-hidden="true"></a>var1 &lt;-<span class="st"> </span>var1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb16-2"><a href="arithmetic-and-variables.html#cb16-2" aria-hidden="true"></a><span class="kw">print</span>(var1)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="arithmetic-and-variables.html#cb16-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> var1 <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb16-2"><a href="arithmetic-and-variables.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var1)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="arithmetic-and-variables.html#cb18-1" aria-hidden="true"></a>var2 &lt;-<span class="st"> </span>var1<span class="dv">-1</span></span>
-<span id="cb18-2"><a href="arithmetic-and-variables.html#cb18-2" aria-hidden="true"></a><span class="kw">print</span>(var2)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="arithmetic-and-variables.html#cb18-1" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> var1<span class="dv">-1</span></span>
+<span id="cb18-2"><a href="arithmetic-and-variables.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var2)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="arithmetic-and-variables.html#cb20-1" aria-hidden="true"></a>var2 &lt;-<span class="st"> </span>var1<span class="op">*</span>var2</span>
-<span id="cb20-2"><a href="arithmetic-and-variables.html#cb20-2" aria-hidden="true"></a><span class="kw">print</span>(var2)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="arithmetic-and-variables.html#cb20-1" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> var1<span class="sc">*</span>var2</span>
+<span id="cb20-2"><a href="arithmetic-and-variables.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var2)</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>We have seen example of how to assign values to variables, so here is an example of how NOT to assign values, with the resulting error message:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="arithmetic-and-variables.html#cb22-1" aria-hidden="true"></a>var1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span> &lt;-<span class="st"> </span>var1</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="arithmetic-and-variables.html#cb22-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="sc">+</span> <span class="dv">1</span> <span class="ot">&lt;-</span> var1</span></code></pre></div>
 <p>The left-hand side of an assignment command should contain only the variable to which you are assigning a value, not an arithmetic expression to be performed.</p>
 </div>
-<div id="r-coding-exercises-1" class="section level3" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> R Coding Exercises</h3>
+<div id="r-coding-exercises-1" class="section level3 hasAnchor" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> R Coding Exercises<a href="arithmetic-and-variables.html#r-coding-exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following commands or scripts do not work as intended. Find the errors and correct them, then run them to make sure they do what they are intended to do:</p>
 </div>
-<div id="exercises" class="section level3" number="1.3.6">
-<h3><span class="header-section-number">1.3.6</span> Exercises:</h3>
+<div id="exercises" class="section level3 hasAnchor" number="1.3.6">
+<h3><span class="header-section-number">1.3.6</span> Exercises:<a href="arithmetic-and-variables.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following R commands or short scripts contain errors; your job is to fix them so they runs as described. (Remove the # at the start of each line to “uncomment” the code first.)</p>
 <ol style="list-style-type: decimal">
 <li>Assign the value -10 to a variable</li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="arithmetic-and-variables.html#cb23-1" aria-hidden="true"></a>neg -&gt;<span class="st"> </span><span class="dv">-10</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="arithmetic-and-variables.html#cb23-1" aria-hidden="true" tabindex="-1"></a>neg <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">10</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Assign a variable the value 5 and then increase its value by 3:</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="arithmetic-and-variables.html#cb24-1" aria-hidden="true"></a>2pac &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb24-2"><a href="arithmetic-and-variables.html#cb24-2" aria-hidden="true"></a>2pac &lt;-<span class="st"> </span>2pac <span class="op">+</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="arithmetic-and-variables.html#cb24-1" aria-hidden="true" tabindex="-1"></a>2pac <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb24-2"><a href="arithmetic-and-variables.html#cb24-2" aria-hidden="true" tabindex="-1"></a>2pac <span class="ot">&lt;-</span> 2pac <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Assign the values 4 and 7 to two variables, then add them together and assign the sum to a new variable:</li>
 </ol>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="arithmetic-and-variables.html#cb25-1" aria-hidden="true"></a>total &lt;-<span class="st"> </span>part1 <span class="op">+</span><span class="st"> </span>part2</span>
-<span id="cb25-2"><a href="arithmetic-and-variables.html#cb25-2" aria-hidden="true"></a>part1 &lt;-<span class="st"> </span><span class="dv">4</span></span>
-<span id="cb25-3"><a href="arithmetic-and-variables.html#cb25-3" aria-hidden="true"></a>part2 &lt;-<span class="st"> </span><span class="dv">7</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="arithmetic-and-variables.html#cb25-1" aria-hidden="true" tabindex="-1"></a>total <span class="ot">&lt;-</span> part1 <span class="sc">+</span> part2</span>
+<span id="cb25-2"><a href="arithmetic-and-variables.html#cb25-2" aria-hidden="true" tabindex="-1"></a>part1 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb25-3"><a href="arithmetic-and-variables.html#cb25-3" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">&lt;-</span> <span class="dv">7</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Add 5 and 3 and save it into variable my.number</li>
 </ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="arithmetic-and-variables.html#cb26-1" aria-hidden="true"></a><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span> &lt;-<span class="st"> </span>my.number</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="arithmetic-and-variables.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span> <span class="ot">&lt;-</span> my.number</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Print the value of my.number on the screen:</li>
 </ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="arithmetic-and-variables.html#cb27-1" aria-hidden="true"></a>print[my.number]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="arithmetic-and-variables.html#cb27-1" aria-hidden="true" tabindex="-1"></a>print[my.number]</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Replace the value of my.number with 5 times its current value</li>
 </ol>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="arithmetic-and-variables.html#cb28-1" aria-hidden="true"></a>my.number &lt;-<span class="st"> </span>5my.number </span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="arithmetic-and-variables.html#cb28-1" aria-hidden="true" tabindex="-1"></a>my.number <span class="ot">&lt;-</span> 5my.number </span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Assign the values of 7 and 8 to variables a and b, respectively, multiply them and save the results in variable x</li>
 </ol>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="arithmetic-and-variables.html#cb29-1" aria-hidden="true"></a>a&lt;-<span class="dv">7</span></span>
-<span id="cb29-2"><a href="arithmetic-and-variables.html#cb29-2" aria-hidden="true"></a>b&lt;-<span class="dv">8</span></span>
-<span id="cb29-3"><a href="arithmetic-and-variables.html#cb29-3" aria-hidden="true"></a>x&lt;-ab</span>
-<span id="cb29-4"><a href="arithmetic-and-variables.html#cb29-4" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="arithmetic-and-variables.html#cb29-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">7</span></span>
+<span id="cb29-2"><a href="arithmetic-and-variables.html#cb29-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="dv">8</span></span>
+<span id="cb29-3"><a href="arithmetic-and-variables.html#cb29-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span>ab</span>
+<span id="cb29-4"><a href="arithmetic-and-variables.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
 <li>Assign the value 42 to a variable, then increase it by 1</li>
 </ol>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="arithmetic-and-variables.html#cb30-1" aria-hidden="true"></a>age &lt;-<span class="st"> </span><span class="dv">42</span></span>
-<span id="cb30-2"><a href="arithmetic-and-variables.html#cb30-2" aria-hidden="true"></a>age <span class="op">+</span><span class="st"> </span><span class="dv">1</span> &lt;-<span class="st"> </span>age</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="arithmetic-and-variables.html#cb30-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb30-2"><a href="arithmetic-and-variables.html#cb30-2" aria-hidden="true" tabindex="-1"></a>age <span class="sc">+</span> <span class="dv">1</span> <span class="ot">&lt;-</span> age</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Assign the value 10 to variable radius, then calculate the area of the circle with that radius using the formula <span class="math inline">\(A = \pi r^2\)</span>:</li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="arithmetic-and-variables.html#cb31-1" aria-hidden="true"></a>r &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb31-2"><a href="arithmetic-and-variables.html#cb31-2" aria-hidden="true"></a>area &lt;-<span class="st"> </span>pir<span class="op">^</span><span class="dv">2</span> </span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="arithmetic-and-variables.html#cb31-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb31-2"><a href="arithmetic-and-variables.html#cb31-2" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> pir<span class="sc">^</span><span class="dv">2</span> </span></code></pre></div>
 
 </div>
 </div>
@@ -708,7 +711,6 @@ A central goal of this book is to help you, the reader, gain experience with com
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -727,6 +729,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -747,6 +750,10 @@ gitbook.start({
 "text": null
 },
 "download": ["QuantLife.pdf", "QuantLife.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
